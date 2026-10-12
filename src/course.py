@@ -20,8 +20,8 @@ ROLES = [
     ("notebooklm", "Deep Research · Notebook", "리서처", "조사 · 근거 확인", (250, 255)),
     ("gemini", "Skills", "업무 매뉴얼 담당", "정제 · 판단 · 반복", (640, 215)),
     ("sheets", "Sheets", "데이터 엔지니어 · 분석가", "정리 · 저장 · 집계", (1030, 255)),
-    ("docs", "Canvas", "프론트엔드 개발자", "문서 · 화면", (1030, 590)),
-    ("appsscript", "Apps Script · Studio", "백엔드 · Ops 엔지니어", "연결 · 배포 · 자동화", (640, 650)),
+    ("docs", "Canvas", "프론트엔드 · 백엔드 개발자", "문서 · 화면 · 코드", (1030, 590)),
+    ("appsscript", "Apps Script · Studio", "Ops 엔지니어", "연결 · 배포 · 자동화", (640, 650)),
     ("drive", "Drive · 웹앱", "데이터 보관 · 서비스 운영", "보관 · 권한 · 공유", (250, 590)),
 ]
 
@@ -96,8 +96,8 @@ def opening():
             ["<b>Deep Research · Notebook</b>", "웹 조사 보고서, 내 자료 안에서 답", '<span class="rolechip">리서처</span>'],
             ["<b>Skills</b>", "반복 지시 저장, 판단해서 정제", '<span class="rolechip">업무 매뉴얼 담당</span>'],
             ["<b>Sheets</b>", "데이터 저장 · 수식 · 피벗 집계", '<span class="rolechip">데이터 엔지니어 · 분석가</span>'],
-            ["<b>Canvas</b>", "제안서 · 대시보드 화면", '<span class="rolechip">프론트엔드 개발자</span>'],
-            ["<b>Apps Script · Studio</b>", "시트 ↔ 화면 연결, 배포, 예약 실행", '<span class="rolechip">백엔드 · Ops 엔지니어</span>'],
+            ["<b>Canvas</b>", "제안서 · 대시보드 화면과 동작 코드", '<span class="rolechip">프론트엔드 · 백엔드 개발자</span>'],
+            ["<b>Apps Script · Studio</b>", "시트 ↔ 화면 연결, 배포, 예약 실행", '<span class="rolechip">Ops 엔지니어</span>'],
             ["<b>Drive · 웹앱</b>", "파일 보관, 공유 범위, 팀 창구", '<span class="rolechip">데이터 보관 · 서비스 운영</span>'],
         ]), "오프닝"),
         ill("scenes_ch2", "office_map", "top20", "도구별 역할", extra=tags()),
@@ -368,7 +368,7 @@ def ch4():
         ["C편의점 MD의 진열 확대 요청", "02 미팅노트 4절"],
         ["행사 조건", "06 기준표 조항 번호"],
     ])
-    return chapter("Ch4", "근거 있는 문서와 살아 있는 화면", {"Canvas"}, "프론트엔드 개발자") + [
+    return chapter("Ch4", "근거 있는 문서와 살아 있는 화면", {"Canvas"}, "프론트엔드 · 백엔드 개발자") + [
         ill(m, "chat_vs_workbench", "top20", "채팅은 대화, Canvas는 작업대", ["채팅: 흘러가는 답", "Canvas: 한 장을 두고 수정"]),
         ill(m, "mural", "top20", "전체 재생성 대신 부분 수정", []),
         ill(m, "briefing", "left40", "신입에게 업무를 맡기듯", ["역할 · 맥락 · 작업 · 형식"]),
@@ -414,7 +414,7 @@ def ch5():
                 "  // 검증 · 매출액 = 납품수량 × 단가\n"
                 "  sheet.appendRow([...]);\n"
                 "}")
-    return chapter("Ch5", "한 번 만들면 계속 돌아가게", {"Apps Script · Studio", "Drive · 웹앱", "Skills"}, "백엔드 · Ops 엔지니어") + [
+    return chapter("Ch5", "한 번 만들면 계속 돌아가게", {"Apps Script · Studio", "Drive · 웹앱", "Skills"}, "Ops 엔지니어") + [
         light("전체 구조", g.pipeline(), "Ch5"),
         light("원본은 잠그고, 웹앱이 대신 접근", g.proxy(), "Ch5"),
         ill(m, "hang_window", "left40", "Apps Script로 시트와 연결", ["Code.gs: 시트 ↔ 화면", "Index.html: 화면 틀", "URL 하나로 공유"]),
