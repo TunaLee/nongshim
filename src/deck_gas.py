@@ -8,7 +8,7 @@ from pathlib import Path
 import deck
 import explain
 from deck import ba, bridge, capture, cards, divider, flow, ill, lab, light
-from intro import coord, icon
+from intro import ICON, coord, icon
 
 N, G, O, W = "#1F3A5F", "#D9DDE3", "#F28C28", "#FFFFFF"
 deck.CAPDIR = Path(__file__).resolve().parent.parent / "docs" / "gas-dashboard" / "assets" / "capture"
@@ -151,6 +151,53 @@ def save_flow():
                  ("addSalesRecord", "검증 · 금액 계산"), ("appendRow", "시트에 한 행 추가")], hl=3)
 
 
+# ── 도구 ↔ 직무 지도 (본 강의 생태계 지도와 같은 방식) ─────────────
+TEAM = [
+    ("drive", "Drive", "데이터 보관 담당", "파일 보관 · 공유 권한", (250, 255)),
+    ("sheets", "Sheets", "데이터 엔지니어 · 분석가", "정리 · 저장 · 집계", (640, 215)),
+    ("gemini", "Skill", "데이터 품질 담당", "정제 · 판단", (1030, 255)),
+    ("docs", "Canvas", "프론트엔드 개발자", "화면 · 시제품", (1030, 590)),
+    ("appsscript", "Apps Script", "백엔드 · Ops 엔지니어", "연결 · 배포 · 권한", (640, 650)),
+    ("google", "웹앱 URL", "서비스 운영", "팀 공유 · 입력", (250, 590)),
+]
+
+
+def team_map(active=None, kick="도구 지도", title="구글 도구로 꾸리는 작은 개발팀"):
+    hub = (640, 430)
+    lines, cards_ = [], []
+    for ic, tool, role, job, (x, y) in TEAM:
+        st = "all" if active is None else ("on" if tool in active else "dim")
+        line = {"all": f'stroke="{O}" stroke-width="2.5" stroke-dasharray="6 7" opacity=".7"',
+                "dim": 'stroke="#fff" stroke-width="2" stroke-dasharray="4 8" opacity=".12"',
+                "on": f'stroke="{O}" stroke-width="5" opacity=".35"'}[st]
+        lines.append(f'<line x1="{hub[0]}" y1="{hub[1]}" x2="{x}" y2="{y}" {line}/>')
+        if st != "dim":
+            lines.append(f'<line class="flow" x1="{hub[0]}" y1="{hub[1]}" x2="{x}" y2="{y}" stroke="{O}" stroke-width="{5 if st == "on" else 3}" stroke-linecap="round" stroke-dasharray="14 12"/>')
+        cards_.append(f'''<div class="node {st}" style="left:{x-170}px; top:{y-46}px">
+  <div class="nh">{icon(ic)}<b>{tool}</b></div>
+  <div class="tj"><span class="chip">{role}</span><span class="nm">{job}</span></div>
+</div>''')
+    return f'''<section class="slide dk eco{' focus' if active else ''}" data-title="{title}">
+  {coord()}
+  <div class="kick">{kick}</div>
+  <h2>{title}</h2>
+  <svg class="ecosvg" viewBox="0 0 1280 720">{"".join(lines)}</svg>
+  {"".join(cards_)}
+  <div class="hub" style="left:{hub[0]-74}px; top:{hub[1]-74}px"><img src="{ICON.format("gemini")}" alt="Gemini"/></div>
+</section>'''
+
+
+def team_table():
+    rows = [("Drive", "원본 · 결과 파일 보관, 공유 범위 지정", "데이터 보관 담당"),
+            ("Sheets", "정리된 데이터 저장, 수식 · 피벗 집계", "데이터 엔지니어 · 분석가"),
+            ("Skill", "처음 보는 오류도 판단해 정제", "데이터 품질 담당"),
+            ("Canvas", "대시보드 화면 · 시제품 코드", "프론트엔드 개발자"),
+            ("Apps Script", "시트 ↔ 화면 연결, 배포, 권한", "백엔드 · Ops 엔지니어"),
+            ("웹앱 URL", "팀원이 보고 입력하는 창구", "서비스 운영")]
+    trs = "".join(f"<tr><td><b>{a}</b></td><td>{b}</td><td><span class=\"rolechip\">{c}</span></td></tr>" for a, b, c in rows)
+    return f'<table class="dbt"><thead><tr><th>도구</th><th>실제로 하는 일</th><th>회사라면</th></tr></thead><tbody>{trs}</tbody></table>'
+
+
 # ── 장 ──────────────────────────────────────────────────
 def cover():
     strip = "".join(icon(n, "tile") for n in ["gemini", "sheets", "appsscript", "drive"])
@@ -196,6 +243,8 @@ def slides():
     return [
         cover(),
         light("전체 구조", pipeline(), "개요"),
+        team_map(),
+        light("도구와 직무", team_table(), "개요"),
         light("원본은 잠그고, 웹앱이 대신 접근", proxy(), "개요"),
         light("단계별 역할", f'''<table class="dbt">
 <thead><tr><th>단계</th><th>하는 일</th><th>도구</th></tr></thead><tbody>
@@ -206,6 +255,7 @@ def slides():
 </tbody></table>''', "개요"),
 
         divider("01", "정적 웹과 동적 웹", ""),
+        team_map({"Canvas", "Apps Script"}, "도구 지도 · 01", "화면을 만드는 쪽"),
         ill("scenes_ch4", "photo_window", "top20", "사진과 창문", ["사진: 그때 숫자", "창문: 지금 숫자"]),
         light("정적 웹: 완성된 파일을 그대로", static_web(), "01"),
         light("동적 웹: 열 때마다 데이터를 가져와 그림", dynamic_web(), "01"),
@@ -216,6 +266,15 @@ def slides():
 </div>''', "01"),
 
         divider("02", "Skill로 원본 정리", ""),
+        team_map({"Drive", "Sheets", "Skill"}, "도구 지도 · 02", "데이터를 다루는 쪽"),
+        light("모델과 하네스", '''<div class="hn">
+  <div class="hn-out"><div class="hn-lab">하네스</div>
+    <div class="hn-row"><span class="hl">지침 = Skill</span><span>참고 자료</span></div>
+    <div class="hn-core">모델</div>
+    <div class="hn-row"><span>도구 연결</span><span>사람 확인</span></div>
+  </div>
+</div>''', "02"),
+        ill("scenes_ch5", "secretary", "left40", "Skill: 저장해 두는 업무 지침", ["/이름으로 호출", "필요할 때 꺼내 씀"]),
         light("원본의 흔한 오류", f'''<table class="dbt">
 <thead><tr><th>오류</th><th>원본</th><th>정리 후</th></tr></thead><tbody>
 <tr><td><b>띄어쓰기</b></td><td>B 편의점</td><td>B편의점</td></tr>
@@ -256,10 +315,12 @@ def slides():
             15, "01 사본"),
 
         divider("03", "웹 화면에서 바로 입력", ""),
+        team_map({"웹앱 URL", "Apps Script", "Sheets"}, "도구 지도 · 03", "입력이 시트로 가는 길"),
         ill("scenes_extra", "forms_inlet", "top20", "입구부터 반듯하게", ["드롭다운 · 자동완성", "오탈자 원천 차단"]),
         light("등록 버튼에서 시트까지", save_flow(), "03"),
 
         divider("04", "Apps Script 웹앱 대시보드", ""),
+        team_map({"Canvas", "Apps Script", "웹앱 URL"}, "도구 지도 · 04", "만들고, 연결하고, 배포"),
         ill("scenes_ch4", "hang_window", "left40", "Apps Script로 시트와 연결", ["Code.gs: 시트 ↔ 화면", "Index.html: 화면 틀", "URL 하나로 공유"]),
         light("Code.gs의 세 함수", code("Code.gs", gas_code), "04"),
         light("처음부터 끝까지 다섯 단계", flow([("환경 준비", ".XLSX → Google 시트"), ("코드 받기", "Skill이 Code.gs · Index.html 생성"),
@@ -281,6 +342,10 @@ def slides():
 
 CSS = '''
   .websvg{width:100%; height:auto; max-height:430px;}
+  .eco .tj{display:flex; align-items:center; gap:10px;}
+  .eco .tj .chip{font-family:var(--serif); font-size:13px;}
+  .eco .nh .ic{width:30px; height:30px;} .eco .nh .ic img{width:20px; height:20px;}
+  .rolechip{background:#FFF3E6; color:#F28C28; font-weight:800; border-radius:6px; padding:3px 10px; font-size:15px;}
   .websvg.pipe2{max-height:470px;}
   .websvg .bt{font-family:var(--serif); font-size:20px; font-weight:800;}
   .websvg .bs{font-family:var(--serif); font-size:15px; fill:#44506A;}
