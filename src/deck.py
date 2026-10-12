@@ -188,7 +188,7 @@ def eco(ch=None, title=None):
 
 
 def divider(ch, title, sub):
-    num = ch[2:].zfill(2) if ch.startswith("Ch") else (ch if ch.isdigit() else "06")
+    num = ch[2:].zfill(2) if ch.startswith("Ch") else (ch if ch.isdigit() else {"최종": "06", "적용": "07"}.get(ch, "06"))
     return f'''<section class="slide dk divider" data-title="[{ch}] {title}">
   <div class="ghost">{num}</div>
   <div class="kick">{ch}</div>
@@ -227,7 +227,8 @@ AGENDA = [
     ("Ch2", "하네스와 Skills", "메일 Skill · 응대 Skill", ["gemini"]),
     ("Ch3", "데이터 정리 · 분석", "정제본 시트 · 8월 집계", ["sheets"]),
     ("Ch4", "문서 · 화면", "1페이지 제안서 · 대시보드 시제품", ["docs"]),
-    ("Ch5", "연결 · 자동화", "웹앱 대시보드 · 월요일 메일", ["appsscript", "gmail"]),
+    ("Ch5", "연결 · 배포", "웹앱 대시보드", ["appsscript"]),
+    ("최종", "핸즈온", "점포 점검 대시보드 웹앱", ["sheets", "gemini", "appsscript"]),
 ]
 
 

@@ -21,7 +21,7 @@ ROLES = [
     ("gemini", "Skills", "업무 매뉴얼 담당", "정제 · 판단 · 반복", (640, 215)),
     ("sheets", "Sheets", "데이터 엔지니어 · 분석가", "정리 · 저장 · 집계", (1030, 255)),
     ("docs", "Canvas", "프론트엔드 · 백엔드 개발자", "문서 · 화면 · 코드", (1030, 590)),
-    ("appsscript", "Apps Script · Studio", "Ops 엔지니어", "연결 · 배포 · 자동화", (640, 650)),
+    ("appsscript", "Apps Script", "Ops 엔지니어", "연결 · 배포 · 운영", (640, 650)),
     ("drive", "Drive · 웹앱", "데이터 보관 · 서비스 운영", "보관 · 권한 · 공유", (250, 590)),
 ]
 
@@ -61,8 +61,7 @@ def opening():
     places = cards([
         ("Gemini 앱", "대화 · Deep Research · Canvas · Skills", ["gemini"]),
         ("Workspace 사이드 패널", "Sheets · Docs · Gmail 안에서 바로", ["sheets", "docs", "gmail"]),
-        ("Workspace Studio", "말로 만드는 자동화 흐름", ["appsscript"]),
-    ])
+    ], 2)
     team = table(["담당", "맡은 일", "거래처"], [
         ["<b>김주현</b>", "편의점 담당", "A · B · C · D편의점"],
         ["<b>이지원</b>", "대형마트 담당", "A마트 · B마트"],
@@ -86,7 +85,7 @@ def opening():
         intro.codered(),
         intro.meme(),
         light("Gemini로 할 수 있는 일", can, "오프닝"),
-        light("Gemini를 쓰는 세 곳", places, "오프닝"),
+        light("Gemini를 쓰는 곳", places, "오프닝"),
         ill("scenes_more", "account_privacy", "top20", "개인 계정과 회사 계정",
             ["개인: 연결 데이터가 모델 개선에 쓰일 수 있음", "실습 · 업무: 회사 계정으로"]),
         deck.o_work(),
@@ -97,7 +96,7 @@ def opening():
             ["<b>Skills</b>", "반복 지시 저장, 판단해서 정제", '<span class="rolechip">업무 매뉴얼 담당</span>'],
             ["<b>Sheets</b>", "데이터 저장 · 수식 · 피벗 집계", '<span class="rolechip">데이터 엔지니어 · 분석가</span>'],
             ["<b>Canvas</b>", "제안서 · 대시보드 화면과 동작 코드", '<span class="rolechip">프론트엔드 · 백엔드 개발자</span>'],
-            ["<b>Apps Script · Studio</b>", "시트 ↔ 화면 연결, 배포, 예약 실행", '<span class="rolechip">Ops 엔지니어</span>'],
+            ["<b>Apps Script</b>", "시트 ↔ 화면 연결, 배포, 권한", '<span class="rolechip">Ops 엔지니어</span>'],
             ["<b>Drive · 웹앱</b>", "파일 보관, 공유 범위, 팀 창구", '<span class="rolechip">데이터 보관 · 서비스 운영</span>'],
         ]), "오프닝"),
         ill("scenes_ch2", "office_map", "top20", "도구별 역할", extra=tags()),
@@ -111,7 +110,7 @@ def opening():
 
 
 TAGS = [((400, 344), "리서치 · Deep Research"), ((880, 344), "검토 · Notebook"), ((1112, 500), "데이터 · Sheets"),
-        ((880, 654), "작업대 · Canvas"), ((420, 654), "자동화 · Apps Script · Studio"), ((168, 500), "업무 지침 · Skills")]
+        ((880, 654), "작업대 · Canvas"), ((420, 654), "연결 · 배포 · Apps Script"), ((168, 500), "업무 지침 · Skills")]
 
 
 def tags():
@@ -414,7 +413,7 @@ def ch5():
                 "  // 검증 · 매출액 = 납품수량 × 단가\n"
                 "  sheet.appendRow([...]);\n"
                 "}")
-    return chapter("Ch5", "한 번 만들면 계속 돌아가게", {"Apps Script · Studio", "Drive · 웹앱", "Skills"}, "Ops 엔지니어") + [
+    return chapter("Ch5", "한 번 만들면 계속 돌아가게", {"Apps Script", "Drive · 웹앱", "Skills"}, "Ops 엔지니어") + [
         light("전체 구조", g.pipeline(), "Ch5"),
         light("원본은 잠그고, 웹앱이 대신 접근", g.proxy(), "Ch5"),
         ill(m, "hang_window", "left40", "Apps Script로 시트와 연결", ["Code.gs: 시트 ↔ 화면", "Index.html: 화면 틀", "URL 하나로 공유"]),
@@ -439,22 +438,85 @@ def ch5():
             ["판매실적_마스터에서 Apps Script 열기", "Code.gs · Index.html 붙여넣기", "웹앱 배포 → 권한 승인", "웹 화면에서 한 건 등록"],
             ["옆 사람이 URL로 접속", "등록한 한 건이 시트와 화면에 반영"], files="판매실적_마스터 · 09(화면 틀)"),
         light("⑤ 운영: 매달 반복", flow([("새 원본 도착", ""), ("정제 Skill 실행", "검출 · 정제"), ("마스터에 누적", "append"), ("팀원 새로고침", "URL 그대로")], hl=1), "Ch5"),
-        ill(m, "alarm", "left40", "자동화 = 언제 + 무엇을", ["언제: 월요일 8시 · 메일 도착", "무엇을: 읽기 · 요약 · 보내기"]),
-        ill(m, "two_tools", "top20", "Apps Script와 Studio", ["Apps Script: 코드 · 정확한 계산", "Studio: 말로 만들고 수정"]),
-        ba("자동화 요청", "Ch5",
-           "매주 실적 메일 자동으로 보내 줘",
-           "판매실적_마스터 시트를 읽어서\n매주 월요일 오전 8시에\n지난주 채널별 매출 · 전월 대비 · 결품률을 표로 만들고\n점검 항목 세 건을 붙여 내 메일로 초안을 만들어 줘."),
-        ill(m, "domino", "top20", "Studio: 말로 만드는 자동화", ["단계 검토: 사람", "Studio의 Skill은 따로 만듦"], principle=2),
-        ill(m, "envelope_fly", "left40", "테스트도 실제로 발송됨", ["실습 수신자: 본인"]),
-        ill("scenes_extra", "draft_review", "top20", "초안까지 자동, 발송은 사람", ["초안 → 숫자 검증 → 수신인 → 발송"], principle=2),
-        light("Skill로 잇는 월요일 업무", flow([("월요일 8시", "Studio"), ("시트 최신 데이터", "마스터"), ("정제 Skill", "새 원본"),
-                                          ("분석 · 보고 Skill", "표 · 보고문"), ("메일 초안", "사람이 확인")], hl=3), "Ch5"),
-        lab("5-2", "월요일 요약 메일", "Ch5",
-            "매주 자동으로 오는 실적 요약 초안",
-            ["Studio에 할 일 설명", "만들어진 단계 검토", "보고 Skill 연결 · 변수 연결", "테스트 실행 → 켜기"],
-            ["내 메일함에 요약 초안 도착", "숫자가 정답 숫자와 일치"], files="판매실적_마스터"),
-        ill("scenes_ch5", "agent_morning", "top20", "Studio + 지침 = 에이전트", ["문의 → 답장 초안 → 담당자 알림", "자동 발송 없음"]),
-        light("결과물의 연결", flow([("조사", "Ch1"), ("Skill", "Ch2"), ("숫자", "Ch3"), ("제안서 · 화면", "Ch4"), ("웹앱 · 메일", "Ch5")]), "Ch5"),
+        light("결과물의 연결", flow([("조사", "Ch1"), ("Skill", "Ch2"), ("숫자", "Ch3"), ("제안서 · 화면", "Ch4"), ("웹앱", "Ch5")]), "Ch5"),
+    ]
+
+
+
+# ── 최종 핸즈온 ─────────────────────────────────────────
+DATA_URL = "https://tunalee.github.io/nongshim/data/"
+ANSWER = Path(__file__).resolve().parent.parent / "docs" / "data" / "answer.json"
+
+
+def final():
+    import json
+    a = json.loads(ANSWER.read_text()) if ANSWER.exists() else {}
+    link = lambda f: f'<a class="dl" href="{DATA_URL}{f}">{f}</a>'
+    files = table(["파일", "내용"], [
+        [link("store_check_raw.xlsx"), "정제 전 점검 기록 · 점포 / 제품 마스터 포함"],
+        [link("store_check_clean.xlsx"), "정답 정제본 · 막혔을 때 다음 단계로"],
+    ]) + note("가상 데이터", "제품명은 공개 제품명 · 점포 · 사람 · 수치는 모두 가상")
+    cols = ["점검일", "지역", "점포코드", "점포명", "채널", "제품코드", "제품명", "카테고리", "진열면수", "적정재고", "실재고", "결품", "자사행사", "경쟁사행사", "점검자"]
+    row = ["2026-08-10", "경기 남부", "S02", "A편의점 판교점", "편의점", "P01", "신라면", "봉지면", "4", "40", "0", "Y", "N", "N", "김주현"]
+    db = ('<table class="dbt sm"><thead><tr>' + "".join(f"<th>{c}</th>" for c in cols) + "</tr></thead><tbody><tr>"
+          + "".join(f"<td>{c}</td>" for c in row) + "</tr><tr class=more>" + "".join("<td>⋮</td>" for _ in cols) + "</tr></tbody></table>")
+    region = a.get("8월 지역별 결품률(%)", {})
+    face = a.get("편의점 스낵 평균 진열면수(경쟁사 행사 有/無)", ["", ""])
+    ans = table(["확인할 값", "정답"], [
+        ["원본 → 정제 후 행 수", f'{a.get("원본 데이터 행 수(빈 행 제외)", "")}행 → {a.get("정제 후 행 수", "")}행'],
+        ["8월 결품률", f'{a.get("8월 결품률(%)", "")}%'],
+        ["8월 결품률 1위 제품", a.get("8월 결품률 1위 제품", "")],
+        ["8월 결품률 가장 높은 지역", " · ".join(f"{k} {v}%" for k, v in sorted(region.items(), key=lambda x: -x[1])[:2])],
+        ["편의점 스낵 진열면수 (경쟁사 행사 있음 / 없음)", f"{face[0]} / {face[1]}"],
+        ["평균 재고충족률", f'{a.get("평균 재고충족률(%)", "")}%'],
+    ])
+    return chapter("최종", "핸즈온: 점포 점검 대시보드", {r[1] for r in ROLES}, "세 역할을 한 번에") + [
+        light("만들 것", flow([("데이터 엔지니어링", "원본 정제"), ("데이터 분석", "결품 · 재고 · 진열"), ("웹앱 개발", "대시보드 · 현장 입력")], hl=2), "최종"),
+        light("실습 데이터", files, "최종"),
+        light("점검 기록의 구조", db + note("1,768건", "2026-07-06 ~ 09-28 · 주 1회 · 점포 14곳 · 제품 10종"), "최종"),
+        light("열 사이의 관계", cards([
+            ("결품", "실재고 = 0", ["sheets"]),
+            ("재고충족률", "실재고 ÷ 적정재고", ["sheets"]),
+            ("적정재고", "제품 기준 × 채널 배수", ["sheets"]),
+        ]), "최종"),
+        light("원본에 숨어 있는 문제", table(["문제", "예"], [
+            ["<b>표 위의 제목 · 빈 행</b>", "1~2행 제목, 중간중간 빈 행"],
+            ["<b>점포 · 제품 표기</b>", "B편의졈 홍대점 · 신 라면 · 辛라면 · 신라면블랙"],
+            ["<b>날짜 형식</b>", "2026.08.10 · 8/10 · 26년 8월 10일"],
+            ["<b>Y/N 표기</b>", "O · 예 · 있음 · X · 아니오 · 빈칸"],
+            ["<b>숫자가 문자</b>", "12박스"],
+            ["<b>중복 · 이상값</b>", "같은 점검 두 번 입력 · 자릿수 실수 (37 → 374)"],
+        ]), "최종"),
+        lab("F-1", "데이터 엔지니어링: 원본 정제", "최종",
+            "점검 기록을 분석할 수 있는 표로",
+            ["원본 내려받기 → Drive → Google 스프레드시트로 저장", "정제 Skill 만들기 (점포 · 제품 마스터를 기준으로)", "정제본 시트 새로 만들기 (원본은 그대로)", "이상값은 고치지 말고 표시 → 리포트 확인"],
+            [f'정제 후 {a.get("정제 후 행 수", "")}행', "점포명 · 제품명이 마스터와 일치", "Y/N · 날짜 형식 통일"], files="store_check_raw.xlsx"),
+        light("분석 질문", cards([
+            ("어디서 비었나", "지역 × 제품 결품률", ["sheets"]),
+            ("왜 비었나", "사실과 가설 구분", ["gemini"]),
+            ("경쟁사 행사의 영향", "행사 유무별 진열면수", ["sheets"]),
+            ("재고는 충분한가", "재고충족률", ["sheets"]),
+        ], 4), "최종"),
+        ill("scenes_more", "pivot_bins", "top20", "피벗으로 묶어 보기", ["행: 지역 · 열: 제품", "값: 결품 비율"]),
+        lab("F-2", "데이터 분석: 결품과 진열", "최종",
+            "8월 결품의 위치와 원인 후보 찾기",
+            ["사이드 패널에 데이터 설명 후 단계별 요청", "지역 × 제품 결품률 피벗 (수식)", "경쟁사 행사 유무별 평균 진열면수", "사실과 가설을 나눠 세 줄 요약"],
+            ["정답 숫자와 일치", "가설에는 「확인 필요」 표시"], files="정제본 또는 store_check_clean.xlsx"),
+        light("정답 숫자", ans, "최종"),
+        light("대시보드 화면 구성", cards([
+            ("KPI 카드", "점검 수 · 결품률 · 재고충족률", ["sheets"]),
+            ("지역 × 제품 결품", "색으로 보는 표", ["docs"]),
+            ("경쟁사 행사와 진열", "막대 비교", ["docs"]),
+            ("현장 입력 폼", "점포 · 제품 드롭다운", ["appsscript"]),
+        ], 4), "최종"),
+        ba("대시보드 요청", "최종",
+           "점검 대시보드 만들어 줘",
+           "정제된 점검 기록 시트로 영업팀 대시보드를 만들어 줘.\n위: 기간 · 지역 선택, KPI 카드 3개(점검 수, 결품률, 재고충족률)\n가운데: 지역 × 제품 결품률 표(높을수록 진하게), 경쟁사 행사 유무별 진열면수 막대\n아래: 현장 점검 입력 폼(점포 · 제품은 마스터 드롭다운)\n화면은 render(data) 하나로 그리고 데이터는 분리해 줘."),
+        lab("F-3", "웹앱 개발: 대시보드 배포", "최종",
+            "팀원이 URL로 보고 입력하는 대시보드",
+            ["Canvas로 화면 시제품 → 숫자 대조", "Skill에 「이 시트용 Code.gs · Index.html」 요청", "Apps Script 붙여넣기 → 웹앱 배포 (실행: 나)", "폼으로 점검 1건 입력 → 화면에 반영 확인"],
+            ["옆 사람이 URL로 접속", "입력한 1건이 시트와 화면에 반영", "원본 시트는 공유 「제한됨」 그대로"], files="정제본 시트"),
+        bridge("원본 → 정제 → 분석 → 웹앱", "", "최종", "데이터 엔지니어 · 분석가 · 개발자 · Ops의 일을 한 흐름으로"),
     ]
 
 
@@ -464,12 +526,11 @@ def apply_():
         ["<b>필수 · Skill 세트</b>", "매출 분석 · 주간 보고 · 응대 (이름은 자유)"],
         ["<b>필수 · 근거 자료</b>", "정리된 시트 · 조사 보고서를 참조로"],
         ["<b>선택 · 화면</b>", "시트와 연결된 웹앱 대시보드"],
-        ["<b>선택 · 자동화</b>", "월요일 요약 메일 초안"],
     ])
     return chapter("적용", "내 업무에 적용하기", {r[1] for r in ROLES}, "전체 도구") + [
         light("두 가지 원칙", cards([
             ("원칙 ① 근거를 쥐여 준다", "Ch1 오픈북 · Ch2 참조 파일", ["notebooklm", "gemini"]),
-            ("원칙 ② 계획을 보여 줄 때 개입한다", "Ch1 Deep Research · Ch3 Sheets · Ch5 Studio", ["gemini", "sheets", "appsscript"]),
+            ("원칙 ② 계획을 보여 줄 때 개입한다", "Ch1 Deep Research · Ch3 Sheets 계획 확인", ["gemini", "sheets", "appsscript"]),
         ], 2), "적용"),
         ill("scenes_ch5", "construction", "top20", "작게 끝내기",
             ["Before: 팀 전체 영업 관리 시스템", "After: 내 방문 메모 정리 Skill"]),
@@ -477,7 +538,7 @@ def apply_():
         light("트랙 선택", cards([
             ("문서 · 제안", "Canvas + Skill<br/>예: 판촉 성과 비교", ["docs", "gemini"]),
             ("대시보드", "Sheets + Canvas + Apps Script<br/>예: 담당 채널 대시보드", ["sheets", "docs", "appsscript"]),
-            ("자동화", "Studio + Skill<br/>예: 월요일 보고 초안", ["appsscript", "gemini"]),
+            ("현장 입력", "Sheets + Apps Script<br/>예: 점검 입력 웹앱", ["sheets", "appsscript"]),
         ]), "적용"),
         light("평가 기준", f'''<div class="score">
   <div class="sc"><b>30</b><span>실제 업무 적합성</span></div><div class="sc"><b>30</b><span>계산 · 분석 정확도</span></div>
@@ -494,10 +555,11 @@ def apply_():
 
 
 def slides():
-    return opening() + ch1() + ch2() + ch3() + ch4() + ch5() + apply_()
+    return opening() + ch1() + ch2() + ch3() + ch4() + ch5() + final() + apply_()
 
 
 CSS = g.CSS + '''
+  .dl{color:#F28C28; font-weight:800; font-family:var(--mono); text-decoration:none;}
   .kcards.c5{grid-template-columns:repeat(5,1fr);}
   .dbt.sm{font-size:13px;} .dbt.sm th, .dbt.sm td{padding:9px 7px;}
 '''

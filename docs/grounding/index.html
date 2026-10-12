@@ -368,7 +368,7 @@
   .days{display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:28px; flex:1; min-height:0;}
   .daycol{display:flex; flex-direction:column; gap:12px;}
   .dayhead{font-size:15px; font-weight:800; color:#F28C28; letter-spacing:.04em; padding-bottom:8px; border-bottom:1px solid rgba(255,255,255,.15);}
-  .ch{display:flex; align-items:center; gap:14px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:12px; padding:14px 16px;}
+  .ch{display:flex; align-items:center; gap:14px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:12px; padding:9px 16px;}
   .ch .tx{flex:1; display:flex; flex-direction:column; gap:3px; min-width:0;}
   .ch .tx b{font-size:19px;} .ch .tx span{font-size:14px; color:rgba(255,255,255,.65);}
   .ch .icons{display:flex; gap:6px;}
@@ -574,6 +574,7 @@
   .websvg .bso{font-family:var(--serif); font-size:15px; fill:#F28C28; font-weight:700;}
   .websvg .bsw{font-family:var(--serif); font-size:15px; fill:#D9DDE3;}
 
+  .dl{color:#F28C28; font-weight:800; font-family:var(--mono); text-decoration:none;}
   .kcards.c5{grid-template-columns:repeat(5,1fr);}
   .dbt.sm{font-size:13px;} .dbt.sm th, .dbt.sm td{padding:9px 7px;}
 </style>
@@ -676,12 +677,12 @@
   <div class="body"><div class="mid"><div class="kcards c3"><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span></div><h4>대화</h4><p>질문 · 요약 · 초안</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span></div><h4>Deep Research</h4><p>웹을 뒤져 출처 달린 보고서</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/notebooklm.svg" alt="NotebookLM"/></span></div><h4>Notebook</h4><p>올린 자료 안에서만 답</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/docs.svg" alt="Docs"/></span></div><h4>Canvas</h4><p>문서 · 화면을 옆에 두고 수정</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span></div><h4>Skills</h4><p>반복 지시를 저장해 /로 호출</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/gmail.svg" alt="Gmail"/></span><span class="ic"><img src="assets/icons/drive.svg" alt="Drive"/></span><span class="ic"><img src="assets/icons/calendar.svg" alt="Calendar"/></span></div><h4>Workspace 연결</h4><p>Gmail · Drive · Docs · Calendar</p></div></div></div></div>
 </section>
 
-<section class="slide lt" data-title="Gemini를 쓰는 세 곳">
+<section class="slide lt" data-title="Gemini를 쓰는 곳">
   <div class="coord"><b></b> / <span class="tot"></span></div>
   <div class="eyebrow"><span class="tag">오프닝</span></div>
-  <h2 class="s-title sm">Gemini를 쓰는 세 곳</h2>
+  <h2 class="s-title sm">Gemini를 쓰는 곳</h2>
   <div class="rule"></div>
-  <div class="body"><div class="mid"><div class="kcards c3"><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span></div><h4>Gemini 앱</h4><p>대화 · Deep Research · Canvas · Skills</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span><span class="ic"><img src="assets/icons/docs.svg" alt="Docs"/></span><span class="ic"><img src="assets/icons/gmail.svg" alt="Gmail"/></span></div><h4>Workspace 사이드 패널</h4><p>Sheets · Docs · Gmail 안에서 바로</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span></div><h4>Workspace Studio</h4><p>말로 만드는 자동화 흐름</p></div></div></div></div>
+  <div class="body"><div class="mid"><div class="kcards c2"><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span></div><h4>Gemini 앱</h4><p>대화 · Deep Research · Canvas · Skills</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span><span class="ic"><img src="assets/icons/docs.svg" alt="Docs"/></span><span class="ic"><img src="assets/icons/gmail.svg" alt="Gmail"/></span></div><h4>Workspace 사이드 패널</h4><p>Sheets · Docs · Gmail 안에서 바로</p></div></div></div></div>
 </section>
 
 <section class="slide ill" data-title="개인 계정과 회사 계정">
@@ -713,8 +714,9 @@
 <div class="icons"><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span><span class="ic"><img src="assets/icons/notebooklm.svg" alt="NotebookLM"/></span></div></div><div class="ch"><span class="chip">Ch2</span><div class="tx"><b>하네스와 Skills</b><span>메일 Skill · 응대 Skill</span></div>
 <div class="icons"><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span></div></div><div class="ch"><span class="chip">Ch3</span><div class="tx"><b>데이터 정리 · 분석</b><span>정제본 시트 · 8월 집계</span></div>
 <div class="icons"><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span></div></div><div class="ch"><span class="chip">Ch4</span><div class="tx"><b>문서 · 화면</b><span>1페이지 제안서 · 대시보드 시제품</span></div>
-<div class="icons"><span class="ic"><img src="assets/icons/docs.svg" alt="Docs"/></span></div></div><div class="ch"><span class="chip">Ch5</span><div class="tx"><b>연결 · 자동화</b><span>웹앱 대시보드 · 월요일 메일</span></div>
-<div class="icons"><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span><span class="ic"><img src="assets/icons/gmail.svg" alt="Gmail"/></span></div></div><div class="ch"><span class="chip">적용</span><div class="tx"><b>내 업무에 적용</b><span>내 업무 Skill 세트</span></div></div></div>
+<div class="icons"><span class="ic"><img src="assets/icons/docs.svg" alt="Docs"/></span></div></div><div class="ch"><span class="chip">Ch5</span><div class="tx"><b>연결 · 배포</b><span>웹앱 대시보드</span></div>
+<div class="icons"><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span></div></div><div class="ch"><span class="chip">최종</span><div class="tx"><b>핸즈온</b><span>점포 점검 대시보드 웹앱</span></div>
+<div class="icons"><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span></div></div><div class="ch"><span class="chip">적용</span><div class="tx"><b>내 업무에 적용</b><span>내 업무 Skill 세트</span></div></div></div>
   </div>
 </section>
 
@@ -736,8 +738,8 @@
   <div class="nh"><span class="ic"><img src="assets/icons/docs.svg" alt="Docs"/></span><b>Canvas</b></div>
   <div class="tj"><span class="chip">프론트엔드 · 백엔드 개발자</span><span class="nm">문서 · 화면 · 코드</span></div>
 </div><div class="node all" style="left:470px; top:604px">
-  <div class="nh"><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span><b>Apps Script · Studio</b></div>
-  <div class="tj"><span class="chip">Ops 엔지니어</span><span class="nm">연결 · 배포 · 자동화</span></div>
+  <div class="nh"><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span><b>Apps Script</b></div>
+  <div class="tj"><span class="chip">Ops 엔지니어</span><span class="nm">연결 · 배포 · 운영</span></div>
 </div><div class="node all" style="left:80px; top:544px">
   <div class="nh"><span class="ic"><img src="assets/icons/drive.svg" alt="Drive"/></span><b>Drive · 웹앱</b></div>
   <div class="tj"><span class="chip">데이터 보관 · 서비스 운영</span><span class="nm">보관 · 권한 · 공유</span></div>
@@ -750,7 +752,7 @@
   <div class="eyebrow"><span class="tag">오프닝</span></div>
   <h2 class="s-title sm">도구와 직무</h2>
   <div class="rule"></div>
-  <div class="body"><div class="mid"><table class="dbt"><thead><tr><th>도구</th><th>실제로 하는 일</th><th>회사라면</th></tr></thead><tbody><tr><td><b>Deep Research · Notebook</b></td><td>웹 조사 보고서, 내 자료 안에서 답</td><td><span class="rolechip">리서처</span></td></tr><tr><td><b>Skills</b></td><td>반복 지시 저장, 판단해서 정제</td><td><span class="rolechip">업무 매뉴얼 담당</span></td></tr><tr><td><b>Sheets</b></td><td>데이터 저장 · 수식 · 피벗 집계</td><td><span class="rolechip">데이터 엔지니어 · 분석가</span></td></tr><tr><td><b>Canvas</b></td><td>제안서 · 대시보드 화면과 동작 코드</td><td><span class="rolechip">프론트엔드 · 백엔드 개발자</span></td></tr><tr><td><b>Apps Script · Studio</b></td><td>시트 ↔ 화면 연결, 배포, 예약 실행</td><td><span class="rolechip">Ops 엔지니어</span></td></tr><tr><td><b>Drive · 웹앱</b></td><td>파일 보관, 공유 범위, 팀 창구</td><td><span class="rolechip">데이터 보관 · 서비스 운영</span></td></tr></tbody></table></div></div>
+  <div class="body"><div class="mid"><table class="dbt"><thead><tr><th>도구</th><th>실제로 하는 일</th><th>회사라면</th></tr></thead><tbody><tr><td><b>Deep Research · Notebook</b></td><td>웹 조사 보고서, 내 자료 안에서 답</td><td><span class="rolechip">리서처</span></td></tr><tr><td><b>Skills</b></td><td>반복 지시 저장, 판단해서 정제</td><td><span class="rolechip">업무 매뉴얼 담당</span></td></tr><tr><td><b>Sheets</b></td><td>데이터 저장 · 수식 · 피벗 집계</td><td><span class="rolechip">데이터 엔지니어 · 분석가</span></td></tr><tr><td><b>Canvas</b></td><td>제안서 · 대시보드 화면과 동작 코드</td><td><span class="rolechip">프론트엔드 · 백엔드 개발자</span></td></tr><tr><td><b>Apps Script</b></td><td>시트 ↔ 화면 연결, 배포, 권한</td><td><span class="rolechip">Ops 엔지니어</span></td></tr><tr><td><b>Drive · 웹앱</b></td><td>파일 보관, 공유 범위, 팀 창구</td><td><span class="rolechip">데이터 보관 · 서비스 운영</span></td></tr></tbody></table></div></div>
 </section>
 
 <section class="slide ill" data-title="도구별 역할">
@@ -797,7 +799,7 @@
 </g><path d="M44 -86 Q70 -74 66 -46" stroke="#1F3A5F" stroke-width="9" fill="none" stroke-linecap="round"/><circle cx="66" cy="-46" r="10" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/></g></g><rect x="61.0" y="500" width="214" height="24" rx="12" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="2.5"/><ellipse cx="640" cy="604" rx="60" ry="14" fill="#D9DDE3"/><g transform="translate(640,505.76) scale(0.62)"><use href="#legs"/><use href="#person"/><path d="M-54 -140 Q-116 -84 -58 -30" stroke="#1F3A5F" stroke-width="22" fill="none" stroke-linecap="round"/><circle cx="-58" cy="-30" r="12" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/><path d="M54 -140 Q116 -84 58 -30" stroke="#1F3A5F" stroke-width="22" fill="none" stroke-linecap="round"/><circle cx="58" cy="-30" r="12" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/></g></svg>
   <div class="coord"><b></b> / <span class="tot"></span></div>
   <div class="cap top"><h2>도구별 역할</h2></div>
-  <div class="tagl" style="left:293px; top:344px">리서치 · Deep Research</div><div class="tagl" style="left:773px; top:344px">검토 · Notebook</div><div class="tagl" style="left:1005px; top:500px">데이터 · Sheets</div><div class="tagl" style="left:773px; top:654px">작업대 · Canvas</div><div class="tagl" style="left:313px; top:654px">자동화 · Apps Script · Studio</div><div class="tagl" style="left:61px; top:500px">업무 지침 · Skills</div>
+  <div class="tagl" style="left:293px; top:344px">리서치 · Deep Research</div><div class="tagl" style="left:773px; top:344px">검토 · Notebook</div><div class="tagl" style="left:1005px; top:500px">데이터 · Sheets</div><div class="tagl" style="left:773px; top:654px">작업대 · Canvas</div><div class="tagl" style="left:313px; top:654px">연결 · 배포 · Apps Script</div><div class="tagl" style="left:61px; top:500px">업무 지침 · Skills</div>
 </section>
 
 <section class="slide lt" data-title="가상 시나리오">
@@ -852,8 +854,8 @@
   <div class="nh"><span class="ic"><img src="assets/icons/docs.svg" alt="Docs"/></span><b>Canvas</b></div>
   <div class="tj"><span class="chip">프론트엔드 · 백엔드 개발자</span><span class="nm">문서 · 화면 · 코드</span></div>
 </div><div class="node dim" style="left:470px; top:604px">
-  <div class="nh"><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span><b>Apps Script · Studio</b></div>
-  <div class="tj"><span class="chip">Ops 엔지니어</span><span class="nm">연결 · 배포 · 자동화</span></div>
+  <div class="nh"><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span><b>Apps Script</b></div>
+  <div class="tj"><span class="chip">Ops 엔지니어</span><span class="nm">연결 · 배포 · 운영</span></div>
 </div><div class="node dim" style="left:80px; top:544px">
   <div class="nh"><span class="ic"><img src="assets/icons/drive.svg" alt="Drive"/></span><b>Drive · 웹앱</b></div>
   <div class="tj"><span class="chip">데이터 보관 · 서비스 운영</span><span class="nm">보관 · 권한 · 공유</span></div>
@@ -1282,8 +1284,8 @@
   <div class="nh"><span class="ic"><img src="assets/icons/docs.svg" alt="Docs"/></span><b>Canvas</b></div>
   <div class="tj"><span class="chip">프론트엔드 · 백엔드 개발자</span><span class="nm">문서 · 화면 · 코드</span></div>
 </div><div class="node dim" style="left:470px; top:604px">
-  <div class="nh"><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span><b>Apps Script · Studio</b></div>
-  <div class="tj"><span class="chip">Ops 엔지니어</span><span class="nm">연결 · 배포 · 자동화</span></div>
+  <div class="nh"><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span><b>Apps Script</b></div>
+  <div class="tj"><span class="chip">Ops 엔지니어</span><span class="nm">연결 · 배포 · 운영</span></div>
 </div><div class="node dim" style="left:80px; top:544px">
   <div class="nh"><span class="ic"><img src="assets/icons/drive.svg" alt="Drive"/></span><b>Drive · 웹앱</b></div>
   <div class="tj"><span class="chip">데이터 보관 · 서비스 운영</span><span class="nm">보관 · 권한 · 공유</span></div>
@@ -1665,8 +1667,8 @@ description: 편의점 거래처 문의에 1차 회신 초안을 쓴다
   <div class="nh"><span class="ic"><img src="assets/icons/docs.svg" alt="Docs"/></span><b>Canvas</b></div>
   <div class="tj"><span class="chip">프론트엔드 · 백엔드 개발자</span><span class="nm">문서 · 화면 · 코드</span></div>
 </div><div class="node dim" style="left:470px; top:604px">
-  <div class="nh"><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span><b>Apps Script · Studio</b></div>
-  <div class="tj"><span class="chip">Ops 엔지니어</span><span class="nm">연결 · 배포 · 자동화</span></div>
+  <div class="nh"><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span><b>Apps Script</b></div>
+  <div class="tj"><span class="chip">Ops 엔지니어</span><span class="nm">연결 · 배포 · 운영</span></div>
 </div><div class="node on" style="left:80px; top:544px">
   <div class="nh"><span class="ic"><img src="assets/icons/drive.svg" alt="Drive"/></span><b>Drive · 웹앱</b></div>
   <div class="tj"><span class="chip">데이터 보관 · 서비스 운영</span><span class="nm">보관 · 권한 · 공유</span></div>
@@ -1990,8 +1992,8 @@ description: 판매 데이터 파일이 오면 마스터 구조로 정리
   <div class="nh"><span class="ic"><img src="assets/icons/docs.svg" alt="Docs"/></span><b>Canvas</b></div>
   <div class="tj"><span class="chip">프론트엔드 · 백엔드 개발자</span><span class="nm">문서 · 화면 · 코드</span></div>
 </div><div class="node dim" style="left:470px; top:604px">
-  <div class="nh"><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span><b>Apps Script · Studio</b></div>
-  <div class="tj"><span class="chip">Ops 엔지니어</span><span class="nm">연결 · 배포 · 자동화</span></div>
+  <div class="nh"><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span><b>Apps Script</b></div>
+  <div class="tj"><span class="chip">Ops 엔지니어</span><span class="nm">연결 · 배포 · 운영</span></div>
 </div><div class="node dim" style="left:80px; top:544px">
   <div class="nh"><span class="ic"><img src="assets/icons/drive.svg" alt="Drive"/></span><b>Drive · 웹앱</b></div>
   <div class="tj"><span class="chip">데이터 보관 · 서비스 운영</span><span class="nm">보관 · 권한 · 공유</span></div>
@@ -2310,8 +2312,8 @@ render(DATA);</code></pre></div></div></div></div>
   <div class="nh"><span class="ic"><img src="assets/icons/docs.svg" alt="Docs"/></span><b>Canvas</b></div>
   <div class="tj"><span class="chip">프론트엔드 · 백엔드 개발자</span><span class="nm">문서 · 화면 · 코드</span></div>
 </div><div class="node on" style="left:470px; top:604px">
-  <div class="nh"><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span><b>Apps Script · Studio</b></div>
-  <div class="tj"><span class="chip">Ops 엔지니어</span><span class="nm">연결 · 배포 · 자동화</span></div>
+  <div class="nh"><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span><b>Apps Script</b></div>
+  <div class="tj"><span class="chip">Ops 엔지니어</span><span class="nm">연결 · 배포 · 운영</span></div>
 </div><div class="node on" style="left:80px; top:544px">
   <div class="nh"><span class="ic"><img src="assets/icons/drive.svg" alt="Drive"/></span><b>Drive · 웹앱</b></div>
   <div class="tj"><span class="chip">데이터 보관 · 서비스 운영</span><span class="nm">보관 · 권한 · 공유</span></div>
@@ -2461,181 +2463,183 @@ function addSalesRecord(r) {       // 화면 → 시트
   <div class="body"><div class="mid"><div class="flow"><div class="fs"><b>새 원본 도착</b></div><div class="fa">→</div><div class="fs hl"><b>정제 Skill 실행</b><span>검출 · 정제</span></div><div class="fa">→</div><div class="fs"><b>마스터에 누적</b><span>append</span></div><div class="fa">→</div><div class="fs"><b>팀원 새로고침</b><span>URL 그대로</span></div></div></div></div>
 </section>
 
-<section class="slide ill" data-title="자동화 = 언제 + 무엇을">
-  <svg class="scene" viewBox="0 0 1280 720" aria-hidden="true"><ellipse cx="910" cy="664" rx="365" ry="14" fill="#D9DDE3"/>
-<path d="M630 306 L618 326 M698 306 L710 326" stroke="#1F3A5F" stroke-width="7" stroke-linecap="round"/>
-<circle cx="630" cy="230" r="17" fill="#F28C28" stroke="#1F3A5F" stroke-width="4"/>
-<circle cx="698" cy="230" r="17" fill="#F28C28" stroke="#1F3A5F" stroke-width="4"/>
-<line x1="664" y1="214" x2="664" y2="204" stroke="#1F3A5F" stroke-width="4"/>
-<circle cx="664" cy="270" r="50" fill="#F28C28" stroke="#1F3A5F" stroke-width="5"/>
-<circle cx="664" cy="270" r="36" fill="#FFFFFF"/>
-<path d="M664 270 L664 246 M664 270 L682 278" stroke="#1F3A5F" stroke-width="5" stroke-linecap="round"/>
-<circle cx="664" cy="270" r="4" fill="#1F3A5F"/>
-<path d="M594 230 Q582 256 594 282 M576 218 Q560 256 576 294" stroke="#1F3A5F" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M734 230 Q746 256 734 282 M752 218 Q768 256 752 294" stroke="#1F3A5F" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<rect x="584" y="326" width="160" height="12" rx="4" fill="#1F3A5F"/>
-<path d="M608 338 L608 374 L644 338 Z M720 338 L720 374 L684 338 Z" fill="#1F3A5F"/><path d="M600 520 L566 520 M596 548 L556 548 M604 576 L570 576" stroke="#1F3A5F" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M790 540 L806 526 L916 526 L900 540 Z" fill="#1F3A5F"/><path d="M900 540 L916 526 L916 622 L900 636 Z" fill="#1F3A5F"/><rect x="790" y="540" width="110" height="96" rx="3" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="4"/><line x1="790" y1="562" x2="900" y2="562" stroke="#1F3A5F" stroke-width="3"/><path d="M950 540 L966 526 L1076 526 L1060 540 Z" fill="#1F3A5F"/><path d="M1060 540 L1076 526 L1076 622 L1060 636 Z" fill="#1F3A5F"/><rect x="950" y="540" width="110" height="96" rx="3" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="4"/><line x1="950" y1="562" x2="1060" y2="562" stroke="#1F3A5F" stroke-width="3"/><path d="M1110 540 L1126 526 L1236 526 L1220 540 Z" fill="#1F3A5F"/><path d="M1220 540 L1236 526 L1236 622 L1220 636 Z" fill="#1F3A5F"/><rect x="1110" y="540" width="110" height="96" rx="3" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="4"/><line x1="1110" y1="562" x2="1220" y2="562" stroke="#1F3A5F" stroke-width="3"/><g transform="rotate(-6 845 504)">
-<rect x="801" y="474" width="88" height="58" rx="4" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="4"/>
-<path d="M801 476 L845 510 L889 476" stroke="#1F3A5F" stroke-width="4" fill="none" stroke-linejoin="round"/></g><rect x="971" y="448" width="68" height="86" rx="4" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="4"/>
-<line x1="983" y1="466" x2="1027" y2="466" stroke="#D9DDE3" stroke-width="5" stroke-linecap="round"/><line x1="983" y1="480" x2="1027" y2="480" stroke="#D9DDE3" stroke-width="5" stroke-linecap="round"/><line x1="983" y1="494" x2="1027" y2="494" stroke="#D9DDE3" stroke-width="5" stroke-linecap="round"/><line x1="983" y1="508" x2="1027" y2="508" stroke="#D9DDE3" stroke-width="5" stroke-linecap="round"/><g transform="translate(1179,444) rotate(-18)">
-<path d="M-42 4 L44 -20 L-8 26 Z" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="4" stroke-linejoin="round"/>
-<path d="M-8 26 L4 -6 L44 -20" stroke="#1F3A5F" stroke-width="3" fill="none" stroke-linejoin="round"/>
-<path d="M-8 26 L-4 8" stroke="#1F3A5F" stroke-width="3"/></g>
-<path d="M1145 534 Q1135 500 1157 480" stroke="#1F3A5F" stroke-width="3" fill="none" stroke-dasharray="4 6" stroke-linecap="round"/>
-<path d="M734 290 Q844 290 839 450" stroke="#1F3A5F" stroke-width="4" fill="none" stroke-dasharray="8 8" stroke-linecap="round"/>
-<path d="M823 440 L841 454 L847 430" stroke="#1F3A5F" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M899 490 L953 490" stroke="#1F3A5F" stroke-width="4" stroke-dasharray="5 6" stroke-linecap="round"/><path d="M943 480 L955 490 L943 500" stroke="#1F3A5F" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M1049 490 L1097 490" stroke="#1F3A5F" stroke-width="4" stroke-dasharray="5 6" stroke-linecap="round"/><path d="M1087 480 L1099 490 L1087 500" stroke="#1F3A5F" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><g transform="translate(690,662) scale(1.05)"><use href="#robot"/><path d="M-14 -140 Q0 -124 14 -140" stroke="#1F3A5F" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M44 -86 Q86 -70 108 -120" stroke="#1F3A5F" stroke-width="9" fill="none" stroke-linecap="round"/><circle cx="108" cy="-120" r="10" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><path d="M-44 -86 L-78 -40" stroke="#1F3A5F" stroke-width="9" fill="none" stroke-linecap="round"/><circle cx="-78" cy="-40" r="10" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/></g></svg>
-  <div class="coord"><b></b> / <span class="tot"></span></div>
-  <div class="cap left"><h2>자동화 = 언제 + 무엇을</h2><div class="bar"></div><ul><li>언제: 월요일 8시 · 메일 도착</li><li>무엇을: 읽기 · 요약 · 보내기</li></ul></div>
-  
-</section>
-
-<section class="slide ill" data-title="Apps Script와 Studio">
-  <svg class="scene" viewBox="0 0 1280 720" aria-hidden="true"><ellipse cx="330" cy="665" rx="290" ry="14" fill="#D9DDE3"/><g transform="translate(560,640) scale(1.2)"><use href="#robot"/><path d="M-14 -140 Q0 -124 14 -140" stroke="#1F3A5F" stroke-width="3.5" fill="none" stroke-linecap="round"/></g>
-<rect x="210" y="550" width="420" height="16" rx="5" fill="#1F3A5F"/>
-<rect x="226" y="566" width="388" height="58" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/>
-<rect x="226" y="566" width="14" height="96" fill="#1F3A5F"/><rect x="600" y="566" width="14" height="96" fill="#1F3A5F"/><g transform="translate(0,30)">
-<path d="M300 520 L300 450 Q300 430 320 430 L360 430 L372 404 L420 404 L432 430 L452 430 L452 520 Z" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="4" stroke-linejoin="round"/>
-<circle cx="396" cy="384" r="10" fill="#1F3A5F"/><line x1="396" y1="384" x2="396" y2="404" stroke="#1F3A5F" stroke-width="5"/>
-<rect x="347.68" y="447" width="8.64" height="18" rx="3" fill="#F28C28" stroke="#1F3A5F" stroke-width="3" transform="rotate(0.0 352 480)"/><rect x="347.68" y="447" width="8.64" height="18" rx="3" fill="#F28C28" stroke="#1F3A5F" stroke-width="3" transform="rotate(45.0 352 480)"/><rect x="347.68" y="447" width="8.64" height="18" rx="3" fill="#F28C28" stroke="#1F3A5F" stroke-width="3" transform="rotate(90.0 352 480)"/><rect x="347.68" y="447" width="8.64" height="18" rx="3" fill="#F28C28" stroke="#1F3A5F" stroke-width="3" transform="rotate(135.0 352 480)"/><rect x="347.68" y="447" width="8.64" height="18" rx="3" fill="#F28C28" stroke="#1F3A5F" stroke-width="3" transform="rotate(180.0 352 480)"/><rect x="347.68" y="447" width="8.64" height="18" rx="3" fill="#F28C28" stroke="#1F3A5F" stroke-width="3" transform="rotate(225.0 352 480)"/><rect x="347.68" y="447" width="8.64" height="18" rx="3" fill="#F28C28" stroke="#1F3A5F" stroke-width="3" transform="rotate(270.0 352 480)"/><rect x="347.68" y="447" width="8.64" height="18" rx="3" fill="#F28C28" stroke="#1F3A5F" stroke-width="3" transform="rotate(315.0 352 480)"/><circle cx="352" cy="480" r="24" fill="#F28C28" stroke="#1F3A5F" stroke-width="3.5"/><circle cx="352" cy="480" r="7.68" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/>
-<rect x="411.48" y="443" width="5.04" height="18" rx="3" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3" transform="rotate(0.0 414 466)"/><rect x="411.48" y="443" width="5.04" height="18" rx="3" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3" transform="rotate(60.0 414 466)"/><rect x="411.48" y="443" width="5.04" height="18" rx="3" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3" transform="rotate(120.0 414 466)"/><rect x="411.48" y="443" width="5.04" height="18" rx="3" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3" transform="rotate(180.0 414 466)"/><rect x="411.48" y="443" width="5.04" height="18" rx="3" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3" transform="rotate(240.0 414 466)"/><rect x="411.48" y="443" width="5.04" height="18" rx="3" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3" transform="rotate(300.0 414 466)"/><circle cx="414" cy="466" r="14" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3.5"/><circle cx="414" cy="466" r="4.48" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/>
-<rect x="318" y="444" width="16" height="14" rx="3" fill="#1F3A5F"/>
-<path d="M452 480 L462 480 L462 500 L452 500" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/></g><rect x="516" y="537" width="84" height="13" rx="2" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/>
-<line x1="524" y1="537" x2="524" y2="546" stroke="#1F3A5F" stroke-width="2"/><line x1="532" y1="537" x2="532" y2="543" stroke="#1F3A5F" stroke-width="2"/><line x1="540" y1="537" x2="540" y2="546" stroke="#1F3A5F" stroke-width="2"/><line x1="548" y1="537" x2="548" y2="543" stroke="#1F3A5F" stroke-width="2"/><line x1="556" y1="537" x2="556" y2="546" stroke="#1F3A5F" stroke-width="2"/><line x1="564" y1="537" x2="564" y2="543" stroke="#1F3A5F" stroke-width="2"/><line x1="572" y1="537" x2="572" y2="546" stroke="#1F3A5F" stroke-width="2"/><line x1="580" y1="537" x2="580" y2="543" stroke="#1F3A5F" stroke-width="2"/><line x1="588" y1="537" x2="588" y2="546" stroke="#1F3A5F" stroke-width="2"/><line x1="470" y1="520" x2="490" y2="500" stroke="#1F3A5F" stroke-width="11" stroke-linecap="round"/><g transform="translate(468,521) rotate(130)"><path d="M-15 -4 Q-16 -22 -4 -26 L-4 -12 L4 -12 L4 -26 Q16 -22 15 -4 Q8 6 0 6 Q-8 6 -15 -4 Z" fill="#1F3A5F"/></g><rect x="254.38" y="519" width="3.2399999999999998" height="18" rx="3" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3" transform="rotate(0.0 256 537)"/><rect x="254.38" y="519" width="3.2399999999999998" height="18" rx="3" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3" transform="rotate(60.0 256 537)"/><rect x="254.38" y="519" width="3.2399999999999998" height="18" rx="3" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3" transform="rotate(120.0 256 537)"/><rect x="254.38" y="519" width="3.2399999999999998" height="18" rx="3" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3" transform="rotate(180.0 256 537)"/><rect x="254.38" y="519" width="3.2399999999999998" height="18" rx="3" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3" transform="rotate(240.0 256 537)"/><rect x="254.38" y="519" width="3.2399999999999998" height="18" rx="3" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3" transform="rotate(300.0 256 537)"/><circle cx="256" cy="537" r="9" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3.5"/><circle cx="256" cy="537" r="2.88" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/><g transform="translate(560,640) scale(1.2)"><path d="M-44 -86 Q-66 -110 -58.333333333333336 -116.66666666666667" stroke="#1F3A5F" stroke-width="9" fill="none" stroke-linecap="round"/><circle cx="-58.333333333333336" cy="-116.66666666666667" r="10" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><path d="M44 -86 Q62 -96 38.333333333333336 -85.0" stroke="#1F3A5F" stroke-width="9" fill="none" stroke-linecap="round"/><circle cx="38.333333333333336" cy="-85.0" r="10" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/></g><g transform="translate(110,561.64) scale(0.68)"><use href="#legs"/><use href="#person"/><path d="M54 -140 Q90 -100 70.58823529411764 -222.99999999999997" stroke="#1F3A5F" stroke-width="22" fill="none" stroke-linecap="round"/><circle cx="70.58823529411764" cy="-222.99999999999997" r="12" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/><path d="M-54 -140 L-70 -30" stroke="#1F3A5F" stroke-width="22" fill="none" stroke-linecap="round"/><circle cx="-70" cy="-30" r="12" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/></g><rect x="140" y="330" width="120" height="90" rx="4" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="4"/><line x1="160" y1="334" x2="160" y2="416" stroke="#D9DDE3" stroke-width="2"/><line x1="180" y1="334" x2="180" y2="416" stroke="#D9DDE3" stroke-width="2"/><line x1="200" y1="334" x2="200" y2="416" stroke="#D9DDE3" stroke-width="2"/><line x1="220" y1="334" x2="220" y2="416" stroke="#D9DDE3" stroke-width="2"/><line x1="240" y1="334" x2="240" y2="416" stroke="#D9DDE3" stroke-width="2"/><line x1="144" y1="348" x2="256" y2="348" stroke="#D9DDE3" stroke-width="2"/><line x1="144" y1="366" x2="256" y2="366" stroke="#D9DDE3" stroke-width="2"/><line x1="144" y1="384" x2="256" y2="384" stroke="#D9DDE3" stroke-width="2"/><line x1="144" y1="402" x2="256" y2="402" stroke="#D9DDE3" stroke-width="2"/><path d="M164 398 L164 370 L190 370 L198 356 L220 356 L226 370 L238 370 L238 398 Z" fill="none" stroke="#1F3A5F" stroke-width="3"/><circle cx="188" cy="386" r="8" fill="none" stroke="#1F3A5F" stroke-width="2.5"/><circle cx="158" cy="410" r="10" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/><line x1="640" y1="190" x2="640" y2="690" stroke="#D9DDE3" stroke-width="3"/><ellipse cx="990" cy="665" rx="280" ry="14" fill="#D9DDE3"/><g transform="translate(745,558.6) scale(0.7)"><use href="#legs"/><path d="M-54 -140 L-70 -30" stroke="#1F3A5F" stroke-width="22" fill="none" stroke-linecap="round"/><circle cx="-70" cy="-30" r="12" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/><use href="#person"/><path d="M54 -140 Q110 -110 118 -196" stroke="#1F3A5F" stroke-width="22" fill="none" stroke-linecap="round"/><circle cx="118" cy="-196" r="12" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/></g><path d="M826 294 L790 342 L848 294 Z" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="4" stroke-linejoin="round"/><rect x="800" y="200" width="170" height="96" rx="40.0" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="4"/><rect x="829" y="288" width="16" height="10" fill="#FFFFFF"/><circle cx="863.0" cy="248.0" r="6" fill="#D9DDE3"/><circle cx="885.0" cy="248.0" r="6" fill="#D9DDE3"/><circle cx="907.0" cy="248.0" r="6" fill="#D9DDE3"/><rect x="830" y="612.5" width="300" height="14" rx="4" fill="#1F3A5F"/><rect x="850" y="566" width="62" height="46.5" rx="4" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="4"/><rect x="868.6" y="554" width="24.8" height="12" rx="2" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><rect x="912" y="566" width="62" height="46.5" rx="4" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="4"/><rect x="930.6" y="554" width="24.8" height="12" rx="2" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><rect x="974" y="566" width="62" height="46.5" rx="4" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="4"/><rect x="992.6" y="554" width="24.8" height="12" rx="2" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><g transform="translate(1195,662) scale(1.05)"><use href="#robot"/><path d="M-9 -138 Q0 -131 9 -138" stroke="#1F3A5F" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M-44 -86 Q-70 -60 -79.04761904761905 -131.42857142857142" stroke="#1F3A5F" stroke-width="9" fill="none" stroke-linecap="round"/><circle cx="-79.04761904761905" cy="-131.42857142857142" r="10" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><path d="M44 -86 L66 -40" stroke="#1F3A5F" stroke-width="9" fill="none" stroke-linecap="round"/><circle cx="66" cy="-40" r="10" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/></g><rect x="1046" y="500" width="62" height="46.5" rx="4" fill="#F28C28" stroke="#1F3A5F" stroke-width="4"/><rect x="1064.6" y="488" width="24.8" height="12" rx="2" fill="#F28C28" stroke="#1F3A5F" stroke-width="3"/><path d="M1058 558.5 L1058 572.5 M1096 558.5 L1096 572.5" stroke="#1F3A5F" stroke-width="3" stroke-linecap="round"/><circle cx="1112" cy="524" r="10" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/></svg>
-  <div class="coord"><b></b> / <span class="tot"></span></div>
-  <div class="cap top"><h2>Apps Script와 Studio</h2><ul><li>Apps Script: 코드 · 정확한 계산</li><li>Studio: 말로 만들고 수정</li></ul></div>
-  
-</section>
-
-<section class="slide lt" data-title="자동화 요청">
-  <div class="coord"><b></b> / <span class="tot"></span></div>
-  <div class="eyebrow"><span class="tag">Ch5</span></div>
-  <h2 class="s-title sm">자동화 요청</h2>
-  <div class="rule"></div>
-  <div class="body"><div class="mid"><div class="ba">
-  <div class="b"><div class="lab">Before</div><div class="q">매주 실적 메일 자동으로 보내 줘</div></div>
-  <div class="arr">→</div>
-  <div class="a"><div class="lab">After</div><div class="q">판매실적_마스터 시트를 읽어서<br/>매주 월요일 오전 8시에<br/>지난주 채널별 매출 · 전월 대비 · 결품률을 표로 만들고<br/>점검 항목 세 건을 붙여 내 메일로 초안을 만들어 줘.</div></div>
-</div></div></div>
-</section>
-
-<section class="slide ill" data-title="Studio: 말로 만드는 자동화">
-  <svg class="scene" viewBox="0 0 1280 720" aria-hidden="true"><ellipse cx="740" cy="660" rx="480" ry="14" fill="#D9DDE3"/><g transform="translate(470,552.52) scale(0.74)"><use href="#legs"/><use href="#person"/><path d="M54 -140 Q130 -120 141.8918918918919 39.83783783783786" stroke="#1F3A5F" stroke-width="22" fill="none" stroke-linecap="round"/><circle cx="141.8918918918919" cy="39.83783783783786" r="12" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/><path d="M-54 -140 L-80 -30" stroke="#1F3A5F" stroke-width="22" fill="none" stroke-linecap="round"/><circle cx="-80" cy="-30" r="12" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/></g><g transform="rotate(0 325 650)"><path d="M340 538 L350 530 L350 642 L340 650" fill="#1F3A5F"/><path d="M310 538 L320 530 L350 530 L340 538 Z" fill="#1F3A5F"/><rect x="310" y="538" width="30" height="112" rx="3" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="4"/><circle cx="325" cy="624" r="4" fill="#1F3A5F"/></g><g transform="rotate(0 385 650)"><path d="M400 538 L410 530 L410 642 L400 650" fill="#1F3A5F"/><path d="M370 538 L380 530 L410 530 L400 538 Z" fill="#1F3A5F"/><rect x="370" y="538" width="30" height="112" rx="3" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="4"/><circle cx="385" cy="624" r="4" fill="#1F3A5F"/></g><g transform="rotate(0 445 650)"><path d="M460 538 L470 530 L470 642 L460 650" fill="#1F3A5F"/><path d="M430 538 L440 530 L470 530 L460 538 Z" fill="#1F3A5F"/><rect x="430" y="538" width="30" height="112" rx="3" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="4"/><circle cx="445" cy="624" r="4" fill="#1F3A5F"/></g><g transform="rotate(0 505 650)"><path d="M520 538 L530 530 L530 642 L520 650" fill="#1F3A5F"/><path d="M490 538 L500 530 L530 530 L520 538 Z" fill="#1F3A5F"/><rect x="490" y="538" width="30" height="112" rx="3" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="4"/><circle cx="505" cy="624" r="4" fill="#1F3A5F"/></g><g transform="rotate(0 565 650)"><path d="M580 538 L590 530 L590 642 L580 650" fill="#1F3A5F"/><path d="M550 538 L560 530 L590 530 L580 538 Z" fill="#1F3A5F"/><rect x="550" y="538" width="30" height="112" rx="3" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="4"/><circle cx="565" cy="624" r="4" fill="#1F3A5F"/></g><g transform="rotate(0 625 650)"><path d="M640 538 L650 530 L650 642 L640 650" fill="#1F3A5F"/><path d="M610 538 L620 530 L650 530 L640 538 Z" fill="#1F3A5F"/><rect x="610" y="538" width="30" height="112" rx="3" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="4"/><circle cx="625" cy="624" r="4" fill="#1F3A5F"/></g><g transform="rotate(0 685 650)"><path d="M700 538 L710 530 L710 642 L700 650" fill="#1F3A5F"/><path d="M670 538 L680 530 L710 530 L700 538 Z" fill="#1F3A5F"/><rect x="670" y="538" width="30" height="112" rx="3" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="4"/><circle cx="685" cy="624" r="4" fill="#1F3A5F"/></g><g transform="rotate(0 745 650)"><path d="M760 538 L770 530 L770 642 L760 650" fill="#1F3A5F"/><path d="M730 538 L740 530 L770 530 L760 538 Z" fill="#1F3A5F"/><rect x="730" y="538" width="30" height="112" rx="3" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="4"/><circle cx="745" cy="624" r="4" fill="#1F3A5F"/></g><g transform="rotate(0 805 650)"><path d="M820 538 L830 530 L830 642 L820 650" fill="#1F3A5F"/><path d="M790 538 L800 530 L830 530 L820 538 Z" fill="#1F3A5F"/><rect x="790" y="538" width="30" height="112" rx="3" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="4"/><circle cx="805" cy="624" r="4" fill="#1F3A5F"/></g><g transform="rotate(0 865 650)"><path d="M880 538 L890 530 L890 642 L880 650" fill="#1F3A5F"/><path d="M850 538 L860 530 L890 530 L880 538 Z" fill="#1F3A5F"/><rect x="850" y="538" width="30" height="112" rx="3" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="4"/><circle cx="865" cy="624" r="4" fill="#1F3A5F"/></g><g transform="rotate(0 925 650)"><path d="M940 538 L950 530 L950 642 L940 650" fill="#1F3A5F"/><path d="M910 538 L920 530 L950 530 L940 538 Z" fill="#1F3A5F"/><rect x="910" y="538" width="30" height="112" rx="3" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="4"/><circle cx="925" cy="624" r="4" fill="#1F3A5F"/></g><rect x="311" y="562" width="28" height="28" rx="6" fill="#FFFFFF" stroke="#F28C28" stroke-width="3"/><path d="M317 576 L323 583 L334 569" stroke="#F28C28" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="371" y="562" width="28" height="28" rx="6" fill="#FFFFFF" stroke="#F28C28" stroke-width="3"/><path d="M377 576 L383 583 L394 569" stroke="#F28C28" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="431" y="562" width="28" height="28" rx="6" fill="#FFFFFF" stroke="#F28C28" stroke-width="3"/><path d="M437 576 L443 583 L454 569" stroke="#F28C28" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="491" y="562" width="28" height="28" rx="6" fill="#FFFFFF" stroke="#F28C28" stroke-width="3"/><path d="M497 576 L503 583 L514 569" stroke="#F28C28" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="551" y="562" width="28" height="28" rx="6" fill="#FFFFFF" stroke="#F28C28" stroke-width="3"/><path d="M557 576 L563 583 L574 569" stroke="#F28C28" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="575" cy="582" r="10" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/><path d="M586 294 L530 336 L608 294 Z" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="4" stroke-linejoin="round"/><rect x="560" y="200" width="170" height="96" rx="40.0" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="4"/><rect x="589" y="288" width="16" height="10" fill="#FFFFFF"/><circle cx="623.0" cy="248.0" r="6" fill="#D9DDE3"/><circle cx="645.0" cy="248.0" r="6" fill="#D9DDE3"/><circle cx="667.0" cy="248.0" r="6" fill="#D9DDE3"/><g transform="translate(1110,662) scale(1.12)"><use href="#robot"/><path d="M-9 -138 Q0 -131 9 -138" stroke="#1F3A5F" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M-44 -86 Q-70 -60 -94.64285714285714 -82.14285714285714" stroke="#1F3A5F" stroke-width="9" fill="none" stroke-linecap="round"/><circle cx="-94.64285714285714" cy="-82.14285714285714" r="10" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><path d="M44 -86 L70 -36" stroke="#1F3A5F" stroke-width="9" fill="none" stroke-linecap="round"/><circle cx="70" cy="-36" r="10" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/></g><g transform="translate(0,-26)"><g transform="rotate(0 985 650)"><path d="M1000 538 L1010 530 L1010 642 L1000 650" fill="#1F3A5F"/><path d="M970 538 L980 530 L1010 530 L1000 538 Z" fill="#1F3A5F"/><rect x="970" y="538" width="30" height="112" rx="3" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="4"/><circle cx="985" cy="624" r="4" fill="#1F3A5F"/></g></g><circle cx="1004" cy="570" r="10" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/></svg>
-  <div class="coord"><b></b> / <span class="tot"></span></div><div class="pbadge"><span class="pn">원칙 ②</span>계획을 보여 줄 때 개입한다</div>
-  <div class="cap top"><h2>Studio: 말로 만드는 자동화</h2><ul><li>단계 검토: 사람</li><li>Studio의 Skill은 따로 만듦</li></ul></div>
-  
-</section>
-
-<section class="slide ill" data-title="테스트도 실제로 발송됨">
-  <svg class="scene" viewBox="0 0 1280 720" aria-hidden="true"><ellipse cx="910" cy="664" rx="365" ry="14" fill="#D9DDE3"/>
-<rect x="960" y="196" width="240" height="220" fill="#D9DDE3" fill-opacity=".35"/>
-<path d="M960 367.6 Q1056.0 332.4 1200 358.8 L1200 416 L960 416 Z" fill="#D9DDE3"/>
-<rect x="948" y="184" width="264" height="244" rx="4" fill="none" stroke="#1F3A5F" stroke-width="12"/>
-<path d="M960 196 L900 220 L900 392 L960 416" fill="#FFFFFF" fill-opacity=".85" stroke="#1F3A5F" stroke-width="6" stroke-linejoin="round"/>
-<line x1="930" y1="210" x2="930" y2="402" stroke="#1F3A5F" stroke-width="4"/>
-<rect x="930" y="428" width="300" height="14" rx="4" fill="#1F3A5F"/>
-<path d="M570 520 L860 520 L876 544 L556 544 Z" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/>
-<rect x="556" y="544" width="320" height="14" fill="#1F3A5F"/>
-<rect x="574" y="558" width="12" height="104" fill="#1F3A5F"/><rect x="846" y="558" width="12" height="104" fill="#1F3A5F"/><g transform="translate(760,524) scale(0.82)"><use href="#person"/><rect x="-14" y="-194" width="28" height="12" fill="#FFFFFF"/><ellipse cx="0" cy="-186" rx="7" ry="9" fill="#1F3A5F"/><path d="M-52 -262 L-62 -278 M-30 -272 L-34 -292 M44 -266 L56 -282" stroke="#1F3A5F" stroke-width="5" stroke-linecap="round"/><path d="M-54 -140 Q-70 -40 -68.29268292682927 -21.951219512195124" stroke="#1F3A5F" stroke-width="22" fill="none" stroke-linecap="round"/><circle cx="-68.29268292682927" cy="-21.951219512195124" r="12" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/><path d="M54 -140 Q120 -170 146.34146341463415 -236.58536585365854" stroke="#1F3A5F" stroke-width="22" fill="none" stroke-linecap="round"/><circle cx="146.34146341463415" cy="-236.58536585365854" r="12" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/></g>
-<path d="M590 446 L676 446 L684 516 L598 516 Z" fill="#1F3A5F"/>
-<path d="M598 454 L670 454 L676 508 L604 508 Z" fill="#D9DDE3"/>
-<rect x="580" y="514" width="150" height="10" rx="4" fill="#1F3A5F"/>
-<ellipse cx="704" cy="514" rx="16" ry="6" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><g transform="translate(1110,662) scale(1.0)"><use href="#robot"/><path d="M-14 -140 Q0 -124 14 -140" stroke="#1F3A5F" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M-44 -86 L-70 -30" stroke="#1F3A5F" stroke-width="9" fill="none" stroke-linecap="round"/><circle cx="-70" cy="-30" r="10" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><path d="M44 -86 Q96 -110 96 -196" stroke="#1F3A5F" stroke-width="9" fill="none" stroke-linecap="round"/><circle cx="96" cy="-196" r="10" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/></g><path d="M1222 420 Q1236 436 1232 456 M1238 408 Q1258 432 1250 464" stroke="#1F3A5F" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><g transform="rotate(-18 1110 270)">
-<rect x="1070" y="244" width="80" height="52" rx="4" fill="#F28C28" stroke="#1F3A5F" stroke-width="4"/>
-<path d="M1070 246 L1110 276 L1150 246" stroke="#1F3A5F" stroke-width="4" fill="none" stroke-linejoin="round"/></g>
-<path d="M1046 310 L998 330 M1040 286 L980 304 M1052 334 L1014 352" stroke="#1F3A5F" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M640 436 Q720 120 1040 290" stroke="#1F3A5F" stroke-width="3" fill="none" stroke-dasharray="6 9" stroke-linecap="round"/></svg>
-  <div class="coord"><b></b> / <span class="tot"></span></div>
-  <div class="cap left"><h2>테스트도 실제로 발송됨</h2><div class="bar"></div><ul><li>실습 수신자: 본인</li></ul></div>
-  
-</section>
-
-<section class="slide ill" data-title="초안까지 자동, 발송은 사람">
-  <svg class="scene" viewBox="0 0 1280 720" aria-hidden="true">
-<ellipse cx="250" cy="670" rx="230" ry="14" fill="#D9DDE3"/>
-<rect x="240" y="540" width="210" height="16" rx="6" fill="#1F3A5F"/><rect x="258" y="556" width="14" height="112" fill="#1F3A5F"/><rect x="418" y="556" width="14" height="112" fill="#1F3A5F"/>
-<path d="M262 540 L262 506 L420 506 L420 540 Z" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="4" stroke-linejoin="round"/><rect x="250" y="496" width="182" height="12" rx="4" fill="#1F3A5F"/><rect x="318" y="516" width="46" height="12" rx="3" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="2"/>
-<g transform="translate(150,668) scale(1.1)"><use href="#robot"/><path d="M-9 -138 Q0 -131 9 -138" stroke="#1F3A5F" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M-44 -86 L-62 -40" stroke="#1F3A5F" stroke-width="9" fill="none" stroke-linecap="round"/><circle cx="-62" cy="-40" r="10" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><path d="M44 -86 Q90 -150 141.8181818181818 -216.36363636363635" stroke="#1F3A5F" stroke-width="9" fill="none" stroke-linecap="round"/></g><path d="M300 400 L350 356 L400 400 Z" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3" stroke-linejoin="round"/><rect x="312" y="370" width="76" height="70" rx="3" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="2.5"/><line x1="322" y1="382" x2="378" y2="382" stroke="#D9DDE3" stroke-width="4" stroke-linecap="round"/><line x1="322" y1="394" x2="378" y2="394" stroke="#D9DDE3" stroke-width="4" stroke-linecap="round"/><path d="M300 400 L400 400 L400 460 L300 460 Z" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3" stroke-linejoin="round"/><path d="M300 400 L350 434 L400 400" stroke="#1F3A5F" stroke-width="3" fill="none" stroke-linejoin="round"/><circle cx="306" cy="430" r="11" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3.3"/><path d="M350 472 L350 488 M336 476 L340 488 M364 476 L360 488" stroke="#1F3A5F" stroke-opacity=".45" stroke-width="3" stroke-linecap="round"/>
-<ellipse cx="800" cy="670" rx="250" ry="14" fill="#D9DDE3"/>
-<g transform="translate(770,560) scale(0.95)"><path d="M54 -140 Q160 -170 242.10526315789474 -149.47368421052633" stroke="#1F3A5F" stroke-width="22" fill="none" stroke-linecap="round"/><use href="#person"/></g>
-<rect x="560" y="560" width="320" height="16" rx="6" fill="#1F3A5F"/><rect x="578" y="576" width="14" height="92" fill="#1F3A5F"/><rect x="848" y="576" width="14" height="92" fill="#1F3A5F"/>
-<rect x="576" y="468" width="104" height="84" rx="4" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3.5" transform="rotate(-6 628 510)"/><g transform="rotate(-6 628 510)"><line x1="590" y1="486" x2="666" y2="486" stroke="#D9DDE3" stroke-width="5" stroke-linecap="round"/><line x1="590" y1="500" x2="666" y2="500" stroke="#D9DDE3" stroke-width="5" stroke-linecap="round"/><line x1="590" y1="534" x2="636" y2="534" stroke="#D9DDE3" stroke-width="5" stroke-linecap="round"/><rect x="590" y="512" width="50" height="10" rx="3" fill="#1F3A5F" fill-opacity=".55"/></g>
-<g transform="translate(770,560) scale(0.95)"><path d="M-54 -140 Q-120 -40 -126.31578947368422 -4.2105263157894735" stroke="#1F3A5F" stroke-width="22" fill="none" stroke-linecap="round"/></g><line x1="650" y1="556" x2="632" y2="534" stroke="#1F3A5F" stroke-width="10" stroke-linecap="round"/><circle cx="612" cy="514" r="30" fill="#FFFFFF" fill-opacity=".55" stroke="#1F3A5F" stroke-width="7"/><path d="M596 500 A20 20 0 0 1 610 494" stroke="#D9DDE3" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="650" cy="556" r="11.399999999999999" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/>
-<ellipse cx="1010" cy="664" rx="70" ry="10" fill="#1F3A5F"/>
-<rect x="976" y="512" width="68" height="152" rx="6" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="4"/>
-<rect x="948" y="498" width="124" height="18" rx="6" fill="#1F3A5F"/>
-<path d="M964 498 L964 486 Q1010 444 1056 486 L1056 498 Z" fill="#F28C28" stroke="#1F3A5F" stroke-width="4" stroke-linejoin="round"/>
-<path d="M984 474 Q996 462 1010 460" stroke="#FFFFFF" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="1000" cy="418" r="11.399999999999999" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/><path d="M980 440 L1040 440" stroke="#1F3A5F" stroke-opacity=".45" stroke-width="3.5" stroke-dasharray="4 6" stroke-linecap="round"/><g stroke="#1F3A5F" stroke-opacity="0.55" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M455 470 L560 470" stroke-dasharray="8 9"/><path d="M548.9 476.8 L560 470 L548.9 463.2"/></g><g stroke="#1F3A5F" stroke-opacity="0.55" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M866 520 L930 500" stroke-dasharray="8 9"/><path d="M921.4 509.8 L930 500 L917.4 496.8"/></g></svg>
-  <div class="coord"><b></b> / <span class="tot"></span></div><div class="pbadge"><span class="pn">원칙 ②</span>계획을 보여 줄 때 개입한다</div>
-  <div class="cap top"><h2>초안까지 자동, 발송은 사람</h2><ul><li>초안 → 숫자 검증 → 수신인 → 발송</li></ul></div>
-  
-</section>
-
-<section class="slide lt" data-title="Skill로 잇는 월요일 업무">
-  <div class="coord"><b></b> / <span class="tot"></span></div>
-  <div class="eyebrow"><span class="tag">Ch5</span></div>
-  <h2 class="s-title sm">Skill로 잇는 월요일 업무</h2>
-  <div class="rule"></div>
-  <div class="body"><div class="mid"><div class="flow"><div class="fs"><b>월요일 8시</b><span>Studio</span></div><div class="fa">→</div><div class="fs"><b>시트 최신 데이터</b><span>마스터</span></div><div class="fa">→</div><div class="fs"><b>정제 Skill</b><span>새 원본</span></div><div class="fa">→</div><div class="fs hl"><b>분석 · 보고 Skill</b><span>표 · 보고문</span></div><div class="fa">→</div><div class="fs"><b>메일 초안</b><span>사람이 확인</span></div></div></div></div>
-</section>
-
-<section class="slide lt labs" data-title="[실습 5-2] 월요일 요약 메일">
-  <div class="coord"><b></b> / <span class="tot"></span></div>
-  <div class="eyebrow"><span class="tag">Ch5</span><span class="labtag">실습 5-2</span></div>
-  <h2 class="s-title sm">월요일 요약 메일</h2>
-  <div class="rule"></div>
-  <div class="body"><div class="labgrid">
-    <div class="lc goal"><div class="lh">목표</div><p>매주 자동으로 오는 실적 요약 초안</p><div class="lf">사용 파일 · 판매실적_마스터</div></div>
-    <div class="lc steps"><div class="lh">단계</div><ol><li>Studio에 할 일 설명</li><li>만들어진 단계 검토</li><li>보고 Skill 연결 · 변수 연결</li><li>테스트 실행 → 켜기</li></ol></div>
-    <div class="lc done"><div class="lh">완료 기준</div><ul><li>내 메일함에 요약 초안 도착</li><li>숫자가 정답 숫자와 일치</li></ul></div>
-  </div></div>
-</section>
-
-<section class="slide ill" data-title="Studio + 지침 = 에이전트">
-  <svg class="scene" viewBox="0 0 1280 720" aria-hidden="true"><ellipse cx="640" cy="662" rx="600" ry="14" fill="#D9DDE3"/>
-<path d="M88 214 L104 196 M190 214 L174 196" stroke="#1F3A5F" stroke-width="6" stroke-linecap="round"/>
-<circle cx="102" cy="222" r="16" fill="#F28C28" stroke="#1F3A5F" stroke-width="3"/>
-<circle cx="176" cy="222" r="16" fill="#F28C28" stroke="#1F3A5F" stroke-width="3"/>
-<circle cx="139" cy="270" r="56" fill="#F28C28" stroke="#1F3A5F" stroke-width="4"/>
-<circle cx="139" cy="270" r="42" fill="#FFFFFF"/>
-<path d="M139 270 L139 240 M139 270 L160 282" stroke="#1F3A5F" stroke-width="5" stroke-linecap="round"/>
-<circle cx="139" cy="270" r="4" fill="#1F3A5F"/>
-<path d="M60 236 Q50 270 60 304 M42 228 Q30 270 42 312 M218 236 Q228 270 218 304 M236 228 Q248 270 236 312"
-      stroke="#1F3A5F" stroke-width="4" fill="none" stroke-linecap="round"/>
-<rect x="60" y="390" width="160" height="150" rx="6" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="4"/>
-<circle cx="140" cy="520" r="34" fill="#D9DDE3"/>
-<rect x="64" y="520" width="152" height="16" fill="#FFFFFF"/>
-<line x1="140" y1="390" x2="140" y2="540" stroke="#1F3A5F" stroke-width="3"/>
-<line x1="60" y1="465" x2="220" y2="465" stroke="#1F3A5F" stroke-width="3"/>
-<path d="M230 220 Q400 170 500 330" stroke="#1F3A5F" stroke-width="3" fill="none" stroke-dasharray="8 8"/>
-<path d="M488 320 L502 334 L506 314" stroke="#1F3A5F" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M760 330 Q850 300 920 470" stroke="#1F3A5F" stroke-width="3" fill="none" stroke-dasharray="8 8"/>
-<path d="M906 458 L922 474 L928 452" stroke="#1F3A5F" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<rect x="404" y="500" width="14" height="160" fill="#1F3A5F"/>
-<path d="M346 500 L346 410 Q346 360 411 360 Q476 360 476 410 L476 500 Z" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="4" stroke-linejoin="round"/>
-<path d="M362 488 L362 416 Q362 378 411 378 Q460 378 460 416 L460 488 Z" fill="#1F3A5F"/>
-<path d="M362 488 L460 488 L460 560 Q460 596 411 596 Q362 596 362 560 Z" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="4" stroke-linejoin="round"/>
-<rect x="398" y="566" width="26" height="8" rx="4" fill="#1F3A5F"/>
-<rect x="476" y="400" width="10" height="56" fill="#1F3A5F"/><rect x="486" y="400" width="26" height="18" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><g transform="translate(610,655) scale(1.2)"><use href="#robot"/><path d="M-9 -138 Q0 -131 9 -138" stroke="#1F3A5F" stroke-width="3" fill="none" stroke-linecap="round"/><rect x="40" y="-120" width="34" height="84" rx="4" fill="#1F3A5F" transform="rotate(-6 57 -78)"/><rect x="70" y="-116" width="8" height="78" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="2" transform="rotate(-6 57 -78)"/><path d="M44 -86 Q64 -66 56 -40" stroke="#1F3A5F" stroke-width="9" fill="none" stroke-linecap="round"/><circle cx="56" cy="-40" r="10" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><path d="M-44 -86 Q-100 -100 -112 -180" stroke="#1F3A5F" stroke-width="9" fill="none" stroke-linecap="round"/></g><g transform="rotate(-10 452 440)"><rect x="410" y="420" width="70" height="44" rx="3" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/><path d="M410 422 L445 446 L480 422" stroke="#1F3A5F" stroke-width="2.5" fill="none"/></g><circle cx="476" cy="439" r="12" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/>
-<rect x="860" y="540" width="250" height="16" rx="6" fill="#1F3A5F"/>
-<rect x="876" y="556" width="14" height="104" fill="#1F3A5F"/><rect x="1080" y="556" width="14" height="104" fill="#1F3A5F"/>
-<g transform="rotate(-4 975 516)"><rect x="936" y="494" width="76" height="34" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="2.5"/><line x1="944" y1="503" x2="1000" y2="503" stroke="#D9DDE3" stroke-width="3" stroke-linecap="round"/><line x1="944" y1="512" x2="1000" y2="512" stroke="#D9DDE3" stroke-width="3" stroke-linecap="round"/><line x1="944" y1="520" x2="1000" y2="520" stroke="#D9DDE3" stroke-width="3" stroke-linecap="round"/></g>
-<path d="M920 540 L1030 540 L1036 516 L1022 516 L1018 528 L932 528 L928 516 L914 516 Z" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3" stroke-linejoin="round"/><g transform="translate(1150,551.0) scale(0.75)"><use href="#legs"/><path d="M54 -140 L76 -20" stroke="#1F3A5F" stroke-width="22" fill="none" stroke-linecap="round"/><circle cx="76" cy="-20" r="12" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/><rect x="54" y="-24" width="70" height="56" rx="8" fill="#1F3A5F"/><path d="M68 -24 Q89 -54 110 -24" stroke="#1F3A5F" stroke-width="6" fill="none"/><use href="#person"/><path d="M-54 -140 Q-120 -130 -164 -40" stroke="#1F3A5F" stroke-width="22" fill="none" stroke-linecap="round"/><circle cx="-164" cy="-40" r="12" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/></g></svg>
-  <div class="coord"><b></b> / <span class="tot"></span></div>
-  <div class="cap top"><h2>Studio + 지침 = 에이전트</h2><ul><li>문의 → 답장 초안 → 담당자 알림</li><li>자동 발송 없음</li></ul></div>
-  
-</section>
-
 <section class="slide lt" data-title="결과물의 연결">
   <div class="coord"><b></b> / <span class="tot"></span></div>
   <div class="eyebrow"><span class="tag">Ch5</span></div>
   <h2 class="s-title sm">결과물의 연결</h2>
   <div class="rule"></div>
-  <div class="body"><div class="mid"><div class="flow"><div class="fs"><b>조사</b><span>Ch1</span></div><div class="fa">→</div><div class="fs"><b>Skill</b><span>Ch2</span></div><div class="fa">→</div><div class="fs"><b>숫자</b><span>Ch3</span></div><div class="fa">→</div><div class="fs"><b>제안서 · 화면</b><span>Ch4</span></div><div class="fa">→</div><div class="fs"><b>웹앱 · 메일</b><span>Ch5</span></div></div></div></div>
+  <div class="body"><div class="mid"><div class="flow"><div class="fs"><b>조사</b><span>Ch1</span></div><div class="fa">→</div><div class="fs"><b>Skill</b><span>Ch2</span></div><div class="fa">→</div><div class="fs"><b>숫자</b><span>Ch3</span></div><div class="fa">→</div><div class="fs"><b>제안서 · 화면</b><span>Ch4</span></div><div class="fa">→</div><div class="fs"><b>웹앱</b><span>Ch5</span></div></div></div></div>
+</section>
+
+<section class="slide dk divider" data-title="[최종] 핸즈온: 점포 점검 대시보드">
+  <div class="ghost">06</div>
+  <div class="kick">최종</div>
+  <h2 class="big">핸즈온: 점포 점검 대시보드</h2>
+  
+</section>
+
+<section class="slide dk eco focus" data-title="세 역할을 한 번에">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="kick">도구 지도 · 최종</div>
+  <h2>세 역할을 한 번에</h2>
+  <svg class="ecosvg" viewBox="0 0 1280 720"><line x1="640" y1="430" x2="250" y2="255" stroke="#F28C28" stroke-width="5" opacity=".35"/><line class="flow" x1="640" y1="430" x2="250" y2="255" stroke="#F28C28" stroke-width="5" stroke-linecap="round" stroke-dasharray="14 12"/><line x1="640" y1="430" x2="640" y2="215" stroke="#F28C28" stroke-width="5" opacity=".35"/><line class="flow" x1="640" y1="430" x2="640" y2="215" stroke="#F28C28" stroke-width="5" stroke-linecap="round" stroke-dasharray="14 12"/><line x1="640" y1="430" x2="1030" y2="255" stroke="#F28C28" stroke-width="5" opacity=".35"/><line class="flow" x1="640" y1="430" x2="1030" y2="255" stroke="#F28C28" stroke-width="5" stroke-linecap="round" stroke-dasharray="14 12"/><line x1="640" y1="430" x2="1030" y2="590" stroke="#F28C28" stroke-width="5" opacity=".35"/><line class="flow" x1="640" y1="430" x2="1030" y2="590" stroke="#F28C28" stroke-width="5" stroke-linecap="round" stroke-dasharray="14 12"/><line x1="640" y1="430" x2="640" y2="650" stroke="#F28C28" stroke-width="5" opacity=".35"/><line class="flow" x1="640" y1="430" x2="640" y2="650" stroke="#F28C28" stroke-width="5" stroke-linecap="round" stroke-dasharray="14 12"/><line x1="640" y1="430" x2="250" y2="590" stroke="#F28C28" stroke-width="5" opacity=".35"/><line class="flow" x1="640" y1="430" x2="250" y2="590" stroke="#F28C28" stroke-width="5" stroke-linecap="round" stroke-dasharray="14 12"/></svg>
+  <div class="node on" style="left:80px; top:209px">
+  <div class="nh"><span class="ic"><img src="assets/icons/notebooklm.svg" alt="NotebookLM"/></span><b>Deep Research · Notebook</b></div>
+  <div class="tj"><span class="chip">리서처</span><span class="nm">조사 · 근거 확인</span></div>
+</div><div class="node on" style="left:470px; top:169px">
+  <div class="nh"><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span><b>Skills</b></div>
+  <div class="tj"><span class="chip">업무 매뉴얼 담당</span><span class="nm">정제 · 판단 · 반복</span></div>
+</div><div class="node on" style="left:860px; top:209px">
+  <div class="nh"><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span><b>Sheets</b></div>
+  <div class="tj"><span class="chip">데이터 엔지니어 · 분석가</span><span class="nm">정리 · 저장 · 집계</span></div>
+</div><div class="node on" style="left:860px; top:544px">
+  <div class="nh"><span class="ic"><img src="assets/icons/docs.svg" alt="Docs"/></span><b>Canvas</b></div>
+  <div class="tj"><span class="chip">프론트엔드 · 백엔드 개발자</span><span class="nm">문서 · 화면 · 코드</span></div>
+</div><div class="node on" style="left:470px; top:604px">
+  <div class="nh"><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span><b>Apps Script</b></div>
+  <div class="tj"><span class="chip">Ops 엔지니어</span><span class="nm">연결 · 배포 · 운영</span></div>
+</div><div class="node on" style="left:80px; top:544px">
+  <div class="nh"><span class="ic"><img src="assets/icons/drive.svg" alt="Drive"/></span><b>Drive · 웹앱</b></div>
+  <div class="tj"><span class="chip">데이터 보관 · 서비스 운영</span><span class="nm">보관 · 권한 · 공유</span></div>
+</div>
+  <div class="hub" style="left:566px; top:356px"><img src="assets/icons/gemini.svg" alt="Gemini"/></div>
+</section>
+
+<section class="slide lt" data-title="만들 것">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="eyebrow"><span class="tag">최종</span></div>
+  <h2 class="s-title sm">만들 것</h2>
+  <div class="rule"></div>
+  <div class="body"><div class="mid"><div class="flow"><div class="fs"><b>데이터 엔지니어링</b><span>원본 정제</span></div><div class="fa">→</div><div class="fs"><b>데이터 분석</b><span>결품 · 재고 · 진열</span></div><div class="fa">→</div><div class="fs hl"><b>웹앱 개발</b><span>대시보드 · 현장 입력</span></div></div></div></div>
+</section>
+
+<section class="slide lt" data-title="실습 데이터">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="eyebrow"><span class="tag">최종</span></div>
+  <h2 class="s-title sm">실습 데이터</h2>
+  <div class="rule"></div>
+  <div class="body"><div class="mid"><table class="dbt"><thead><tr><th>파일</th><th>내용</th></tr></thead><tbody><tr><td><a class="dl" href="https://tunalee.github.io/nongshim/data/store_check_raw.xlsx">store_check_raw.xlsx</a></td><td>정제 전 점검 기록 · 점포 / 제품 마스터 포함</td></tr><tr><td><a class="dl" href="https://tunalee.github.io/nongshim/data/store_check_clean.xlsx">store_check_clean.xlsx</a></td><td>정답 정제본 · 막혔을 때 다음 단계로</td></tr></tbody></table><div class="dbnote"><span>가상 데이터</span> 제품명은 공개 제품명 · 점포 · 사람 · 수치는 모두 가상</div></div></div>
+</section>
+
+<section class="slide lt" data-title="점검 기록의 구조">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="eyebrow"><span class="tag">최종</span></div>
+  <h2 class="s-title sm">점검 기록의 구조</h2>
+  <div class="rule"></div>
+  <div class="body"><div class="mid"><table class="dbt sm"><thead><tr><th>점검일</th><th>지역</th><th>점포코드</th><th>점포명</th><th>채널</th><th>제품코드</th><th>제품명</th><th>카테고리</th><th>진열면수</th><th>적정재고</th><th>실재고</th><th>결품</th><th>자사행사</th><th>경쟁사행사</th><th>점검자</th></tr></thead><tbody><tr><td>2026-08-10</td><td>경기 남부</td><td>S02</td><td>A편의점 판교점</td><td>편의점</td><td>P01</td><td>신라면</td><td>봉지면</td><td>4</td><td>40</td><td>0</td><td>Y</td><td>N</td><td>N</td><td>김주현</td></tr><tr class=more><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td></tr></tbody></table><div class="dbnote"><span>1,768건</span> 2026-07-06 ~ 09-28 · 주 1회 · 점포 14곳 · 제품 10종</div></div></div>
+</section>
+
+<section class="slide lt" data-title="열 사이의 관계">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="eyebrow"><span class="tag">최종</span></div>
+  <h2 class="s-title sm">열 사이의 관계</h2>
+  <div class="rule"></div>
+  <div class="body"><div class="mid"><div class="kcards c3"><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span></div><h4>결품</h4><p>실재고 = 0</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span></div><h4>재고충족률</h4><p>실재고 ÷ 적정재고</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span></div><h4>적정재고</h4><p>제품 기준 × 채널 배수</p></div></div></div></div>
+</section>
+
+<section class="slide lt" data-title="원본에 숨어 있는 문제">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="eyebrow"><span class="tag">최종</span></div>
+  <h2 class="s-title sm">원본에 숨어 있는 문제</h2>
+  <div class="rule"></div>
+  <div class="body"><div class="mid"><table class="dbt"><thead><tr><th>문제</th><th>예</th></tr></thead><tbody><tr><td><b>표 위의 제목 · 빈 행</b></td><td>1~2행 제목, 중간중간 빈 행</td></tr><tr><td><b>점포 · 제품 표기</b></td><td>B편의졈 홍대점 · 신 라면 · 辛라면 · 신라면블랙</td></tr><tr><td><b>날짜 형식</b></td><td>2026.08.10 · 8/10 · 26년 8월 10일</td></tr><tr><td><b>Y/N 표기</b></td><td>O · 예 · 있음 · X · 아니오 · 빈칸</td></tr><tr><td><b>숫자가 문자</b></td><td>12박스</td></tr><tr><td><b>중복 · 이상값</b></td><td>같은 점검 두 번 입력 · 자릿수 실수 (37 → 374)</td></tr></tbody></table></div></div>
+</section>
+
+<section class="slide lt labs" data-title="[실습 F-1] 데이터 엔지니어링: 원본 정제">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="eyebrow"><span class="tag">최종</span><span class="labtag">실습 F-1</span></div>
+  <h2 class="s-title sm">데이터 엔지니어링: 원본 정제</h2>
+  <div class="rule"></div>
+  <div class="body"><div class="labgrid">
+    <div class="lc goal"><div class="lh">목표</div><p>점검 기록을 분석할 수 있는 표로</p><div class="lf">사용 파일 · store_check_raw.xlsx</div></div>
+    <div class="lc steps"><div class="lh">단계</div><ol><li>원본 내려받기 → Drive → Google 스프레드시트로 저장</li><li>정제 Skill 만들기 (점포 · 제품 마스터를 기준으로)</li><li>정제본 시트 새로 만들기 (원본은 그대로)</li><li>이상값은 고치지 말고 표시 → 리포트 확인</li></ol></div>
+    <div class="lc done"><div class="lh">완료 기준</div><ul><li>정제 후 1768행</li><li>점포명 · 제품명이 마스터와 일치</li><li>Y/N · 날짜 형식 통일</li></ul></div>
+  </div></div>
+</section>
+
+<section class="slide lt" data-title="분석 질문">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="eyebrow"><span class="tag">최종</span></div>
+  <h2 class="s-title sm">분석 질문</h2>
+  <div class="rule"></div>
+  <div class="body"><div class="mid"><div class="kcards c4"><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span></div><h4>어디서 비었나</h4><p>지역 × 제품 결품률</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span></div><h4>왜 비었나</h4><p>사실과 가설 구분</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span></div><h4>경쟁사 행사의 영향</h4><p>행사 유무별 진열면수</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span></div><h4>재고는 충분한가</h4><p>재고충족률</p></div></div></div></div>
+</section>
+
+<section class="slide ill" data-title="피벗으로 묶어 보기">
+  <svg class="scene" viewBox="0 0 1280 720" aria-hidden="true">
+<ellipse cx="640" cy="670" rx="610" ry="14" fill="#D9DDE3"/>
+<rect x="50" y="540" width="240" height="16" rx="6" fill="#1F3A5F"/><rect x="68" y="556" width="14" height="112" fill="#1F3A5F"/><rect x="258" y="556" width="14" height="112" fill="#1F3A5F"/><g transform="rotate(-2 158.0 520.0)"><rect x="88" y="500" width="140" height="40" rx="5" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><rect x="98" y="508" width="16" height="16" rx="3" fill="#1F3A5F" stroke="#1F3A5F" stroke-width="2.5"/><line x1="126" y1="514" x2="208" y2="514" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/><line x1="126" y1="527" x2="178" y2="527" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/></g><g transform="rotate(1 164.0 490.0)"><rect x="94" y="470" width="140" height="40" rx="5" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><rect x="104" y="478" width="16" height="16" rx="3" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="2.5"/><line x1="132" y1="484" x2="214" y2="484" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/><line x1="132" y1="497" x2="184" y2="497" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/></g><g transform="rotate(3 170.0 460.0)"><rect x="100" y="440" width="140" height="40" rx="5" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><rect x="110" y="448" width="16" height="16" rx="3" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="2.5"/><line x1="138" y1="454" x2="220" y2="454" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/><line x1="138" y1="467" x2="190" y2="467" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/></g><g transform="rotate(-1 158.0 430.0)"><rect x="88" y="410" width="140" height="40" rx="5" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><rect x="98" y="418" width="16" height="16" rx="3" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="2.5"/><line x1="126" y1="424" x2="208" y2="424" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/><line x1="126" y1="437" x2="178" y2="437" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/></g><g transform="rotate(-2 164.0 400.0)"><rect x="94" y="380" width="140" height="40" rx="5" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><rect x="104" y="388" width="16" height="16" rx="3" fill="#1F3A5F" stroke="#1F3A5F" stroke-width="2.5"/><line x1="132" y1="394" x2="214" y2="394" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/><line x1="132" y1="407" x2="184" y2="407" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/></g><g transform="rotate(1 170.0 370.0)"><rect x="100" y="350" width="140" height="40" rx="5" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><rect x="110" y="358" width="16" height="16" rx="3" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="2.5"/><line x1="138" y1="364" x2="220" y2="364" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/><line x1="138" y1="377" x2="190" y2="377" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/></g><g transform="rotate(3 158.0 340.0)"><rect x="88" y="320" width="140" height="40" rx="5" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><rect x="98" y="328" width="16" height="16" rx="3" fill="#1F3A5F" stroke="#1F3A5F" stroke-width="2.5"/><line x1="126" y1="334" x2="208" y2="334" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/><line x1="126" y1="347" x2="178" y2="347" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/></g><g transform="rotate(-1 164.0 310.0)"><rect x="94" y="290" width="140" height="40" rx="5" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><rect x="104" y="298" width="16" height="16" rx="3" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="2.5"/><line x1="132" y1="304" x2="214" y2="304" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/><line x1="132" y1="317" x2="184" y2="317" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/></g><g transform="rotate(-2 170.0 280.0)"><rect x="100" y="260" width="140" height="40" rx="5" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><rect x="110" y="268" width="16" height="16" rx="3" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="2.5"/><line x1="138" y1="274" x2="220" y2="274" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/><line x1="138" y1="287" x2="190" y2="287" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/></g>
+<rect x="640.0" y="384" width="48" height="146" rx="4" fill="#1F3A5F" stroke="#1F3A5F" stroke-width="3"/><rect x="800.0" y="274" width="48" height="256" rx="4" fill="#F28C28" stroke="#1F3A5F" stroke-width="3"/><rect x="960.0" y="428" width="48" height="102" rx="4" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/>
+<g transform="rotate(-10 658.0 520.0)"><rect x="606" y="504" width="104" height="32" rx="5" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><rect x="616" y="512" width="16" height="16" rx="3" fill="#1F3A5F" stroke="#1F3A5F" stroke-width="2.5"/><line x1="644" y1="518" x2="690" y2="518" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/><line x1="644" y1="531" x2="660" y2="531" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/></g><g transform="rotate(8 672.0 526.0)"><rect x="620" y="510" width="104" height="32" rx="5" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><rect x="630" y="518" width="16" height="16" rx="3" fill="#1F3A5F" stroke="#1F3A5F" stroke-width="2.5"/><line x1="658" y1="524" x2="704" y2="524" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/><line x1="658" y1="537" x2="674" y2="537" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/></g><g transform="rotate(-10 818.0 520.0)"><rect x="766" y="504" width="104" height="32" rx="5" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><rect x="776" y="512" width="16" height="16" rx="3" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="2.5"/><line x1="804" y1="518" x2="850" y2="518" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/><line x1="804" y1="531" x2="820" y2="531" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/></g><g transform="rotate(8 832.0 526.0)"><rect x="780" y="510" width="104" height="32" rx="5" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><rect x="790" y="518" width="16" height="16" rx="3" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="2.5"/><line x1="818" y1="524" x2="864" y2="524" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/><line x1="818" y1="537" x2="834" y2="537" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/></g><g transform="rotate(-10 978.0 520.0)"><rect x="926" y="504" width="104" height="32" rx="5" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><rect x="936" y="512" width="16" height="16" rx="3" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="2.5"/><line x1="964" y1="518" x2="1010" y2="518" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/><line x1="964" y1="531" x2="980" y2="531" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/></g><g transform="rotate(8 992.0 526.0)"><rect x="940" y="510" width="104" height="32" rx="5" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><rect x="950" y="518" width="16" height="16" rx="3" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="2.5"/><line x1="978" y1="524" x2="1024" y2="524" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/><line x1="978" y1="537" x2="994" y2="537" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/></g><path d="M600 524 L728 524 L716 666 L612 666 Z" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="5" stroke-linejoin="round"/><rect x="594" y="518" width="140" height="14" rx="5" fill="#1F3A5F"/><rect x="646.0" y="568" width="36" height="36" rx="3" fill="#1F3A5F" stroke="#1F3A5F" stroke-width="2.5"/><path d="M760 524 L888 524 L876 666 L772 666 Z" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="5" stroke-linejoin="round"/><rect x="754" y="518" width="140" height="14" rx="5" fill="#1F3A5F"/><rect x="806.0" y="568" width="36" height="36" rx="3" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="2.5"/><path d="M920 524 L1048 524 L1036 666 L932 666 Z" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="5" stroke-linejoin="round"/><rect x="914" y="518" width="140" height="14" rx="5" fill="#1F3A5F"/><rect x="966.0" y="568" width="36" height="36" rx="3" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="2.5"/>
+<g transform="translate(450,668) scale(1.35)"><use href="#robot"/><path d="M-14 -140 Q0 -124 14 -140" stroke="#1F3A5F" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M-44 -86 Q-100 -110 -97.77777777777777 -160.0" stroke="#1F3A5F" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M44 -86 Q80 -150 108.14814814814814 -133.33333333333331" stroke="#1F3A5F" stroke-width="9" fill="none" stroke-linecap="round"/></g><g transform="rotate(-12 300.0 436.0)"><rect x="248" y="420" width="104" height="32" rx="5" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><rect x="258" y="428" width="16" height="16" rx="3" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="2.5"/><line x1="286" y1="434" x2="332" y2="434" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/><line x1="286" y1="447" x2="302" y2="447" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/></g><g transform="rotate(28 642.0 474.0)"><rect x="590" y="458" width="104" height="32" rx="5" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><rect x="600" y="466" width="16" height="16" rx="3" fill="#1F3A5F" stroke="#1F3A5F" stroke-width="2.5"/><line x1="628" y1="472" x2="674" y2="472" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/><line x1="628" y1="485" x2="644" y2="485" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/></g><circle cx="318" cy="452" r="12" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><circle cx="596" cy="488" r="12" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/>
+<g transform="translate(1170,555.52) scale(0.74)"><use href="#legs"/><path d="M54 -140 Q70 -90 62 -30" stroke="#1F3A5F" stroke-width="22" fill="none" stroke-linecap="round"/><circle cx="62" cy="-30" r="12" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/><use href="#person"/><path d="M-54 -140 Q-76 -90 -60 -30" stroke="#1F3A5F" stroke-width="22" fill="none" stroke-linecap="round"/><circle cx="-60" cy="-30" r="12" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/></g><path d="M1124 386.12 Q1116 400.12 1124 414.12 M1216 386.12 Q1224 400.12 1216 414.12" stroke="#1F3A5F" stroke-width="3.5" fill="none" stroke-linecap="round"/></svg>
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="cap top"><h2>피벗으로 묶어 보기</h2><ul><li>행: 지역 · 열: 제품</li><li>값: 결품 비율</li></ul></div>
+  
+</section>
+
+<section class="slide lt labs" data-title="[실습 F-2] 데이터 분석: 결품과 진열">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="eyebrow"><span class="tag">최종</span><span class="labtag">실습 F-2</span></div>
+  <h2 class="s-title sm">데이터 분석: 결품과 진열</h2>
+  <div class="rule"></div>
+  <div class="body"><div class="labgrid">
+    <div class="lc goal"><div class="lh">목표</div><p>8월 결품의 위치와 원인 후보 찾기</p><div class="lf">사용 파일 · 정제본 또는 store_check_clean.xlsx</div></div>
+    <div class="lc steps"><div class="lh">단계</div><ol><li>사이드 패널에 데이터 설명 후 단계별 요청</li><li>지역 × 제품 결품률 피벗 (수식)</li><li>경쟁사 행사 유무별 평균 진열면수</li><li>사실과 가설을 나눠 세 줄 요약</li></ol></div>
+    <div class="lc done"><div class="lh">완료 기준</div><ul><li>정답 숫자와 일치</li><li>가설에는 「확인 필요」 표시</li></ul></div>
+  </div></div>
+</section>
+
+<section class="slide lt" data-title="정답 숫자">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="eyebrow"><span class="tag">최종</span></div>
+  <h2 class="s-title sm">정답 숫자</h2>
+  <div class="rule"></div>
+  <div class="body"><div class="mid"><table class="dbt"><thead><tr><th>확인할 값</th><th>정답</th></tr></thead><tbody><tr><td>원본 → 정제 후 행 수</td><td>1798행 → 1768행</td></tr><tr><td>8월 결품률</td><td>3.7%</td></tr><tr><td>8월 결품률 1위 제품</td><td>신라면 17.1%</td></tr><tr><td>8월 결품률 가장 높은 지역</td><td>경기 남부 7.9% · 인천 3.0%</td></tr><tr><td>편의점 스낵 진열면수 (경쟁사 행사 있음 / 없음)</td><td>1.9 / 2.96</td></tr><tr><td>평균 재고충족률</td><td>91.2%</td></tr></tbody></table></div></div>
+</section>
+
+<section class="slide lt" data-title="대시보드 화면 구성">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="eyebrow"><span class="tag">최종</span></div>
+  <h2 class="s-title sm">대시보드 화면 구성</h2>
+  <div class="rule"></div>
+  <div class="body"><div class="mid"><div class="kcards c4"><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span></div><h4>KPI 카드</h4><p>점검 수 · 결품률 · 재고충족률</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/docs.svg" alt="Docs"/></span></div><h4>지역 × 제품 결품</h4><p>색으로 보는 표</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/docs.svg" alt="Docs"/></span></div><h4>경쟁사 행사와 진열</h4><p>막대 비교</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span></div><h4>현장 입력 폼</h4><p>점포 · 제품 드롭다운</p></div></div></div></div>
+</section>
+
+<section class="slide lt" data-title="대시보드 요청">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="eyebrow"><span class="tag">최종</span></div>
+  <h2 class="s-title sm">대시보드 요청</h2>
+  <div class="rule"></div>
+  <div class="body"><div class="mid"><div class="ba">
+  <div class="b"><div class="lab">Before</div><div class="q">점검 대시보드 만들어 줘</div></div>
+  <div class="arr">→</div>
+  <div class="a"><div class="lab">After</div><div class="q">정제된 점검 기록 시트로 영업팀 대시보드를 만들어 줘.<br/>위: 기간 · 지역 선택, KPI 카드 3개(점검 수, 결품률, 재고충족률)<br/>가운데: 지역 × 제품 결품률 표(높을수록 진하게), 경쟁사 행사 유무별 진열면수 막대<br/>아래: 현장 점검 입력 폼(점포 · 제품은 마스터 드롭다운)<br/>화면은 render(data) 하나로 그리고 데이터는 분리해 줘.</div></div>
+</div></div></div>
+</section>
+
+<section class="slide lt labs" data-title="[실습 F-3] 웹앱 개발: 대시보드 배포">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="eyebrow"><span class="tag">최종</span><span class="labtag">실습 F-3</span></div>
+  <h2 class="s-title sm">웹앱 개발: 대시보드 배포</h2>
+  <div class="rule"></div>
+  <div class="body"><div class="labgrid">
+    <div class="lc goal"><div class="lh">목표</div><p>팀원이 URL로 보고 입력하는 대시보드</p><div class="lf">사용 파일 · 정제본 시트</div></div>
+    <div class="lc steps"><div class="lh">단계</div><ol><li>Canvas로 화면 시제품 → 숫자 대조</li><li>Skill에 「이 시트용 Code.gs · Index.html」 요청</li><li>Apps Script 붙여넣기 → 웹앱 배포 (실행: 나)</li><li>폼으로 점검 1건 입력 → 화면에 반영 확인</li></ol></div>
+    <div class="lc done"><div class="lh">완료 기준</div><ul><li>옆 사람이 URL로 접속</li><li>입력한 1건이 시트와 화면에 반영</li><li>원본 시트는 공유 「제한됨」 그대로</li></ul></div>
+  </div></div>
+</section>
+
+<section class="slide dk bridge" data-title="원본 → 정제 → 분석 → 웹앱">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="kick">최종 정리</div>
+  <h2>원본 → 정제 → 분석 → 웹앱</h2>
+  
+  <div class="nxt">데이터 엔지니어 · 분석가 · 개발자 · Ops의 일을 한 흐름으로</div>
 </section>
 
 <section class="slide dk divider" data-title="[적용] 내 업무에 적용하기">
-  <div class="ghost">06</div>
+  <div class="ghost">07</div>
   <div class="kick">적용</div>
   <h2 class="big">내 업무에 적용하기</h2>
   
@@ -2659,8 +2663,8 @@ function addSalesRecord(r) {       // 화면 → 시트
   <div class="nh"><span class="ic"><img src="assets/icons/docs.svg" alt="Docs"/></span><b>Canvas</b></div>
   <div class="tj"><span class="chip">프론트엔드 · 백엔드 개발자</span><span class="nm">문서 · 화면 · 코드</span></div>
 </div><div class="node on" style="left:470px; top:604px">
-  <div class="nh"><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span><b>Apps Script · Studio</b></div>
-  <div class="tj"><span class="chip">Ops 엔지니어</span><span class="nm">연결 · 배포 · 자동화</span></div>
+  <div class="nh"><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span><b>Apps Script</b></div>
+  <div class="tj"><span class="chip">Ops 엔지니어</span><span class="nm">연결 · 배포 · 운영</span></div>
 </div><div class="node on" style="left:80px; top:544px">
   <div class="nh"><span class="ic"><img src="assets/icons/drive.svg" alt="Drive"/></span><b>Drive · 웹앱</b></div>
   <div class="tj"><span class="chip">데이터 보관 · 서비스 운영</span><span class="nm">보관 · 권한 · 공유</span></div>
@@ -2673,7 +2677,7 @@ function addSalesRecord(r) {       // 화면 → 시트
   <div class="eyebrow"><span class="tag">적용</span></div>
   <h2 class="s-title sm">두 가지 원칙</h2>
   <div class="rule"></div>
-  <div class="body"><div class="mid"><div class="kcards c2"><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/notebooklm.svg" alt="NotebookLM"/></span><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span></div><h4>원칙 ① 근거를 쥐여 준다</h4><p>Ch1 오픈북 · Ch2 참조 파일</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span></div><h4>원칙 ② 계획을 보여 줄 때 개입한다</h4><p>Ch1 Deep Research · Ch3 Sheets · Ch5 Studio</p></div></div></div></div>
+  <div class="body"><div class="mid"><div class="kcards c2"><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/notebooklm.svg" alt="NotebookLM"/></span><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span></div><h4>원칙 ① 근거를 쥐여 준다</h4><p>Ch1 오픈북 · Ch2 참조 파일</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span></div><h4>원칙 ② 계획을 보여 줄 때 개입한다</h4><p>Ch1 Deep Research · Ch3 Sheets 계획 확인</p></div></div></div></div>
 </section>
 
 <section class="slide ill" data-title="작게 끝내기">
@@ -2707,7 +2711,7 @@ function addSalesRecord(r) {       // 화면 → 시트
   <div class="eyebrow"><span class="tag">적용</span></div>
   <h2 class="s-title sm">월요일 아침 브리핑 키트</h2>
   <div class="rule"></div>
-  <div class="body"><div class="mid"><table class="dbt"><thead><tr><th>구성</th><th>내용</th></tr></thead><tbody><tr><td><b>필수 · Skill 세트</b></td><td>매출 분석 · 주간 보고 · 응대 (이름은 자유)</td></tr><tr><td><b>필수 · 근거 자료</b></td><td>정리된 시트 · 조사 보고서를 참조로</td></tr><tr><td><b>선택 · 화면</b></td><td>시트와 연결된 웹앱 대시보드</td></tr><tr><td><b>선택 · 자동화</b></td><td>월요일 요약 메일 초안</td></tr></tbody></table></div></div>
+  <div class="body"><div class="mid"><table class="dbt"><thead><tr><th>구성</th><th>내용</th></tr></thead><tbody><tr><td><b>필수 · Skill 세트</b></td><td>매출 분석 · 주간 보고 · 응대 (이름은 자유)</td></tr><tr><td><b>필수 · 근거 자료</b></td><td>정리된 시트 · 조사 보고서를 참조로</td></tr><tr><td><b>선택 · 화면</b></td><td>시트와 연결된 웹앱 대시보드</td></tr></tbody></table></div></div>
 </section>
 
 <section class="slide lt" data-title="트랙 선택">
@@ -2715,7 +2719,7 @@ function addSalesRecord(r) {       // 화면 → 시트
   <div class="eyebrow"><span class="tag">적용</span></div>
   <h2 class="s-title sm">트랙 선택</h2>
   <div class="rule"></div>
-  <div class="body"><div class="mid"><div class="kcards c3"><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/docs.svg" alt="Docs"/></span><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span></div><h4>문서 · 제안</h4><p>Canvas + Skill<br/>예: 판촉 성과 비교</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span><span class="ic"><img src="assets/icons/docs.svg" alt="Docs"/></span><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span></div><h4>대시보드</h4><p>Sheets + Canvas + Apps Script<br/>예: 담당 채널 대시보드</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span></div><h4>자동화</h4><p>Studio + Skill<br/>예: 월요일 보고 초안</p></div></div></div></div>
+  <div class="body"><div class="mid"><div class="kcards c3"><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/docs.svg" alt="Docs"/></span><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span></div><h4>문서 · 제안</h4><p>Canvas + Skill<br/>예: 판촉 성과 비교</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span><span class="ic"><img src="assets/icons/docs.svg" alt="Docs"/></span><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span></div><h4>대시보드</h4><p>Sheets + Canvas + Apps Script<br/>예: 담당 채널 대시보드</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span></div><h4>현장 입력</h4><p>Sheets + Apps Script<br/>예: 점검 입력 웹앱</p></div></div></div></div>
 </section>
 
 <section class="slide lt" data-title="평가 기준">
