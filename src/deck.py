@@ -235,7 +235,7 @@ AGENDA = [
 def agenda():
     rows = "".join(f'''<div class="ch"><span class="chip">{c}</span><div class="tx"><b>{t}</b><span>{d}</span></div>
 <div class="icons">{"".join(icon(n) for n in ics)}</div></div>''' for c, t, d, ics in AGENDA)
-    day2 = '''<div class="ch"><span class="chip">적용</span><div class="tx"><b>내 업무에 적용</b><span>내 업무 Skill 세트</span></div></div>'''
+    day2 = ''
     return f'''<section class="slide dk" data-title="목차">
   {coord()}
   <h2>목차</h2>
@@ -627,7 +627,7 @@ CSS = '''
   .labgrid .lc{background:#fff; border:1px solid #E1E5EB; border-radius:12px; padding:18px 22px;}
   .labgrid .lh{font-size:13px; font-weight:800; color:#F28C28; margin-bottom:8px;}
   .labgrid .goal p{margin:0; font-size:22px; font-weight:800; color:#16233A;}
-  .labgrid .lf{margin-top:8px; font-size:14px; color:#8A94A6;}
+  .labgrid .lf{margin-top:8px; font-size:15px; color:#8A94A6;} .labgrid .lf .dl{font-size:15px; text-decoration:underline;}
   .labgrid .time{grid-row:1 / span 2; grid-column:2; background:#1F3A5F; border:none; color:#fff; display:flex; flex-direction:column; justify-content:center; align-items:center;}
   .labgrid .time .lh{color:#F5B06A;} .labgrid .time b{font-size:64px; line-height:1;} .labgrid .time span{font-size:18px; opacity:.8;}
   .labgrid .steps, .labgrid .done{grid-column:1;}
