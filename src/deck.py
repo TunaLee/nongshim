@@ -85,7 +85,7 @@ def flow(steps, hl=None):
 
 # ── 캡처 장 ──────────────────────────────────────────────
 # 캡처 파일은 docs/grounding/assets/capture/<이름>.png. 없으면 회색 자리에 「캡처: …」를 적는다.
-CAPDIR = Path(__file__).resolve().parent.parent / "docs" / "grounding" / "assets" / "capture"
+CAPDIR = Path(__file__).resolve().parent.parent / "docs" / "assets" / "capture"
 
 
 def cap(name, label):

@@ -3,9 +3,8 @@
 생성형 AI 중급 과정(국내영업)의 **이론 덱**. 실습 · 따라하기 장은 별도 덱에 있다.
 그림은 이미지 생성 없이 인라인 SVG로 그렸고, 색은 남색 `#1F3A5F` · 밝은 회색 `#D9DDE3` · 주황 `#F28C28` 세 가지만 쓴다.
 
-- 덱: `docs/grounding/index.html` (브라우저로 열기. ← → 로 넘기고, PDF 버튼으로 인쇄)
+- 덱: `docs/index.html` (브라우저로 열기. ← → 로 넘기고, PDF 버튼으로 인쇄)
 - 다시 만들기: `python3 src/build.py`
-- 짧은 강의 「Skill과 Apps Script 실적 대시보드」: `docs/gas-dashboard/index.html` · `python3 src/build.py gas` · 구성은 `src/deck_gas.py`, 캡처는 `docs/gas-dashboard/assets/capture/` (gas-01-menu · gas-02-files · gas-03-deploy · gas-04-auth)
 
 | 파일 | 내용 |
 |---|---|
@@ -18,14 +17,12 @@
 | `src/preview.py` | 장면 하나를 PNG로 미리 보기 |
 
 - 챕터마다 간지 다음에 생태계 지도가 나온다. 지난 장의 동료는 켜지고, 이번 장은 주황으로 강조, 남은 장은 흐리다 (`deck.ACTIVE`).
-- 아이콘: `docs/grounding/assets/icons/` — Wikimedia Commons, Public domain · CC0. 상표라 참조 용도로만 쓴다.
+- 아이콘: `docs/assets/icons/` — Wikimedia Commons, Public domain · CC0. 상표라 참조 용도로만 쓴다.
 - 밈 두 장(`meme-*.jpg`)은 출처 미확인 이미지라 저장소를 공개로 바꾸기 전에 빼야 한다.
 
 ## 배포 · 데이터
 - GitHub Actions(`.github/workflows/pages.yml`)가 main에 push될 때마다 슬라이드를 빌드해 GitHub Pages에 올린다.
-  - 첫 화면: https://tunalee.github.io/nongshim/
-  - 본 강의: https://tunalee.github.io/nongshim/grounding/
-  - 짧은 강의: https://tunalee.github.io/nongshim/gas-dashboard/
+  - 강의: https://tunalee.github.io/nongshim/
 - 핸즈온 데이터: `python3 src/make_data.py` (openpyxl 필요)로 `docs/data/`에 만든다.
   - https://tunalee.github.io/nongshim/data/store_check_raw.xlsx — 정제 전 점검 기록
   - https://tunalee.github.io/nongshim/data/store_check_clean.xlsx — 정답 정제본

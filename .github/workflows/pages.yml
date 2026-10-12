@@ -28,7 +28,6 @@ jobs:
       - name: 슬라이드 빌드
         run: |
           python3 src/build.py
-          python3 src/build.py gas
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

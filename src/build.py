@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """덱을 template.html 에 붙여 docs/<덱>/index.html 을 만든다.
 
-사용: python3 src/build.py         → docs/grounding (본 강의)
-      python3 src/build.py gas     → docs/gas-dashboard (Skill + Apps Script 짧은 강의)
+사용: python3 src/build.py   → docs/index.html (GitHub Pages 첫 화면이 곧 강의)
 """
 import sys
 from pathlib import Path
@@ -14,8 +13,7 @@ import intro
 
 ROOT = Path(__file__).resolve().parent.parent
 DECKS = {
-    "grounding": ("course", "grounding", "AI로 일하는 방식 바꾸기"),
-    "gas": ("deck_gas", "gas-dashboard", "Skill과 Apps Script 실적 대시보드"),
+    "grounding": ("course", "", "AI로 일하는 방식 바꾸기"),
 }
 
 
@@ -27,7 +25,7 @@ def build(name="grounding"):
     tpl = (ROOT / "src" / "template.html").read_text()
     tpl = tpl.replace("</style>", intro.CSS + explain.CSS + deck.CSS + extra + "</style>", 1)
     html = tpl.replace("{{DECK_TITLE}}", title).replace("{{SLIDES}}", "\n\n".join(parts))
-    out = ROOT / "docs" / out_dir / "index.html"
+    out = ROOT / "docs" / out_dir / "index.html" if out_dir else ROOT / "docs" / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(html)
     print(out, len(parts) - 1, "장")

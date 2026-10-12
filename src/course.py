@@ -12,7 +12,7 @@ import intro
 from deck import ba, bridge, capture, cards, divider, flow, ill, lab, light
 from intro import icon
 
-deck.CAPDIR = Path(__file__).resolve().parent.parent / "docs" / "grounding" / "assets" / "capture"
+deck.CAPDIR = Path(__file__).resolve().parent.parent / "docs" / "assets" / "capture"
 code = explain.prompt
 
 # 합본용 도구 ↔ 직무 지도 (위치는 그림 ⑨와 같은 시계 방향)

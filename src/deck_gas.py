@@ -11,7 +11,7 @@ from deck import ba, bridge, capture, cards, divider, flow, ill, lab, light
 from intro import ICON, coord, icon
 
 N, G, O, W = "#1F3A5F", "#D9DDE3", "#F28C28", "#FFFFFF"
-deck.CAPDIR = Path(__file__).resolve().parent.parent / "docs" / "gas-dashboard" / "assets" / "capture"
+deck.CAPDIR = Path(__file__).resolve().parent.parent / "docs" / "assets" / "capture"
 code = explain.prompt
 
 
