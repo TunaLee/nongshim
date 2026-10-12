@@ -26,4 +26,5 @@
 - 핸즈온 데이터: `python3 src/make_data.py` (openpyxl 필요)로 `docs/data/`에 만든다.
   - https://tunalee.github.io/nongshim/data/store_check_raw.xlsx — 정제 전 점검 기록
   - https://tunalee.github.io/nongshim/data/store_check_clean.xlsx — 정답 정제본
+  - https://tunalee.github.io/nongshim/data/my_emails_sample.txt · .docx — 메일 Skill 실습용 「내가 보낸 메일」 예시 5통 (`python3 src/make_emails.py`)
   - `docs/data/answer.json` — 정답 숫자 (슬라이드 「정답 숫자」 장이 읽어 씀)
