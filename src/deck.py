@@ -120,7 +120,7 @@ ROLES = [
     ("데이터 창고", "Sheets · Forms", ["sheets", "forms"], "Ch2", (1030, 255)),
     ("작업대", "Canvas", ["docs"], "Ch3", (1030, 590)),
     ("자동화 담당", "Apps Script · Studio", ["appsscript"], "Ch4", (640, 650)),
-    ("전담 비서", "Gem", ["gemini"], "Ch5", (250, 590)),
+    ("전담 비서", "Skills", ["gemini"], "Ch5", (250, 590)),
 ]
 ACTIVE = {
     "Ch1": {"리서치 담당", "검토자"}, "Ch2": {"데이터 창고"}, "Ch3": {"작업대"},
@@ -210,7 +210,7 @@ AGENDA = [
     ("Ch2", "숫자 정리", "정리된 실적 시트 · 이슈 접수 폼", ["sheets", "forms"]),
     ("Ch3", "제안서", "1페이지 제안서 · 판촉 ROI 계산기", ["docs"]),
     ("Ch4", "화면 · 자동화", "실시간 대시보드 · 주간 보고 초안", ["appsscript", "gmail"]),
-    ("Ch5", "전담 비서", "업무 전용 Gem", ["gemini"]),
+    ("Ch5", "전담 비서", "업무 전용 Skill", ["gemini"]),
 ]
 
 
@@ -240,7 +240,7 @@ def o05():
     return light("가상 시나리오", f'''<div class="scen">
   <div class="who">가상 영업관리 DB · <b>2026년 4~9월 · 180행</b></div>
   <div class="who"><b>A편의점 본부</b> · 4분기 신제품 입점 제안</div>
-  {flow([("조사", "Ch1"), ("숫자 정리", "Ch2"), ("제안서 · ROI", "Ch3"), ("대시보드 · 주간 보고", "Ch4"), ("응대 Gem", "Ch5")])}
+  {flow([("조사", "Ch1"), ("숫자 정리", "Ch2"), ("제안서 · ROI", "Ch3"), ("대시보드 · 주간 보고", "Ch4"), ("응대 Skill", "Ch5")])}
 </div>''', "오프닝")
 
 
@@ -372,30 +372,41 @@ def ch4():
 # ── Ch5 ─────────────────────────────────────────────────
 def ch5():
     m = "scenes_ch5"
-    return chapter("Ch5", "반복되는 지시를 저장하는 나만의 비서", "", "Gem") + [
-        ill(m, "secretary", "left40", "Gem: 업무 전담 비서",
-            ["긴 설명은 한 번만 저장"]),
+    move = f'''<div class="tline">
+  <div class="tl"><b>2026.10.13</b><span>Gemini 앱에 Skills 출시</span></div>
+  <div class="tl"><b>2026.11.17</b><span>Gem은 설정 메뉴로 이동</span></div>
+  <div class="tl hl"><b>2027.3.1</b><span>Workspace 계정 Gem 종료</span></div>
+</div>
+<div class="homework"><b>이전</b> 기존 Gem → Skill 비활성 초안으로 자동 이전 · 검토 후 활성화</div>'''
+    return chapter("Ch5", "반복되는 지시를 저장하는 Skills", "", "Skills") + [
+        light("Gem에서 Skills로", move, "Ch5"),
+        ill(m, "secretary", "left40", "Skill: 저장해 두는 업무 지침",
+            ["/이름으로 호출", "여러 Skill 조합"]),
         ill(m, "conveyor", "top20", "지침은 매번 자동 적용",
-            ["지침 품질 = Gem 품질"]),
-        ill("scenes_ch1", "s6", "top20", "지식 파일은 참고 교재",
+            ["지침 품질 = 결과 품질"]),
+        ill("scenes_ch1", "s6", "top20", "참조 파일은 참고 교재",
             ["수치는 사용자가 준 것만"], principle=1),
-        ba("Gem 지침 작성", "Ch5",
-           "너는 방문일지 정리 도우미야",
-           "역할: 방문일지 정리 도우미\n입력: 방문 메모\n출력: 일시, 거래처, 논의, 요청, 후속 조치\n규칙: 메모에 없는 내용은 지어내지 않기, 불분명하면 [확인 필요]\n예시: 첨부 파일 형식 따르기"),
-        capture("Gem 만드는 곳", "Ch5", [("gem-01-manager", "Gem 관리자")], ["왼쪽 메뉴 → Gem 관리자 → 새 Gem"]),
-        capture("이름과 지침 입력", "Ch5", [("gem-02-new", "새 Gem · 이름"), ("gem-03-instructions", "지침 입력")]),
-        capture("지식 파일 연결", "Ch5", [("gem-04-knowledge", "지식 · Drive 파일 추가")], ["05 · 06은 Sheets로 저장 후 Drive에서", "07은 기기 또는 Drive에서"]),
+        light("영업관리 Skill 예시", cards([
+            ("응대", "거래처 문의 1차 회신", ["gemini"]),
+            ("매출 분석", "실적 미달 거래처 정리", ["sheets"]),
+            ("주간 보고", "정해진 양식의 회의 보고문", ["docs"]),
+            ("판촉 기획", "목표 · 예상 성과 · 위험 요인", ["gemini"]),
+        ], 4), "Ch5"),
+        ba("Skill 지침 작성", "Ch5",
+           "너는 거래처 응대 도우미야",
+           "역할: 편의점 거래처 응대 도우미\n입력: 거래처 문의 내용\n출력: 1차 회신 초안 5문장 이내 + 근거 조항 번호\n규칙: 원인 확인 전 보상 약속 금지, 기준표에 없는 조건은 [확인 필요]\n참조: 05 제품카탈로그 · 06 단가 기준표 · 07 응대가이드"),
+        capture("Skill 만들기", "Ch5", [("skill-01-create", "Skill 만들기"), ("skill-02-instructions", "지침 입력")]),
+        capture("참조 파일 추가", "Ch5", [("skill-03-files", "참조 파일")], ["PDF · 문서 · 이미지"]),
         ill(m, "interview", "top20", "세 가지 입력으로 테스트",
-            ["정상 입력 → 형식대로 정리", "정보 부족 → [확인 필요] 표시", "금지 문의 → 정중히 거절 · 안내"]),
-        capture("미리보기로 테스트", "Ch5", [("gem-05-preview", "미리보기 · 결품 문의 테스트")]),
+            ["정상: A편의점 결품 문의", "기준표 밖: 북부대리점 행사 물량", "기준 위반: A마트 매대 3주"]),
+        capture("/로 불러 테스트", "Ch5", [("skill-04-run", "/응대 · 결품 문의 테스트")]),
+        light("Skill 조합", f'''<div class="combo"><span>/응대</span><b>+</b><span>/회신 형식</span><b>=</b><span class="hl">기준 지킨 회신 초안</span></div>''', "Ch5"),
         ba("지침 한 줄 추가 전후", "Ch5",
-           "메모: 3/12 A편의점 본부, 신제품 3종 소개. 반응 괜찮음.\n\n→ 신제품 3종 입점 확정, 다음 달 첫 발주 예정",
-           "지침 추가: 메모에 없는 내용은 지어내지 마\n\n→ 논의: 신제품 3종 소개\n→ 요청: [확인 필요]\n→ 후속 조치: [확인 필요]"),
-        capture("팀에 공유", "Ch5", [("gem-06-share", "공유 설정")], ["팀원: 보기 권한"]),
-        capture("Super Gem: 입력 양식이 붙은 Gem", "Ch5", [("supergem-01-builder", "흐름 편집"), ("supergem-02-run", "입력 양식으로 실행")], ["계정에 따라 메뉴가 없을 수 있음"]),
-        ill(m, "agent_morning", "top20", "Gem + Studio = 에이전트",
+           "문의: 신제품 A 결품, 보상 가능한가요?\n\n→ 불편을 드려 죄송합니다. 보상해 드리겠습니다.",
+           "지침 추가: 원인 확인 전 보상 약속 금지\n\n→ 물류팀 확인 결과를 받은 뒤\n   2영업일 안에 다시 연락드리겠습니다."),
+        ill(m, "agent_morning", "top20", "Studio + 지침 = 에이전트",
             ["문의 → 답장 초안 → 담당자 알림", "자동 발송 없음"]),
-        light("결과물의 연결", f'''{flow([("조사", "Ch1"), ("숫자", "Ch2"), ("제안서", "Ch3"), ("대시보드 · 메일", "Ch4"), ("Gem", "Ch5")])}
+        light("결과물의 연결", f'''{flow([("조사", "Ch1"), ("숫자", "Ch2"), ("제안서", "Ch3"), ("대시보드 · 메일", "Ch4"), ("Skill", "Ch5")])}
 <div class="homework"><b>숙제</b> 내 업무에서 만들 것 하나</div>''', "Ch5"),
     ]
 
@@ -404,15 +415,15 @@ def ch5():
 def apply_():
     return chapter("적용", "내 업무에 적용하기", "", "전체 도구") + [
         light("두 가지 원칙", cards([
-            ("원칙 ① 근거를 쥐여 준다", "Ch1 오픈북 · Ch5 지식 파일", ["notebooklm", "gemini"]),
+            ("원칙 ① 근거를 쥐여 준다", "Ch1 오픈북 · Ch5 참조 파일", ["notebooklm", "gemini"]),
             ("원칙 ② 계획을 보여 줄 때 개입한다", "Ch1 Deep Research · Ch2 Sheets · Ch4 Studio", ["gemini", "sheets", "appsscript"]),
         ], 2), "적용"),
         ill("scenes_ch5", "construction", "top20", "작게 끝내기",
             ["Before: 팀 전체 영업 관리 시스템", "After: 내 방문 메모 정리 흐름"]),
         light("트랙 선택", cards([
-            ("문서 · 제안", "Canvas + Gem<br/>예: 판촉 성과 비교 도구", ["docs", "gemini"]),
+            ("문서 · 제안", "Canvas + Skill<br/>예: 판촉 성과 비교 도구", ["docs", "gemini"]),
             ("대시보드", "Sheets + Forms + Canvas<br/>예: 이슈 통합 관리 화면", ["sheets", "forms", "docs"]),
-            ("자동화", "Apps Script · Studio + Gem<br/>예: 지역별 미달 알림 초안", ["appsscript", "gemini"]),
+            ("자동화", "Apps Script · Studio + Skill<br/>예: 지역별 미달 알림 초안", ["appsscript", "gemini"]),
         ]), "적용"),
         light("평가 기준", f'''<div class="score">
   <div class="sc"><b>30</b><span>실제 업무 적합성</span></div><div class="sc"><b>30</b><span>계산 · 분석 정확도</span></div>
@@ -427,7 +438,7 @@ def apply_():
 # ── 오프닝 이어 붙이기 ─────────────────────────────────────
 # 그림 ⑨ 이름표 자리 (scenes_ch2.office_map 의 label 위치와 같다)
 TAGS = [((400, 344), "리서치 · Deep Research"), ((880, 344), "검토자 · NotebookLM"), ((1112, 500), "데이터 창고 · Sheets · Forms"),
-        ((880, 654), "작업대 · Canvas"), ((420, 654), "자동화 · Apps Script · Studio"), ((168, 500), "전담 비서 · Gem")]
+        ((880, 654), "작업대 · Canvas"), ((420, 654), "자동화 · Apps Script · Studio"), ((168, 500), "전담 비서 · Skills")]
 
 
 def tags():
@@ -492,7 +503,7 @@ CSS = '''
   .ba .arr{display:grid; place-items:center; font-size:30px; color:#F28C28; font-weight:800;}
   .banote{margin-top:4px; font-size:15px; color:#44506A;}
   .banote::before{content:"구성  "; font-weight:800; color:#F28C28;}
-  .kcards{display:grid; gap:18px;} .kcards.c2{grid-template-columns:1fr 1fr;} .kcards.c3{grid-template-columns:repeat(3,1fr);}
+  .kcards{display:grid; gap:18px;} .kcards.c2{grid-template-columns:1fr 1fr;} .kcards.c3{grid-template-columns:repeat(3,1fr);} .kcards.c4{grid-template-columns:repeat(4,1fr);}
   .kcard{background:#fff; border:1px solid #E1E5EB; border-top:4px solid #1F3A5F; border-radius:10px; padding:24px 24px 26px; display:flex; flex-direction:column; gap:10px;}
   .kcard h4{margin:0; font-size:22px; font-weight:800; color:#16233A; word-break:keep-all;}
   .kcard p{margin:0; font-size:16.5px; line-height:1.55; color:#44506A; word-break:keep-all;}
@@ -538,6 +549,14 @@ CSS = '''
   .capfig.empty figcaption{display:none;}
   .capnote{list-style:none; margin:18px 0 0; padding:0; display:flex; gap:28px; justify-content:center;}
   .capnote li{font-size:16px; color:#44506A;} .capnote li::before{content:"· "; color:#F28C28; font-weight:800;}
+  .tline{display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:4px solid #D9DDE3; margin-top:10px;}
+  .tline .tl{padding:22px 18px 0 0; display:flex; flex-direction:column; gap:8px; position:relative;}
+  .tline .tl::before{content:""; position:absolute; top:-12px; left:0; width:20px; height:20px; border-radius:50%; background:#1F3A5F;}
+  .tline .tl b{font-size:26px; color:#16233A;} .tline .tl span{font-size:18px; color:#44506A;}
+  .tline .tl.hl::before{background:#F28C28;} .tline .tl.hl b{color:#F28C28;}
+  .combo{display:flex; align-items:center; justify-content:center; gap:22px; font-size:30px; font-weight:800; color:#16233A;}
+  .combo span{background:#EEF1F5; border-radius:14px; padding:22px 28px; font-family:var(--mono);} .combo span.hl{background:#FFF3E6; border:2px solid #F28C28; font-family:var(--serif);}
+  .combo b{color:#F28C28;}
   .vl p{font-size:20px; color:#16233A; margin:0 0 12px; padding-left:16px; border-left:4px solid #F28C28;}
 
   /* ── 어두운 정리 장 ── */

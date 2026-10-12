@@ -479,7 +479,7 @@
   .ba .arr{display:grid; place-items:center; font-size:30px; color:#F28C28; font-weight:800;}
   .banote{margin-top:4px; font-size:15px; color:#44506A;}
   .banote::before{content:"구성  "; font-weight:800; color:#F28C28;}
-  .kcards{display:grid; gap:18px;} .kcards.c2{grid-template-columns:1fr 1fr;} .kcards.c3{grid-template-columns:repeat(3,1fr);}
+  .kcards{display:grid; gap:18px;} .kcards.c2{grid-template-columns:1fr 1fr;} .kcards.c3{grid-template-columns:repeat(3,1fr);} .kcards.c4{grid-template-columns:repeat(4,1fr);}
   .kcard{background:#fff; border:1px solid #E1E5EB; border-top:4px solid #1F3A5F; border-radius:10px; padding:24px 24px 26px; display:flex; flex-direction:column; gap:10px;}
   .kcard h4{margin:0; font-size:22px; font-weight:800; color:#16233A; word-break:keep-all;}
   .kcard p{margin:0; font-size:16.5px; line-height:1.55; color:#44506A; word-break:keep-all;}
@@ -525,6 +525,14 @@
   .capfig.empty figcaption{display:none;}
   .capnote{list-style:none; margin:18px 0 0; padding:0; display:flex; gap:28px; justify-content:center;}
   .capnote li{font-size:16px; color:#44506A;} .capnote li::before{content:"· "; color:#F28C28; font-weight:800;}
+  .tline{display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:4px solid #D9DDE3; margin-top:10px;}
+  .tline .tl{padding:22px 18px 0 0; display:flex; flex-direction:column; gap:8px; position:relative;}
+  .tline .tl::before{content:""; position:absolute; top:-12px; left:0; width:20px; height:20px; border-radius:50%; background:#1F3A5F;}
+  .tline .tl b{font-size:26px; color:#16233A;} .tline .tl span{font-size:18px; color:#44506A;}
+  .tline .tl.hl::before{background:#F28C28;} .tline .tl.hl b{color:#F28C28;}
+  .combo{display:flex; align-items:center; justify-content:center; gap:22px; font-size:30px; font-weight:800; color:#16233A;}
+  .combo span{background:#EEF1F5; border-radius:14px; padding:22px 28px; font-family:var(--mono);} .combo span.hl{background:#FFF3E6; border:2px solid #F28C28; font-family:var(--serif);}
+  .combo b{color:#F28C28;}
   .vl p{font-size:20px; color:#16233A; margin:0 0 12px; padding-left:16px; border-left:4px solid #F28C28;}
 
   /* ── 어두운 정리 장 ── */
@@ -687,7 +695,7 @@
 <div class="icons"><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span><span class="ic"><img src="assets/icons/notebooklm.svg" alt="NotebookLM"/></span></div></div><div class="ch"><span class="chip">Ch2</span><div class="tx"><b>숫자 정리</b><span>정리된 실적 시트 · 이슈 접수 폼</span></div>
 <div class="icons"><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span><span class="ic"><img src="assets/icons/forms.svg" alt="Forms"/></span></div></div><div class="ch"><span class="chip">Ch3</span><div class="tx"><b>제안서</b><span>1페이지 제안서 · 판촉 ROI 계산기</span></div>
 <div class="icons"><span class="ic"><img src="assets/icons/docs.svg" alt="Docs"/></span></div></div><div class="ch"><span class="chip">Ch4</span><div class="tx"><b>화면 · 자동화</b><span>실시간 대시보드 · 주간 보고 초안</span></div>
-<div class="icons"><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span><span class="ic"><img src="assets/icons/gmail.svg" alt="Gmail"/></span></div></div><div class="ch"><span class="chip">Ch5</span><div class="tx"><b>전담 비서</b><span>업무 전용 Gem</span></div>
+<div class="icons"><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span><span class="ic"><img src="assets/icons/gmail.svg" alt="Gmail"/></span></div></div><div class="ch"><span class="chip">Ch5</span><div class="tx"><b>전담 비서</b><span>업무 전용 Skill</span></div>
 <div class="icons"><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span></div></div><div class="ch"><span class="chip">적용</span><div class="tx"><b>내 업무에 적용</b><span>결과물 하나</span></div></div></div>
   </div>
 </section>
@@ -736,7 +744,7 @@
 </g><path d="M44 -86 Q70 -74 66 -46" stroke="#1F3A5F" stroke-width="9" fill="none" stroke-linecap="round"/><circle cx="66" cy="-46" r="10" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/></g></g><rect x="61.0" y="500" width="214" height="24" rx="12" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="2.5"/><ellipse cx="640" cy="604" rx="60" ry="14" fill="#D9DDE3"/><g transform="translate(640,505.76) scale(0.62)"><use href="#legs"/><use href="#person"/><path d="M-54 -140 Q-116 -84 -58 -30" stroke="#1F3A5F" stroke-width="22" fill="none" stroke-linecap="round"/><circle cx="-58" cy="-30" r="12" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/><path d="M54 -140 Q116 -84 58 -30" stroke="#1F3A5F" stroke-width="22" fill="none" stroke-linecap="round"/><circle cx="58" cy="-30" r="12" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/></g></svg>
   <div class="coord"><b></b> / <span class="tot"></span></div>
   <div class="cap top"><h2>도구별 역할</h2></div>
-  <div class="tagl" style="left:293px; top:344px">리서치 · Deep Research</div><div class="tagl" style="left:773px; top:344px">검토자 · NotebookLM</div><div class="tagl" style="left:1005px; top:500px">데이터 창고 · Sheets · Forms</div><div class="tagl" style="left:773px; top:654px">작업대 · Canvas</div><div class="tagl" style="left:313px; top:654px">자동화 · Apps Script · Studio</div><div class="tagl" style="left:61px; top:500px">전담 비서 · Gem</div>
+  <div class="tagl" style="left:293px; top:344px">리서치 · Deep Research</div><div class="tagl" style="left:773px; top:344px">검토자 · NotebookLM</div><div class="tagl" style="left:1005px; top:500px">데이터 창고 · Sheets · Forms</div><div class="tagl" style="left:773px; top:654px">작업대 · Canvas</div><div class="tagl" style="left:313px; top:654px">자동화 · Apps Script · Studio</div><div class="tagl" style="left:61px; top:500px">전담 비서 · Skills</div>
 </section>
 
 <section class="slide dk eco" data-title="생태계 지도">
@@ -761,7 +769,7 @@
   <div class="icons"><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span><span class="nm">Apps Script · Studio</span></div>
 </div><div class="node all" style="left:80px; top:546px">
   <div class="nh"><span class="chip">Ch5</span><b>전담 비서</b></div>
-  <div class="icons"><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span><span class="nm">Gem</span></div>
+  <div class="icons"><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span><span class="nm">Skills</span></div>
 </div>
   <div class="hub" style="left:566px; top:356px"><img src="assets/icons/gemini.svg" alt="Gemini"/></div>
 </section>
@@ -774,7 +782,7 @@
   <div class="body"><div class="mid"><div class="scen">
   <div class="who">가상 영업관리 DB · <b>2026년 4~9월 · 180행</b></div>
   <div class="who"><b>A편의점 본부</b> · 4분기 신제품 입점 제안</div>
-  <div class="flow"><div class="fs"><b>조사</b><span>Ch1</span></div><div class="fa">→</div><div class="fs"><b>숫자 정리</b><span>Ch2</span></div><div class="fa">→</div><div class="fs"><b>제안서 · ROI</b><span>Ch3</span></div><div class="fa">→</div><div class="fs"><b>대시보드 · 주간 보고</b><span>Ch4</span></div><div class="fa">→</div><div class="fs"><b>응대 Gem</b><span>Ch5</span></div></div>
+  <div class="flow"><div class="fs"><b>조사</b><span>Ch1</span></div><div class="fa">→</div><div class="fs"><b>숫자 정리</b><span>Ch2</span></div><div class="fa">→</div><div class="fs"><b>제안서 · ROI</b><span>Ch3</span></div><div class="fa">→</div><div class="fs"><b>대시보드 · 주간 보고</b><span>Ch4</span></div><div class="fa">→</div><div class="fs"><b>응대 Skill</b><span>Ch5</span></div></div>
 </div></div></div>
 </section>
 
@@ -815,7 +823,7 @@
   <div class="icons"><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span><span class="nm">Apps Script · Studio</span></div>
 </div><div class="node dim" style="left:80px; top:546px">
   <div class="nh"><span class="chip">Ch5</span><b>전담 비서</b></div>
-  <div class="icons"><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span><span class="nm">Gem</span></div>
+  <div class="icons"><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span><span class="nm">Skills</span></div>
 </div>
   <div class="hub" style="left:566px; top:356px"><img src="assets/icons/gemini.svg" alt="Gemini"/></div>
 </section>
@@ -1223,7 +1231,7 @@
   <div class="icons"><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span><span class="nm">Apps Script · Studio</span></div>
 </div><div class="node dim" style="left:80px; top:546px">
   <div class="nh"><span class="chip">Ch5</span><b>전담 비서</b></div>
-  <div class="icons"><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span><span class="nm">Gem</span></div>
+  <div class="icons"><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span><span class="nm">Skills</span></div>
 </div>
   <div class="hub" style="left:566px; top:356px"><img src="assets/icons/gemini.svg" alt="Gemini"/></div>
 </section>
@@ -1420,7 +1428,7 @@
   <div class="icons"><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span><span class="nm">Apps Script · Studio</span></div>
 </div><div class="node dim" style="left:80px; top:546px">
   <div class="nh"><span class="chip">Ch5</span><b>전담 비서</b></div>
-  <div class="icons"><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span><span class="nm">Gem</span></div>
+  <div class="icons"><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span><span class="nm">Skills</span></div>
 </div>
   <div class="hub" style="left:566px; top:356px"><img src="assets/icons/gemini.svg" alt="Gemini"/></div>
 </section>
@@ -1636,7 +1644,7 @@
   <div class="icons"><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span><span class="nm">Apps Script · Studio</span></div>
 </div><div class="node dim" style="left:80px; top:546px">
   <div class="nh"><span class="chip">Ch5</span><b>전담 비서</b></div>
-  <div class="icons"><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span><span class="nm">Gem</span></div>
+  <div class="icons"><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span><span class="nm">Skills</span></div>
 </div>
   <div class="hub" style="left:566px; top:356px"><img src="assets/icons/gemini.svg" alt="Gemini"/></div>
 </section>
@@ -1851,17 +1859,17 @@
   <div class="nxt">→ Ch5</div>
 </section>
 
-<section class="slide dk divider" data-title="[Ch5] 반복되는 지시를 저장하는 나만의 비서">
+<section class="slide dk divider" data-title="[Ch5] 반복되는 지시를 저장하는 Skills">
   <div class="ghost">05</div>
   <div class="kick">Ch5</div>
-  <h2 class="big">반복되는 지시를 저장하는 나만의 비서</h2>
+  <h2 class="big">반복되는 지시를 저장하는 Skills</h2>
   
 </section>
 
 <section class="slide dk eco focus" data-title="[Ch5] 생태계 지도">
   <div class="coord"><b></b> / <span class="tot"></span></div>
   <div class="kick">구글 생태계 · Ch5</div>
-  <h2>Gem</h2>
+  <h2>Skills</h2>
   <svg class="ecosvg" viewBox="0 0 1280 720"><line x1="640" y1="430" x2="250" y2="255" stroke="#fff" stroke-width="2.5" opacity=".45"/><line x1="640" y1="430" x2="640" y2="215" stroke="#fff" stroke-width="2.5" opacity=".45"/><line x1="640" y1="430" x2="1030" y2="255" stroke="#fff" stroke-width="2.5" opacity=".45"/><line x1="640" y1="430" x2="1030" y2="590" stroke="#fff" stroke-width="2.5" opacity=".45"/><line x1="640" y1="430" x2="640" y2="650" stroke="#fff" stroke-width="2.5" opacity=".45"/><line x1="640" y1="430" x2="250" y2="590" stroke="#F28C28" stroke-width="5" opacity=".35"/><line class="flow" x1="640" y1="430" x2="250" y2="590" stroke="#F28C28" stroke-width="5" stroke-linecap="round" stroke-dasharray="14 12"/></svg>
   <div class="node done" style="left:80px; top:211px">
   <div class="nh"><span class="chip">Ch1</span><b>리서치 담당</b></div>
@@ -1880,12 +1888,25 @@
   <div class="icons"><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span><span class="nm">Apps Script · Studio</span></div>
 </div><div class="node on" style="left:80px; top:546px">
   <div class="nh"><span class="chip">Ch5</span><b>전담 비서</b></div>
-  <div class="icons"><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span><span class="nm">Gem</span></div>
+  <div class="icons"><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span><span class="nm">Skills</span></div>
 </div>
   <div class="hub" style="left:566px; top:356px"><img src="assets/icons/gemini.svg" alt="Gemini"/></div>
 </section>
 
-<section class="slide ill" data-title="Gem: 업무 전담 비서">
+<section class="slide lt" data-title="Gem에서 Skills로">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="eyebrow"><span class="tag">Ch5</span></div>
+  <h2 class="s-title sm">Gem에서 Skills로</h2>
+  <div class="rule"></div>
+  <div class="body"><div class="mid"><div class="tline">
+  <div class="tl"><b>2026.10.13</b><span>Gemini 앱에 Skills 출시</span></div>
+  <div class="tl"><b>2026.11.17</b><span>Gem은 설정 메뉴로 이동</span></div>
+  <div class="tl hl"><b>2027.3.1</b><span>Workspace 계정 Gem 종료</span></div>
+</div>
+<div class="homework"><b>이전</b> 기존 Gem → Skill 비활성 초안으로 자동 이전 · 검토 후 활성화</div></div></div>
+</section>
+
+<section class="slide ill" data-title="Skill: 저장해 두는 업무 지침">
   <svg class="scene" viewBox="0 0 1280 720" aria-hidden="true">
 <ellipse cx="890" cy="660" rx="335" ry="14" fill="#D9DDE3"/>
 <rect x="610" y="330" width="160" height="200" rx="20" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="4"/>
@@ -1907,7 +1928,7 @@
 
 </svg>
   <div class="coord"><b></b> / <span class="tot"></span></div>
-  <div class="cap left"><h2>Gem: 업무 전담 비서</h2><div class="bar"></div><ul><li>긴 설명은 한 번만 저장</li></ul></div>
+  <div class="cap left"><h2>Skill: 저장해 두는 업무 지침</h2><div class="bar"></div><ul><li>/이름으로 호출</li><li>여러 Skill 조합</li></ul></div>
   
 </section>
 
@@ -1927,11 +1948,11 @@
 <path d="M600 340 L596 362 M620 340 L624 362" stroke="#1F3A5F" stroke-width="6" stroke-linecap="round"/>
 <rect x="572" y="362" width="76" height="50" rx="4" fill="#F28C28" stroke="#1F3A5F" stroke-width="2.5"/><line x1="582" y1="380" x2="634" y2="380" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/><line x1="582" y1="394" x2="618" y2="394" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/><rect x="602" y="354" width="16" height="18" rx="3" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="2.5"/><g transform="translate(1110,660) scale(1.35)"><use href="#robot"/><path d="M-9 -135 L9 -135" stroke="#1F3A5F" stroke-width="3" stroke-linecap="round"/></g><g transform="translate(1110,660) scale(1.35)"><g transform="translate(-40,-112) scale(.8)"><g transform="rotate(0 50 65)"><rect x="0" y="0" width="100" height="130" rx="5" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3.5"/><line x1="14" y1="70" x2="86" y2="70" stroke="#D9DDE3" stroke-width="6" stroke-linecap="round"/><line x1="14" y1="86" x2="86" y2="86" stroke="#D9DDE3" stroke-width="6" stroke-linecap="round"/><line x1="14" y1="102" x2="86" y2="102" stroke="#D9DDE3" stroke-width="6" stroke-linecap="round"/><line x1="14" y1="116" x2="86" y2="116" stroke="#D9DDE3" stroke-width="6" stroke-linecap="round"/><rect x="12" y="10" width="76" height="50" rx="4" fill="#F28C28" stroke="#1F3A5F" stroke-width="2.5"/><line x1="22" y1="28" x2="74" y2="28" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/><line x1="22" y1="42" x2="58" y2="42" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/><rect x="42" y="2" width="16" height="18" rx="3" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="2.5"/></g></g><path d="M-44 -86 Q-64 -76 -42 -60" stroke="#1F3A5F" stroke-width="9" fill="none" stroke-linecap="round"/><circle cx="-42" cy="-60" r="10" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><path d="M44 -86 Q64 -76 42 -60" stroke="#1F3A5F" stroke-width="9" fill="none" stroke-linecap="round"/><circle cx="42" cy="-60" r="10" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/></g><rect x="1176" y="610" width="90" height="40" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/><line x1="1176" y1="620" x2="1266" y2="620" stroke="#1F3A5F" stroke-width="2"/><line x1="1176" y1="630" x2="1266" y2="630" stroke="#1F3A5F" stroke-width="2"/><line x1="1176" y1="640" x2="1266" y2="640" stroke="#1F3A5F" stroke-width="2"/></svg>
   <div class="coord"><b></b> / <span class="tot"></span></div>
-  <div class="cap top"><h2>지침은 매번 자동 적용</h2><ul><li>지침 품질 = Gem 품질</li></ul></div>
+  <div class="cap top"><h2>지침은 매번 자동 적용</h2><ul><li>지침 품질 = 결과 품질</li></ul></div>
   
 </section>
 
-<section class="slide ill" data-title="지식 파일은 참고 교재">
+<section class="slide ill" data-title="참조 파일은 참고 교재">
   <svg class="scene" viewBox="0 0 1280 720" aria-hidden="true">
 <rect x="30" y="170" width="595" height="520" rx="24" fill="#D9DDE3" fill-opacity=".55"/>
 <g transform="translate(330,520) scale(0.85)"><use href="#person"/><path d="M-54 -140 Q-100 -214 -32 -246" stroke="#1F3A5F" stroke-width="22" fill="none" stroke-linecap="round"/><circle cx="-32" cy="-246" r="12" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/><path d="M54 -140 Q104 -80 98 -14" stroke="#1F3A5F" stroke-width="22" fill="none" stroke-linecap="round"/><circle cx="98" cy="-14" r="12" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/></g>
@@ -1953,44 +1974,44 @@
 <line x1="1040" y1="510" x2="1054" y2="532" stroke="#1F3A5F" stroke-width="5" stroke-linecap="round"/>
 <circle cx="1040" cy="517" r="10" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/></svg>
   <div class="coord"><b></b> / <span class="tot"></span></div><div class="pbadge"><span class="pn">원칙 ①</span>근거를 쥐여 준다</div>
-  <div class="cap top"><h2>지식 파일은 참고 교재</h2><ul><li>수치는 사용자가 준 것만</li></ul></div>
+  <div class="cap top"><h2>참조 파일은 참고 교재</h2><ul><li>수치는 사용자가 준 것만</li></ul></div>
   
 </section>
 
-<section class="slide lt" data-title="Gem 지침 작성">
+<section class="slide lt" data-title="영업관리 Skill 예시">
   <div class="coord"><b></b> / <span class="tot"></span></div>
   <div class="eyebrow"><span class="tag">Ch5</span></div>
-  <h2 class="s-title sm">Gem 지침 작성</h2>
+  <h2 class="s-title sm">영업관리 Skill 예시</h2>
+  <div class="rule"></div>
+  <div class="body"><div class="mid"><div class="kcards c4"><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span></div><h4>응대</h4><p>거래처 문의 1차 회신</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span></div><h4>매출 분석</h4><p>실적 미달 거래처 정리</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/docs.svg" alt="Docs"/></span></div><h4>주간 보고</h4><p>정해진 양식의 회의 보고문</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span></div><h4>판촉 기획</h4><p>목표 · 예상 성과 · 위험 요인</p></div></div></div></div>
+</section>
+
+<section class="slide lt" data-title="Skill 지침 작성">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="eyebrow"><span class="tag">Ch5</span></div>
+  <h2 class="s-title sm">Skill 지침 작성</h2>
   <div class="rule"></div>
   <div class="body"><div class="mid"><div class="ba">
-  <div class="b"><div class="lab">Before</div><div class="q">너는 방문일지 정리 도우미야</div></div>
+  <div class="b"><div class="lab">Before</div><div class="q">너는 거래처 응대 도우미야</div></div>
   <div class="arr">→</div>
-  <div class="a"><div class="lab">After</div><div class="q">역할: 방문일지 정리 도우미<br/>입력: 방문 메모<br/>출력: 일시, 거래처, 논의, 요청, 후속 조치<br/>규칙: 메모에 없는 내용은 지어내지 않기, 불분명하면 [확인 필요]<br/>예시: 첨부 파일 형식 따르기</div></div>
+  <div class="a"><div class="lab">After</div><div class="q">역할: 편의점 거래처 응대 도우미<br/>입력: 거래처 문의 내용<br/>출력: 1차 회신 초안 5문장 이내 + 근거 조항 번호<br/>규칙: 원인 확인 전 보상 약속 금지, 기준표에 없는 조건은 [확인 필요]<br/>참조: 05 제품카탈로그 · 06 단가 기준표 · 07 응대가이드</div></div>
 </div></div></div>
 </section>
 
-<section class="slide lt" data-title="Gem 만드는 곳">
+<section class="slide lt" data-title="Skill 만들기">
   <div class="coord"><b></b> / <span class="tot"></span></div>
   <div class="eyebrow"><span class="tag">Ch5</span></div>
-  <h2 class="s-title sm">Gem 만드는 곳</h2>
+  <h2 class="s-title sm">Skill 만들기</h2>
   <div class="rule"></div>
-  <div class="body"><div class="mid"><div class="caps n1"><figure class="capfig empty"><div class="ph">캡처: Gem 관리자<span>gem-01-manager.png</span></div><figcaption>Gem 관리자</figcaption></figure></div><ul class="capnote"><li>왼쪽 메뉴 → Gem 관리자 → 새 Gem</li></ul></div></div>
+  <div class="body"><div class="mid"><div class="caps n2"><figure class="capfig empty"><div class="ph">캡처: Skill 만들기<span>skill-01-create.png</span></div><figcaption>Skill 만들기</figcaption></figure><figure class="capfig empty"><div class="ph">캡처: 지침 입력<span>skill-02-instructions.png</span></div><figcaption>지침 입력</figcaption></figure></div></div></div>
 </section>
 
-<section class="slide lt" data-title="이름과 지침 입력">
+<section class="slide lt" data-title="참조 파일 추가">
   <div class="coord"><b></b> / <span class="tot"></span></div>
   <div class="eyebrow"><span class="tag">Ch5</span></div>
-  <h2 class="s-title sm">이름과 지침 입력</h2>
+  <h2 class="s-title sm">참조 파일 추가</h2>
   <div class="rule"></div>
-  <div class="body"><div class="mid"><div class="caps n2"><figure class="capfig empty"><div class="ph">캡처: 새 Gem · 이름<span>gem-02-new.png</span></div><figcaption>새 Gem · 이름</figcaption></figure><figure class="capfig empty"><div class="ph">캡처: 지침 입력<span>gem-03-instructions.png</span></div><figcaption>지침 입력</figcaption></figure></div></div></div>
-</section>
-
-<section class="slide lt" data-title="지식 파일 연결">
-  <div class="coord"><b></b> / <span class="tot"></span></div>
-  <div class="eyebrow"><span class="tag">Ch5</span></div>
-  <h2 class="s-title sm">지식 파일 연결</h2>
-  <div class="rule"></div>
-  <div class="body"><div class="mid"><div class="caps n1"><figure class="capfig empty"><div class="ph">캡처: 지식 · Drive 파일 추가<span>gem-04-knowledge.png</span></div><figcaption>지식 · Drive 파일 추가</figcaption></figure></div><ul class="capnote"><li>05 · 06은 Sheets로 저장 후 Drive에서</li><li>07은 기기 또는 Drive에서</li></ul></div></div>
+  <div class="body"><div class="mid"><div class="caps n1"><figure class="capfig empty"><div class="ph">캡처: 참조 파일<span>skill-03-files.png</span></div><figcaption>참조 파일</figcaption></figure></div><ul class="capnote"><li>PDF · 문서 · 이미지</li></ul></div></div>
 </section>
 
 <section class="slide ill" data-title="세 가지 입력으로 테스트">
@@ -1999,16 +2020,24 @@
 <rect x="240" y="518" width="800" height="120" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/>
 <rect x="250" y="638" width="14" height="40" fill="#1F3A5F"/><rect x="1016" y="638" width="14" height="40" fill="#1F3A5F"/><path d="M1030 490 L1100 490 L1108 504 L1022 504 Z" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/><line x1="1036" y1="497" x2="1090" y2="497" stroke="#D9DDE3" stroke-width="3"/><line x1="1064" y1="500" x2="1074" y2="478" stroke="#1F3A5F" stroke-width="5" stroke-linecap="round"/><circle cx="1064" cy="505" r="12" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><circle cx="849" cy="502" r="12" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><g transform="translate(510,420)"><g transform="rotate(-36)"><rect x="-36" y="-110" width="72" height="100" rx="5" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/><line x1="-24" y1="-90" x2="24" y2="-90" stroke="#D9DDE3" stroke-width="6" stroke-linecap="round"/><line x1="-24" y1="-74" x2="24" y2="-74" stroke="#D9DDE3" stroke-width="6" stroke-linecap="round"/><line x1="-24" y1="-58" x2="24" y2="-58" stroke="#D9DDE3" stroke-width="6" stroke-linecap="round"/><line x1="-24" y1="-42" x2="24" y2="-42" stroke="#D9DDE3" stroke-width="6" stroke-linecap="round"/></g><g transform="rotate(-6)"><rect x="-36" y="-110" width="72" height="100" rx="5" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3" stroke-dasharray="7 5"/><line x1="-24" y1="-90" x2="20" y2="-90" stroke="#D9DDE3" stroke-width="6" stroke-linecap="round"/><line x1="-24" y1="-74" x2="0" y2="-74" stroke="#D9DDE3" stroke-width="6" stroke-linecap="round"/></g><g transform="translate(34,-22) rotate(26)"><path d="M-36 -110 L16 -110 L36 -90 L36 -10 L-36 -10 Z" fill="#F28C28" stroke="#1F3A5F" stroke-width="3" stroke-linejoin="round"/><path d="M16 -110 L16 -90 L36 -90 Z" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3" stroke-linejoin="round"/><rect x="-46" y="-66" width="92" height="16" fill="#D9DDE3" fill-opacity=".9" stroke="#1F3A5F" stroke-width="2" transform="rotate(-14 0 -58)"/></g></g><circle cx="510" cy="414" r="13" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/><path d="M610 286 L632 276 M622 310 L648 306" stroke="#1F3A5F" stroke-width="4" stroke-linecap="round"/></svg>
   <div class="coord"><b></b> / <span class="tot"></span></div>
-  <div class="cap top"><h2>세 가지 입력으로 테스트</h2><ul><li>정상 입력 → 형식대로 정리</li><li>정보 부족 → [확인 필요] 표시</li><li>금지 문의 → 정중히 거절 · 안내</li></ul></div>
+  <div class="cap top"><h2>세 가지 입력으로 테스트</h2><ul><li>정상: A편의점 결품 문의</li><li>기준표 밖: 북부대리점 행사 물량</li><li>기준 위반: A마트 매대 3주</li></ul></div>
   
 </section>
 
-<section class="slide lt" data-title="미리보기로 테스트">
+<section class="slide lt" data-title="/로 불러 테스트">
   <div class="coord"><b></b> / <span class="tot"></span></div>
   <div class="eyebrow"><span class="tag">Ch5</span></div>
-  <h2 class="s-title sm">미리보기로 테스트</h2>
+  <h2 class="s-title sm">/로 불러 테스트</h2>
   <div class="rule"></div>
-  <div class="body"><div class="mid"><div class="caps n1"><figure class="capfig empty"><div class="ph">캡처: 미리보기 · 결품 문의 테스트<span>gem-05-preview.png</span></div><figcaption>미리보기 · 결품 문의 테스트</figcaption></figure></div></div></div>
+  <div class="body"><div class="mid"><div class="caps n1"><figure class="capfig empty"><div class="ph">캡처: /응대 · 결품 문의 테스트<span>skill-04-run.png</span></div><figcaption>/응대 · 결품 문의 테스트</figcaption></figure></div></div></div>
+</section>
+
+<section class="slide lt" data-title="Skill 조합">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="eyebrow"><span class="tag">Ch5</span></div>
+  <h2 class="s-title sm">Skill 조합</h2>
+  <div class="rule"></div>
+  <div class="body"><div class="mid"><div class="combo"><span>/응대</span><b>+</b><span>/회신 형식</span><b>=</b><span class="hl">기준 지킨 회신 초안</span></div></div></div>
 </section>
 
 <section class="slide lt" data-title="지침 한 줄 추가 전후">
@@ -2017,29 +2046,13 @@
   <h2 class="s-title sm">지침 한 줄 추가 전후</h2>
   <div class="rule"></div>
   <div class="body"><div class="mid"><div class="ba">
-  <div class="b"><div class="lab">Before</div><div class="q">메모: 3/12 A편의점 본부, 신제품 3종 소개. 반응 괜찮음.<br/><br/>→ 신제품 3종 입점 확정, 다음 달 첫 발주 예정</div></div>
+  <div class="b"><div class="lab">Before</div><div class="q">문의: 신제품 A 결품, 보상 가능한가요?<br/><br/>→ 불편을 드려 죄송합니다. 보상해 드리겠습니다.</div></div>
   <div class="arr">→</div>
-  <div class="a"><div class="lab">After</div><div class="q">지침 추가: 메모에 없는 내용은 지어내지 마<br/><br/>→ 논의: 신제품 3종 소개<br/>→ 요청: [확인 필요]<br/>→ 후속 조치: [확인 필요]</div></div>
+  <div class="a"><div class="lab">After</div><div class="q">지침 추가: 원인 확인 전 보상 약속 금지<br/><br/>→ 물류팀 확인 결과를 받은 뒤<br/>   2영업일 안에 다시 연락드리겠습니다.</div></div>
 </div></div></div>
 </section>
 
-<section class="slide lt" data-title="팀에 공유">
-  <div class="coord"><b></b> / <span class="tot"></span></div>
-  <div class="eyebrow"><span class="tag">Ch5</span></div>
-  <h2 class="s-title sm">팀에 공유</h2>
-  <div class="rule"></div>
-  <div class="body"><div class="mid"><div class="caps n1"><figure class="capfig empty"><div class="ph">캡처: 공유 설정<span>gem-06-share.png</span></div><figcaption>공유 설정</figcaption></figure></div><ul class="capnote"><li>팀원: 보기 권한</li></ul></div></div>
-</section>
-
-<section class="slide lt" data-title="Super Gem: 입력 양식이 붙은 Gem">
-  <div class="coord"><b></b> / <span class="tot"></span></div>
-  <div class="eyebrow"><span class="tag">Ch5</span></div>
-  <h2 class="s-title sm">Super Gem: 입력 양식이 붙은 Gem</h2>
-  <div class="rule"></div>
-  <div class="body"><div class="mid"><div class="caps n2"><figure class="capfig empty"><div class="ph">캡처: 흐름 편집<span>supergem-01-builder.png</span></div><figcaption>흐름 편집</figcaption></figure><figure class="capfig empty"><div class="ph">캡처: 입력 양식으로 실행<span>supergem-02-run.png</span></div><figcaption>입력 양식으로 실행</figcaption></figure></div><ul class="capnote"><li>계정에 따라 메뉴가 없을 수 있음</li></ul></div></div>
-</section>
-
-<section class="slide ill" data-title="Gem + Studio = 에이전트">
+<section class="slide ill" data-title="Studio + 지침 = 에이전트">
   <svg class="scene" viewBox="0 0 1280 720" aria-hidden="true"><ellipse cx="640" cy="662" rx="600" ry="14" fill="#D9DDE3"/>
 <path d="M88 214 L104 196 M190 214 L174 196" stroke="#1F3A5F" stroke-width="6" stroke-linecap="round"/>
 <circle cx="102" cy="222" r="16" fill="#F28C28" stroke="#1F3A5F" stroke-width="3"/>
@@ -2070,7 +2083,7 @@
 <g transform="rotate(-4 975 516)"><rect x="936" y="494" width="76" height="34" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="2.5"/><line x1="944" y1="503" x2="1000" y2="503" stroke="#D9DDE3" stroke-width="3" stroke-linecap="round"/><line x1="944" y1="512" x2="1000" y2="512" stroke="#D9DDE3" stroke-width="3" stroke-linecap="round"/><line x1="944" y1="520" x2="1000" y2="520" stroke="#D9DDE3" stroke-width="3" stroke-linecap="round"/></g>
 <path d="M920 540 L1030 540 L1036 516 L1022 516 L1018 528 L932 528 L928 516 L914 516 Z" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3" stroke-linejoin="round"/><g transform="translate(1150,551.0) scale(0.75)"><use href="#legs"/><path d="M54 -140 L76 -20" stroke="#1F3A5F" stroke-width="22" fill="none" stroke-linecap="round"/><circle cx="76" cy="-20" r="12" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/><rect x="54" y="-24" width="70" height="56" rx="8" fill="#1F3A5F"/><path d="M68 -24 Q89 -54 110 -24" stroke="#1F3A5F" stroke-width="6" fill="none"/><use href="#person"/><path d="M-54 -140 Q-120 -130 -164 -40" stroke="#1F3A5F" stroke-width="22" fill="none" stroke-linecap="round"/><circle cx="-164" cy="-40" r="12" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/></g></svg>
   <div class="coord"><b></b> / <span class="tot"></span></div>
-  <div class="cap top"><h2>Gem + Studio = 에이전트</h2><ul><li>문의 → 답장 초안 → 담당자 알림</li><li>자동 발송 없음</li></ul></div>
+  <div class="cap top"><h2>Studio + 지침 = 에이전트</h2><ul><li>문의 → 답장 초안 → 담당자 알림</li><li>자동 발송 없음</li></ul></div>
   
 </section>
 
@@ -2079,7 +2092,7 @@
   <div class="eyebrow"><span class="tag">Ch5</span></div>
   <h2 class="s-title sm">결과물의 연결</h2>
   <div class="rule"></div>
-  <div class="body"><div class="mid"><div class="flow"><div class="fs"><b>조사</b><span>Ch1</span></div><div class="fa">→</div><div class="fs"><b>숫자</b><span>Ch2</span></div><div class="fa">→</div><div class="fs"><b>제안서</b><span>Ch3</span></div><div class="fa">→</div><div class="fs"><b>대시보드 · 메일</b><span>Ch4</span></div><div class="fa">→</div><div class="fs"><b>Gem</b><span>Ch5</span></div></div>
+  <div class="body"><div class="mid"><div class="flow"><div class="fs"><b>조사</b><span>Ch1</span></div><div class="fa">→</div><div class="fs"><b>숫자</b><span>Ch2</span></div><div class="fa">→</div><div class="fs"><b>제안서</b><span>Ch3</span></div><div class="fa">→</div><div class="fs"><b>대시보드 · 메일</b><span>Ch4</span></div><div class="fa">→</div><div class="fs"><b>Skill</b><span>Ch5</span></div></div>
 <div class="homework"><b>숙제</b> 내 업무에서 만들 것 하나</div></div></div>
 </section>
 
@@ -2112,7 +2125,7 @@
   <div class="icons"><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span><span class="nm">Apps Script · Studio</span></div>
 </div><div class="node on" style="left:80px; top:546px">
   <div class="nh"><span class="chip">Ch5</span><b>전담 비서</b></div>
-  <div class="icons"><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span><span class="nm">Gem</span></div>
+  <div class="icons"><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span><span class="nm">Skills</span></div>
 </div>
   <div class="hub" style="left:566px; top:356px"><img src="assets/icons/gemini.svg" alt="Gemini"/></div>
 </section>
@@ -2122,7 +2135,7 @@
   <div class="eyebrow"><span class="tag">적용</span></div>
   <h2 class="s-title sm">두 가지 원칙</h2>
   <div class="rule"></div>
-  <div class="body"><div class="mid"><div class="kcards c2"><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/notebooklm.svg" alt="NotebookLM"/></span><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span></div><h4>원칙 ① 근거를 쥐여 준다</h4><p>Ch1 오픈북 · Ch5 지식 파일</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span></div><h4>원칙 ② 계획을 보여 줄 때 개입한다</h4><p>Ch1 Deep Research · Ch2 Sheets · Ch4 Studio</p></div></div></div></div>
+  <div class="body"><div class="mid"><div class="kcards c2"><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/notebooklm.svg" alt="NotebookLM"/></span><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span></div><h4>원칙 ① 근거를 쥐여 준다</h4><p>Ch1 오픈북 · Ch5 참조 파일</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span></div><h4>원칙 ② 계획을 보여 줄 때 개입한다</h4><p>Ch1 Deep Research · Ch2 Sheets · Ch4 Studio</p></div></div></div></div>
 </section>
 
 <section class="slide ill" data-title="작게 끝내기">
@@ -2156,7 +2169,7 @@
   <div class="eyebrow"><span class="tag">적용</span></div>
   <h2 class="s-title sm">트랙 선택</h2>
   <div class="rule"></div>
-  <div class="body"><div class="mid"><div class="kcards c3"><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/docs.svg" alt="Docs"/></span><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span></div><h4>문서 · 제안</h4><p>Canvas + Gem<br/>예: 판촉 성과 비교 도구</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span><span class="ic"><img src="assets/icons/forms.svg" alt="Forms"/></span><span class="ic"><img src="assets/icons/docs.svg" alt="Docs"/></span></div><h4>대시보드</h4><p>Sheets + Forms + Canvas<br/>예: 이슈 통합 관리 화면</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span></div><h4>자동화</h4><p>Apps Script · Studio + Gem<br/>예: 지역별 미달 알림 초안</p></div></div></div></div>
+  <div class="body"><div class="mid"><div class="kcards c3"><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/docs.svg" alt="Docs"/></span><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span></div><h4>문서 · 제안</h4><p>Canvas + Skill<br/>예: 판촉 성과 비교 도구</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span><span class="ic"><img src="assets/icons/forms.svg" alt="Forms"/></span><span class="ic"><img src="assets/icons/docs.svg" alt="Docs"/></span></div><h4>대시보드</h4><p>Sheets + Forms + Canvas<br/>예: 이슈 통합 관리 화면</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span></div><h4>자동화</h4><p>Apps Script · Studio + Skill<br/>예: 지역별 미달 알림 초안</p></div></div></div></div>
 </section>
 
 <section class="slide lt" data-title="평가 기준">
