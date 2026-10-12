@@ -139,46 +139,82 @@ def meme():
 </section>'''
 
 
-def ecosystem():
+def ecosystem(active=None):
+    """active 가 없으면 전체 지도. 있으면 앞 장은 켜고, 이번 장은 강조하고, 뒤 장은 흐리게."""
     hub = (640, 430)
     nodes = {  # 장 → 카드 중심
         "CH1": (250, 255), "CH2": (640, 215), "CH3": (1030, 255),
         "CH6": (250, 590), "CH5": (640, 650), "CH4": (1030, 590),
     }
-    lines = "".join(
-        f'<line x1="{hub[0]}" y1="{hub[1]}" x2="{x}" y2="{y}" stroke="#F28C28" stroke-width="2.5" stroke-dasharray="6 7" opacity=".7"/>'
-        for x, y in nodes.values())
+
+    def state(c):
+        if active is None:
+            return "all"
+        n, k = int(c[2:]), int(active[2:])
+        return "done" if n < k else "on" if n == k else "dim"
+
+    lines = []
+    for c, (x, y) in nodes.items():
+        st = state(c)
+        if st == "all":
+            lines.append(f'<line x1="{hub[0]}" y1="{hub[1]}" x2="{x}" y2="{y}" stroke="#F28C28" stroke-width="2.5" stroke-dasharray="6 7" opacity=".7"/>')
+        elif st == "done":
+            lines.append(f'<line x1="{hub[0]}" y1="{hub[1]}" x2="{x}" y2="{y}" stroke="#FFFFFF" stroke-width="2.5" opacity=".45"/>')
+        elif st == "dim":
+            lines.append(f'<line x1="{hub[0]}" y1="{hub[1]}" x2="{x}" y2="{y}" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="4 8" opacity=".12"/>')
+        else:
+            lines.append(f'<line x1="{hub[0]}" y1="{hub[1]}" x2="{x}" y2="{y}" stroke="#F28C28" stroke-width="5" opacity=".35"/>'
+                         f'<line class="flow" x1="{hub[0]}" y1="{hub[1]}" x2="{x}" y2="{y}" stroke="#F28C28" stroke-width="5" stroke-linecap="round" stroke-dasharray="14 12"/>')
     cards = []
     for c, dd, t, d, ics in CHAPTERS:
         if c not in nodes:
             continue
         x, y = nodes[c]
-        cards.append(f'''<div class="node" style="left:{x-182}px; top:{y-46}px">
+        cards.append(f'''<div class="node {state(c)}" style="left:{x-182}px; top:{y-46}px">
   <div class="nh"><span class="chip">{c}</span><b>{t}</b></div>
   <div class="icons">{"".join(icon(n) + f'<span class="nm">{NAMES[n]}</span>' for n in ics)}</div>
 </div>''')
-    return f'''<section class="slide dk eco" data-title="구글 생태계 지도">
+    if active is None:
+        kick, h2, title = "구글 생태계", "Gemini로 연결되는 구글 도구", "구글 생태계 지도"
+        cap = "all"
+    else:
+        name = next(t for c, _, t, _, _ in CHAPTERS if c == active)
+        kick, h2, title = f"구글 생태계 · {active}", f"{name}에서 쓰는 도구", f"[{active}] 생태계 지도"
+        cap = "on" if active == "CH7" else "dim"
+    return f'''<section class="slide dk eco{' focus' if active else ''}" data-title="{title}">
   {coord()}
-  <div class="kick">구글 생태계</div>
-  <h2>Gemini로 연결되는 구글 도구</h2>
-  <svg class="ecosvg" viewBox="0 0 1280 720">{lines}</svg>
+  <div class="kick">{kick}</div>
+  <h2>{h2}</h2>
+  <svg class="ecosvg" viewBox="0 0 1280 720">{"".join(lines)}</svg>
   {"".join(cards)}
   <div class="hub" style="left:{hub[0]-74}px; top:{hub[1]-74}px"><img src="{ICON.format("gemini")}" alt="Gemini"/></div>
-  <div class="hubcap" style="left:{hub[0]-160}px; top:{hub[1]+84}px"><span class="chip">CH7</span> 실전 과제</div>
+  <div class="hubcap {cap}" style="left:{hub[0]-160}px; top:{hub[1]+84}px"><span class="chip">CH7</span> 실전 과제</div>
 </section>'''
 
 
-def divider():
-    return '''<section class="slide dk divider" data-title="[CH2] 근거 있는 답변">
-  <div class="ghost">02</div>
-  <div class="kick">CHAPTER 02</div>
-  <h2 class="big">근거 있는 답변</h2>
-  <div class="agenda2"><span>Deep Research</span><span>NotebookLM</span><span>출처 확인</span></div>
+DIVIDERS = {
+    "CH2": ("근거 있는 답변", ["Deep Research", "NotebookLM", "출처 확인"]),
+}
+
+
+def divider(ch):
+    title, chips = DIVIDERS[ch]
+    num = ch[2:].zfill(2)
+    return f'''<section class="slide dk divider" data-title="[{ch}] {title}">
+  <div class="ghost">{num}</div>
+  <div class="kick">CHAPTER {num}</div>
+  <h2 class="big">{title}</h2>
+  <div class="agenda2">{"".join(f"<span>{c}</span>" for c in chips)}</div>
 </section>'''
+
+
+def chapter_open(ch):
+    """챕터 시작마다 간지 + 그 장이 켜진 생태계 지도."""
+    return [divider(ch), ecosystem(ch)]
 
 
 def slides():
-    return [cover(), speaker(), agenda(), codered(), meme(), ecosystem(), divider()]
+    return [cover(), speaker(), agenda(), codered(), meme(), ecosystem()] + chapter_open("CH2")
 
 
 CSS = '''
@@ -246,6 +282,16 @@ CSS = '''
   .eco .hub img{width:84px; height:84px;}
   .eco .hubcap{position:absolute; width:320px; text-align:center; font-size:15px; color:rgba(255,255,255,.8); z-index:2;} .eco .hubcap{background:#0F1B2D; padding:4px 0;}
 
+  .eco .node{transition:none;}
+  .eco .node.done > *{opacity:.85;}
+  .eco .node.dim{background:#111D30; border-color:rgba(255,255,255,.06);}
+  .eco .node.dim > *{opacity:.28; filter:grayscale(1);}
+  .eco .node.on{border:2px solid #F28C28; background:#22344F; box-shadow:0 0 0 6px rgba(242,140,40,.15), 0 0 40px 4px rgba(242,140,40,.35); transform:scale(1.06);}
+  .eco .node.done .chip{background:rgba(255,255,255,.75);}
+  .eco .hubcap.dim{opacity:.3;}
+  .eco .flow{animation:flow 1.1s linear infinite;}
+  @keyframes flow{to{stroke-dashoffset:-52;}}
+  @media print{ .eco .flow{animation:none;} }
   .divider{justify-content:center;}
   .divider .ghost{position:absolute; right:40px; bottom:-60px; font-family:var(--mono); font-weight:700; font-size:320px; line-height:.8; color:rgba(255,255,255,.06);}
   .divider .big{font-size:56px; margin-top:16px;}

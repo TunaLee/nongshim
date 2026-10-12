@@ -7,3 +7,4 @@
 - 도입부: `src/intro.py` — 목차는 `CHAPTERS` 한 곳만 고치면 목차·생태계 장에 같이 반영된다
 - 아이콘: `docs/grounding/assets/icons/` — Wikimedia Commons, Public domain · CC0. 상표라 참조 용도로만 쓴다
 - 밈 두 장(`meme-*.jpg`)은 출처 미확인 이미지라 저장소를 공개로 바꾸기 전에 빼야 한다
+- 챕터를 열 때는 `intro.chapter_open("CH3")` — 간지와 그 장이 켜진 생태계 지도가 같이 붙는다. 간지 문구는 `DIVIDERS`에 추가

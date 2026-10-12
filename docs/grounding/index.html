@@ -413,6 +413,16 @@
   .eco .hub img{width:84px; height:84px;}
   .eco .hubcap{position:absolute; width:320px; text-align:center; font-size:15px; color:rgba(255,255,255,.8); z-index:2;} .eco .hubcap{background:#0F1B2D; padding:4px 0;}
 
+  .eco .node{transition:none;}
+  .eco .node.done > *{opacity:.85;}
+  .eco .node.dim{background:#111D30; border-color:rgba(255,255,255,.06);}
+  .eco .node.dim > *{opacity:.28; filter:grayscale(1);}
+  .eco .node.on{border:2px solid #F28C28; background:#22344F; box-shadow:0 0 0 6px rgba(242,140,40,.15), 0 0 40px 4px rgba(242,140,40,.35); transform:scale(1.06);}
+  .eco .node.done .chip{background:rgba(255,255,255,.75);}
+  .eco .hubcap.dim{opacity:.3;}
+  .eco .flow{animation:flow 1.1s linear infinite;}
+  @keyframes flow{to{stroke-dashoffset:-52;}}
+  @media print{ .eco .flow{animation:none;} }
   .divider{justify-content:center;}
   .divider .ghost{position:absolute; right:40px; bottom:-60px; font-family:var(--mono); font-weight:700; font-size:320px; line-height:.8; color:rgba(255,255,255,.06);}
   .divider .big{font-size:56px; margin-top:16px;}
@@ -542,27 +552,27 @@
   <div class="kick">구글 생태계</div>
   <h2>Gemini로 연결되는 구글 도구</h2>
   <svg class="ecosvg" viewBox="0 0 1280 720"><line x1="640" y1="430" x2="250" y2="255" stroke="#F28C28" stroke-width="2.5" stroke-dasharray="6 7" opacity=".7"/><line x1="640" y1="430" x2="640" y2="215" stroke="#F28C28" stroke-width="2.5" stroke-dasharray="6 7" opacity=".7"/><line x1="640" y1="430" x2="1030" y2="255" stroke="#F28C28" stroke-width="2.5" stroke-dasharray="6 7" opacity=".7"/><line x1="640" y1="430" x2="250" y2="590" stroke="#F28C28" stroke-width="2.5" stroke-dasharray="6 7" opacity=".7"/><line x1="640" y1="430" x2="640" y2="650" stroke="#F28C28" stroke-width="2.5" stroke-dasharray="6 7" opacity=".7"/><line x1="640" y1="430" x2="1030" y2="590" stroke="#F28C28" stroke-width="2.5" stroke-dasharray="6 7" opacity=".7"/></svg>
-  <div class="node" style="left:68px; top:209px">
+  <div class="node all" style="left:68px; top:209px">
   <div class="nh"><span class="chip">CH1</span><b>Gemini 기본기</b></div>
   <div class="icons"><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span><span class="nm">Gemini</span></div>
-</div><div class="node" style="left:458px; top:169px">
+</div><div class="node all" style="left:458px; top:169px">
   <div class="nh"><span class="chip">CH2</span><b>근거 있는 답변</b></div>
   <div class="icons"><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span><span class="nm">Gemini</span><span class="ic"><img src="assets/icons/notebooklm.svg" alt="NotebookLM"/></span><span class="nm">NotebookLM</span></div>
-</div><div class="node" style="left:848px; top:209px">
+</div><div class="node all" style="left:848px; top:209px">
   <div class="nh"><span class="chip">CH3</span><b>Workspace 속 Gemini</b></div>
   <div class="icons"><span class="ic"><img src="assets/icons/gmail.svg" alt="Gmail"/></span><span class="nm">Gmail</span><span class="ic"><img src="assets/icons/docs.svg" alt="Docs"/></span><span class="nm">Docs</span><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span><span class="nm">Sheets</span><span class="ic"><img src="assets/icons/meet.svg" alt="Meet"/></span><span class="nm">Meet</span></div>
-</div><div class="node" style="left:848px; top:544px">
+</div><div class="node all" style="left:848px; top:544px">
   <div class="nh"><span class="chip">CH4</span><b>콘텐츠 만들기</b></div>
   <div class="icons"><span class="ic"><img src="assets/icons/slides.svg" alt="Slides"/></span><span class="nm">Slides</span><span class="ic"><img src="assets/icons/vids.svg" alt="Vids"/></span><span class="nm">Vids</span></div>
-</div><div class="node" style="left:458px; top:604px">
+</div><div class="node all" style="left:458px; top:604px">
   <div class="nh"><span class="chip">CH5</span><b>AI Studio</b></div>
   <div class="icons"><span class="ic"><img src="assets/icons/aistudio.svg" alt="AI Studio"/></span><span class="nm">AI Studio</span></div>
-</div><div class="node" style="left:68px; top:544px">
+</div><div class="node all" style="left:68px; top:544px">
   <div class="nh"><span class="chip">CH6</span><b>자동화</b></div>
   <div class="icons"><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span><span class="nm">Apps Script</span><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span><span class="nm">Sheets</span><span class="ic"><img src="assets/icons/calendar.svg" alt="Calendar"/></span><span class="nm">Calendar</span></div>
 </div>
   <div class="hub" style="left:566px; top:356px"><img src="assets/icons/gemini.svg" alt="Gemini"/></div>
-  <div class="hubcap" style="left:480px; top:514px"><span class="chip">CH7</span> 실전 과제</div>
+  <div class="hubcap all" style="left:480px; top:514px"><span class="chip">CH7</span> 실전 과제</div>
 </section>
 
 <section class="slide dk divider" data-title="[CH2] 근거 있는 답변">
@@ -570,6 +580,34 @@
   <div class="kick">CHAPTER 02</div>
   <h2 class="big">근거 있는 답변</h2>
   <div class="agenda2"><span>Deep Research</span><span>NotebookLM</span><span>출처 확인</span></div>
+</section>
+
+<section class="slide dk eco focus" data-title="[CH2] 생태계 지도">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="kick">구글 생태계 · CH2</div>
+  <h2>근거 있는 답변에서 쓰는 도구</h2>
+  <svg class="ecosvg" viewBox="0 0 1280 720"><line x1="640" y1="430" x2="250" y2="255" stroke="#FFFFFF" stroke-width="2.5" opacity=".45"/><line x1="640" y1="430" x2="640" y2="215" stroke="#F28C28" stroke-width="5" opacity=".35"/><line class="flow" x1="640" y1="430" x2="640" y2="215" stroke="#F28C28" stroke-width="5" stroke-linecap="round" stroke-dasharray="14 12"/><line x1="640" y1="430" x2="1030" y2="255" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="4 8" opacity=".12"/><line x1="640" y1="430" x2="250" y2="590" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="4 8" opacity=".12"/><line x1="640" y1="430" x2="640" y2="650" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="4 8" opacity=".12"/><line x1="640" y1="430" x2="1030" y2="590" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="4 8" opacity=".12"/></svg>
+  <div class="node done" style="left:68px; top:209px">
+  <div class="nh"><span class="chip">CH1</span><b>Gemini 기본기</b></div>
+  <div class="icons"><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span><span class="nm">Gemini</span></div>
+</div><div class="node on" style="left:458px; top:169px">
+  <div class="nh"><span class="chip">CH2</span><b>근거 있는 답변</b></div>
+  <div class="icons"><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span><span class="nm">Gemini</span><span class="ic"><img src="assets/icons/notebooklm.svg" alt="NotebookLM"/></span><span class="nm">NotebookLM</span></div>
+</div><div class="node dim" style="left:848px; top:209px">
+  <div class="nh"><span class="chip">CH3</span><b>Workspace 속 Gemini</b></div>
+  <div class="icons"><span class="ic"><img src="assets/icons/gmail.svg" alt="Gmail"/></span><span class="nm">Gmail</span><span class="ic"><img src="assets/icons/docs.svg" alt="Docs"/></span><span class="nm">Docs</span><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span><span class="nm">Sheets</span><span class="ic"><img src="assets/icons/meet.svg" alt="Meet"/></span><span class="nm">Meet</span></div>
+</div><div class="node dim" style="left:848px; top:544px">
+  <div class="nh"><span class="chip">CH4</span><b>콘텐츠 만들기</b></div>
+  <div class="icons"><span class="ic"><img src="assets/icons/slides.svg" alt="Slides"/></span><span class="nm">Slides</span><span class="ic"><img src="assets/icons/vids.svg" alt="Vids"/></span><span class="nm">Vids</span></div>
+</div><div class="node dim" style="left:458px; top:604px">
+  <div class="nh"><span class="chip">CH5</span><b>AI Studio</b></div>
+  <div class="icons"><span class="ic"><img src="assets/icons/aistudio.svg" alt="AI Studio"/></span><span class="nm">AI Studio</span></div>
+</div><div class="node dim" style="left:68px; top:544px">
+  <div class="nh"><span class="chip">CH6</span><b>자동화</b></div>
+  <div class="icons"><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span><span class="nm">Apps Script</span><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span><span class="nm">Sheets</span><span class="ic"><img src="assets/icons/calendar.svg" alt="Calendar"/></span><span class="nm">Calendar</span></div>
+</div>
+  <div class="hub" style="left:566px; top:356px"><img src="assets/icons/gemini.svg" alt="Gemini"/></div>
+  <div class="hubcap dim" style="left:480px; top:514px"><span class="chip">CH7</span> 실전 과제</div>
 </section>
 
 <section class="slide ill" data-title="AI 답, 그대로 써도 될까요?">
