@@ -7,7 +7,7 @@ from pathlib import Path
 
 import deck
 import explain
-from deck import ba, bridge, capture, divider, flow, ill, lab, light
+from deck import ba, bridge, capture, cards, divider, flow, ill, lab, light
 from intro import coord, icon
 
 N, G, O, W = "#1F3A5F", "#D9DDE3", "#F28C28", "#FFFFFF"
@@ -105,7 +105,7 @@ def pipeline():
     s = markers("pl")
     s += box(40, 30, 300, 92, "입력 A · 대량 엑셀 원본", "오탈자 · 중복 · 공백")
     s += box(840, 30, 300, 92, "입력 B · 웹 화면 건별 입력", "드롭다운 · 자동완성")
-    s += box(40, 170, 300, 92, "Skill  sales-data-cleaner", "교정 · 중복 제거 · 검증", fill="#FFF3E6", stroke=O)
+    s += box(40, 170, 300, 92, "정제 Skill", "교정 · 중복 제거 · 검증", fill="#FFF3E6", stroke=O)
     s += box(840, 170, 300, 92, "GAS  addSalesRecord", "검증 · 금액 계산 · 저장", fill="#EEF1F5")
     s += db(530, 250, 120, 110, "")
     s += f'<text x="590" y="395" text-anchor="middle" class="bt" fill="{N}">시트 마스터 · 클린 데이터</text>'
@@ -115,6 +115,35 @@ def pipeline():
     s += arrow(590, 405, 590, 436, O, w=4, mid="aho")
     s = s.replace('class="bs">KPI', 'class="bsw">KPI')
     return f'<svg viewBox="0 0 1180 530" class="websvg pipe2">{s}</svg>'
+
+
+def lock(x, y, s=1.0):
+    return (f'<g transform="translate({x},{y}) scale({s})">'
+            f'<path d="M-12 0 V-10 A12 12 0 0 1 12 -10 V0" fill="none" stroke="{O}" stroke-width="5"/>'
+            f'<rect x="-18" y="0" width="36" height="28" rx="6" fill="{O}"/><circle cx="0" cy="12" r="4" fill="{W}"/></g>')
+
+
+def proxy():
+    """원본 시트는 잠가 두고, 웹앱(실행: 나)이 대신 접근한다."""
+    s = markers("px")
+    # 보안 영역
+    s += f'<rect x="30" y="20" width="560" height="420" rx="22" fill="#F6F8FA" stroke="{N}" stroke-width="2.5" stroke-dasharray="9 7"/>'
+    s += f'<text x="58" y="56" class="bt" fill="{N}">Drive 보안 영역</text>'
+    s += db(110, 120, 130, 140, "")
+    s += lock(175, 104, 1.1)
+    s += f'<text x="175" y="300" text-anchor="middle" class="bt" fill="{N}">원본 시트</text>'
+    s += f'<text x="175" y="326" text-anchor="middle" class="bs">공유: 제한됨 · 나만</text>'
+    s += box(360, 150, 190, 120, "Apps Script", "실행: 나 (소유자)", fill="#EEF1F5")
+    s += arrow(355, 190, 245, 190) + arrow(245, 230, 355, 230)
+    s += f'<text x="300" y="176" text-anchor="middle" class="bs">읽기</text><text x="300" y="256" text-anchor="middle" class="bs">쓰기</text>'
+    s += f'<text x="455" y="300" text-anchor="middle" class="bs">소유자 권한을 대신 사용</text>'
+    # 팀원
+    s += arrow(555, 210, 740, 210, O, w=4, mid="aho") + f'<text x="648" y="192" text-anchor="middle" class="bso">웹앱 URL</text>'
+    for i, y in enumerate((60, 190, 320)):
+        s += browser(760, y, 220, 110, bars(790, y + 95, [30, 50, 40, 60], O if i == 1 else G, bw=16, gap=10))
+    s += f'<text x="1080" y="190" class="bt" fill="{N}">팀원</text>'
+    s += f'<text x="1080" y="218" class="bs">시트 링크 모름</text><text x="1080" y="242" class="bs">시트 권한 없음</text><text x="1080" y="266" class="bs">보기 · 입력 가능</text>'
+    return f'<svg viewBox="0 0 1240 460" class="websvg">{s}</svg>'
 
 
 def save_flow():
@@ -135,7 +164,7 @@ def cover():
 
 def slides():
     skill_md = ("---\n"
-                "name: sales-data-cleaner\n"
+                "name: (내가 정한 이름)\n"
                 "description: 판매 데이터 파일이 오면 마스터 구조로 정리\n"
                 "---\n"
                 "목표: 어떤 형식의 파일이든 마스터와 같은 구조로\n"
@@ -167,9 +196,10 @@ def slides():
     return [
         cover(),
         light("전체 구조", pipeline(), "개요"),
+        light("원본은 잠그고, 웹앱이 대신 접근", proxy(), "개요"),
         light("단계별 역할", f'''<table class="dbt">
 <thead><tr><th>단계</th><th>하는 일</th><th>도구</th></tr></thead><tbody>
-<tr><td><b>정리</b></td><td>오탈자 · 중복 · 공백 정리</td><td>Skill · sales-data-cleaner</td></tr>
+<tr><td><b>정리</b></td><td>오탈자 · 중복 · 공백 정리</td><td>정제 Skill</td></tr>
 <tr><td><b>입력</b></td><td>건별 거래를 바로 기록</td><td>웹 화면 + GAS addSalesRecord</td></tr>
 <tr><td><b>저장</b></td><td>깨끗한 데이터 한 곳</td><td>시트 마스터</td></tr>
 <tr><td><b>보여주기</b></td><td>지금 숫자를 화면에</td><td>GAS 웹앱 대시보드</td></tr>
@@ -201,12 +231,29 @@ def slides():
         ba("지침은 규칙 목록이 아니라 판단 기준", "02",
            "'B 편의점'을 'B편의점'으로 바꿔 줘.\nC열과 D열을 기준으로 중복을 지워 줘.\n2~4381행만 처리해 줘.\n\n→ 다음 달 파일에서는 안 맞음",
            "목표: 어떤 파일이든 마스터 구조로\n열 의미부터 파악하고, 거래처는 마스터에서 가장 가까운 값으로.\n안 맞는 숫자는 고치지 말고 표시, 애매한 건 리포트에.\n\n→ 파일이 바뀌어도 그대로 사용"),
-        light("sales-data-cleaner", f'<div class="twocol">{code("Skill", skill_md)}<div class="vl"><p>목표</p><p>판단 기준</p><p>모를 때의 처리</p><p>참조 마스터</p></div></div>', "02"),
-        lab("1", "원본 정리 Skill", "02",
-            "01 원본을 Skill 한 줄로 마스터 시트에",
-            ["sales-data-cleaner Skill 만들기", "01 원본을 Drive에 올리고 대화에 첨부", "/sales-data-cleaner 호출", "정제 리포트 확인 → 마스터 시트 기록"],
-            ["판매실적_마스터 4,368행", "편의점 8월 매출 14.21억 원"],
+        light("정제 Skill 지침", f'<div class="twocol">{code("Skill", skill_md)}<div class="vl"><p>목표</p><p>판단 기준</p><p>모를 때의 처리</p><p>참조 마스터</p></div></div>', "02"),
+        light("외부 AI와 시트 안 Apps Script", f'''<table class="dbt">
+<thead><tr><th>작업</th><th>외부 AI (대화창)</th><th>시트 안 Apps Script</th></tr></thead><tbody>
+<tr><td><b>읽기</b></td><td>가능</td><td>가능</td></tr>
+<tr><td><b>새 파일 만들기</b></td><td>가능</td><td>가능</td></tr>
+<tr><td><b>기존 셀 수정</b></td><td>권한 거부</td><td>가능</td></tr>
+<tr><td><b>행 삭제 · 일괄 치환 · 행 추가</b></td><td>권한 거부</td><td>가능</td></tr>
+</tbody></table>
+<div class="dbnote"><span>이유</span> Apps Script는 시트 소유자 권한으로 실행</div>''', "02"),
+        light("정제 방식 두 가지", cards([
+            ("A · 안전 분리형", "원본은 그대로<br/>정제본을 새 시트로 생성<br/>언제: 백업 · 변경 기록이 중요할 때", ["drive"]),
+            ("B · 내부 직접 조작형", "Skill이 Apps Script 코드 생성<br/>시트에 커스텀 메뉴 · 버튼<br/>언제: 팀원이 버튼으로 품질 검사", ["appsscript"]),
+        ], 2), "02"),
+        lab("1", "방식 A · 정제본 만들기", "02",
+            "원본은 두고 정제본 시트를 새로",
+            ["정제 Skill 만들기 (이름은 자유)", "01 원본을 Drive에 올리고 대화에 첨부", "/내 Skill 이름으로 호출", "정제 리포트 확인 → 정제본 시트 생성"],
+            ["정제본 4,368행 · 원본 4,381행 그대로", "편의점 8월 매출 14.21억 원"],
             20, "01 · 04(대조용)"),
+        lab("2", "방식 B · 시트 안 정제 메뉴", "02",
+            "버튼 한 번으로 시트 안에서 정제",
+            ["Skill에 「이 시트용 정제 Apps Script 만들어 줘」", "확장 프로그램 → Apps Script에 붙여넣기 · 저장", "시트 새로고침(F5) → 커스텀 메뉴 확인", "메뉴 실행 → 권한 승인(처음 한 번)"],
+            ["메뉴 한 번으로 중복 · 띄어쓰기 정리", "실행 전 사본으로 백업"],
+            15, "01 사본"),
 
         divider("03", "웹 화면에서 바로 입력", ""),
         ill("scenes_extra", "forms_inlet", "top20", "입구부터 반듯하게", ["드롭다운 · 자동완성", "오탈자 원천 차단"]),
@@ -215,17 +262,19 @@ def slides():
         divider("04", "Apps Script 웹앱 대시보드", ""),
         ill("scenes_ch4", "hang_window", "left40", "Apps Script로 시트와 연결", ["Code.gs: 시트 ↔ 화면", "Index.html: 화면 틀", "URL 하나로 공유"]),
         light("Code.gs의 세 함수", code("Code.gs", gas_code), "04"),
-        light("만드는 순서", flow([("편집기 열기", "확장 프로그램 → Apps Script"), ("파일 2개", "Code.gs · Index.html"),
-                                ("웹앱 배포", "배포 → 새 배포 → 웹 앱"), ("권한 승인", "처음 한 번")], hl=2), "04"),
-        capture("① 편집기 열기", "04", [("gas-01-menu", "확장 프로그램 → Apps Script")], ["새 시트: 판매실적_마스터"]),
-        capture("② 파일 두 개", "04", [("gas-02-files", "Code.gs · Index.html")], ["+ → HTML → 이름: Index (대소문자 그대로)"]),
-        capture("③ 웹앱 배포", "04", [("gas-03-deploy", "새 배포 · 웹 앱 설정")], ["실행: 나", "액세스: 내 조직"]),
+        light("처음부터 끝까지 다섯 단계", flow([("환경 준비", ".XLSX → Google 시트"), ("코드 받기", "Skill이 Code.gs · Index.html 생성"),
+                                ("코드 넣기", "Apps Script 붙여넣기 · 메뉴"), ("웹앱 배포", "실행: 나"), ("운영", "정제 → 누적 → 새로고침")], hl=3), "04"),
+        capture("① 환경 준비", "04", [("gas-00-xlsx", "파일 이름 옆 .XLSX 표시")], [".XLSX면 Apps Script 메뉴 비활성", "파일 → Google 스프레드시트로 저장"]),
+        light("② 코드 받기", code("Skill에 요청", "이 시트의 열 구조를 먼저 읽고\n시트 안 정제 메뉴와 대시보드를 만드는\nCode.gs · Index.html 코드를 만들어 줘.\n시트 이름 · 열 이름은 실제 시트에 맞춰서."), "04"),
+        capture("③ 코드 넣기", "04", [("gas-01-menu", "확장 프로그램 → Apps Script"), ("gas-02-files", "Code.gs · Index.html")], ["+ → HTML → 이름: Index", "F5 → 커스텀 메뉴"]),
+        capture("④ 웹앱 배포", "04", [("gas-03-deploy", "새 배포 · 웹 앱 설정")], ["실행: 나 (핵심)", "액세스: 내 조직"]),
         capture("④ 권한 승인", "04", [("gas-04-auth", "확인하지 않은 앱 경고")], ["고급 → 이동", "허용 → 웹앱 URL"]),
-        lab("2", "웹앱 대시보드", "04",
+        lab("3", "웹앱 대시보드", "04",
             "시트와 연결된 대시보드 주소 받기",
             ["판매실적_마스터에서 Apps Script 열기", "Code.gs · Index.html 붙여넣기", "웹앱 배포 → 권한 승인", "웹 화면에서 한 건 등록"],
             ["옆 사람이 URL로 접속", "등록한 한 건이 시트와 화면에 반영"],
             30, "판매실적_마스터 · 09(화면 틀)"),
+        light("⑤ 운영: 매달 반복", flow([("새 원본 도착", ""), ("정제 Skill 실행", "검출 · 정제"), ("마스터에 누적", "append"), ("팀원 새로고침", "URL 그대로")], hl=1), "04"),
         bridge("Skill은 정리, Apps Script는 연결", "", "전체", "원본 → Skill → 시트 마스터 → 웹앱"),
     ]
 
