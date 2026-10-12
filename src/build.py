@@ -14,7 +14,7 @@ import intro
 
 ROOT = Path(__file__).resolve().parent.parent
 DECKS = {
-    "grounding": ("deck", "grounding", "AI로 일하는 방식 바꾸기"),
+    "grounding": ("course", "grounding", "AI로 일하는 방식 바꾸기"),
     "gas": ("deck_gas", "gas-dashboard", "Skill과 Apps Script 실적 대시보드"),
 }
 

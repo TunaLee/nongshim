@@ -162,10 +162,10 @@ TEAM = [
 ]
 
 
-def team_map(active=None, kick="도구 지도", title="구글 도구로 꾸리는 작은 개발팀"):
+def team_map(active=None, kick="도구 지도", title="구글 도구로 꾸리는 작은 개발팀", roles=None):
     hub = (640, 430)
     lines, cards_ = [], []
-    for ic, tool, role, job, (x, y) in TEAM:
+    for ic, tool, role, job, (x, y) in (roles or TEAM):
         st = "all" if active is None else ("on" if tool in active else "dim")
         line = {"all": f'stroke="{O}" stroke-width="2.5" stroke-dasharray="6 7" opacity=".7"',
                 "dim": 'stroke="#fff" stroke-width="2" stroke-dasharray="4 8" opacity=".12"',

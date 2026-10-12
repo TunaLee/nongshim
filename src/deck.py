@@ -102,7 +102,7 @@ def capture(title, ch, shots, lines=()):
     return light(title, f'<div class="caps n{len(shots)}">{body}</div>' + (f'<ul class="capnote">{side}</ul>' if side else ""), ch)
 
 
-def lab(no, title, ch, goal, steps, done, minutes, files=""):
+def lab(no, title, ch, goal, steps, done, minutes=None, files=""):
     """실습 장 — 목표 · 단계 · 완료 기준 · 시간 네 칸 고정."""
     st = "".join(f"<li>{x}</li>" for x in steps)
     dn = "".join(f"<li>{x}</li>" for x in done)
@@ -113,7 +113,6 @@ def lab(no, title, ch, goal, steps, done, minutes, files=""):
   <div class="rule"></div>
   <div class="body"><div class="labgrid">
     <div class="lc goal"><div class="lh">목표</div><p>{goal}</p>{f'<div class="lf">사용 파일 · {files}</div>' if files else ''}</div>
-    <div class="lc time"><div class="lh">시간</div><b>{minutes}</b><span>분</span></div>
     <div class="lc steps"><div class="lh">단계</div><ol>{st}</ol></div>
     <div class="lc done"><div class="lh">완료 기준</div><ul>{dn}</ul></div>
   </div></div>
@@ -224,18 +223,18 @@ def o02():
 
 
 AGENDA = [
-    ("Ch1", "근거 있는 조사", "출처가 붙은 조사 보고서", ["gemini", "notebooklm"]),
-    ("Ch2", "숫자 정리", "정리된 실적 시트 · 이슈 접수 폼", ["sheets", "forms"]),
-    ("Ch3", "제안서", "1페이지 제안서 · 판촉 ROI 계산기", ["docs"]),
-    ("Ch4", "화면 · 자동화", "실시간 대시보드 · 주간 보고 초안", ["appsscript", "gmail"]),
-    ("Ch5", "전담 비서", "업무 전용 Skill", ["gemini"]),
+    ("Ch1", "근거 있는 답", "출처 달린 조사 보고서", ["gemini", "notebooklm"]),
+    ("Ch2", "하네스와 Skills", "응대 Skill", ["gemini"]),
+    ("Ch3", "데이터 정리 · 분석", "정제본 시트 · 8월 집계", ["sheets"]),
+    ("Ch4", "문서 · 화면", "1페이지 제안서 · 대시보드 시제품", ["docs"]),
+    ("Ch5", "연결 · 자동화", "웹앱 대시보드 · 월요일 메일", ["appsscript", "gmail"]),
 ]
 
 
 def agenda():
     rows = "".join(f'''<div class="ch"><span class="chip">{c}</span><div class="tx"><b>{t}</b><span>{d}</span></div>
 <div class="icons">{"".join(icon(n) for n in ics)}</div></div>''' for c, t, d, ics in AGENDA)
-    day2 = '''<div class="ch"><span class="chip">적용</span><div class="tx"><b>내 업무에 적용</b><span>결과물 하나</span></div></div>'''
+    day2 = '''<div class="ch"><span class="chip">적용</span><div class="tx"><b>내 업무에 적용</b><span>내 업무 Skill 세트</span></div></div>'''
     return f'''<section class="slide dk" data-title="목차">
   {coord()}
   <h2>목차</h2>
@@ -248,7 +247,7 @@ def agenda():
 def o_work():
     rows = [("파일마다 매출 취합", "Sheets 자동 집계"),
             ("달성률 손 계산", "수식 자동 계산"),
-            ("메신저 · 메일에 흩어진 이슈", "Forms 한 곳"),
+            ("문의마다 새로 쓰는 회신", "응대 Skill 초안"),
             ("매주 새로 쓰는 보고", "초안 자동 생성")]
     trs = "".join(f'<div class="wb"><span class="w0">{a}</span><span class="wa">→</span><span class="w1">{b}</span></div>' for a, b in rows)
     return light("반복 업무의 변화", f'<div class="wbh"><span>지금</span><span></span><span>이후</span></div>{trs}', "오프닝")
@@ -623,7 +622,7 @@ CSS = '''
   .combo b{color:#F28C28;}
   .tline.t4{grid-template-columns:repeat(4,1fr);}
   .labtag{background:#F28C28; color:#fff; font-size:12px; font-weight:800; border-radius:6px; padding:3px 9px; letter-spacing:0;}
-  .labgrid{margin-top:14px; display:grid; grid-template-columns:1fr 200px; grid-template-rows:auto 1fr; gap:16px; height:100%; padding-bottom:10px;}
+  .labgrid{margin-top:14px; display:grid; grid-template-columns:1fr; grid-template-rows:auto 1fr; gap:16px; height:100%; padding-bottom:10px;}
   .labgrid .lc{background:#fff; border:1px solid #E1E5EB; border-radius:12px; padding:18px 22px;}
   .labgrid .lh{font-size:13px; font-weight:800; color:#F28C28; margin-bottom:8px;}
   .labgrid .goal p{margin:0; font-size:22px; font-weight:800; color:#16233A;}
