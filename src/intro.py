@@ -118,7 +118,7 @@ def codered():
                      f'<text x="{ax}" y="{ty+26}" text-anchor="{anchor}" class="t{" red" if red else ""}">{t}</text>'
                      f'<text x="{ax}" y="{ty+48}" text-anchor="{anchor}" class="s">{s}</text>')
     svg = "".join(parts)
-    return f'''<section class="slide dk" data-title="뒤바뀐 처지">
+    return f'''<section class="slide dk" data-title="3년 만에 뒤바뀐 코드 레드">
   {coord()}
   <div class="kick">왜 지금 구글인가</div>
   <h2>3년 만에 뒤바뀐 코드 레드</h2>
@@ -127,7 +127,7 @@ def codered():
 
 
 def meme():
-    return f'''<section class="slide dk" data-title="꿈을 이룬 Gemini">
+    return f'''<section class="slide dk" data-title="선두로 올라선 Gemini">
   {coord()}
   <div class="kick">밈으로 보는 판도</div>
   <h2>선두로 올라선 Gemini</h2>

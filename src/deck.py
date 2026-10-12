@@ -137,7 +137,7 @@ def eco(ch=None, title=None):
   <div class="icons">{"".join(icon(n) for n in ics)}<span class="nm">{tool}</span></div>
 </div>''')
     if ch is None:
-        kick, h2, dt = "구글 생태계", title or "Gemini와 여섯 동료", "생태계 지도"
+        kick, h2, dt = "구글 생태계", title or "도구 지도", "생태계 지도"
     else:
         kick, h2, dt = f"구글 생태계 · {ch}", title, f"[{ch}] 생태계 지도"
     return f'''<section class="slide dk eco{' focus' if ch else ''}" data-title="{dt}">
@@ -178,7 +178,7 @@ def cover():
 def o02():
     left = "".join(f"<span>{t}</span>" for t in ["질문하기", "요약하기", "초안 쓰기"])
     right = "".join(f"<span>{t}</span>" for t in ["조사 · 검증", "데이터 정리", "문서와 화면", "자동화", "전담 비서"])
-    return light("묻는 AI에서, 일을 잇는 AI로", f'''<div class="lvl">
+    return light("초급과 중급의 차이", f'''<div class="lvl">
   <div class="col"><div class="h">초급</div><div class="chips2">{left}</div></div>
   <div class="arr">→</div>
   <div class="col hl"><div class="h">중급</div><div class="chips2">{right}</div></div>
@@ -248,7 +248,7 @@ CH1_ILL = [
 
 
 def ch1():
-    out = chapter("Ch1", "근거 있는 답을 받는 법", "Deep Research · NotebookLM", "리서치 담당 · 검토자")
+    out = chapter("Ch1", "근거 있는 답을 받는 법", "", "Deep Research · NotebookLM")
     for (fn, zone, title, pr), ex in zip(CH1_ILL, explain.SLIDES):
         out.append(ill("scenes_ch1", fn, zone, title, principle=pr))
         out.append(ex())
@@ -267,49 +267,49 @@ def ch2():
     db = ('<table class="dbt"><thead><tr>' + "".join(f"<th>{c}</th>" for c in cols) + "</tr></thead><tbody><tr>"
           + "".join(f"<td>{c}</td>" for c in row) + "</tr>"
           + "<tr class=more>" + "".join("<td>⋮</td>" for _ in cols) + "</tr></tbody></table>")
-    return chapter("Ch2", "숫자를 믿을 수 있게 정리하기", "Sheets · Forms", "데이터 창고") + [
+    return chapter("Ch2", "숫자를 믿을 수 있게 정리하기", "", "Sheets · Forms") + [
         ill(m, "tables", "top20", "AI가 잘 읽는 표",
             ["한 행에 한 건", "헤더는 한 줄", "병합 셀 없음"]),
         light("매출원본", f'''{db}
 <div class="dbnote"><span>180행</span> 2026년 4~9월 · 지역 5 · 채널 3 · 가상 거래처 30</div>''', "Ch2"),
-        ill("scenes_extra", "forms_inlet", "top20", "입구부터 반듯하게, Forms",
+        ill("scenes_extra", "forms_inlet", "top20", "Forms로 입력 양식 통일",
             ["메모 · 메신저: 제각각", "Forms: 응답 1건 = 1행"]),
-        ba("데이터 설명, 그리고 한 단계씩", "Ch2",
+        ba("데이터 설명 후 단계별 요청", "Ch2",
            "이 데이터 분석해 줘",
            "이 시트는 2026년 4~9월 지역 · 채널 · 거래처별 월 매출이야.\n열은 월, 지역, 채널, 거래처, 제품, 목표매출_원, 실제매출_원, 달성률이야.\n1단계로 달성률 90% 미만 행만 골라 미달 금액 순으로 정렬해 줘.\n확인하고 다음 단계를 요청할게.",
            "맥락 · 한 단계 · 확인"),
-        ill(m, "navigation", "left40", "계획부터 보여 주는 Sheets",
+        ill(m, "navigation", "left40", "Sheets Gemini: 계획 먼저 확인",
             ["요청 → 계획 확인 → 실행"], principle=2),
-        ill(m, "gauges", "top20", "값이 아니라 수식으로",
+        ill(m, "gauges", "top20", "값 대신 수식",
             ["값: 그대로", "수식: 다시 계산"]),
-        ill(m, "two_sheets", "left40", "두 개만 직접 대조",
+        ill(m, "two_sheets", "left40", "합계 두 개 직접 대조",
             ["총 목표 · 총 실적 SUM 대조"]),
-        ill("scenes_extra", "fact_hypothesis", "left40", "사실과 가설은 따로",
+        ill("scenes_extra", "fact_hypothesis", "left40", "사실과 가설 구분",
             ["사실: 시트의 숫자", "가설: 원인 추정"], principle=1),
-        bridge("정리된 숫자가 다음 재료", "", "Ch2", "→ Ch3 제안서"),
+        bridge("다음: 정리한 숫자로 제안서 쓰기", "", "Ch2", "→ Ch3"),
     ]
 
 
 # ── Ch3 ─────────────────────────────────────────────────
 def ch3():
     m = "scenes_ch3"
-    return chapter("Ch3", "근거 있는 제안서를 빠르게", "Canvas", "작업대") + [
+    return chapter("Ch3", "근거 있는 제안서를 빠르게", "", "Canvas") + [
         ill(m, "chat_vs_workbench", "top20", "채팅은 대화, Canvas는 작업대",
             ["채팅: 흘러가는 답", "Canvas: 한 장을 두고 수정"]),
         ill(m, "mural", "top20", "전체 재생성 대신 부분 수정",
             []),
-        ill(m, "briefing", "left40", "신입에게 일을 맡기듯",
+        ill(m, "briefing", "left40", "신입에게 업무를 맡기듯",
             ["역할 · 맥락 · 작업 · 형식"]),
-        ba("역할 · 맥락 · 작업 · 형식", "Ch3",
+        ba("제안서 요청", "Ch3",
            "편의점에 낼 제안서 써 줘",
            "너는 식품회사 국내영업 담당자야.\nA편의점 본부 바이어에게 신제품 입점을 제안하려고 해.\n첨부한 검증 완료 보고서와 실적 시트 숫자를 근거로 1페이지 제안서를 써 줘.\n순서는 제안 배경, 제품 강점, 기대 효과(표), 지원 조건이고 과장 표현은 쓰지 마."),
-        ill(m, "audience", "top20", "받는 사람마다 다른 강조점",
+        ill(m, "audience", "top20", "상대에 따라 강조점 조정",
             ["신규: 신뢰 · 초기 지원", "기존: 실적 · 확대 효과", "이탈 위험: 문제 해결 · 조건"]),
-        ba("기대 효과는 ROI 계산기로", "Ch3",
+        ba("판촉 ROI 계산기 요청", "Ch3",
            "판촉 ROI 계산기 만들어 줘",
            "영업기획 담당자를 위한 판촉 ROI 계산기를 만들어 줘.\n입력: 행사 전 매출, 행사 후 매출, 매출총이익률, 판촉비\n출력: 증분매출, 증분이익, ROI = (증분이익 − 판촉비) ÷ 판촉비\n계산식은 화면 아래에 적고, 판촉비가 0원이어도 멈추지 않게 해 줘.",
            "입력 · 출력 · 계산식 · 예외"),
-        ill("scenes_extra", "calculator_test", "left40", "답을 아는 값부터",
+        ill("scenes_extra", "calculator_test", "left40", "정답을 아는 값으로 검증",
             ["5,000만 → 6,500만 · 30% · 300만", "→ ROI 50%", "추정치 ≠ 효과 증명"], principle=1),
         ill(m, "photo", "left40", "공유된 Canvas는 그 순간의 사진",
             []),
@@ -320,83 +320,83 @@ def ch3():
 def ch4():
     m = "scenes_ch4"
     sc = '<div class="capbox">캡처: Sheets canvas 화면</div>'
-    return chapter("Ch4", "한 번 만들면 계속 돌아가게", "Canvas · Apps Script · Studio", "작업대 · 자동화 담당") + [
+    return chapter("Ch4", "한 번 만들면 계속 돌아가게", "", "Canvas · Apps Script · Studio") + [
         ill(m, "photo_window", "top20", "사진과 창문",
             ["사진: 그때 숫자", "창문: 지금 숫자"]),
-        ill(m, "hang_window", "left40", "창문을 거는 Apps Script",
+        ill(m, "hang_window", "left40", "Apps Script로 시트와 연결",
             ["Canvas 대시보드 + 시트 연결", "주소 하나로 공유"]),
         ill(m, "menu_board", "left40", "틀은 그대로, 데이터만 교체",
             ["render(rows) 하나로 요청"]),
-        ba("화면과 데이터를 나눠서", "Ch4",
+        ba("대시보드 요청", "Ch4",
            "실적 대시보드 만들어 줘",
            "'매출원본' 시트의 지역, 채널, 목표매출_원, 실제매출_원으로\n총 목표 · 총 실적 · 달성률 카드와 채널별 목표 대비 실적 막대그래프가 있는 대시보드를 만들어 줘.\n화면은 render(rows) 함수 하나로 그리고,\n데이터는 나중에 시트에서 받을 수 있게 분리해 줘."),
         light("Sheets canvas", f'''<div class="twocol">
   <div class="vl"><p>시트 안 실시간 대시보드</p><p>현재 영어 설정 계정만</p></div>
   {sc}
 </div>''', "Ch4"),
-        ill(m, "alarm", "left40", "언제 + 무엇을",
+        ill(m, "alarm", "left40", "자동화 = 언제 + 무엇을",
             ["언제: 월요일 8시 · 메일 도착", "무엇을: 읽기 · 요약 · 보내기"]),
-        ill(m, "two_tools", "top20", "맞춤 제작과 주문",
+        ill(m, "two_tools", "top20", "Apps Script와 Studio 비교",
             ["Apps Script: 코드 · 정확한 계산", "Studio: 말로 만들고 수정"]),
-        ba("언제 · 어디서 · 무엇을", "Ch4",
+        ba("자동화 요청", "Ch4",
            "매주 실적 메일 자동으로 보내 줘",
            "'매출원본' 시트를 읽어서\n매주 월요일 오전 8시에\n지난주 지역별 목표 · 실적 · 달성률을 표로 만들어\n내 메일로 보내 줘."),
-        ill(m, "domino", "top20", "말로 만드는 흐름, Studio",
-            ["단계 검토는 사람"], principle=2),
-        ill(m, "envelope_fly", "left40", "테스트도 실제 발송",
-            ["수신자는 본인"]),
+        ill(m, "domino", "top20", "Studio: 말로 만드는 자동화",
+            ["단계 검토: 사람"], principle=2),
+        ill(m, "envelope_fly", "left40", "테스트도 실제로 발송됨",
+            ["실습 수신자: 본인"]),
         ill("scenes_extra", "draft_review", "top20", "초안까지 자동, 발송은 사람",
             ["초안 → 숫자 검증 → 수신인 → 발송"], principle=2),
-        bridge("같은 지시를 매번 반복한다면", "", "Ch4", "→ Ch5 Gem"),
+        bridge("다음: 반복 지시 저장하기", "", "Ch4", "→ Ch5"),
     ]
 
 
 # ── Ch5 ─────────────────────────────────────────────────
 def ch5():
     m = "scenes_ch5"
-    return chapter("Ch5", "반복되는 지시를 저장하는 나만의 비서", "Gem", "전담 비서") + [
-        ill(m, "secretary", "left40", "매뉴얼을 숙지한 비서, Gem",
-            ["설명은 한 번만 저장"]),
-        ill(m, "conveyor", "top20", "자동으로 붙는 지침",
+    return chapter("Ch5", "반복되는 지시를 저장하는 나만의 비서", "", "Gem") + [
+        ill(m, "secretary", "left40", "Gem: 업무 전담 비서",
+            ["긴 설명은 한 번만 저장"]),
+        ill(m, "conveyor", "top20", "지침은 매번 자동 적용",
             ["지침 품질 = Gem 품질"]),
-        ill("scenes_ch1", "s6", "top20", "지식 파일은 펴 놓은 교재",
+        ill("scenes_ch1", "s6", "top20", "지식 파일은 참고 교재",
             ["수치는 사용자가 준 것만"], principle=1),
-        ba("역할 · 입력 · 출력 · 규칙 · 예시", "Ch5",
+        ba("Gem 지침 작성", "Ch5",
            "너는 방문일지 정리 도우미야",
            "역할: 방문일지 정리 도우미\n입력: 방문 메모\n출력: 일시, 거래처, 논의, 요청, 후속 조치\n규칙: 메모에 없는 내용은 지어내지 않기, 불분명하면 [확인 필요]\n예시: 첨부 파일 형식 따르기"),
-        ill(m, "interview", "top20", "세 종류 질문으로 면접",
+        ill(m, "interview", "top20", "세 가지 입력으로 테스트",
             ["정상 입력 → 형식대로 정리", "정보 부족 → [확인 필요] 표시", "금지 문의 → 정중히 거절 · 안내"]),
-        ba("지침 한 줄의 차이", "Ch5",
+        ba("지침 한 줄 추가 전후", "Ch5",
            "메모: 3/12 A편의점 본부, 신제품 3종 소개. 반응 괜찮음.\n\n→ 신제품 3종 입점 확정, 다음 달 첫 발주 예정",
            "지침 추가: 메모에 없는 내용은 지어내지 마\n\n→ 논의: 신제품 3종 소개\n→ 요청: [확인 필요]\n→ 후속 조치: [확인 필요]"),
         ill(m, "agent_morning", "top20", "Gem + Studio = 에이전트",
             ["문의 → 답장 초안 → 담당자 알림", "자동 발송 없음"]),
-        light("하나로 이어지는 다섯 가지", f'''{flow([("조사", "Ch1"), ("숫자", "Ch2"), ("제안서", "Ch3"), ("대시보드 · 메일", "Ch4"), ("Gem", "Ch5")])}
+        light("첫날 결과물의 연결", f'''{flow([("조사", "Ch1"), ("숫자", "Ch2"), ("제안서", "Ch3"), ("대시보드 · 메일", "Ch4"), ("Gem", "Ch5")])}
 <div class="homework"><b>숙제</b> 내 업무에서 만들 것 하나</div>''', "Ch5"),
     ]
 
 
 # ── Day 2 ───────────────────────────────────────────────
 def day2():
-    return chapter("Day 2", "내 업무에 적용하기", "", "여섯 동료 모두") + [
-        light("원칙 두 가지, 다시", cards([
+    return chapter("Day 2", "내 업무에 적용하기", "", "전체 도구") + [
+        light("두 가지 원칙", cards([
             ("원칙 ① 근거를 쥐여 준다", "Ch1 오픈북 · Ch5 지식 파일", ["notebooklm", "gemini"]),
             ("원칙 ② 계획을 보여 줄 때 개입한다", "Ch1 Deep Research · Ch2 Sheets · Ch4 Studio", ["gemini", "sheets", "appsscript"]),
         ], 2), "Day 2"),
         ill("scenes_ch5", "construction", "top20", "작게 끝내기",
             ["Before: 팀 전체 영업 관리 시스템", "After: 내 방문 메모 정리 흐름"]),
-        light("트랙 셋 중 하나", cards([
+        light("트랙 선택", cards([
             ("문서 · 제안", "Canvas + Gem<br/>예: 판촉 성과 비교 도구", ["docs", "gemini"]),
             ("대시보드", "Sheets + Forms + Canvas<br/>예: 이슈 통합 관리 화면", ["sheets", "forms", "docs"]),
             ("자동화", "Apps Script · Studio + Gem<br/>예: 지역별 미달 알림 초안", ["appsscript", "gemini"]),
         ]), "Day 2"),
-        light("많이보다 검증 가능하게", f'''<div class="score">
+        light("평가 기준", f'''<div class="score">
   <div class="sc"><b>30</b><span>실제 업무 적합성</span></div><div class="sc"><b>30</b><span>계산 · 분석 정확도</span></div>
   <div class="sc"><b>25</b><span>실행 완성도</span></div><div class="sc"><b>15</b><span>사용성 · 확장성</span></div>
 </div>
 <div class="homework"><b>완료</b> 분석 1 + 계산 1 + 자동화 시연 1</div>''', "Day 2"),
         light("발표 2분", flow([("문제", ""), ("데모", ""), ("전후 비교", "")], hl=1), "Day 2"),
-        bridge("작은 자동화 하나, 2주 파일럿", "", "Day 2", "운영 계정 · 데이터 정책 → 2주 파일럿 → 개선"),
+        bridge("작은 자동화부터 2주 시범 운영", "", "Day 2", "운영 계정 · 데이터 정책 → 2주 파일럿 → 개선"),
     ]
 
 
@@ -420,7 +420,7 @@ def opening():
         o_work(),
         ill("scenes_ch2", "desk_outputs", "top25", "결과물 다섯 가지"),
         agenda(),
-        ill("scenes_ch2", "office_map", "top20", "역할이 다른 여섯 동료", extra=tags()),
+        ill("scenes_ch2", "office_map", "top20", "도구별 역할", extra=tags()),
         eco(None),
         o05(),
         o06(),
