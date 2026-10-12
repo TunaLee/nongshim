@@ -6,6 +6,8 @@
 """
 from pathlib import Path
 
+import intro
+
 ROOT = Path(__file__).resolve().parent.parent
 N, G, O, W = "#1F3A5F", "#D9DDE3", "#F28C28", "#FFFFFF"
 
@@ -430,17 +432,17 @@ CSS = '''
 
 
 def build():
-    parts = [DEFS]
-    for i, (pos, title, line, fn) in enumerate(SLIDES):
-        active = " active" if i == 0 else ""
+    parts = [DEFS] + intro.slides()
+    for pos, title, line, fn in SLIDES:
+        active = ""
         parts.append(f'''<section class="slide ill{active}" data-title="{title}">
   <svg class="scene" viewBox="0 0 1280 720" aria-hidden="true">{fn()}</svg>
   <div class="coord"><b></b> / <span class="tot"></span></div>
   <div class="cap {pos}"><h2>{title}</h2><div class="bar"></div><p>{line}</p></div>
 </section>''')
     tpl = (ROOT / "src" / "template.html").read_text()
-    tpl = tpl.replace("</style>", CSS + "</style>", 1)
-    html = tpl.replace("{{DECK_TITLE}}", "AI 답과 근거").replace("{{SLIDES}}", "\n\n".join(parts))
+    tpl = tpl.replace("</style>", CSS + intro.CSS + "</style>", 1)
+    html = tpl.replace("{{DECK_TITLE}}", "구글 AI로 일하는 이틀").replace("{{SLIDES}}", "\n\n".join(parts))
     out = ROOT / "docs" / "grounding" / "index.html"
     out.write_text(html)
     print(out)

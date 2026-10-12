@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>AI 답과 근거</title>
+<title>구글 AI로 일하는 이틀</title>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.min.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -348,6 +348,76 @@
   .ill .cap.top .bar, .ill .cap.top25 .bar{display:none;}
   .ill .cap.top p, .ill .cap.top25 p{margin-top:10px;}
   .ill .coord{z-index:3;}
+
+  /* ── 도입부: 어두운 남색 + 주황 ── */
+  .slide.dk{background:radial-gradient(900px 520px at 85% -10%, #2A4C78 0%, rgba(42,76,120,0) 60%), #0F1B2D; color:#fff; border:none; padding:52px 64px 44px;}
+  .dk .kick{font-family:var(--mono); font-size:13px; font-weight:700; letter-spacing:.16em; color:#F28C28; text-transform:uppercase;}
+  .dk h2{font-size:40px; line-height:1.15; letter-spacing:-.03em; font-weight:800; margin:12px 0 0;}
+  .dk .sub{font-size:17px; color:rgba(255,255,255,.7); margin-top:10px;}
+  .dk .coord{color:rgba(255,255,255,.45);} .dk .coord b{color:#fff;}
+  .dk .chip{display:inline-block; font-family:var(--mono); font-size:12px; font-weight:700; color:#0F1B2D; background:#F28C28; border-radius:6px; padding:3px 8px; flex:none;}
+  .dk .ic{width:34px; height:34px; border-radius:9px; background:#fff; display:inline-grid; place-items:center; flex:none;}
+  .dk .ic img{width:22px; height:22px; object-fit:contain;}
+  .dk .key{margin-top:auto; border-left:4px solid #F28C28; padding:6px 0 6px 16px; font-size:18px; color:rgba(255,255,255,.92);}
+  .dk .key .k{font-family:var(--mono); font-size:12px; letter-spacing:.12em; color:#F28C28; margin-right:12px;}
+
+  .cover-dk{justify-content:center; padding:0 80px;}
+  .cover-dk .glow{position:absolute; right:-160px; top:-160px; width:560px; height:560px; border-radius:50%; background:radial-gradient(circle, rgba(242,140,40,.28), rgba(242,140,40,0) 65%);}
+  .cover-dk h1{font-size:68px; line-height:1.08; letter-spacing:-.035em; font-weight:800; margin:22px 0 0; position:relative;}
+  .cover-dk .strip{display:flex; gap:12px; margin-top:56px; position:relative;}
+  .cover-dk .tile{width:58px; height:58px; border-radius:15px; background:#fff; display:grid; place-items:center; box-shadow:0 10px 24px -12px rgba(0,0,0,.6);}
+  .cover-dk .tile img{width:34px; height:34px; object-fit:contain;}
+
+  .speaker{display:grid; grid-template-columns:330px 1fr; gap:60px; align-items:center; height:100%;}
+  .speaker .photo{width:330px; height:440px; border-radius:22px; overflow:hidden; background:#fff; box-shadow:0 30px 60px -30px rgba(0,0,0,.7);}
+  .speaker .photo img{width:100%; height:100%; object-fit:cover; object-position:50% 30%;}
+  .speaker .name{font-size:56px; margin-top:14px;}
+  .speaker .tl{margin-top:34px; display:flex; flex-direction:column; gap:4px; border-left:2px solid rgba(255,255,255,.18); padding-left:22px;}
+  .speaker .row{display:grid; grid-template-columns:150px 140px 1fr; align-items:baseline; padding:9px 0; font-size:18px;}
+  .speaker .yr{font-family:var(--mono); font-size:14px; color:rgba(255,255,255,.5);}
+  .speaker .org{font-weight:800;}
+  .speaker .role{color:rgba(255,255,255,.72);}
+  .speaker .row.now .yr{color:#F28C28;}
+
+  .days{display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:28px; flex:1; min-height:0;}
+  .daycol{display:flex; flex-direction:column; gap:12px;}
+  .dayhead{font-size:15px; font-weight:800; color:#F28C28; letter-spacing:.04em; padding-bottom:8px; border-bottom:1px solid rgba(255,255,255,.15);}
+  .ch{display:flex; align-items:center; gap:14px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:12px; padding:14px 16px;}
+  .ch .tx{flex:1; display:flex; flex-direction:column; gap:3px; min-width:0;}
+  .ch .tx b{font-size:19px;} .ch .tx span{font-size:14px; color:rgba(255,255,255,.65);}
+  .ch .icons{display:flex; gap:6px;}
+
+  .tlwrap{flex:1; min-height:0; display:flex; align-items:center; margin-top:10px;}
+  .tlsvg{width:100%; height:auto; overflow:visible;}
+  .tlsvg text{font-family:var(--serif); fill:#fff;}
+  .tlsvg .yr{font-family:var(--mono); font-size:13px; fill:rgba(255,255,255,.45);}
+  .tlsvg .d{font-family:var(--mono); font-size:14px; fill:rgba(255,255,255,.55);}
+  .tlsvg .t{font-size:19px; font-weight:800;}
+  .tlsvg .s{font-size:13.5px; fill:rgba(255,255,255,.62);}
+  .tlsvg .red{fill:#F28C28;}
+
+  .memes{flex:1; min-height:0; display:flex; align-items:center; justify-content:center; gap:26px; margin-top:16px;}
+  .memes figure{margin:0; display:flex; flex-direction:column; gap:12px; align-items:center;}
+  .memes img{height:430px; width:auto; border-radius:14px; box-shadow:0 30px 60px -30px rgba(0,0,0,.8);}
+  .memes figure:first-child img{height:auto; width:470px;}
+  .memes figcaption{font-size:16px; color:rgba(255,255,255,.75);}
+  .memes figcaption b{color:#F28C28; margin-right:8px;}
+  .memes .arrow{font-size:44px; color:#F28C28; font-weight:800;}
+
+  .eco .ecosvg{position:absolute; inset:0; width:1280px; height:720px;}
+  .eco .node{position:absolute; width:364px; background:#16263D; border:1px solid rgba(255,255,255,.14); border-radius:14px; padding:12px 14px; display:flex; flex-direction:column; gap:10px; z-index:2;}
+  .eco .nh{display:flex; align-items:center; gap:10px; font-size:17px;}
+  .eco .icons{display:flex; align-items:center; gap:6px; flex-wrap:wrap;}
+  .eco .nm{font-size:12px; color:rgba(255,255,255,.7); margin-right:3px;}
+  .eco .hub{position:absolute; width:148px; height:148px; border-radius:50%; background:#fff; display:grid; place-items:center; z-index:2; box-shadow:0 0 0 10px rgba(242,140,40,.18), 0 0 60px 10px rgba(242,140,40,.35);}
+  .eco .hub img{width:84px; height:84px;}
+  .eco .hubcap{position:absolute; width:320px; text-align:center; font-size:15px; color:rgba(255,255,255,.8); z-index:2;} .eco .hubcap{background:#0F1B2D; padding:4px 0;}
+
+  .divider{justify-content:center;}
+  .divider .ghost{position:absolute; right:40px; bottom:-60px; font-family:var(--mono); font-weight:700; font-size:320px; line-height:.8; color:rgba(255,255,255,.06);}
+  .divider .big{font-size:56px; margin-top:16px;}
+  .divider .agenda2{display:flex; gap:10px; margin-top:24px;}
+  .divider .agenda2 span{font-size:14px; font-weight:600; border:1px solid rgba(255,255,255,.3); border-radius:999px; padding:6px 14px; background:rgba(255,255,255,.06);}
 </style>
 </head>
 <body>
@@ -402,7 +472,95 @@
 <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="3"/></filter>
 </defs></svg>
 
-<section class="slide ill active" data-title="AI 답, 그대로 써도 될까요?">
+<section class="slide dk cover-dk active" data-title="표지">
+  <div class="glow"></div>
+  <div class="kick">GOOGLE AI 실무 · 2일 과정</div>
+  <h1>구글 AI로 일하는 이틀</h1>
+  <div class="strip"><span class="tile"><img src="assets/icons/gemini.svg" alt="Gemini"/></span><span class="tile"><img src="assets/icons/notebooklm.svg" alt="NotebookLM"/></span><span class="tile"><img src="assets/icons/docs.svg" alt="Docs"/></span><span class="tile"><img src="assets/icons/sheets.svg" alt="Sheets"/></span><span class="tile"><img src="assets/icons/slides.svg" alt="Slides"/></span><span class="tile"><img src="assets/icons/gmail.svg" alt="Gmail"/></span><span class="tile"><img src="assets/icons/drive.svg" alt="Drive"/></span><span class="tile"><img src="assets/icons/meet.svg" alt="Meet"/></span><span class="tile"><img src="assets/icons/calendar.svg" alt="Calendar"/></span><span class="tile"><img src="assets/icons/vids.svg" alt="Vids"/></span><span class="tile"><img src="assets/icons/aistudio.svg" alt="AI Studio"/></span><span class="tile"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span></div>
+</section>
+
+<section class="slide dk" data-title="강사 소개">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="speaker">
+    <div class="photo"><img src="assets/speaker.jpg" alt="강사 사진"/></div>
+    <div class="who">
+      <div class="kick">SPEAKER</div>
+      <h2 class="name">이동원</h2>
+      <div class="sub">AI 엔지니어 · 강사 · 창업가 · devtuna.kr</div>
+      <div class="tl"><div class="row now"><span class="yr">2026 —</span><span class="org">제피트</span><span class="role">대표</span></div><div class="row"><span class="yr">2025 —</span><span class="org">왕진연구소</span><span class="role">AI 엔지니어</span></div><div class="row"><span class="yr">2024 —</span><span class="org">부트캠프</span><span class="role">강사</span></div><div class="row"><span class="yr">2020 — 2023</span><span class="org">클레온</span><span class="role">AI 엔지니어</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide dk" data-title="이틀의 목차">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="kick">AGENDA</div>
+  <h2>이틀 동안 다루는 일곱 장</h2>
+  <div class="days"><div class="daycol"><div class="dayhead">첫째 날</div><div class="ch"><span class="chip">CH1</span><div class="tx"><b>Gemini 기본기</b><span>프롬프트 구조 · Gems로 나만의 비서 만들기</span></div>
+<div class="icons"><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span></div></div><div class="ch"><span class="chip">CH2</span><div class="tx"><b>근거 있는 답</b><span>Deep Research로 찾아오고, NotebookLM으로 가두기</span></div>
+<div class="icons"><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span><span class="ic"><img src="assets/icons/notebooklm.svg" alt="NotebookLM"/></span></div></div><div class="ch"><span class="chip">CH3</span><div class="tx"><b>Workspace 속 Gemini</b><span>메일 · 문서 · 시트 · 회의록을 한 흐름으로</span></div>
+<div class="icons"><span class="ic"><img src="assets/icons/gmail.svg" alt="Gmail"/></span><span class="ic"><img src="assets/icons/docs.svg" alt="Docs"/></span><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span><span class="ic"><img src="assets/icons/meet.svg" alt="Meet"/></span></div></div></div><div class="daycol"><div class="dayhead">둘째 날</div><div class="ch"><span class="chip">CH4</span><div class="tx"><b>보여 주는 AI</b><span>Canvas · 슬라이드 · 영상 초안</span></div>
+<div class="icons"><span class="ic"><img src="assets/icons/slides.svg" alt="Slides"/></span><span class="ic"><img src="assets/icons/vids.svg" alt="Vids"/></span></div></div><div class="ch"><span class="chip">CH5</span><div class="tx"><b>AI Studio</b><span>모델을 골라 시험하고 프롬프트를 다듬는 작업대</span></div>
+<div class="icons"><span class="ic"><img src="assets/icons/aistudio.svg" alt="AI Studio"/></span></div></div><div class="ch"><span class="chip">CH6</span><div class="tx"><b>자동화</b><span>Apps Script로 시트 · 메일 · 캘린더 잇기</span></div>
+<div class="icons"><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span><span class="ic"><img src="assets/icons/calendar.svg" alt="Calendar"/></span></div></div><div class="ch"><span class="chip">CH7</span><div class="tx"><b>실전 과제</b><span>자기 업무 하나를 Gemini 흐름으로 바꾸기</span></div>
+<div class="icons"><span class="ic"><img src="assets/icons/drive.svg" alt="Drive"/></span></div></div></div></div>
+</section>
+
+<section class="slide dk" data-title="3년 만에 뒤집힌 코드 레드">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="kick">WHY GOOGLE, NOW</div>
+  <h2>3년 만에 방향이 뒤집힌 「코드 레드」</h2>
+  <div class="tlwrap"><svg viewBox="0 0 1160 420" class="tlsvg"><line x1="90" y1="250" x2="1180" y2="250" stroke="rgba(255,255,255,.25)" stroke-width="3"/><line x1="166.21621621621622" y1="240" x2="166.21621621621622" y2="260" stroke="rgba(255,255,255,.25)" stroke-width="2"/><text x="172.21621621621622" y="276" class="yr">2023</text><line x1="503.5135135135135" y1="240" x2="503.5135135135135" y2="260" stroke="rgba(255,255,255,.25)" stroke-width="2"/><text x="509.5135135135135" y="276" class="yr">2024</text><line x1="840.8108108108108" y1="240" x2="840.8108108108108" y2="260" stroke="rgba(255,255,255,.25)" stroke-width="2"/><text x="846.8108108108108" y="276" class="yr">2025</text><line x1="110.0" y1="250" x2="110.0" y2="58" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/><circle cx="110.0" cy="250" r="7" fill="#FFFFFF"/><text x="110.0" y="0" text-anchor="start" class="d">2022.11</text><text x="110.0" y="26" text-anchor="start" class="t">ChatGPT 공개</text><text x="110.0" y="48" text-anchor="start" class="s">OpenAI</text><line x1="138.1081081081081" y1="250" x2="168.1081081081081" y2="330" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/><circle cx="138.1081081081081" cy="250" r="11" fill="#F28C28"/><text x="168.1081081081081" y="350" text-anchor="start" class="d red">2022.12</text><text x="168.1081081081081" y="376" text-anchor="start" class="t red">구글 사내 「코드 레드」</text><text x="168.1081081081081" y="398" text-anchor="start" class="s">검색 사업 위기 경보</text><line x1="194.32432432432432" y1="250" x2="194.32432432432432" y2="128" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/><circle cx="194.32432432432432" cy="250" r="7" fill="#FFFFFF"/><text x="194.32432432432432" y="70" text-anchor="start" class="d">2023.02</text><text x="194.32432432432432" y="96" text-anchor="start" class="t">Bard 시연 오답</text><text x="194.32432432432432" y="118" text-anchor="start" class="s">알파벳 시총 하루 약 1,000억 달러 증발</text><line x1="475.4054054054054" y1="250" x2="475.4054054054054" y2="330" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/><circle cx="475.4054054054054" cy="250" r="7" fill="#FFFFFF"/><text x="475.4054054054054" y="350" text-anchor="start" class="d">2023.12</text><text x="475.4054054054054" y="376" text-anchor="start" class="t">Gemini 1.0</text><text x="475.4054054054054" y="398" text-anchor="start" class="s">Bard 뒤를 잇는 모델</text><line x1="531.6216216216217" y1="250" x2="531.6216216216217" y2="128" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/><circle cx="531.6216216216217" cy="250" r="7" fill="#FFFFFF"/><text x="531.6216216216217" y="70" text-anchor="start" class="d">2024.02</text><text x="531.6216216216217" y="96" text-anchor="start" class="t">Bard → Gemini</text><text x="531.6216216216217" y="118" text-anchor="start" class="s">이름까지 바꿔 다시 시작</text><line x1="1121.8918918918919" y1="250" x2="1051.8918918918919" y2="330" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/><circle cx="1121.8918918918919" cy="250" r="7" fill="#FFFFFF"/><text x="1051.8918918918919" y="350" text-anchor="end" class="d">2025.11</text><text x="1051.8918918918919" y="376" text-anchor="end" class="t">Gemini 3 공개</text><text x="1051.8918918918919" y="398" text-anchor="end" class="s">추론 · 코딩 벤치마크 선두권</text><line x1="1150.0" y1="250" x2="1150.0" y2="128" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/><circle cx="1150.0" cy="250" r="11" fill="#F28C28"/><text x="1150.0" y="70" text-anchor="end" class="d red">2025.12</text><text x="1150.0" y="96" text-anchor="end" class="t red">OpenAI 사내 「코드 레드」</text><text x="1150.0" y="118" text-anchor="end" class="s">ChatGPT 개선에 인력 집중</text></svg></div>
+  <div class="key"><span class="k">흐름</span>2022년 경보를 울린 쪽은 구글이었고, 2025년에는 OpenAI였다.</div>
+</section>
+
+<section class="slide dk" data-title="꿈이 현실이 된 가운데 머리">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="kick">MEANWHILE</div>
+  <h2>꿈속의 가운데 머리가 현실이 된 Gemini</h2>
+  <div class="memes">
+    <figure><img src="assets/meme-dream.jpg" alt="가운데 머리가 되는 꿈을 꾸는 Gemini 밈"/><figcaption><b>그때</b> 가운데 머리는 꿈속에서만</figcaption></figure>
+    <div class="arrow">→</div>
+    <figure><img src="assets/meme-now.jpg" alt="가운데 머리가 된 Gemini 밈"/><figcaption><b>지금</b> 나머지 머리가 땀을 흘린다</figcaption></figure>
+  </div>
+</section>
+
+<section class="slide dk eco" data-title="구글 생태계 지도">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="kick">ECOSYSTEM</div>
+  <h2>Gemini 하나에 묶인 구글 도구</h2>
+  <svg class="ecosvg" viewBox="0 0 1280 720"><line x1="640" y1="430" x2="250" y2="255" stroke="#F28C28" stroke-width="2.5" stroke-dasharray="6 7" opacity=".7"/><line x1="640" y1="430" x2="640" y2="215" stroke="#F28C28" stroke-width="2.5" stroke-dasharray="6 7" opacity=".7"/><line x1="640" y1="430" x2="1030" y2="255" stroke="#F28C28" stroke-width="2.5" stroke-dasharray="6 7" opacity=".7"/><line x1="640" y1="430" x2="250" y2="590" stroke="#F28C28" stroke-width="2.5" stroke-dasharray="6 7" opacity=".7"/><line x1="640" y1="430" x2="640" y2="650" stroke="#F28C28" stroke-width="2.5" stroke-dasharray="6 7" opacity=".7"/><line x1="640" y1="430" x2="1030" y2="590" stroke="#F28C28" stroke-width="2.5" stroke-dasharray="6 7" opacity=".7"/></svg>
+  <div class="node" style="left:68px; top:209px">
+  <div class="nh"><span class="chip">CH1</span><b>Gemini 기본기</b></div>
+  <div class="icons"><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span><span class="nm">Gemini</span></div>
+</div><div class="node" style="left:458px; top:169px">
+  <div class="nh"><span class="chip">CH2</span><b>근거 있는 답</b></div>
+  <div class="icons"><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span><span class="nm">Gemini</span><span class="ic"><img src="assets/icons/notebooklm.svg" alt="NotebookLM"/></span><span class="nm">NotebookLM</span></div>
+</div><div class="node" style="left:848px; top:209px">
+  <div class="nh"><span class="chip">CH3</span><b>Workspace 속 Gemini</b></div>
+  <div class="icons"><span class="ic"><img src="assets/icons/gmail.svg" alt="Gmail"/></span><span class="nm">Gmail</span><span class="ic"><img src="assets/icons/docs.svg" alt="Docs"/></span><span class="nm">Docs</span><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span><span class="nm">Sheets</span><span class="ic"><img src="assets/icons/meet.svg" alt="Meet"/></span><span class="nm">Meet</span></div>
+</div><div class="node" style="left:848px; top:544px">
+  <div class="nh"><span class="chip">CH4</span><b>보여 주는 AI</b></div>
+  <div class="icons"><span class="ic"><img src="assets/icons/slides.svg" alt="Slides"/></span><span class="nm">Slides</span><span class="ic"><img src="assets/icons/vids.svg" alt="Vids"/></span><span class="nm">Vids</span></div>
+</div><div class="node" style="left:458px; top:604px">
+  <div class="nh"><span class="chip">CH5</span><b>AI Studio</b></div>
+  <div class="icons"><span class="ic"><img src="assets/icons/aistudio.svg" alt="AI Studio"/></span><span class="nm">AI Studio</span></div>
+</div><div class="node" style="left:68px; top:544px">
+  <div class="nh"><span class="chip">CH6</span><b>자동화</b></div>
+  <div class="icons"><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span><span class="nm">Apps Script</span><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span><span class="nm">Sheets</span><span class="ic"><img src="assets/icons/calendar.svg" alt="Calendar"/></span><span class="nm">Calendar</span></div>
+</div>
+  <div class="hub" style="left:566px; top:356px"><img src="assets/icons/gemini.svg" alt="Gemini"/></div>
+  <div class="hubcap" style="left:480px; top:514px"><span class="chip">CH7</span> 실전 과제에서 전부 엮는다</div>
+</section>
+
+<section class="slide dk divider" data-title="[CH2] 근거 있는 답">
+  <div class="ghost">02</div>
+  <div class="kick">CHAPTER 02</div>
+  <h2 class="big">근거 있는 답</h2>
+  <div class="agenda2"><span>Deep Research</span><span>NotebookLM</span><span>출처 확인</span></div>
+</section>
+
+<section class="slide ill" data-title="AI 답, 그대로 써도 될까요?">
   <svg class="scene" viewBox="0 0 1280 720" aria-hidden="true">
 <ellipse cx="870" cy="648" rx="390" ry="14" fill="#D9DDE3"/>
 <rect x="650" y="300" width="140" height="210" rx="22" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="4"/>
