@@ -438,7 +438,7 @@ def build():
         parts.append(f'''<section class="slide ill{active}" data-title="{title}">
   <svg class="scene" viewBox="0 0 1280 720" aria-hidden="true">{fn()}</svg>
   <div class="coord"><b></b> / <span class="tot"></span></div>
-  <div class="cap {pos}"><h2>{title}</h2><div class="bar"></div><p>{line}</p></div>
+  <div class="cap {pos}"><h2>{title}</h2><div class="bar"></div></div>
 </section>''')
     tpl = (ROOT / "src" / "template.html").read_text()
     tpl = tpl.replace("</style>", CSS + intro.CSS + "</style>", 1)

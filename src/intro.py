@@ -83,13 +83,13 @@ def agenda():
 def codered():
     # x 위치는 시간 비례 (2022.11 = 0, 2025.12 = 37개월)
     ev = [
-        (0, "2022.11", "ChatGPT 공개", "OpenAI", False, "up"),
-        (1, "2022.12", "구글, 코드 레드 선언", "ChatGPT에 검색 사업 위기감", True, "down"),
+        (0, "2022.11", "ChatGPT 공개", "", False, "up"),
+        (1, "2022.12", "구글, 코드 레드 선언", "", True, "down"),
         (3, "2023.02", "Bard 시연 중 오답", "알파벳 시총 하루 약 1,000억 달러 증발", False, "up"),
-        (13, "2023.12", "Gemini 1.0 공개", "첫 Gemini 모델", False, "down"),
-        (15, "2024.02", "Bard → Gemini", "서비스 이름을 Gemini로 통일", False, "up"),
-        (36, "2025.11", "Gemini 3 공개", "추론 · 코딩 벤치마크 선두권", False, "down"),
-        (37, "2025.12", "OpenAI, 코드 레드 선언", "ChatGPT 개선에 인력 집중", True, "up"),
+        (13, "2023.12", "Gemini 1.0 공개", "", False, "down"),
+        (15, "2024.02", "Bard → Gemini 개명", "", False, "up"),
+        (36, "2025.11", "Gemini 3 공개", "", False, "down"),
+        (37, "2025.12", "OpenAI, 코드 레드 선언", "", True, "up"),
     ]
     x0, x1 = 110, 1150
     def X(m):
@@ -123,7 +123,6 @@ def codered():
   <div class="kick">왜 지금 구글인가</div>
   <h2>3년 만에 뒤바뀐 구글과 OpenAI의 처지</h2>
   <div class="tlwrap"><svg viewBox="0 0 1160 420" class="tlsvg">{svg}</svg></div>
-  <div class="key"><span class="k">요약</span>2022년에는 구글이, 2025년에는 OpenAI가 비상을 걸었다.</div>
 </section>'''
 
 
@@ -133,9 +132,9 @@ def meme():
   <div class="kick">밈으로 보는 판도</div>
   <h2>꿈을 이룬 Gemini</h2>
   <div class="memes">
-    <figure><img src="assets/meme-dream.jpg" alt="가운데 머리가 되는 꿈을 꾸는 Gemini 밈"/><figcaption><b>과거</b> 주인공 자리는 꿈에서나</figcaption></figure>
+    <figure><img src="assets/meme-dream.jpg" alt="가운데 머리가 되는 꿈을 꾸는 Gemini 밈"/><figcaption><b>과거</b></figcaption></figure>
     <div class="arrow">→</div>
-    <figure><img src="assets/meme-now.jpg" alt="가운데 머리가 된 Gemini 밈"/><figcaption><b>현재</b> 다른 모델들이 진땀을 흘린다</figcaption></figure>
+    <figure><img src="assets/meme-now.jpg" alt="가운데 머리가 된 Gemini 밈"/><figcaption><b>현재</b></figcaption></figure>
   </div>
 </section>'''
 
@@ -165,7 +164,7 @@ def ecosystem():
   <svg class="ecosvg" viewBox="0 0 1280 720">{lines}</svg>
   {"".join(cards)}
   <div class="hub" style="left:{hub[0]-74}px; top:{hub[1]-74}px"><img src="{ICON.format("gemini")}" alt="Gemini"/></div>
-  <div class="hubcap" style="left:{hub[0]-160}px; top:{hub[1]+84}px"><span class="chip">CH7</span> 실전 과제에서 모두 활용</div>
+  <div class="hubcap" style="left:{hub[0]-160}px; top:{hub[1]+84}px"><span class="chip">CH7</span> 실전 과제</div>
 </section>'''
 
 
