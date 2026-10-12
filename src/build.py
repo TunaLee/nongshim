@@ -18,7 +18,7 @@ def build():
     parts = [art.DEFS] + deck.slides()
     tpl = (ROOT / "src" / "template.html").read_text()
     tpl = tpl.replace("</style>", intro.CSS + explain.CSS + deck.CSS + "</style>", 1)
-    html = tpl.replace("{{DECK_TITLE}}", "AI로 일하는 방식을 바꾸는 이틀").replace("{{SLIDES}}", "\n\n".join(parts))
+    html = tpl.replace("{{DECK_TITLE}}", "AI로 일하는 방식 바꾸기").replace("{{SLIDES}}", "\n\n".join(parts))
     out = ROOT / "docs" / "grounding" / "index.html"
     out.write_text(html)
     print(out, len(parts) - 1, "장")

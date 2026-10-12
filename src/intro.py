@@ -121,7 +121,7 @@ def codered():
     return f'''<section class="slide dk" data-title="뒤바뀐 처지">
   {coord()}
   <div class="kick">왜 지금 구글인가</div>
-  <h2>3년 만에 구글과 OpenAI의 처지가 뒤바뀌었습니다</h2>
+  <h2>3년 만에 뒤바뀐 코드 레드</h2>
   <div class="tlwrap"><svg viewBox="0 0 1160 420" class="tlsvg">{svg}</svg></div>
 </section>'''
 
@@ -130,7 +130,7 @@ def meme():
     return f'''<section class="slide dk" data-title="꿈을 이룬 Gemini">
   {coord()}
   <div class="kick">밈으로 보는 판도</div>
-  <h2>Gemini가 선두로 올라섰습니다</h2>
+  <h2>선두로 올라선 Gemini</h2>
   <div class="memes">
     <figure><img src="assets/meme-dream.jpg" alt="가운데 머리가 되는 꿈을 꾸는 Gemini 밈"/><figcaption><b>과거</b></figcaption></figure>
     <div class="arrow">→</div>
