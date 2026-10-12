@@ -89,9 +89,7 @@ def opening():
         light("Gemini를 쓰는 세 곳", places, "오프닝"),
         ill("scenes_more", "account_privacy", "top20", "개인 계정과 회사 계정",
             ["개인: 연결 데이터가 모델 개선에 쓰일 수 있음", "실습 · 업무: 회사 계정으로"]),
-        deck.o02(),
         deck.o_work(),
-        ill("scenes_ch2", "desk_outputs", "top25", "결과물"),
         deck.agenda(),
         tmap(),
         light("도구와 직무", table(["도구", "실제로 하는 일", "회사라면"], [
@@ -109,7 +107,6 @@ def opening():
 </div>''', "오프닝"),
         light("이번 주에 처리할 세 건", week, "오프닝"),
         light("실습 자료", files, "오프닝"),
-        deck.o06(),
     ]
 
 
@@ -126,11 +123,11 @@ def ch1():
     out = chapter("Ch1", "근거 있는 답을 받는 법", {"Deep Research · Notebook"}, "리서처")
     pairs = list(zip(deck.CH1_ILL, explain.SLIDES))
     for i, ((fn, zone, title, pr), ex) in enumerate(pairs):
-        out.append(ill("scenes_ch1", fn, zone, title, principle=pr))
+        if fn != "s6":  # 오픈북 그림은 Ch2 「참조 파일은 참고 교재」에서 씀
+            out.append(ill("scenes_ch1", fn, zone, title, principle=pr))
         out.append(ex())
         if fn == "s5":  # Deep Research 진행 순서 뒤
             out += [
-                capture("Deep Research 계획 화면", "Ch1", [("dr-01-plan", "조사 계획 · 수정")], ["계획 수정 → 조사 시작"]),
                 light("보고서를 받으면", vl("출처 링크 세 개는 직접 열어 보기", "숫자는 원문 표와 대조", "날짜가 오래된 자료 표시", "Docs로 내보내 Notebook 소스로"), "Ch1"),
                 lab("1-1", "편의점 채널 동향 조사", "Ch1",
                     "출처가 달린 동향 보고서 한 편",
@@ -144,7 +141,6 @@ def ch1():
                     ["Deep Research 보고서", "Docs로 내보낸 뒤 추가"],
                     ["01 · 04 같은 xlsx", "소스로 받지 않음 → Ch3 Sheets에서"],
                 ]), "Ch1"),
-                capture("Notebook 소스 화면", "Ch1", [("nb-01-sources", "소스 추가 · 출처 번호")]),
                 lab("1-2", "Notebook에 세 가지 질문", "Ch1",
                     "답마다 출처, 없으면 없다고",
                     ["02 · 03 · 08을 소스로 추가", "B편의점 스낵 C가 줄어든 이유", "A편의점 신제품 A 결품 원인", "D편의점 9월 행사 계획"],
