@@ -3,10 +3,11 @@
 N, G, O = "#1F3A5F", "#D9DDE3", "#F28C28"
 
 
-def page(title, body, key_label, key, sub="근거 있는 답변"):
+def page(title, body, key_label, key, sub="근거 있는 답변", badge=""):
     return f'''<section class="slide" data-title="{title}">
   <div class="coord"><b></b> / <span class="tot"></span></div>
-  <div class="eyebrow"><span class="tag">CH2</span><span class="dot"></span>{sub}</div>
+  <div class="eyebrow"><span class="tag">Ch1</span><span class="dot"></span>{sub}</div>
+  {badge}
   <h2 class="s-title sm">{title}</h2>
   <div class="rule"></div>
   <div class="body">
@@ -48,7 +49,7 @@ def prompt(label, text):
 
 
 def e1():
-    return page("AI 답을 쓰기 전에 확인할 세 가지", f'''<div class="twocol w">
+    return page("AI 답은 출처 · 날짜 · 숫자를 확인한 뒤에 씁니다", f'''<div class="twocol w">
   {biglist([
       ("출처", "답의 근거가 된 문서나 링크가 있는지 본다. 없으면 초안으로만 쓴다."),
       ("날짜", "자료가 언제 기준인지 본다. 법규 · 가격 · 조직 정보는 자주 바뀐다."),
@@ -60,16 +61,16 @@ def e1():
 
 
 def e2():
-    cands = [("약", .31), ("전년", .22), ("2조", .18), ("3조", .12), ("공개되지", .04)]
+    cands = [("약", .31), ("전년", .22), ("120억", .18), ("150억", .12), ("공개되지", .04)]
     bars = []
     for i, (w, p) in enumerate(cands):
         y = 70 + i * 34
         bars.append(f'<text x="96" y="{y+17}" text-anchor="end" font-size="14" fill="{N}">{w}</text>'
                     f'<rect x="106" y="{y}" width="{p*560:.0f}" height="24" rx="4" fill="{O if i == 0 else G}"/>'
                     f'<text x="{112+p*560:.0f}" y="{y+17}" font-size="13" fill="{N}">{p:.2f}</text>')
-    svg = (f'<svg viewBox="0 0 420 250"><text x="10" y="34" font-size="16" font-weight="700" fill="{N}">「포스코의 2025년 영업이익은 ___」</text>'
+    svg = (f'<svg viewBox="0 0 420 250"><text x="10" y="34" font-size="16" font-weight="700" fill="{N}">「우리 회사의 3분기 매출은 ___」</text>'
            + "".join(bars) + "</svg>")
-    return page("그럴듯한 문장이 만들어지는 방식", f'''<div class="twocol">
+    return page("언어 모델은 확률이 높은 단어로 빈칸을 채웁니다", f'''<div class="twocol">
   <div class="plot">{svg}<div class="cap">다음 단어 후보와 확률 (설명용 예시 값)</div></div>
   {vlist([
       ("→", "언어 모델은 앞 문장 다음에 올 단어를 <b>확률</b>로 고른다."),
@@ -80,7 +81,7 @@ def e2():
 
 
 def e3():
-    return page("모델이 모르는 두 가지와 해결 도구", f'''{table(
+    return page("최신 정보는 검색으로, 사내 자료는 업로드로 채웁니다", f'''{table(
         ["모르는 것", "이유", "해결 방법"],
         [["<b>최신 정보</b>", "학습 데이터에는 기준 시점이 있어 그 뒤의 소식은 모른다", '<span class="hl">웹 검색 · Deep Research</span>'],
          ["<b>사내 자료</b>", "사내 규정 · 회의록 · 실적 자료는 공개되지 않아 학습에 들어가지 않았다", '<span class="hl">자료 올리기 · NotebookLM</span>']])}
@@ -89,7 +90,7 @@ def e3():
 
 
 def e4():
-    return page("Deep Research와 NotebookLM 비교", table(
+    return page("자료를 밖에서 모을지, 안에서 찾을지에 따라 도구가 다릅니다", table(
         ["", "Deep Research", "NotebookLM"],
         [["<b>근거를 찾는 곳</b>", "웹에 공개된 자료 수십~수백 곳", "내가 올린 문서 · 링크 · 영상"],
          ["<b>결과물</b>", "출처가 달린 조사 보고서", "출처 번호가 달린 답변 · 요약 · 오디오 개요 · 마인드맵"],
@@ -100,11 +101,11 @@ def e4():
 
 
 def e5():
-    p = ("국내 철강업계의 수소환원제철 추진 현황을 조사해 줘.\n"
+    p = ("국내 편의점 간편식 시장의 최근 동향을 조사해 줘.\n"
          "- 기간: 2024년 이후\n"
-         "- 출처: 정부 · 기업 공식 발표 우선, 개인 블로그 제외\n"
-         "- 형식: 회사별 비교 표 + 한 쪽 요약")
-    return page("Deep Research가 일하는 순서", f'''{pipe([
+         "- 출처: 정부 · 업계 공식 자료 우선, 개인 블로그 제외\n"
+         "- 형식: 편의점 채널별 비교 표 + 한 쪽 요약")
+    return page("Deep Research는 실행 전에 계획을 고칠 기회를 줍니다", f'''{pipe([
         ("질문 입력", "조사할 주제"), ("계획 제시", "조사 항목 목록"), ("계획 수정", "사람이 고치고 승인"),
         ("검색 · 읽기", "수 분간 반복"), ("보고서", "출처 링크 포함")])}
   <div class="twocol">
@@ -114,7 +115,7 @@ def e5():
 
 
 def e6():
-    return page("NotebookLM이 답하는 방식", f'''{pipe([
+    return page("NotebookLM은 답마다 출처 번호를 붙입니다", f'''{pipe([
         ("자료 올리기", "PDF · Docs · 웹페이지 · YouTube"), ("질문", "자료에 대해 묻기"), ("답변", "올린 자료 안에서만"),
         ("출처 번호", "문장마다 표시"), ("원문 확인", "번호를 누르면 해당 위치")])}
   <div class="twocol">
@@ -129,7 +130,7 @@ def e6():
 
 def e7():
     p = "올린 자료에 근거가 있는 내용만 답해 줘.\n근거가 없으면 「자료에 없음」이라고 쓰고,\n답마다 출처 위치를 붙여 줘."
-    return page("세 가지 답을 다루는 법", f'''{table(
+    return page("「자료에 없음」도 쓸모 있는 답입니다", f'''{table(
         ["답의 유형", "모습", "대응"],
         [["<b>둘러대기</b>", "출처 없이 그럴듯한 문장", '<span class="no">쓰지 않는다.</span> 출처를 요구해 다시 묻는다'],
          ["<b>근거 제시</b>", "문서와 위치를 짚으며 답한다", '<span class="yes">원문을 열어 확인한 뒤 쓴다</span>'],
@@ -139,7 +140,7 @@ def e7():
 
 
 def e8():
-    return page("근거의 품질을 높이는 습관", biglist([
+    return page("좋은 자료를 고르는 습관이 좋은 답을 만듭니다", biglist([
         ("공식 · 최신 자료", "초안이나 개인 메모보다 확정된 문서를 올린다."),
         ("한 문서는 한 버전만", "같은 문서의 옛 버전은 노트북에서 지운다."),
         ("범위를 좁힌 질문", "기간 · 대상 · 원하는 형식을 질문에 적는다."),
