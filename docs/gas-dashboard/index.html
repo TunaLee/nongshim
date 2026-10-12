@@ -795,6 +795,18 @@ render(DATA);   // 숫자가 파일 안에 고정</code></pre></div>
 </div></div></div>
 </section>
 
+<section class="slide lt" data-title="지침은 규칙 목록이 아니라 판단 기준">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="eyebrow"><span class="tag">02</span></div>
+  <h2 class="s-title sm">지침은 규칙 목록이 아니라 판단 기준</h2>
+  <div class="rule"></div>
+  <div class="body"><div class="mid"><div class="ba">
+  <div class="b"><div class="lab">Before</div><div class="q">'B 편의점'을 'B편의점'으로 바꿔 줘.<br/>C열과 D열을 기준으로 중복을 지워 줘.<br/>2~4381행만 처리해 줘.<br/><br/>→ 다음 달 파일에서는 안 맞음</div></div>
+  <div class="arr">→</div>
+  <div class="a"><div class="lab">After</div><div class="q">목표: 어떤 파일이든 마스터 구조로<br/>열 의미부터 파악하고, 거래처는 마스터에서 가장 가까운 값으로.<br/>안 맞는 숫자는 고치지 말고 표시, 애매한 건 리포트에.<br/><br/>→ 파일이 바뀌어도 그대로 사용</div></div>
+</div></div></div>
+</section>
+
 <section class="slide lt" data-title="sales-data-cleaner">
   <div class="coord"><b></b> / <span class="tot"></span></div>
   <div class="eyebrow"><span class="tag">02</span></div>
@@ -802,14 +814,15 @@ render(DATA);   // 숫자가 파일 안에 고정</code></pre></div>
   <div class="rule"></div>
   <div class="body"><div class="mid"><div class="twocol"><div class="code sm"><div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="fn">Skill</span></div><pre><code>---
 name: sales-data-cleaner
-description: 판매실적 원본 정리 → 마스터 시트 기록
+description: 판매 데이터 파일이 오면 마스터 구조로 정리
 ---
-1. 거래처 · SKU를 마스터 기준으로 교정
-   예) 'B 편의점', 'B편의졈' → 'B편의점'
-2. 기준월 + 거래처 + SKU코드가 같은 행은 하나만
-3. 납품수량 × 단가 = 매출액 확인, 다르면 표시
-4. 정제 리포트 출력 (교정 · 삭제 · 불일치 건수)
-5. 판매실적_마스터 시트에 기록</code></pre></div><div class="vl"><p>마스터 매핑</p><p>중복 제거</p><p>정합성 검증</p><p>정제 리포트</p></div></div></div></div>
+목표: 어떤 형식의 파일이든 마스터와 같은 구조로
+1. 열의 의미부터 파악 (이름 · 순서가 달라도)
+2. 거래처 · 제품은 참조 마스터에서 가장 가까운 값으로
+3. 같은 거래로 보이는 행은 하나로
+4. 수량 · 단가 · 금액이 안 맞으면 고치지 말고 표시
+5. 확신이 낮은 교정은 리포트에 따로
+참조: 거래처 마스터 · 05 제품카탈로그</code></pre></div><div class="vl"><p>목표</p><p>판단 기준</p><p>모를 때의 처리</p><p>참조 마스터</p></div></div></div></div>
 </section>
 
 <section class="slide lt labs" data-title="[실습 1] 원본 정리 Skill">
