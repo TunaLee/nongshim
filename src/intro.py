@@ -12,13 +12,13 @@ NAMES = {
 
 # 장 번호, 날, 제목, 설명, 아이콘
 CHAPTERS = [
-    ("CH1", 1, "Gemini 기본기", "프롬프트 구조 · Gems로 나만의 비서 만들기", ["gemini"]),
-    ("CH2", 1, "근거 있는 답", "Deep Research로 찾아오고, NotebookLM으로 가두기", ["gemini", "notebooklm"]),
-    ("CH3", 1, "Workspace 속 Gemini", "메일 · 문서 · 시트 · 회의록을 한 흐름으로", ["gmail", "docs", "sheets", "meet"]),
-    ("CH4", 2, "보여 주는 AI", "Canvas · 슬라이드 · 영상 초안", ["slides", "vids"]),
-    ("CH5", 2, "AI Studio", "모델을 골라 시험하고 프롬프트를 다듬는 작업대", ["aistudio"]),
-    ("CH6", 2, "자동화", "Apps Script로 시트 · 메일 · 캘린더 잇기", ["appsscript", "sheets", "calendar"]),
-    ("CH7", 2, "실전 과제", "자기 업무 하나를 Gemini 흐름으로 바꾸기", ["drive"]),
+    ("CH1", 1, "Gemini 기본기", "프롬프트 작성법 · Gems로 나만의 비서 만들기", ["gemini"]),
+    ("CH2", 1, "근거 있는 답변", "Deep Research로 자료 조사, NotebookLM으로 내 자료 분석", ["gemini", "notebooklm"]),
+    ("CH3", 1, "Workspace 속 Gemini", "메일 · 문서 · 시트 · 회의에서 Gemini 활용", ["gmail", "docs", "sheets", "meet"]),
+    ("CH4", 2, "콘텐츠 만들기", "Canvas · 슬라이드 · 영상 초안 제작", ["slides", "vids"]),
+    ("CH5", 2, "AI Studio", "모델 비교와 프롬프트 다듬기", ["aistudio"]),
+    ("CH6", 2, "자동화", "Apps Script로 시트 · 메일 · 캘린더 연동", ["appsscript", "sheets", "calendar"]),
+    ("CH7", 2, "실전 과제", "내 업무 하나를 Gemini로 개선하기", ["drive"]),
 ]
 
 
@@ -55,7 +55,7 @@ def speaker():
   <div class="speaker">
     <div class="photo"><img src="assets/speaker.jpg" alt="강사 사진"/></div>
     <div class="who">
-      <div class="kick">SPEAKER</div>
+      <div class="kick">강사 소개</div>
       <h2 class="name">이동원</h2>
       <div class="sub">AI 엔지니어 · 강사 · 창업가 · devtuna.kr</div>
       <div class="tl">{tl}</div>
@@ -72,10 +72,10 @@ def agenda():
             for c, dd, t, d, ics in CHAPTERS if dd == day)
         label = "첫째 날" if day == 1 else "둘째 날"
         return f'<div class="daycol"><div class="dayhead">{label}</div>{rows}</div>'
-    return f'''<section class="slide dk" data-title="이틀의 목차">
+    return f'''<section class="slide dk" data-title="목차">
   {coord()}
-  <div class="kick">AGENDA</div>
-  <h2>이틀 동안 다루는 일곱 장</h2>
+  <div class="kick">2일 과정</div>
+  <h2>목차</h2>
   <div class="days">{col(1)}{col(2)}</div>
 </section>'''
 
@@ -84,12 +84,12 @@ def codered():
     # x 위치는 시간 비례 (2022.11 = 0, 2025.12 = 37개월)
     ev = [
         (0, "2022.11", "ChatGPT 공개", "OpenAI", False, "up"),
-        (1, "2022.12", "구글 사내 「코드 레드」", "검색 사업 위기 경보", True, "down"),
-        (3, "2023.02", "Bard 시연 오답", "알파벳 시총 하루 약 1,000억 달러 증발", False, "up"),
-        (13, "2023.12", "Gemini 1.0", "Bard 뒤를 잇는 모델", False, "down"),
-        (15, "2024.02", "Bard → Gemini", "이름까지 바꿔 다시 시작", False, "up"),
+        (1, "2022.12", "구글, 코드 레드 선언", "ChatGPT에 검색 사업 위기감", True, "down"),
+        (3, "2023.02", "Bard 시연 중 오답", "알파벳 시총 하루 약 1,000억 달러 증발", False, "up"),
+        (13, "2023.12", "Gemini 1.0 공개", "첫 Gemini 모델", False, "down"),
+        (15, "2024.02", "Bard → Gemini", "서비스 이름을 Gemini로 통일", False, "up"),
         (36, "2025.11", "Gemini 3 공개", "추론 · 코딩 벤치마크 선두권", False, "down"),
-        (37, "2025.12", "OpenAI 사내 「코드 레드」", "ChatGPT 개선에 인력 집중", True, "up"),
+        (37, "2025.12", "OpenAI, 코드 레드 선언", "ChatGPT 개선에 인력 집중", True, "up"),
     ]
     x0, x1 = 110, 1150
     def X(m):
@@ -118,24 +118,24 @@ def codered():
                      f'<text x="{ax}" y="{ty+26}" text-anchor="{anchor}" class="t{" red" if red else ""}">{t}</text>'
                      f'<text x="{ax}" y="{ty+48}" text-anchor="{anchor}" class="s">{s}</text>')
     svg = "".join(parts)
-    return f'''<section class="slide dk" data-title="3년 만에 뒤집힌 코드 레드">
+    return f'''<section class="slide dk" data-title="뒤바뀐 처지">
   {coord()}
-  <div class="kick">WHY GOOGLE, NOW</div>
-  <h2>3년 만에 방향이 뒤집힌 「코드 레드」</h2>
+  <div class="kick">왜 지금 구글인가</div>
+  <h2>3년 만에 뒤바뀐 구글과 OpenAI의 처지</h2>
   <div class="tlwrap"><svg viewBox="0 0 1160 420" class="tlsvg">{svg}</svg></div>
-  <div class="key"><span class="k">흐름</span>2022년 경보를 울린 쪽은 구글이었고, 2025년에는 OpenAI였다.</div>
+  <div class="key"><span class="k">요약</span>2022년에는 구글이, 2025년에는 OpenAI가 비상을 걸었다.</div>
 </section>'''
 
 
 def meme():
-    return f'''<section class="slide dk" data-title="꿈이 현실이 된 가운데 머리">
+    return f'''<section class="slide dk" data-title="꿈을 이룬 Gemini">
   {coord()}
-  <div class="kick">MEANWHILE</div>
-  <h2>꿈속의 가운데 머리가 현실이 된 Gemini</h2>
+  <div class="kick">밈으로 보는 판도</div>
+  <h2>꿈을 이룬 Gemini</h2>
   <div class="memes">
-    <figure><img src="assets/meme-dream.jpg" alt="가운데 머리가 되는 꿈을 꾸는 Gemini 밈"/><figcaption><b>그때</b> 가운데 머리는 꿈속에서만</figcaption></figure>
+    <figure><img src="assets/meme-dream.jpg" alt="가운데 머리가 되는 꿈을 꾸는 Gemini 밈"/><figcaption><b>과거</b> 주인공 자리는 꿈에서나</figcaption></figure>
     <div class="arrow">→</div>
-    <figure><img src="assets/meme-now.jpg" alt="가운데 머리가 된 Gemini 밈"/><figcaption><b>지금</b> 나머지 머리가 땀을 흘린다</figcaption></figure>
+    <figure><img src="assets/meme-now.jpg" alt="가운데 머리가 된 Gemini 밈"/><figcaption><b>현재</b> 다른 모델들이 진땀을 흘린다</figcaption></figure>
   </div>
 </section>'''
 
@@ -160,20 +160,20 @@ def ecosystem():
 </div>''')
     return f'''<section class="slide dk eco" data-title="구글 생태계 지도">
   {coord()}
-  <div class="kick">ECOSYSTEM</div>
-  <h2>Gemini 하나에 묶인 구글 도구</h2>
+  <div class="kick">구글 생태계</div>
+  <h2>Gemini로 연결되는 구글 도구</h2>
   <svg class="ecosvg" viewBox="0 0 1280 720">{lines}</svg>
   {"".join(cards)}
   <div class="hub" style="left:{hub[0]-74}px; top:{hub[1]-74}px"><img src="{ICON.format("gemini")}" alt="Gemini"/></div>
-  <div class="hubcap" style="left:{hub[0]-160}px; top:{hub[1]+84}px"><span class="chip">CH7</span> 실전 과제에서 전부 엮는다</div>
+  <div class="hubcap" style="left:{hub[0]-160}px; top:{hub[1]+84}px"><span class="chip">CH7</span> 실전 과제에서 모두 활용</div>
 </section>'''
 
 
 def divider():
-    return '''<section class="slide dk divider" data-title="[CH2] 근거 있는 답">
+    return '''<section class="slide dk divider" data-title="[CH2] 근거 있는 답변">
   <div class="ghost">02</div>
   <div class="kick">CHAPTER 02</div>
-  <h2 class="big">근거 있는 답</h2>
+  <h2 class="big">근거 있는 답변</h2>
   <div class="agenda2"><span>Deep Research</span><span>NotebookLM</span><span>출처 확인</span></div>
 </section>'''
 
@@ -185,7 +185,7 @@ def slides():
 CSS = '''
   /* ── 도입부: 어두운 남색 + 주황 ── */
   .slide.dk{background:radial-gradient(900px 520px at 85% -10%, #2A4C78 0%, rgba(42,76,120,0) 60%), #0F1B2D; color:#fff; border:none; padding:52px 64px 44px;}
-  .dk .kick{font-family:var(--mono); font-size:13px; font-weight:700; letter-spacing:.16em; color:#F28C28; text-transform:uppercase;}
+  .dk .kick{font-family:var(--serif); font-size:15px; font-weight:700; letter-spacing:.02em; color:#F28C28; text-transform:uppercase;}
   .dk h2{font-size:40px; line-height:1.15; letter-spacing:-.03em; font-weight:800; margin:12px 0 0;}
   .dk .sub{font-size:17px; color:rgba(255,255,255,.7); margin-top:10px;}
   .dk .coord{color:rgba(255,255,255,.45);} .dk .coord b{color:#fff;}
