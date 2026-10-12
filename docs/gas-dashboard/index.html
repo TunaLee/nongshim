@@ -798,23 +798,6 @@
   
 </section>
 
-<section class="slide lt" data-title="같은 대시보드, 데이터 위치만 다름">
-  <div class="coord"><b></b> / <span class="tot"></span></div>
-  <div class="eyebrow"><span class="tag">01</span></div>
-  <h2 class="s-title sm">같은 대시보드, 데이터 위치만 다름</h2>
-  <div class="rule"></div>
-  <div class="body"><div class="mid"><div class="twocol">
-  <div class="code sm"><div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="fn">정적 · 09_대시보드_예시.html</span></div><pre><code>const DATA = {
-  month: "2026-08",
-  channels: { "편의점": { sales: 1421193000, ... } }
-};
-render(DATA);   // 숫자가 파일 안에 고정</code></pre></div>
-  <div class="code sm"><div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="fn">동적 · Apps Script 웹앱</span></div><pre><code>google.script.run
-  .withSuccessHandler(render)   // 받은 데이터로 그리기
-  .getCleanedSalesData();       // 시트에서 최신 데이터</code></pre></div>
-</div></div></div>
-</section>
-
 <section class="slide dk divider" data-title="[02] Skill로 원본 정리">
   <div class="ghost">02</div>
   <div class="kick">02</div>

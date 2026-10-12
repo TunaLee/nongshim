@@ -221,14 +221,6 @@ def slides():
                 "4. 수량 · 단가 · 금액이 안 맞으면 고치지 말고 표시\n"
                 "5. 확신이 낮은 교정은 리포트에 따로\n"
                 "참조: 거래처 마스터 · 05 제품카탈로그")
-    static_code = ("const DATA = {\n"
-                   "  month: \"2026-08\",\n"
-                   "  channels: { \"편의점\": { sales: 1421193000, ... } }\n"
-                   "};\n"
-                   "render(DATA);   // 숫자가 파일 안에 고정")
-    dynamic_code = ("google.script.run\n"
-                    "  .withSuccessHandler(render)   // 받은 데이터로 그리기\n"
-                    "  .getCleanedSalesData();       // 시트에서 최신 데이터")
     gas_code = ("function doGet() {\n"
                 "  return HtmlService.createHtmlOutputFromFile('Index');\n"
                 "}\n"
@@ -260,10 +252,6 @@ def slides():
         light("정적 웹: 완성된 파일을 그대로", static_web(), "01"),
         light("동적 웹: 열 때마다 데이터를 가져와 그림", dynamic_web(), "01"),
         ill("scenes_ch4", "menu_board", "left40", "틀은 그대로, 데이터만 교체", ["화면 틀: Index.html", "데이터: 시트에서"]),
-        light("같은 대시보드, 데이터 위치만 다름", f'''<div class="twocol">
-  {code("정적 · 09_대시보드_예시.html", static_code)}
-  {code("동적 · Apps Script 웹앱", dynamic_code)}
-</div>''', "01"),
 
         divider("02", "Skill로 원본 정리", ""),
         team_map({"Drive", "Sheets", "Skill"}, "도구 지도 · 02", "데이터를 다루는 쪽"),
