@@ -193,7 +193,10 @@ def slides():
 <tr><td><b>계산 불일치</b></td><td>매출액 ≠ 납품수량 × 단가</td><td>표시 후 확인</td></tr>
 </tbody></table>
 <div class="dbnote"><span>01 원본</span> 4,381행 → 정리 후 4,368행</div>''', "02"),
-        ill("scenes_ch5", "conveyor", "top20", "정리 규칙을 Skill에 저장", ["매번 같은 규칙으로 정리", "/sales-data-cleaner 한 줄"]),
+        ill("scenes_ch5", "conveyor", "top20", "규칙이 아니라 판단으로 정리", ["처음 보는 오탈자도 마스터에 맞춰 교정", "열 이름 · 순서가 달라도 처리"]),
+        ba("정해진 규칙 vs Skill", "02",
+           "수식 · 스크립트\n\n정해 둔 규칙만 처리\n'B 편의점' → 규칙에 있으면 교정\n'B편의젬' → 규칙에 없으면 그대로\n열 순서가 바뀌면 오류",
+           "Skill\n\n마스터와 비교해 판단\n'B편의젬' · 'ㅂ편의점'도 B편의점으로\n열 이름 · 순서가 달라도 읽음\n애매한 건 정제 리포트에 표시"),
         light("sales-data-cleaner", f'<div class="twocol">{code("Skill", skill_md)}<div class="vl"><p>마스터 매핑</p><p>중복 제거</p><p>정합성 검증</p><p>정제 리포트</p></div></div>', "02"),
         lab("1", "원본 정리 Skill", "02",
             "01 원본을 Skill 한 줄로 마스터 시트에",
