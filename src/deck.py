@@ -105,9 +105,9 @@ ROLES = [
 ACTIVE = {
     "Ch1": {"리서치 담당", "검토자"}, "Ch2": {"데이터 창고"}, "Ch3": {"작업대"},
     "Ch4": {"작업대", "자동화 담당"}, "Ch5": {"전담 비서"},
-    "Day 2": {r[0] for r in ROLES},
+    "적용": {r[0] for r in ROLES},
 }
-ORDER = ["Ch1", "Ch2", "Ch3", "Ch4", "Ch5", "Day 2"]
+ORDER = ["Ch1", "Ch2", "Ch3", "Ch4", "Ch5", "적용"]
 
 
 def eco(ch=None, title=None):
@@ -151,7 +151,7 @@ def eco(ch=None, title=None):
 
 
 def divider(ch, title, sub):
-    num = ch[2:].zfill(2) if ch.startswith("Ch") else "D2"
+    num = ch[2:].zfill(2) if ch.startswith("Ch") else "06"
     return f'''<section class="slide dk divider" data-title="[{ch}] {title}">
   <div class="ghost">{num}</div>
   <div class="kick">{ch}</div>
@@ -197,14 +197,12 @@ AGENDA = [
 def agenda():
     rows = "".join(f'''<div class="ch"><span class="chip">{c}</span><div class="tx"><b>{t}</b><span>{d}</span></div>
 <div class="icons">{"".join(icon(n) for n in ics)}</div></div>''' for c, t, d, ics in AGENDA)
-    day2 = '''<div class="ch"><span class="chip">Day 2</span><div class="tx"><b>내 업무에 적용</b><span>결과물 하나</span></div></div>'''
+    day2 = '''<div class="ch"><span class="chip">적용</span><div class="tx"><b>내 업무에 적용</b><span>결과물 하나</span></div></div>'''
     return f'''<section class="slide dk" data-title="목차">
   {coord()}
-  <div class="kick">2일 과정</div>
   <h2>목차</h2>
-  <div class="days">
-    <div class="daycol"><div class="dayhead">첫째 날</div>{rows}</div>
-    <div class="daycol"><div class="dayhead">둘째 날</div>{day2}</div>
+  <div class="days one">
+    <div class="daycol">{rows}{day2}</div>
   </div>
 </section>'''
 
@@ -371,32 +369,32 @@ def ch5():
            "지침 추가: 메모에 없는 내용은 지어내지 마\n\n→ 논의: 신제품 3종 소개\n→ 요청: [확인 필요]\n→ 후속 조치: [확인 필요]"),
         ill(m, "agent_morning", "top20", "Gem + Studio = 에이전트",
             ["문의 → 답장 초안 → 담당자 알림", "자동 발송 없음"]),
-        light("첫날 결과물의 연결", f'''{flow([("조사", "Ch1"), ("숫자", "Ch2"), ("제안서", "Ch3"), ("대시보드 · 메일", "Ch4"), ("Gem", "Ch5")])}
+        light("결과물의 연결", f'''{flow([("조사", "Ch1"), ("숫자", "Ch2"), ("제안서", "Ch3"), ("대시보드 · 메일", "Ch4"), ("Gem", "Ch5")])}
 <div class="homework"><b>숙제</b> 내 업무에서 만들 것 하나</div>''', "Ch5"),
     ]
 
 
-# ── Day 2 ───────────────────────────────────────────────
-def day2():
-    return chapter("Day 2", "내 업무에 적용하기", "", "전체 도구") + [
+# ── 적용 ───────────────────────────────────────────────
+def apply_():
+    return chapter("적용", "내 업무에 적용하기", "", "전체 도구") + [
         light("두 가지 원칙", cards([
             ("원칙 ① 근거를 쥐여 준다", "Ch1 오픈북 · Ch5 지식 파일", ["notebooklm", "gemini"]),
             ("원칙 ② 계획을 보여 줄 때 개입한다", "Ch1 Deep Research · Ch2 Sheets · Ch4 Studio", ["gemini", "sheets", "appsscript"]),
-        ], 2), "Day 2"),
+        ], 2), "적용"),
         ill("scenes_ch5", "construction", "top20", "작게 끝내기",
             ["Before: 팀 전체 영업 관리 시스템", "After: 내 방문 메모 정리 흐름"]),
         light("트랙 선택", cards([
             ("문서 · 제안", "Canvas + Gem<br/>예: 판촉 성과 비교 도구", ["docs", "gemini"]),
             ("대시보드", "Sheets + Forms + Canvas<br/>예: 이슈 통합 관리 화면", ["sheets", "forms", "docs"]),
             ("자동화", "Apps Script · Studio + Gem<br/>예: 지역별 미달 알림 초안", ["appsscript", "gemini"]),
-        ]), "Day 2"),
+        ]), "적용"),
         light("평가 기준", f'''<div class="score">
   <div class="sc"><b>30</b><span>실제 업무 적합성</span></div><div class="sc"><b>30</b><span>계산 · 분석 정확도</span></div>
   <div class="sc"><b>25</b><span>실행 완성도</span></div><div class="sc"><b>15</b><span>사용성 · 확장성</span></div>
 </div>
-<div class="homework"><b>완료</b> 분석 1 + 계산 1 + 자동화 시연 1</div>''', "Day 2"),
-        light("발표 2분", flow([("문제", ""), ("데모", ""), ("전후 비교", "")], hl=1), "Day 2"),
-        bridge("작은 자동화부터 2주 시범 운영", "", "Day 2", "운영 계정 · 데이터 정책 → 2주 파일럿 → 개선"),
+<div class="homework"><b>완료</b> 분석 1 + 계산 1 + 자동화 시연 1</div>''', "적용"),
+        light("발표 2분", flow([("문제", ""), ("데모", ""), ("전후 비교", "")], hl=1), "적용"),
+        bridge("작은 자동화부터 2주 시범 운영", "", "적용", "운영 계정 · 데이터 정책 → 2주 파일럿 → 개선"),
     ]
 
 
@@ -428,7 +426,7 @@ def opening():
 
 
 def slides():
-    return opening() + ch1() + ch2() + ch3() + ch4() + ch5() + day2()
+    return opening() + ch1() + ch2() + ch3() + ch4() + ch5() + apply_()
 
 
 CSS = '''
@@ -502,6 +500,7 @@ CSS = '''
   .dbnote{margin-top:18px; font-size:18px; color:#44506A;} .dbnote span{background:#F28C28; color:#fff; font-weight:800; border-radius:6px; padding:3px 10px; margin-right:10px;}
   .score{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;} .sc{background:#fff; border:1px solid #E1E5EB; border-top:4px solid #1F3A5F; border-radius:10px; padding:22px; display:flex; flex-direction:column; gap:6px;}
   .sc b{font-size:40px; color:#F28C28;} .sc span{font-size:17px; font-weight:700; color:#16233A;}
+  .days.one{grid-template-columns:1fr; max-width:760px;}
   .vl p{font-size:20px; color:#16233A; margin:0 0 12px; padding-left:16px; border-left:4px solid #F28C28;}
 
   /* ── 어두운 정리 장 ── */

@@ -1,4 +1,4 @@
-"""도입부 슬라이드: 표지 · 강사 · 목차 · 코드 레드 역전 · 밈 · 생태계 · 간지.
+"""도입부 슬라이드: 강사 · 코드 레드 역전 · 밈. 어두운 장 공통 CSS.
 
 어두운 남색 바탕에 주황 강조. 아이콘은 assets/icons/ (Wikimedia Commons, Public domain·CC0).
 """
@@ -10,16 +10,6 @@ NAMES = {
     "calendar": "Calendar", "vids": "Vids", "aistudio": "AI Studio", "appsscript": "Apps Script", "forms": "Forms",
 }
 
-# 장 번호, 날, 제목, 설명, 아이콘
-CHAPTERS = [
-    ("CH1", 1, "Gemini 기본기", "프롬프트 작성법 · Gems로 나만의 비서 만들기", ["gemini"]),
-    ("CH2", 1, "근거 있는 답변", "Deep Research로 자료 조사, NotebookLM으로 내 자료 분석", ["gemini", "notebooklm"]),
-    ("CH3", 1, "Workspace 속 Gemini", "메일 · 문서 · 시트 · 회의에서 Gemini 활용", ["gmail", "docs", "sheets", "meet"]),
-    ("CH4", 2, "콘텐츠 만들기", "Canvas · 슬라이드 · 영상 초안 제작", ["slides", "vids"]),
-    ("CH5", 2, "AI Studio", "모델 비교와 프롬프트 다듬기", ["aistudio"]),
-    ("CH6", 2, "자동화", "Apps Script로 시트 · 메일 · 캘린더 연동", ["appsscript", "sheets", "calendar"]),
-    ("CH7", 2, "실전 과제", "내 업무 하나를 Gemini로 개선하기", ["drive"]),
-]
 
 
 def icon(name, cls="ic"):
@@ -28,16 +18,6 @@ def icon(name, cls="ic"):
 
 def coord():
     return '<div class="coord"><b></b> / <span class="tot"></span></div>'
-
-
-def cover():
-    strip = "".join(icon(n, "tile") for n in NAMES)
-    return f'''<section class="slide dk cover-dk active" data-title="표지">
-  <div class="glow"></div>
-  <div class="kick">GOOGLE AI 실무 · 2일 과정</div>
-  <h1>구글 AI로 일하는 이틀</h1>
-  <div class="strip">{strip}</div>
-</section>'''
 
 
 def speaker():
@@ -61,22 +41,6 @@ def speaker():
       <div class="tl">{tl}</div>
     </div>
   </div>
-</section>'''
-
-
-def agenda():
-    def col(day):
-        rows = "".join(
-            f'''<div class="ch"><span class="chip">{c}</span><div class="tx"><b>{t}</b><span>{d}</span></div>
-<div class="icons">{"".join(icon(n) for n in ics)}</div></div>'''
-            for c, dd, t, d, ics in CHAPTERS if dd == day)
-        label = "첫째 날" if day == 1 else "둘째 날"
-        return f'<div class="daycol"><div class="dayhead">{label}</div>{rows}</div>'
-    return f'''<section class="slide dk" data-title="목차">
-  {coord()}
-  <div class="kick">2일 과정</div>
-  <h2>목차</h2>
-  <div class="days">{col(1)}{col(2)}</div>
 </section>'''
 
 
@@ -137,84 +101,6 @@ def meme():
     <figure><img src="assets/meme-now.jpg" alt="가운데 머리가 된 Gemini 밈"/><figcaption><b>현재</b></figcaption></figure>
   </div>
 </section>'''
-
-
-def ecosystem(active=None):
-    """active 가 없으면 전체 지도. 있으면 앞 장은 켜고, 이번 장은 강조하고, 뒤 장은 흐리게."""
-    hub = (640, 430)
-    nodes = {  # 장 → 카드 중심
-        "CH1": (250, 255), "CH2": (640, 215), "CH3": (1030, 255),
-        "CH6": (250, 590), "CH5": (640, 650), "CH4": (1030, 590),
-    }
-
-    def state(c):
-        if active is None:
-            return "all"
-        n, k = int(c[2:]), int(active[2:])
-        return "done" if n < k else "on" if n == k else "dim"
-
-    lines = []
-    for c, (x, y) in nodes.items():
-        st = state(c)
-        if st == "all":
-            lines.append(f'<line x1="{hub[0]}" y1="{hub[1]}" x2="{x}" y2="{y}" stroke="#F28C28" stroke-width="2.5" stroke-dasharray="6 7" opacity=".7"/>')
-        elif st == "done":
-            lines.append(f'<line x1="{hub[0]}" y1="{hub[1]}" x2="{x}" y2="{y}" stroke="#FFFFFF" stroke-width="2.5" opacity=".45"/>')
-        elif st == "dim":
-            lines.append(f'<line x1="{hub[0]}" y1="{hub[1]}" x2="{x}" y2="{y}" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="4 8" opacity=".12"/>')
-        else:
-            lines.append(f'<line x1="{hub[0]}" y1="{hub[1]}" x2="{x}" y2="{y}" stroke="#F28C28" stroke-width="5" opacity=".35"/>'
-                         f'<line class="flow" x1="{hub[0]}" y1="{hub[1]}" x2="{x}" y2="{y}" stroke="#F28C28" stroke-width="5" stroke-linecap="round" stroke-dasharray="14 12"/>')
-    cards = []
-    for c, dd, t, d, ics in CHAPTERS:
-        if c not in nodes:
-            continue
-        x, y = nodes[c]
-        cards.append(f'''<div class="node {state(c)}" style="left:{x-182}px; top:{y-46}px">
-  <div class="nh"><span class="chip">{c}</span><b>{t}</b></div>
-  <div class="icons">{"".join(icon(n) + f'<span class="nm">{NAMES[n]}</span>' for n in ics)}</div>
-</div>''')
-    if active is None:
-        kick, h2, title = "구글 생태계", "Gemini로 연결되는 구글 도구", "구글 생태계 지도"
-        cap = "all"
-    else:
-        name = next(t for c, _, t, _, _ in CHAPTERS if c == active)
-        kick, h2, title = f"구글 생태계 · {active}", f"{name}에서 쓰는 도구", f"[{active}] 생태계 지도"
-        cap = "on" if active == "CH7" else "dim"
-    return f'''<section class="slide dk eco{' focus' if active else ''}" data-title="{title}">
-  {coord()}
-  <div class="kick">{kick}</div>
-  <h2>{h2}</h2>
-  <svg class="ecosvg" viewBox="0 0 1280 720">{"".join(lines)}</svg>
-  {"".join(cards)}
-  <div class="hub" style="left:{hub[0]-74}px; top:{hub[1]-74}px"><img src="{ICON.format("gemini")}" alt="Gemini"/></div>
-  <div class="hubcap {cap}" style="left:{hub[0]-160}px; top:{hub[1]+84}px"><span class="chip">CH7</span> 실전 과제</div>
-</section>'''
-
-
-DIVIDERS = {
-    "CH2": ("근거 있는 답변", ["Deep Research", "NotebookLM", "출처 확인"]),
-}
-
-
-def divider(ch):
-    title, chips = DIVIDERS[ch]
-    num = ch[2:].zfill(2)
-    return f'''<section class="slide dk divider" data-title="[{ch}] {title}">
-  <div class="ghost">{num}</div>
-  <div class="kick">CHAPTER {num}</div>
-  <h2 class="big">{title}</h2>
-  <div class="agenda2">{"".join(f"<span>{c}</span>" for c in chips)}</div>
-</section>'''
-
-
-def chapter_open(ch):
-    """챕터 시작마다 간지 + 그 장이 켜진 생태계 지도."""
-    return [divider(ch), ecosystem(ch)]
-
-
-def slides():
-    return [cover(), speaker(), agenda(), codered(), meme(), ecosystem()] + chapter_open("CH2")
 
 
 CSS = '''
