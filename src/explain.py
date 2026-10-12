@@ -59,23 +59,81 @@ def e1():
 </div>''', "", "")
 
 
+# 다음 단어 예측 애니메이션. 단계마다 (후보, 확률) 목록, 첫 후보가 선택된다. 값은 설명용 예시.
+GEN_PREFIX = "우리 회사의 3분기 매출은"
+GEN_STEPS = [
+    [("약", .31), ("전년", .22), ("120억", .18), ("150억", .12), ("공개되지", .04)],
+    [("120억", .34), ("150억", .27), ("100억", .19), ("두", .08), ("3천억", .05)],
+    [("원으로", .58), ("원이며", .21), ("원,", .11), ("달러로", .03)],
+    [("전년", .41), ("지난해", .26), ("목표", .14), ("업계", .09)],
+    [("대비", .62), ("보다", .24), ("동기", .09)],
+    [("8%", .29), ("12%", .23), ("5%", .18), ("소폭", .15)],
+    [("증가했다.", .55), ("늘었다.", .30), ("감소했다.", .10)],
+]
+
+
 def e2():
-    cands = [("약", .31), ("전년", .22), ("120억", .18), ("150억", .12), ("공개되지", .04)]
-    bars = []
-    for i, (w, p) in enumerate(cands):
-        y = 70 + i * 34
-        bars.append(f'<text x="96" y="{y+17}" text-anchor="end" font-size="14" fill="{N}">{w}</text>'
-                    f'<rect x="106" y="{y}" width="{p*560:.0f}" height="24" rx="4" fill="{O if i == 0 else G}"/>'
-                    f'<text x="{112+p*560:.0f}" y="{y+17}" font-size="13" fill="{N}">{p:.2f}</text>')
-    svg = (f'<svg viewBox="0 0 420 250"><text x="10" y="34" font-size="16" font-weight="700" fill="{N}">「우리 회사의 3분기 매출은 ___」</text>'
-           + "".join(bars) + "</svg>")
-    return page("AI가 문장을 만드는 방식", f'''<div class="twocol">
-  <div class="plot">{svg}<div class="cap">다음 단어 후보와 확률 (예시 값)</div></div>
+    import json
+    data = json.dumps({"prefix": GEN_PREFIX, "steps": GEN_STEPS}, ensure_ascii=False)
+    full = " ".join([GEN_PREFIX] + [st[0][0] for st in GEN_STEPS])
+    last = GEN_STEPS[-1]
+    rows = "".join(
+        f'<div class="gr{" pick" if i == 0 else ""}"><span class="gw">{w}</span><span class="gb"><i style="width:{p*100:.0f}%"></i></span><span class="gp">{p:.2f}</span></div>'
+        for i, (w, p) in enumerate(last + [("", 0)] * (5 - len(last))))
+    gen = f'''<div class="gen" data-gen=\'{data}\'>
+  <div class="gs"><span class="gtxt">{full}</span><span class="gcur"></span><span class="gend">근거 없음</span></div>
+  <div class="glab">다음 단어 후보 <span>(예시 값)</span></div>
+  <div class="grows">{rows}</div>
+</div>'''
+    return page("AI가 문장을 만드는 방식", f'''<div class="twocol w">
+  {gen}
   {vlist([
       ("→", "다음 단어를 <b>확률</b>로 선택"),
+      ("→", "고른 단어를 붙이고 다시 계산"),
       ("✕", "모르는 내용도 같은 말투 = <b>환각</b>"),
   ])}
-</div>''', "", "")
+</div>
+<script>
+(function () {{
+  const box = document.currentScript.parentElement.querySelector('.gen');
+  if (!box) return;
+  const D = JSON.parse(box.dataset.gen);
+  const txt = box.querySelector('.gtxt'), rows = box.querySelectorAll('.gr'), end = box.querySelector('.gend');
+  let step = 0, words = [D.prefix], phase = 0, timer = null;
+  function show(i) {{
+    const st = D.steps[i];
+    rows.forEach((r, k) => {{
+      const c = st[k];
+      r.classList.remove('pick');
+      r.style.visibility = c ? 'visible' : 'hidden';
+      if (!c) return;
+      r.querySelector('.gw').textContent = c[0];
+      r.querySelector('.gp').textContent = c[1].toFixed(2);
+      r.querySelector('i').style.width = (c[1] * 100) + '%';
+    }});
+  }}
+  function tick() {{
+    if (box.offsetParent === null) return;          // 다른 장을 보고 있으면 멈춘다
+    if (step >= D.steps.length) {{                   // 끝: 잠시 보여 준 뒤 처음부터
+      end.classList.add('on');
+      if (++phase > 3) {{ step = 0; phase = 0; words = [D.prefix]; txt.textContent = D.prefix; end.classList.remove('on'); show(0); }}
+      return;
+    }}
+    if (phase === 0) {{ show(step); phase = 1; return; }}          // 후보와 확률이 바뀐다
+    if (phase === 1) {{ rows[0].classList.add('pick'); phase = 2; return; }}   // 가장 높은 후보 선택
+    words.push(D.steps[step][0][0]); txt.textContent = words.join(' ');        // 문장에 붙인다
+    step += 1; phase = 0;
+  }}
+  window.addEventListener('beforeprint', () => {{          // 인쇄에는 완성된 문장
+    clearInterval(timer); const n = D.steps.length - 1;
+    txt.textContent = [D.prefix].concat(D.steps.map(st => st[0][0])).join(' ');
+    show(n); rows[0].classList.add('pick'); end.classList.add('on');
+  }});
+  txt.textContent = D.prefix; show(0);
+  rows.forEach(r => r.querySelector('i').style.width = '0%');
+  timer = setInterval(tick, 750);
+}})();
+</script>''', "", "")
 
 
 def e3():
@@ -145,6 +203,21 @@ SLIDES = [e1, e2, e3, e4, e5, e6, e7, e8]
 
 # 템플릿의 보라 계열 변수를 덱 색(남색 · 주황)으로 덮는다
 CSS = '''
+  .gen{background:#F6F8FA; border:1px solid #E1E5EB; border-radius:14px; padding:24px 26px; display:flex; flex-direction:column; gap:14px; position:relative;}
+  .gen .gs{font-size:22px; font-weight:800; color:#16233A; min-height:66px; line-height:1.45; word-break:keep-all;}
+  .gen .gcur{display:inline-block; width:3px; height:24px; background:#F28C28; margin-left:4px; vertical-align:-4px; animation:gblink 1s steps(1) infinite;}
+  @keyframes gblink{50%{opacity:0;}}
+  .gen .glab{font-size:13px; font-weight:700; color:#8A94A6;} .gen .glab span{font-weight:400;}
+  .gen .grows{display:flex; flex-direction:column; gap:8px;}
+  .gen .gr{display:grid; grid-template-columns:96px 1fr 44px; align-items:center; gap:10px; font-size:16px; color:#16233A;}
+  .gen .gw{text-align:right; font-weight:700;}
+  .gen .gb{height:22px; background:#fff; border-radius:5px; overflow:hidden;}
+  .gen .gb i{display:block; height:100%; background:#D9DDE3; border-radius:5px; transition:width .5s ease, background .3s;}
+  .gen .gr.pick .gb i{background:#F28C28;} .gen .gr.pick .gw{color:#F28C28;}
+  .gen .gp{font-family:var(--mono); font-size:13px; color:#44506A;}
+  .gen .gend{display:inline-block; vertical-align:4px; margin-left:10px; font-size:12px; font-weight:800; color:#fff; background:#E8537A; border-radius:999px; padding:4px 10px; opacity:0; transition:opacity .3s;}
+  .gen .gend.on{opacity:1;}
+  @media print{ .gen .gend{opacity:1;} .gen .gcur{display:none;} }
   :root{ --violet:#1F3A5F; --violet-700:#14263F; --violet-300:#F5B06A; --wash:#EEF1F5; --wash-2:#F6F8FA; --line:#E1E5EB; --ink:#16233A; --ink-soft:#44506A; --mut:#8A94A6; --amber:#F28C28; }
   body{background:#E6E9EE;}
   .plot svg{width:100%; height:auto;}

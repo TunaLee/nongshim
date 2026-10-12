@@ -415,6 +415,21 @@
   .divider .agenda2{display:flex; gap:10px; margin-top:24px;}
   .divider .agenda2 span{font-size:14px; font-weight:600; border:1px solid rgba(255,255,255,.3); border-radius:999px; padding:6px 14px; background:rgba(255,255,255,.06);}
 
+  .gen{background:#F6F8FA; border:1px solid #E1E5EB; border-radius:14px; padding:24px 26px; display:flex; flex-direction:column; gap:14px; position:relative;}
+  .gen .gs{font-size:22px; font-weight:800; color:#16233A; min-height:66px; line-height:1.45; word-break:keep-all;}
+  .gen .gcur{display:inline-block; width:3px; height:24px; background:#F28C28; margin-left:4px; vertical-align:-4px; animation:gblink 1s steps(1) infinite;}
+  @keyframes gblink{50%{opacity:0;}}
+  .gen .glab{font-size:13px; font-weight:700; color:#8A94A6;} .gen .glab span{font-weight:400;}
+  .gen .grows{display:flex; flex-direction:column; gap:8px;}
+  .gen .gr{display:grid; grid-template-columns:96px 1fr 44px; align-items:center; gap:10px; font-size:16px; color:#16233A;}
+  .gen .gw{text-align:right; font-weight:700;}
+  .gen .gb{height:22px; background:#fff; border-radius:5px; overflow:hidden;}
+  .gen .gb i{display:block; height:100%; background:#D9DDE3; border-radius:5px; transition:width .5s ease, background .3s;}
+  .gen .gr.pick .gb i{background:#F28C28;} .gen .gr.pick .gw{color:#F28C28;}
+  .gen .gp{font-family:var(--mono); font-size:13px; color:#44506A;}
+  .gen .gend{display:inline-block; vertical-align:4px; margin-left:10px; font-size:12px; font-weight:800; color:#fff; background:#E8537A; border-radius:999px; padding:4px 10px; opacity:0; transition:opacity .3s;}
+  .gen .gend.on{opacity:1;}
+  @media print{ .gen .gend{opacity:1;} .gen .gcur{display:none;} }
   :root{ --violet:#1F3A5F; --violet-700:#14263F; --violet-300:#F5B06A; --wash:#EEF1F5; --wash-2:#F6F8FA; --line:#E1E5EB; --ink:#16233A; --ink-soft:#44506A; --mut:#8A94A6; --amber:#F28C28; }
   body{background:#E6E9EE;}
   .plot svg{width:100%; height:auto;}
@@ -859,10 +874,55 @@
   <h2 class="s-title sm">AI가 문장을 만드는 방식</h2>
   <div class="rule"></div>
   <div class="body">
-    <div class="mid"><div class="twocol">
-  <div class="plot"><svg viewBox="0 0 420 250"><text x="10" y="34" font-size="16" font-weight="700" fill="#1F3A5F">「우리 회사의 3분기 매출은 ___」</text><text x="96" y="87" text-anchor="end" font-size="14" fill="#1F3A5F">약</text><rect x="106" y="70" width="174" height="24" rx="4" fill="#F28C28"/><text x="286" y="87" font-size="13" fill="#1F3A5F">0.31</text><text x="96" y="121" text-anchor="end" font-size="14" fill="#1F3A5F">전년</text><rect x="106" y="104" width="123" height="24" rx="4" fill="#D9DDE3"/><text x="235" y="121" font-size="13" fill="#1F3A5F">0.22</text><text x="96" y="155" text-anchor="end" font-size="14" fill="#1F3A5F">120억</text><rect x="106" y="138" width="101" height="24" rx="4" fill="#D9DDE3"/><text x="213" y="155" font-size="13" fill="#1F3A5F">0.18</text><text x="96" y="189" text-anchor="end" font-size="14" fill="#1F3A5F">150억</text><rect x="106" y="172" width="67" height="24" rx="4" fill="#D9DDE3"/><text x="179" y="189" font-size="13" fill="#1F3A5F">0.12</text><text x="96" y="223" text-anchor="end" font-size="14" fill="#1F3A5F">공개되지</text><rect x="106" y="206" width="22" height="24" rx="4" fill="#D9DDE3"/><text x="134" y="223" font-size="13" fill="#1F3A5F">0.04</text></svg><div class="cap">다음 단어 후보와 확률 (예시 값)</div></div>
-  <div class="vlist"><div class="v"><span class="b">→</span><div>다음 단어를 <b>확률</b>로 선택</div></div><div class="v"><span class="b">✕</span><div>모르는 내용도 같은 말투 = <b>환각</b></div></div></div>
-</div></div>
+    <div class="mid"><div class="twocol w">
+  <div class="gen" data-gen='{"prefix": "우리 회사의 3분기 매출은", "steps": [[["약", 0.31], ["전년", 0.22], ["120억", 0.18], ["150억", 0.12], ["공개되지", 0.04]], [["120억", 0.34], ["150억", 0.27], ["100억", 0.19], ["두", 0.08], ["3천억", 0.05]], [["원으로", 0.58], ["원이며", 0.21], ["원,", 0.11], ["달러로", 0.03]], [["전년", 0.41], ["지난해", 0.26], ["목표", 0.14], ["업계", 0.09]], [["대비", 0.62], ["보다", 0.24], ["동기", 0.09]], [["8%", 0.29], ["12%", 0.23], ["5%", 0.18], ["소폭", 0.15]], [["증가했다.", 0.55], ["늘었다.", 0.3], ["감소했다.", 0.1]]]}'>
+  <div class="gs"><span class="gtxt">우리 회사의 3분기 매출은 약 120억 원으로 전년 대비 8% 증가했다.</span><span class="gcur"></span><span class="gend">근거 없음</span></div>
+  <div class="glab">다음 단어 후보 <span>(예시 값)</span></div>
+  <div class="grows"><div class="gr pick"><span class="gw">증가했다.</span><span class="gb"><i style="width:55%"></i></span><span class="gp">0.55</span></div><div class="gr"><span class="gw">늘었다.</span><span class="gb"><i style="width:30%"></i></span><span class="gp">0.30</span></div><div class="gr"><span class="gw">감소했다.</span><span class="gb"><i style="width:10%"></i></span><span class="gp">0.10</span></div><div class="gr"><span class="gw"></span><span class="gb"><i style="width:0%"></i></span><span class="gp">0.00</span></div><div class="gr"><span class="gw"></span><span class="gb"><i style="width:0%"></i></span><span class="gp">0.00</span></div></div>
+</div>
+  <div class="vlist"><div class="v"><span class="b">→</span><div>다음 단어를 <b>확률</b>로 선택</div></div><div class="v"><span class="b">→</span><div>고른 단어를 붙이고 다시 계산</div></div><div class="v"><span class="b">✕</span><div>모르는 내용도 같은 말투 = <b>환각</b></div></div></div>
+</div>
+<script>
+(function () {
+  const box = document.currentScript.parentElement.querySelector('.gen');
+  if (!box) return;
+  const D = JSON.parse(box.dataset.gen);
+  const txt = box.querySelector('.gtxt'), rows = box.querySelectorAll('.gr'), end = box.querySelector('.gend');
+  let step = 0, words = [D.prefix], phase = 0, timer = null;
+  function show(i) {
+    const st = D.steps[i];
+    rows.forEach((r, k) => {
+      const c = st[k];
+      r.classList.remove('pick');
+      r.style.visibility = c ? 'visible' : 'hidden';
+      if (!c) return;
+      r.querySelector('.gw').textContent = c[0];
+      r.querySelector('.gp').textContent = c[1].toFixed(2);
+      r.querySelector('i').style.width = (c[1] * 100) + '%';
+    });
+  }
+  function tick() {
+    if (box.offsetParent === null) return;          // 다른 장을 보고 있으면 멈춘다
+    if (step >= D.steps.length) {                   // 끝: 잠시 보여 준 뒤 처음부터
+      end.classList.add('on');
+      if (++phase > 3) { step = 0; phase = 0; words = [D.prefix]; txt.textContent = D.prefix; end.classList.remove('on'); show(0); }
+      return;
+    }
+    if (phase === 0) { show(step); phase = 1; return; }          // 후보와 확률이 바뀐다
+    if (phase === 1) { rows[0].classList.add('pick'); phase = 2; return; }   // 가장 높은 후보 선택
+    words.push(D.steps[step][0][0]); txt.textContent = words.join(' ');        // 문장에 붙인다
+    step += 1; phase = 0;
+  }
+  window.addEventListener('beforeprint', () => {          // 인쇄에는 완성된 문장
+    clearInterval(timer); const n = D.steps.length - 1;
+    txt.textContent = [D.prefix].concat(D.steps.map(st => st[0][0])).join(' ');
+    show(n); rows[0].classList.add('pick'); end.classList.add('on');
+  });
+  txt.textContent = D.prefix; show(0);
+  rows.forEach(r => r.querySelector('i').style.width = '0%');
+  timer = setInterval(tick, 750);
+})();
+</script></div>
     
   </div>
 </section>
