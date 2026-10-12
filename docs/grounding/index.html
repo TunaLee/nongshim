@@ -574,6 +574,7 @@
   .websvg .bso{font-family:var(--serif); font-size:15px; fill:#F28C28; font-weight:700;}
   .websvg .bsw{font-family:var(--serif); font-size:15px; fill:#D9DDE3;}
 
+  .kcards.c5{grid-template-columns:repeat(5,1fr);}
   .dbt.sm{font-size:13px;} .dbt.sm th, .dbt.sm td{padding:9px 7px;}
 </style>
 </head>
@@ -1488,12 +1489,61 @@ description: 편의점 거래처 문의에 1차 회신 초안을 쓴다
   <div class="body"><div class="mid"><table class="dbt"><thead><tr><th>항목</th><th>현재 (2026.10)</th></tr></thead><tbody><tr><td><b>Canvas · Deep Research</b></td><td>Skill 안에서 미지원</td></tr><tr><td><b>참조 파일</b></td><td>텍스트 · PDF · 이미지</td></tr><tr><td><b>Drive 첨부 · 공유</b></td><td>곧 추가 예정</td></tr><tr><td><b>Workspace 앱</b></td><td>Connected Apps로 사용</td></tr></tbody></table></div></div>
 </section>
 
-<section class="slide lt" data-title="Workspace 연결">
+<section class="slide lt" data-title="첫 Skill은 메일 초안">
   <div class="coord"><b></b> / <span class="tot"></span></div>
   <div class="eyebrow"><span class="tag">Ch2</span></div>
-  <h2 class="s-title sm">Workspace 연결</h2>
+  <h2 class="s-title sm">첫 Skill은 메일 초안</h2>
   <div class="rule"></div>
-  <div class="body"><div class="mid"><div class="caps n1"><figure class="capfig empty"><div class="ph">캡처: Connected Apps 연결<span>ws-01-connect.png</span></div><figcaption>Connected Apps 연결</figcaption></figure></div><ul class="capnote"><li>Gmail · Drive · Docs · Calendar</li><li>회사 계정으로</li></ul></div></div>
+  <div class="body"><div class="mid"><div class="vl"><p>매일 쓰는 일이라 효과가 바로 보임</p><p>요점 몇 줄 → 내 말투의 메일 한 통</p><p>말투는 지침과 예시 메일로 지정</p></div></div></div>
+</section>
+
+<section class="slide lt" data-title="말투를 지정하는 항목">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="eyebrow"><span class="tag">Ch2</span></div>
+  <h2 class="s-title sm">말투를 지정하는 항목</h2>
+  <div class="rule"></div>
+  <div class="body"><div class="mid"><table class="dbt"><thead><tr><th>항목</th><th>예시</th></tr></thead><tbody><tr><td><b>호칭</b></td><td>담당자님 · 팀장님</td></tr><tr><td><b>첫인사</b></td><td>안녕하세요, 수도권영업팀 김주현입니다.</td></tr><tr><td><b>문장</b></td><td>한 단락 두 문장 이내 · 용건 먼저</td></tr><tr><td><b>맺음</b></td><td>감사합니다. 김주현 드림</td></tr><tr><td><b>피할 표현</b></td><td>과한 사과 · 「확정」 「무조건」</td></tr></tbody></table><div class="dbnote"><span>가장 쉬운 방법</span> 내가 보낸 메일 3~5통을 참고 파일로</div></div></div>
+</section>
+
+<section class="slide lt" data-title="메일 Skill 지침">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="eyebrow"><span class="tag">Ch2</span></div>
+  <h2 class="s-title sm">메일 Skill 지침</h2>
+  <div class="rule"></div>
+  <div class="body"><div class="mid"><div class="twocol"><div class="code sm"><div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="fn">메일 Skill (예시)</span></div><pre><code>---
+name: (내가 정한 이름 · 예: 메일)
+description: 받는 사람과 요점 몇 줄을 주면 내 말투로 업무 메일 초안
+---
+목표: 내가 직접 쓴 것처럼 읽히는 메일
+말투: 참고 파일의 내 메일에서 호칭 · 인사 · 문장 길이 · 맺음말을 따름
+구성: 제목 / 인사 / 용건 / 요청 · 다음 일정 / 맺음
+규칙: 요점에 없는 약속 · 숫자는 쓰지 않음, 필요하면 [확인 필요]
+모를 때: 받는 사람 · 목적이 불분명하면 먼저 질문
+참고: 내가 보낸 메일 3~5통</code></pre></div><div class="vl"><p>말투: 예시 메일에서 배움</p><p>구성: 매번 같은 순서</p><p>규칙: 없는 약속은 안 씀</p><p>모를 때: 먼저 질문</p></div></div></div></div>
+</section>
+
+<section class="slide lt" data-title="요점 세 줄 → 메일 한 통">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="eyebrow"><span class="tag">Ch2</span></div>
+  <h2 class="s-title sm">요점 세 줄 → 메일 한 통</h2>
+  <div class="rule"></div>
+  <div class="body"><div class="mid"><div class="ba">
+  <div class="b"><div class="lab">Before</div><div class="q">/메일<br/>받는 사람: C편의점 담당자D<br/>- 8/26 미팅 감사<br/>- 컵면 D 진열 확대는 9월 미팅에서 확정<br/>- 신제품 A 가을 진열 제안서 9/12까지 전달</div></div>
+  <div class="arr">→</div>
+  <div class="a"><div class="lab">After</div><div class="q">제목: 8/26 미팅 감사 및 후속 일정 안내<br/><br/>담당자님, 안녕하세요. 수도권영업팀 김주현입니다.<br/>지난 8/26 미팅에 시간 내주셔서 감사합니다.<br/>컵면 D 진열 확대는 9월 미팅에서 확정하겠습니다.<br/>신제품 A 가을 진열 제안서는 9/12까지 보내 드리겠습니다.<br/>감사합니다. 김주현 드림</div></div>
+</div></div></div>
+</section>
+
+<section class="slide lt labs" data-title="[실습 2-1] 내 말투 메일 Skill">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="eyebrow"><span class="tag">Ch2</span><span class="labtag">실습 2-1</span></div>
+  <h2 class="s-title sm">내 말투 메일 Skill</h2>
+  <div class="rule"></div>
+  <div class="body"><div class="labgrid">
+    <div class="lc goal"><div class="lh">목표</div><p>요점 세 줄만 주면 내 말투의 메일 초안</p><div class="lf">사용 파일 · 내 메일 예시 · 02 미팅노트</div></div>
+    <div class="lc steps"><div class="lh">단계</div><ol><li>최근 보낸 메일 3~5통을 문서 하나로 (이름 · 연락처 가리기)</li><li>메일 Skill 지침 쓰기 · 예시 문서 참고 파일로</li><li>새 대화에서 /이름 + 받는 사람 · 요점 세 줄</li><li>어색한 곳을 지침에 한 줄씩 반영 → 다시 호출</li></ol></div>
+    <div class="lc done"><div class="lh">완료 기준</div><ul><li>호칭 · 인사 · 맺음말이 평소와 같음</li><li>요점에 없는 약속 · 숫자 없음</li><li>요점만 바꿔 두 통 더 만들어도 같은 형식</li></ul></div>
+  </div></div>
 </section>
 
 <section class="slide lt" data-title="영업관리 Skill 예시">
@@ -1501,7 +1551,7 @@ description: 편의점 거래처 문의에 1차 회신 초안을 쓴다
   <div class="eyebrow"><span class="tag">Ch2</span></div>
   <h2 class="s-title sm">영업관리 Skill 예시</h2>
   <div class="rule"></div>
-  <div class="body"><div class="mid"><div class="kcards c4"><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span></div><h4>응대</h4><p>거래처 문의 1차 회신</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span></div><h4>매출 분석</h4><p>실적 미달 거래처 정리</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/docs.svg" alt="Docs"/></span></div><h4>주간 보고</h4><p>정해진 양식의 회의 보고문</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span></div><h4>판촉 기획</h4><p>목표 · 예상 성과 · 위험 요인</p></div></div></div></div>
+  <div class="body"><div class="mid"><div class="kcards c5"><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/gmail.svg" alt="Gmail"/></span></div><h4>메일</h4><p>요점 → 내 말투 메일</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span></div><h4>응대</h4><p>거래처 문의 1차 회신</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span></div><h4>매출 분석</h4><p>실적 미달 거래처 정리</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/docs.svg" alt="Docs"/></span></div><h4>주간 보고</h4><p>정해진 양식의 회의 보고문</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span></div><h4>판촉 기획</h4><p>목표 · 예상 성과 · 위험 요인</p></div></div></div></div>
 </section>
 
 <section class="slide lt" data-title="응대 Skill 지침">
@@ -1520,26 +1570,10 @@ description: 편의점 거래처 문의에 1차 회신 초안을 쓴다
 참고: 05 카탈로그 · 06 기준표 · 07 응대 가이드</code></pre></div></div></div>
 </section>
 
-<section class="slide lt" data-title="Skill 만들기">
+<section class="slide lt labs" data-title="[실습 2-2] 업무 Skill: 응대">
   <div class="coord"><b></b> / <span class="tot"></span></div>
-  <div class="eyebrow"><span class="tag">Ch2</span></div>
-  <h2 class="s-title sm">Skill 만들기</h2>
-  <div class="rule"></div>
-  <div class="body"><div class="mid"><div class="caps n2"><figure class="capfig empty"><div class="ph">캡처: Skill 만들기<span>skill-01-create.png</span></div><figcaption>Skill 만들기</figcaption></figure><figure class="capfig empty"><div class="ph">캡처: 지침 입력<span>skill-02-instructions.png</span></div><figcaption>지침 입력</figcaption></figure></div></div></div>
-</section>
-
-<section class="slide lt" data-title="참조 파일 추가">
-  <div class="coord"><b></b> / <span class="tot"></span></div>
-  <div class="eyebrow"><span class="tag">Ch2</span></div>
-  <h2 class="s-title sm">참조 파일 추가</h2>
-  <div class="rule"></div>
-  <div class="body"><div class="mid"><div class="caps n1"><figure class="capfig empty"><div class="ph">캡처: 참조 파일<span>skill-03-files.png</span></div><figcaption>참조 파일</figcaption></figure></div><ul class="capnote"><li>PDF · 문서 · 이미지</li></ul></div></div>
-</section>
-
-<section class="slide lt labs" data-title="[실습 2-1] 첫 Skill: 응대">
-  <div class="coord"><b></b> / <span class="tot"></span></div>
-  <div class="eyebrow"><span class="tag">Ch2</span><span class="labtag">실습 2-1</span></div>
-  <h2 class="s-title sm">첫 Skill: 응대</h2>
+  <div class="eyebrow"><span class="tag">Ch2</span><span class="labtag">실습 2-2</span></div>
+  <h2 class="s-title sm">업무 Skill: 응대</h2>
   <div class="rule"></div>
   <div class="body"><div class="labgrid">
     <div class="lc goal"><div class="lh">목표</div><p>거래처 문의에 1차 회신 초안을 쓰는 Skill</p><div class="lf">사용 파일 · 05 · 06 · 07</div></div>
@@ -1566,14 +1600,6 @@ description: 편의점 거래처 문의에 1차 회신 초안을 쓴다
   <div class="body"><div class="mid"><table class="dbt"><thead><tr><th>입력</th><th>기대하는 답</th><th>근거</th></tr></thead><tbody><tr><td><b>A편의점 결품</b></td><td>물류 확인 후 2영업일 안 재회신</td><td>07 R-6 · 06 S-1</td></tr><tr><td><b>북부대리점 행사 물량</b></td><td>[확인 필요] · 팀장 확인</td><td>06 P-1 · 07 R-5</td></tr><tr><td><b>A마트 매대 3주</b></td><td>최대 2주로 안내</td><td>06 P-5</td></tr></tbody></table></div></div>
 </section>
 
-<section class="slide lt" data-title="/로 불러 테스트">
-  <div class="coord"><b></b> / <span class="tot"></span></div>
-  <div class="eyebrow"><span class="tag">Ch2</span></div>
-  <h2 class="s-title sm">/로 불러 테스트</h2>
-  <div class="rule"></div>
-  <div class="body"><div class="mid"><div class="caps n1"><figure class="capfig empty"><div class="ph">캡처: 결품 문의 테스트<span>skill-04-run.png</span></div><figcaption>결품 문의 테스트</figcaption></figure></div></div></div>
-</section>
-
 <section class="slide lt" data-title="지침 한 줄 추가 전후">
   <div class="coord"><b></b> / <span class="tot"></span></div>
   <div class="eyebrow"><span class="tag">Ch2</span></div>
@@ -1586,9 +1612,9 @@ description: 편의점 거래처 문의에 1차 회신 초안을 쓴다
 </div></div></div>
 </section>
 
-<section class="slide lt labs" data-title="[실습 2-2] 세 가지 입력으로 고치기">
+<section class="slide lt labs" data-title="[실습 2-3] 세 가지 입력으로 고치기">
   <div class="coord"><b></b> / <span class="tot"></span></div>
-  <div class="eyebrow"><span class="tag">Ch2</span><span class="labtag">실습 2-2</span></div>
+  <div class="eyebrow"><span class="tag">Ch2</span><span class="labtag">실습 2-3</span></div>
   <h2 class="s-title sm">세 가지 입력으로 고치기</h2>
   <div class="rule"></div>
   <div class="body"><div class="labgrid">
@@ -1758,14 +1784,6 @@ description: 판매 데이터 파일이 오면 마스터 구조로 정리
   <div class="body"><div class="mid"><div class="kcards c2"><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/drive.svg" alt="Drive"/></span></div><h4>A · 안전 분리형</h4><p>원본은 그대로<br/>정제본을 새 시트로 생성<br/>언제: 백업 · 변경 기록이 중요할 때</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/appsscript.svg" alt="Apps Script"/></span></div><h4>B · 내부 직접 조작형</h4><p>Skill이 Apps Script 코드 생성<br/>시트에 커스텀 메뉴 · 버튼<br/>언제: 팀원이 버튼으로 품질 검사</p></div></div></div></div>
 </section>
 
-<section class="slide lt" data-title=".XLSX를 시트로">
-  <div class="coord"><b></b> / <span class="tot"></span></div>
-  <div class="eyebrow"><span class="tag">Ch3</span></div>
-  <h2 class="s-title sm">.XLSX를 시트로</h2>
-  <div class="rule"></div>
-  <div class="body"><div class="mid"><div class="caps n1"><figure class="capfig empty"><div class="ph">캡처: 파일 이름 옆 .XLSX 표시<span>gas-00-xlsx.png</span></div><figcaption>파일 이름 옆 .XLSX 표시</figcaption></figure></div><ul class="capnote"><li>.XLSX면 Apps Script 메뉴 비활성</li><li>파일 → Google 스프레드시트로 저장</li></ul></div></div>
-</section>
-
 <section class="slide lt labs" data-title="[실습 3-1] 방식 A · 정제본 만들기">
   <div class="coord"><b></b> / <span class="tot"></span></div>
   <div class="eyebrow"><span class="tag">Ch3</span><span class="labtag">실습 3-1</span></div>
@@ -1829,14 +1847,6 @@ description: 판매 데이터 파일이 오면 마스터 구조로 정리
   <div class="arr">→</div>
   <div class="a"><div class="lab">After</div><div class="q">이 시트는 2025-07~2026-08 거래처 × SKU 월별 판매 실적이야.<br/>열은 기준월, 채널, 거래처, SKU코드, 제품명, 카테고리, 발주수량, 납품수량, 단가, 매출액, 담당자야.<br/>1단계로 2026-08 편의점 거래처별 매출과 전월 대비를 표로 만들어 줘.<br/>확인하고 다음 단계를 요청할게.</div></div>
 </div></div></div>
-</section>
-
-<section class="slide lt" data-title="Sheets 사이드 패널">
-  <div class="coord"><b></b> / <span class="tot"></span></div>
-  <div class="eyebrow"><span class="tag">Ch3</span></div>
-  <h2 class="s-title sm">Sheets 사이드 패널</h2>
-  <div class="rule"></div>
-  <div class="body"><div class="mid"><div class="caps n1"><figure class="capfig empty"><div class="ph">캡처: Gemini 사이드 패널<span>sheets-01-panel.png</span></div><figcaption>Gemini 사이드 패널</figcaption></figure></div></div></div>
 </section>
 
 <section class="slide ill" data-title="값 대신 수식">
@@ -2127,14 +2137,6 @@ description: 판매 데이터 파일이 오면 마스터 구조로 정리
   <div class="body"><div class="mid"><table class="dbt"><thead><tr><th>제안서 문장</th><th>근거</th></tr></thead><tbody><tr><td>컵면 D 8월 매출 +21.0%</td><td>03 리포트 6절 · 04 집계</td></tr><tr><td>신제품 A 편의점 매출 1위 18.4%</td><td>03 리포트 5절</td></tr><tr><td>C편의점 MD의 진열 확대 요청</td><td>02 미팅노트 4절</td></tr><tr><td>행사 조건</td><td>06 기준표 조항 번호</td></tr></tbody></table></div></div>
 </section>
 
-<section class="slide lt" data-title="Canvas 부분 수정">
-  <div class="coord"><b></b> / <span class="tot"></span></div>
-  <div class="eyebrow"><span class="tag">Ch4</span></div>
-  <h2 class="s-title sm">Canvas 부분 수정</h2>
-  <div class="rule"></div>
-  <div class="body"><div class="mid"><div class="caps n1"><figure class="capfig empty"><div class="ph">캡처: 드래그해서 고칠 곳만<span>canvas-01-edit.png</span></div><figcaption>드래그해서 고칠 곳만</figcaption></figure></div></div></div>
-</section>
-
 <section class="slide lt labs" data-title="[실습 4-1] 1페이지 제안서">
   <div class="coord"><b></b> / <span class="tot"></span></div>
   <div class="eyebrow"><span class="tag">Ch4</span><span class="labtag">실습 4-1</span></div>
@@ -2423,28 +2425,12 @@ function addSalesRecord(r) {       // 화면 → 시트
 시트 이름 · 열 이름은 실제 시트에 맞춰서.</code></pre></div></div></div>
 </section>
 
-<section class="slide lt" data-title="③ 코드 넣기">
+<section class="slide lt" data-title="코드 넣기 · 배포 · 승인">
   <div class="coord"><b></b> / <span class="tot"></span></div>
   <div class="eyebrow"><span class="tag">Ch5</span></div>
-  <h2 class="s-title sm">③ 코드 넣기</h2>
+  <h2 class="s-title sm">코드 넣기 · 배포 · 승인</h2>
   <div class="rule"></div>
-  <div class="body"><div class="mid"><div class="caps n2"><figure class="capfig empty"><div class="ph">캡처: 확장 프로그램 → Apps Script<span>gas-01-menu.png</span></div><figcaption>확장 프로그램 → Apps Script</figcaption></figure><figure class="capfig empty"><div class="ph">캡처: Code.gs · Index.html<span>gas-02-files.png</span></div><figcaption>Code.gs · Index.html</figcaption></figure></div><ul class="capnote"><li>+ → HTML → 이름: Index</li><li>새로고침 → 커스텀 메뉴</li></ul></div></div>
-</section>
-
-<section class="slide lt" data-title="④ 웹앱 배포">
-  <div class="coord"><b></b> / <span class="tot"></span></div>
-  <div class="eyebrow"><span class="tag">Ch5</span></div>
-  <h2 class="s-title sm">④ 웹앱 배포</h2>
-  <div class="rule"></div>
-  <div class="body"><div class="mid"><div class="caps n1"><figure class="capfig empty"><div class="ph">캡처: 새 배포 · 웹 앱 설정<span>gas-03-deploy.png</span></div><figcaption>새 배포 · 웹 앱 설정</figcaption></figure></div><ul class="capnote"><li>실행: 나 (핵심)</li><li>액세스: 내 조직</li></ul></div></div>
-</section>
-
-<section class="slide lt" data-title="④ 권한 승인">
-  <div class="coord"><b></b> / <span class="tot"></span></div>
-  <div class="eyebrow"><span class="tag">Ch5</span></div>
-  <h2 class="s-title sm">④ 권한 승인</h2>
-  <div class="rule"></div>
-  <div class="body"><div class="mid"><div class="caps n1"><figure class="capfig empty"><div class="ph">캡처: 확인하지 않은 앱 경고<span>gas-04-auth.png</span></div><figcaption>확인하지 않은 앱 경고</figcaption></figure></div><ul class="capnote"><li>고급 → 이동</li><li>허용 → 웹앱 URL</li></ul></div></div>
+  <div class="body"><div class="mid"><table class="dbt"><thead><tr><th>단계</th><th>누르는 곳</th><th>확인</th></tr></thead><tbody><tr><td><b>코드 넣기</b></td><td>확장 프로그램 → Apps Script → 파일 추가(+) → HTML</td><td>파일 이름 Index (대소문자 그대로)</td></tr><tr><td><b>웹앱 배포</b></td><td>배포 → 새 배포 → 톱니바퀴 → 웹 앱</td><td>실행: 나 · 액세스: 내 조직</td></tr><tr><td><b>권한 승인</b></td><td>액세스 승인 → 계정 선택</td><td>경고 창: 고급 → 이동 → 허용</td></tr></tbody></table><div class="dbnote"><span>.XLSX 파일</span> Apps Script 메뉴가 안 보이면 파일 → Google 스프레드시트로 저장</div></div></div>
 </section>
 
 <section class="slide lt" data-title="자주 막히는 곳">

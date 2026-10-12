@@ -198,6 +198,16 @@ def team_table():
     return f'<table class="dbt"><thead><tr><th>도구</th><th>실제로 하는 일</th><th>회사라면</th></tr></thead><tbody>{trs}</tbody></table>'
 
 
+def table(head, rows):
+    th = "".join(f"<th>{h}</th>" for h in head)
+    tr = "".join("<tr>" + "".join(f"<td>{c}</td>" for c in r) + "</tr>" for r in rows)
+    return f'<table class="dbt"><thead><tr>{th}</tr></thead><tbody>{tr}</tbody></table>'
+
+
+def note(label, text):
+    return f'<div class="dbnote"><span>{label}</span> {text}</div>'
+
+
 # ── 장 ──────────────────────────────────────────────────
 def cover():
     strip = "".join(icon(n, "tile") for n in ["gemini", "sheets", "appsscript", "drive"])
@@ -313,11 +323,12 @@ def slides():
         light("Code.gs의 세 함수", code("Code.gs", gas_code), "04"),
         light("처음부터 끝까지 다섯 단계", flow([("환경 준비", ".XLSX → Google 시트"), ("코드 받기", "Skill이 Code.gs · Index.html 생성"),
                                 ("코드 넣기", "Apps Script 붙여넣기 · 메뉴"), ("웹앱 배포", "실행: 나"), ("운영", "정제 → 누적 → 새로고침")], hl=3), "04"),
-        capture("① 환경 준비", "04", [("gas-00-xlsx", "파일 이름 옆 .XLSX 표시")], [".XLSX면 Apps Script 메뉴 비활성", "파일 → Google 스프레드시트로 저장"]),
         light("② 코드 받기", code("Skill에 요청", "이 시트의 열 구조를 먼저 읽고\n시트 안 정제 메뉴와 대시보드를 만드는\nCode.gs · Index.html 코드를 만들어 줘.\n시트 이름 · 열 이름은 실제 시트에 맞춰서."), "04"),
-        capture("③ 코드 넣기", "04", [("gas-01-menu", "확장 프로그램 → Apps Script"), ("gas-02-files", "Code.gs · Index.html")], ["+ → HTML → 이름: Index", "F5 → 커스텀 메뉴"]),
-        capture("④ 웹앱 배포", "04", [("gas-03-deploy", "새 배포 · 웹 앱 설정")], ["실행: 나 (핵심)", "액세스: 내 조직"]),
-        capture("④ 권한 승인", "04", [("gas-04-auth", "확인하지 않은 앱 경고")], ["고급 → 이동", "허용 → 웹앱 URL"]),
+        light("코드 넣기 · 배포 · 승인", table(["단계", "누르는 곳", "확인"], [
+            ["<b>코드 넣기</b>", "확장 프로그램 → Apps Script → 파일 추가(+) → HTML", "파일 이름 Index (대소문자 그대로)"],
+            ["<b>웹앱 배포</b>", "배포 → 새 배포 → 톱니바퀴 → 웹 앱", "실행: 나 · 액세스: 내 조직"],
+            ["<b>권한 승인</b>", "액세스 승인 → 계정 선택", "경고 창: 고급 → 이동 → 허용"],
+        ]) + note(".XLSX 파일", "Apps Script 메뉴가 안 보이면 파일 → Google 스프레드시트로 저장"), "04"),
         lab("3", "웹앱 대시보드", "04",
             "시트와 연결된 대시보드 주소 받기",
             ["판매실적_마스터에서 Apps Script 열기", "Code.gs · Index.html 붙여넣기", "웹앱 배포 → 권한 승인", "웹 화면에서 한 건 등록"],

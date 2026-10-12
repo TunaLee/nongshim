@@ -1142,14 +1142,6 @@ function addSalesRecord(r) {       // 화면 → 시트
   <div class="body"><div class="mid"><div class="flow"><div class="fs"><b>환경 준비</b><span>.XLSX → Google 시트</span></div><div class="fa">→</div><div class="fs"><b>코드 받기</b><span>Skill이 Code.gs · Index.html 생성</span></div><div class="fa">→</div><div class="fs"><b>코드 넣기</b><span>Apps Script 붙여넣기 · 메뉴</span></div><div class="fa">→</div><div class="fs hl"><b>웹앱 배포</b><span>실행: 나</span></div><div class="fa">→</div><div class="fs"><b>운영</b><span>정제 → 누적 → 새로고침</span></div></div></div></div>
 </section>
 
-<section class="slide lt" data-title="① 환경 준비">
-  <div class="coord"><b></b> / <span class="tot"></span></div>
-  <div class="eyebrow"><span class="tag">04</span></div>
-  <h2 class="s-title sm">① 환경 준비</h2>
-  <div class="rule"></div>
-  <div class="body"><div class="mid"><div class="caps n1"><figure class="capfig empty"><div class="ph">캡처: 파일 이름 옆 .XLSX 표시<span>gas-00-xlsx.png</span></div><figcaption>파일 이름 옆 .XLSX 표시</figcaption></figure></div><ul class="capnote"><li>.XLSX면 Apps Script 메뉴 비활성</li><li>파일 → Google 스프레드시트로 저장</li></ul></div></div>
-</section>
-
 <section class="slide lt" data-title="② 코드 받기">
   <div class="coord"><b></b> / <span class="tot"></span></div>
   <div class="eyebrow"><span class="tag">04</span></div>
@@ -1161,28 +1153,12 @@ Code.gs · Index.html 코드를 만들어 줘.
 시트 이름 · 열 이름은 실제 시트에 맞춰서.</code></pre></div></div></div>
 </section>
 
-<section class="slide lt" data-title="③ 코드 넣기">
+<section class="slide lt" data-title="코드 넣기 · 배포 · 승인">
   <div class="coord"><b></b> / <span class="tot"></span></div>
   <div class="eyebrow"><span class="tag">04</span></div>
-  <h2 class="s-title sm">③ 코드 넣기</h2>
+  <h2 class="s-title sm">코드 넣기 · 배포 · 승인</h2>
   <div class="rule"></div>
-  <div class="body"><div class="mid"><div class="caps n2"><figure class="capfig empty"><div class="ph">캡처: 확장 프로그램 → Apps Script<span>gas-01-menu.png</span></div><figcaption>확장 프로그램 → Apps Script</figcaption></figure><figure class="capfig empty"><div class="ph">캡처: Code.gs · Index.html<span>gas-02-files.png</span></div><figcaption>Code.gs · Index.html</figcaption></figure></div><ul class="capnote"><li>+ → HTML → 이름: Index</li><li>F5 → 커스텀 메뉴</li></ul></div></div>
-</section>
-
-<section class="slide lt" data-title="④ 웹앱 배포">
-  <div class="coord"><b></b> / <span class="tot"></span></div>
-  <div class="eyebrow"><span class="tag">04</span></div>
-  <h2 class="s-title sm">④ 웹앱 배포</h2>
-  <div class="rule"></div>
-  <div class="body"><div class="mid"><div class="caps n1"><figure class="capfig empty"><div class="ph">캡처: 새 배포 · 웹 앱 설정<span>gas-03-deploy.png</span></div><figcaption>새 배포 · 웹 앱 설정</figcaption></figure></div><ul class="capnote"><li>실행: 나 (핵심)</li><li>액세스: 내 조직</li></ul></div></div>
-</section>
-
-<section class="slide lt" data-title="④ 권한 승인">
-  <div class="coord"><b></b> / <span class="tot"></span></div>
-  <div class="eyebrow"><span class="tag">04</span></div>
-  <h2 class="s-title sm">④ 권한 승인</h2>
-  <div class="rule"></div>
-  <div class="body"><div class="mid"><div class="caps n1"><figure class="capfig empty"><div class="ph">캡처: 확인하지 않은 앱 경고<span>gas-04-auth.png</span></div><figcaption>확인하지 않은 앱 경고</figcaption></figure></div><ul class="capnote"><li>고급 → 이동</li><li>허용 → 웹앱 URL</li></ul></div></div>
+  <div class="body"><div class="mid"><table class="dbt"><thead><tr><th>단계</th><th>누르는 곳</th><th>확인</th></tr></thead><tbody><tr><td><b>코드 넣기</b></td><td>확장 프로그램 → Apps Script → 파일 추가(+) → HTML</td><td>파일 이름 Index (대소문자 그대로)</td></tr><tr><td><b>웹앱 배포</b></td><td>배포 → 새 배포 → 톱니바퀴 → 웹 앱</td><td>실행: 나 · 액세스: 내 조직</td></tr><tr><td><b>권한 승인</b></td><td>액세스 승인 → 계정 선택</td><td>경고 창: 고급 → 이동 → 허용</td></tr></tbody></table><div class="dbnote"><span>.XLSX 파일</span> Apps Script 메뉴가 안 보이면 파일 → Google 스프레드시트로 저장</div></div></div>
 </section>
 
 <section class="slide lt labs" data-title="[실습 3] 웹앱 대시보드">
