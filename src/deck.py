@@ -189,7 +189,7 @@ def eco(ch=None, title=None):
 
 
 def divider(ch, title, sub):
-    num = ch[2:].zfill(2) if ch.startswith("Ch") else "06"
+    num = ch[2:].zfill(2) if ch.startswith("Ch") else (ch if ch.isdigit() else "06")
     return f'''<section class="slide dk divider" data-title="[{ch}] {title}">
   <div class="ghost">{num}</div>
   <div class="kick">{ch}</div>

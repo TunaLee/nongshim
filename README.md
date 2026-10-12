@@ -5,6 +5,7 @@
 
 - 덱: `docs/grounding/index.html` (브라우저로 열기. ← → 로 넘기고, PDF 버튼으로 인쇄)
 - 다시 만들기: `python3 src/build.py`
+- 짧은 강의 「Skill과 Apps Script 실적 대시보드」: `docs/gas-dashboard/index.html` · `python3 src/build.py gas` · 구성은 `src/deck_gas.py`, 캡처는 `docs/gas-dashboard/assets/capture/` (gas-01-menu · gas-02-files · gas-03-deploy · gas-04-auth)
 
 | 파일 | 내용 |
 |---|---|
