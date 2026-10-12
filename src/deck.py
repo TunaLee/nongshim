@@ -97,7 +97,7 @@ def bridge(title, question, ch, nxt):
 ROLES = [
     ("리서치 담당", "Deep Research", ["gemini"], "Ch1", (250, 255)),
     ("검토자", "NotebookLM", ["notebooklm"], "Ch1", (640, 215)),
-    ("데이터 창고", "Sheets", ["sheets"], "Ch2", (1030, 255)),
+    ("데이터 창고", "Sheets · Forms", ["sheets", "forms"], "Ch2", (1030, 255)),
     ("작업대", "Canvas", ["docs"], "Ch3", (1030, 590)),
     ("자동화 담당", "Apps Script · Studio", ["appsscript"], "Ch4", (640, 650)),
     ("전담 비서", "Gem", ["gemini"], "Ch5", (250, 590)),
@@ -187,9 +187,9 @@ def o02():
 
 AGENDA = [
     ("Ch1", "근거 있는 조사", "출처가 붙은 조사 보고서", ["gemini", "notebooklm"]),
-    ("Ch2", "숫자 정리", "정리된 실적 시트", ["sheets"]),
-    ("Ch3", "제안서", "1페이지 제안서", ["docs"]),
-    ("Ch4", "화면 · 자동화", "실시간 대시보드와 주간 메일", ["appsscript", "gmail"]),
+    ("Ch2", "숫자 정리", "정리된 실적 시트 · 이슈 접수 폼", ["sheets", "forms"]),
+    ("Ch3", "제안서", "1페이지 제안서 · 판촉 ROI 계산기", ["docs"]),
+    ("Ch4", "화면 · 자동화", "실시간 대시보드 · 주간 보고 초안", ["appsscript", "gmail"]),
     ("Ch5", "전담 비서", "업무 전용 Gem", ["gemini"]),
 ]
 
@@ -209,10 +209,20 @@ def agenda():
 </section>'''
 
 
+def o_work():
+    rows = [("여러 파일에서 매출 취합", "Sheets 한 장에 자동 집계"),
+            ("목표 대비 실적을 손으로 계산", "수식이 달성률을 다시 계산"),
+            ("이슈가 메신저 · 메일에 흩어짐", "Forms로 입구를 하나로"),
+            ("주간 보고를 매번 새로 작성", "초안은 자동, 확인은 사람")]
+    trs = "".join(f'<div class="wb"><span class="w0">{a}</span><span class="wa">→</span><span class="w1">{b}</span></div>' for a, b in rows)
+    return light("영업관리의 반복 업무가 이렇게 바뀝니다", f'<div class="wbh"><span>지금</span><span></span><span>이틀 뒤</span></div>{trs}', "오프닝")
+
+
 def o05():
     return light("이틀 동안 하나의 가상 시나리오로 진행합니다", f'''<div class="scen">
-  <div class="who">가상 거래처 <b>A편의점 본부</b> · 4분기 신제품 입점 제안 준비</div>
-  {flow([("조사", "Ch1"), ("숫자 정리", "Ch2"), ("제안서", "Ch3"), ("대시보드 · 주간 메일", "Ch4"), ("응대 Gem", "Ch5")])}
+  <div class="who">가상 영업관리 DB <b>2026년 4~9월 · 180행 · 가상 거래처 30곳</b></div>
+  <div class="who">가상 거래처 <b>A편의점 본부</b>에 4분기 신제품 입점 제안 준비</div>
+  {flow([("조사", "Ch1"), ("숫자 정리", "Ch2"), ("제안서 · ROI", "Ch3"), ("대시보드 · 주간 보고", "Ch4"), ("응대 Gem", "Ch5")])}
 </div>''', "오프닝")
 
 
@@ -252,18 +262,30 @@ def ch1():
 # ── Ch2 ─────────────────────────────────────────────────
 def ch2():
     m = "scenes_ch2"
+    cols = ["월", "지역", "채널", "거래처", "제품", "목표매출_원", "실제매출_원", "달성률"]
+    row = ["2026-09", "수도권", "대형마트", "가상거래처-01", "제품명", "5,000,000", "4,650,000", "93%"]
+    db = ('<table class="dbt"><thead><tr>' + "".join(f"<th>{c}</th>" for c in cols) + "</tr></thead><tbody><tr>"
+          + "".join(f"<td>{c}</td>" for c in row) + "</tr>"
+          + "<tr class=more>" + "".join("<td>⋮</td>" for _ in cols) + "</tr></tbody></table>")
     return chapter("Ch2", "숫자를 믿을 수 있게 정리하기", "확인한 숫자를 다음 챕터의 재료로", "Ch2에서는 데이터 창고를 정리합니다") + [
         ill(m, "tables", "top20", "AI가 잘 읽는 표는 사람이 보기 좋은 표와 다릅니다",
             ["한 행에 한 건", "헤더는 한 줄", "병합 셀 없음"]),
+        light("실습용 매출원본은 이 규칙대로 만든 표입니다", f'''{db}
+<div class="dbnote"><span>180행</span> 2026년 4~9월 · 지역 5곳 · 채널 3개 · 가상 거래처 30곳</div>''', "Ch2"),
+        ill("scenes_extra", "forms_inlet", "top20", "Forms는 처음부터 반듯한 표로 받는 입구입니다",
+            ["메모 · 메신저: 칸이 매번 다릅니다", "Forms: 응답 하나가 한 행으로 쌓입니다"]),
         ba("데이터를 먼저 설명하고, 한 단계씩 요청합니다", "Ch2",
-           "이 데이터 정리해 줘",
-           "이 시트는 거래처별 월 매출이야.\n열은 월, 지역, 거래처 유형, 품목, 매출액이야.\n1단계로 거래처명 표기만 통일해 줘.\n확인하고 다음 단계를 요청할게."),
+           "이 데이터 분석해 줘",
+           "이 시트는 2026년 4~9월 지역 · 채널 · 거래처별 월 매출이야.\n열은 월, 지역, 채널, 거래처, 제품, 목표매출_원, 실제매출_원, 달성률이야.\n1단계로 달성률 90% 미만 행만 골라 미달 금액 순으로 정렬해 줘.\n확인하고 다음 단계를 요청할게.",
+           "맥락 · 한 단계 · 확인"),
         ill(m, "navigation", "left40", "Sheets의 Gemini도 계획을 먼저 보여 줍니다",
             ["요청 → 계획 확인 → 실행", "계획 확인은 사람이 합니다", "Ch1과 같은 원칙입니다"], principle=2),
         ill(m, "gauges", "top20", "값이 아니라 수식으로 받아야 합니다",
             ["값: 원본이 바뀌어도 그대로", "수식: 원본이 바뀌면 다시 계산", "수식이어야 Ch4 자동화가 됩니다"]),
         ill(m, "two_sheets", "left40", "AI 집계는 두 개만 직접 대조합니다",
-            ["전부 다시 계산할 필요는 없습니다", "합계 두 개를 SUM으로 맞춰 봅니다", "오류가 나면 Gemini의 수정 제안을 씁니다"]),
+            ["전부 다시 계산할 필요는 없습니다", "총 목표 · 총 실적을 SUM으로 맞춰 봅니다", "오류가 나면 Gemini의 수정 제안을 씁니다"]),
+        ill("scenes_extra", "fact_hypothesis", "left40", "AI 분석은 사실과 가설을 나눠서 받습니다",
+            ["사실: 시트에서 확인되는 숫자", "가설: 미달 원인에 대한 추정", "가설은 확인 전에 보고하지 않습니다"], principle=1),
         bridge("정리된 숫자가 다음 세 챕터의 재료입니다", "이 숫자로 제안서를 어떻게 빠르게 쓸까요?", "Ch2", "→ Ch3 제안서 · Ch4 대시보드 · Ch5 Gem"),
     ]
 
@@ -284,6 +306,12 @@ def ch3():
            "역할 · 맥락 · 작업 · 형식"),
         ill(m, "audience", "top20", "받는 사람의 상황에 따라 앞에 둘 내용이 다릅니다",
             ["신규: 브랜드 신뢰와 초기 지원", "기존: 지난 실적과 확대 효과", "이탈 위험: 문제 해결과 조건 개선"]),
+        ba("제안서의 기대 효과는 Canvas로 만든 계산기로 뽑습니다", "Ch3",
+           "판촉 ROI 계산기 만들어 줘",
+           "영업기획 담당자를 위한 판촉 ROI 계산기를 만들어 줘.\n입력: 행사 전 매출, 행사 후 매출, 매출총이익률, 판촉비\n출력: 증분매출, 증분이익, ROI = (증분이익 − 판촉비) ÷ 판촉비\n계산식은 화면 아래에 적고, 판촉비가 0원이어도 멈추지 않게 해 줘.",
+           "입력 · 출력 · 계산식 · 예외"),
+        ill("scenes_extra", "calculator_test", "left40", "새 계산기는 답을 아는 값부터 넣어 봅니다",
+            ["5,000만 → 6,500만, 이익률 30%, 판촉비 300만", "ROI 50%가 나와야 정상입니다", "추정치일 뿐, 판촉 효과의 증명은 아닙니다"], principle=1),
         ill(m, "photo", "left40", "공유된 Canvas는 그 순간의 사진입니다",
             ["공유하면 그 시점 모습이 전달됩니다", "문서라면 이걸로 충분합니다", "숫자가 바뀌는 화면이라면?"]),
     ]
@@ -302,7 +330,7 @@ def ch4():
             ["메뉴판 틀은 그대로, 가격표만 교체", "화면은 render(rows) 하나로 요청"]),
         ba("대시보드는 화면과 데이터를 나눠 달라고 요청합니다", "Ch4",
            "실적 대시보드 만들어 줘",
-           "'실적' 시트의 지역, 월, 매출액으로\n지역별 월 매출 막대그래프와 전월 대비 증감률 표가 있는 대시보드를 만들어 줘.\n화면은 render(rows) 함수 하나로 그리고,\n데이터는 나중에 시트에서 받을 수 있게 분리해 줘."),
+           "'매출원본' 시트의 지역, 채널, 목표매출_원, 실제매출_원으로\n총 목표 · 총 실적 · 달성률 카드와 채널별 목표 대비 실적 막대그래프가 있는 대시보드를 만들어 줘.\n화면은 render(rows) 함수 하나로 그리고,\n데이터는 나중에 시트에서 받을 수 있게 분리해 줘."),
         light("곧 시트 안에서 바로 대시보드를 만들게 됩니다", f'''<div class="twocol">
   <div class="vl"><p>시트 안에서 만드는 실시간 대시보드</p><p>지금은 영어로 설정된 계정에서만 쓸 수 있습니다</p></div>
   {sc}
@@ -310,15 +338,17 @@ def ch4():
         ill(m, "alarm", "left40", "자동화는 '언제'와 '무엇을'로 나뉩니다",
             ["언제: 매주 월요일 8시, 메일 도착 시", "무엇을: 읽고, 요약하고, 보내기"]),
         ill(m, "two_tools", "top20", "자동화 도구에는 맞춤 제작형과 주문형이 있습니다",
-            ["Apps Script: 코드로 만드는 맞춤 제작", "Workspace Studio: 말로 하는 주문"]),
+            ["같은 주간 보고도 두 길로 만듭니다", "Apps Script: 받은 코드로 정확한 계산", "Workspace Studio: 말로 만들고 바로 수정"]),
         ba("언제, 어디서, 무엇을 정확히 말합니다", "Ch4",
            "매주 실적 메일 자동으로 보내 줘",
-           "'실적' 시트의 A~E열을 읽어서\n매주 월요일 오전 8시에\n지난주 지역별 매출 합계를 표로 만들어\n내 메일로 보내 줘.",
+           "'매출원본' 시트를 읽어서\n매주 월요일 오전 8시에\n지난주 지역별 목표 · 실적 · 달성률을 표로 만들어\n내 메일로 보내 줘.",
            "언제 · 어디서 · 무엇을"),
         ill(m, "domino", "top20", "말로 설명하면 Studio가 흐름을 만들어 줍니다",
             ["할 일을 말하면 단계가 만들어집니다", "단계 검토는 사람이 합니다"], principle=2),
         ill(m, "envelope_fly", "left40", "테스트 실행도 진짜로 보냅니다",
             ["테스트도 실제로 메일을 보냅니다", "파일도 실제로 바뀝니다", "실습 수신자는 반드시 본인"]),
+        ill("scenes_extra", "draft_review", "top20", "그래서 자동화는 초안까지, 보내는 것은 사람입니다",
+            ["초안 → 숫자 검증 → 수신인 검토 → 발송", "보낼지는 마지막에 사람이 정합니다"], principle=2),
         bridge("매번 같은 지시를 반복하고 있지 않나요?", "긴 설명을 매번 다시 쓰고 있다면, 저장해 둘 때입니다", "Ch4", "→ Ch5 전담 비서 Gem"),
     ]
 
@@ -360,17 +390,24 @@ def day2():
         ill("scenes_ch5", "construction", "top20", "작게 끝내는 쪽이 이깁니다",
             ["Before: 팀 전체 영업 관리 시스템", "After: 내 방문 메모 저녁 정리 흐름"]),
         light("세 가지 트랙 중 하나를 고릅니다", cards([
-            ("문서 · 제안", "Canvas + Gem", ["docs", "gemini"]),
-            ("대시보드", "Sheets + Canvas + Apps Script", ["sheets", "docs", "appsscript"]),
-            ("자동화", "Workspace Studio + Gem", ["appsscript", "gemini"]),
+            ("문서 · 제안", "Canvas + Gem<br/>예: 판촉 성과 비교 도구", ["docs", "gemini"]),
+            ("대시보드", "Sheets + Forms + Canvas<br/>예: 이슈 통합 관리 화면", ["sheets", "forms", "docs"]),
+            ("자동화", "Apps Script · Studio + Gem<br/>예: 지역별 미달 알림 초안", ["appsscript", "gemini"]),
         ]), "Day 2"),
+        light("많이 만든 것보다 검증할 수 있는 결과가 이깁니다", f'''<div class="score">
+  <div class="sc"><b>30</b><span>실제 업무 적합성</span></div><div class="sc"><b>30</b><span>계산 · 분석 정확도</span></div>
+  <div class="sc"><b>25</b><span>실행 완성도</span></div><div class="sc"><b>15</b><span>사용성 · 확장성</span></div>
+</div>
+<div class="homework"><b>완료</b> 재현되는 분석 1건 + 검증된 계산 1건 + 자동화 시연 1회</div>''', "Day 2"),
         light("발표는 2분, 문제와 데모와 전후 비교입니다", flow([("문제", "무엇이 불편했나"), ("데모", "직접 보여 주기"), ("전후 비교", "얼마나 달라졌나")], hl=1), "Day 2"),
+        bridge("작은 자동화 하나를 2주 동안 써 보는 것부터 시작합니다", "오늘 만든 것은 실제 데이터를 잇기 전의, 검증할 수 있는 시제품입니다", "Day 2",
+               "운영 계정 · 데이터 정책 확인 → 2주 파일럿 → 개선"),
     ]
 
 
 # ── 오프닝 이어 붙이기 ─────────────────────────────────────
 # 그림 ⑨ 이름표 자리 (scenes_ch2.office_map 의 label 위치와 같다)
-TAGS = [((400, 344), "리서치 · Deep Research"), ((880, 344), "검토자 · NotebookLM"), ((1112, 500), "데이터 창고 · Sheets"),
+TAGS = [((400, 344), "리서치 · Deep Research"), ((880, 344), "검토자 · NotebookLM"), ((1112, 500), "데이터 창고 · Sheets · Forms"),
         ((880, 654), "작업대 · Canvas"), ((420, 654), "자동화 · Apps Script · Studio"), ((168, 500), "전담 비서 · Gem")]
 
 
@@ -385,6 +422,7 @@ def opening():
         intro.codered(),
         intro.meme(),
         o02(),
+        o_work(),
         ill("scenes_ch2", "desk_outputs", "top25", "첫날이 끝나면 책상 위에 결과물 다섯 가지가 남습니다"),
         agenda(),
         ill("scenes_ch2", "office_map", "top20", "오늘 쓰는 도구는 역할이 다른 동료입니다", extra=tags()),
@@ -461,6 +499,14 @@ CSS = '''
   .homework{margin-top:30px; font-size:20px; color:#16233A; border-left:4px solid #F28C28; padding:8px 0 8px 18px;}
   .homework b{color:#F28C28; margin-right:12px;}
   .capbox{background:#D9DDE3; border-radius:14px; height:300px; display:grid; place-items:center; font-size:18px; font-weight:700; color:#1F3A5F;}
+  .wbh, .wb{display:grid; grid-template-columns:1fr 50px 1fr; align-items:center;}
+  .wbh{font-size:14px; font-weight:800; color:#8A94A6; margin-bottom:6px;} .wbh span:last-child{color:#F28C28;}
+  .wb{padding:15px 0; border-bottom:1px solid #E1E5EB;} .wb .w0{font-size:19px; color:#8A94A6;} .wb .w1{font-size:20px; font-weight:800; color:#16233A;} .wb .wa{color:#F28C28; font-weight:800; font-size:20px; text-align:center;}
+  .dbt{width:100%; border-collapse:collapse; font-size:16px;} .dbt th{background:#1F3A5F; color:#fff; padding:12px 10px; font-weight:700; text-align:left;}
+  .dbt td{padding:12px 10px; border-bottom:1px solid #E1E5EB; color:#16233A;} .dbt tr.more td{color:#8A94A6; text-align:center;}
+  .dbnote{margin-top:18px; font-size:18px; color:#44506A;} .dbnote span{background:#F28C28; color:#fff; font-weight:800; border-radius:6px; padding:3px 10px; margin-right:10px;}
+  .score{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;} .sc{background:#fff; border:1px solid #E1E5EB; border-top:4px solid #1F3A5F; border-radius:10px; padding:22px; display:flex; flex-direction:column; gap:6px;}
+  .sc b{font-size:40px; color:#F28C28;} .sc span{font-size:17px; font-weight:700; color:#16233A;}
   .vl p{font-size:20px; color:#16233A; margin:0 0 12px; padding-left:16px; border-left:4px solid #F28C28;}
 
   /* ── 어두운 정리 장 ── */

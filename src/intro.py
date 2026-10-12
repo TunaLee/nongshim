@@ -7,7 +7,7 @@ ICON = "assets/icons/{}.svg"
 NAMES = {
     "gemini": "Gemini", "notebooklm": "NotebookLM", "docs": "Docs", "sheets": "Sheets",
     "slides": "Slides", "gmail": "Gmail", "drive": "Drive", "meet": "Meet",
-    "calendar": "Calendar", "vids": "Vids", "aistudio": "AI Studio", "appsscript": "Apps Script",
+    "calendar": "Calendar", "vids": "Vids", "aistudio": "AI Studio", "appsscript": "Apps Script", "forms": "Forms",
 }
 
 # 장 번호, 날, 제목, 설명, 아이콘
