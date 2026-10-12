@@ -226,7 +226,7 @@ AGENDA = [
     ("Ch1", "근거 있는 답", "출처 달린 조사 보고서", ["gemini", "notebooklm"]),
     ("Ch2", "하네스와 Skills", "메일 Skill · 응대 Skill", ["gemini"]),
     ("Ch3", "데이터 정리 · 분석", "정제본 시트 · 8월 집계", ["sheets"]),
-    ("Ch4", "문서 · 화면", "1페이지 제안서 · 대시보드 시제품", ["docs"]),
+    ("Ch4", "Canvas 대시보드", "대시보드 시제품", ["docs"]),
     ("Ch5", "연결 · 배포", "웹앱 대시보드", ["appsscript"]),
     ("최종", "핸즈온", "점포 점검 대시보드 웹앱", ["sheets", "gemini", "appsscript"]),
 ]
