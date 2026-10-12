@@ -102,6 +102,24 @@ def capture(title, ch, shots, lines=()):
     return light(title, f'<div class="caps n{len(shots)}">{body}</div>' + (f'<ul class="capnote">{side}</ul>' if side else ""), ch)
 
 
+def lab(no, title, ch, goal, steps, done, minutes, files=""):
+    """실습 장 — 목표 · 단계 · 완료 기준 · 시간 네 칸 고정."""
+    st = "".join(f"<li>{x}</li>" for x in steps)
+    dn = "".join(f"<li>{x}</li>" for x in done)
+    return f'''<section class="slide lt labs" data-title="[실습 {no}] {title}">
+  {coord()}
+  <div class="eyebrow"><span class="tag">{ch}</span><span class="labtag">실습 {no}</span></div>
+  <h2 class="s-title sm">{title}</h2>
+  <div class="rule"></div>
+  <div class="body"><div class="labgrid">
+    <div class="lc goal"><div class="lh">목표</div><p>{goal}</p>{f'<div class="lf">사용 파일 · {files}</div>' if files else ''}</div>
+    <div class="lc time"><div class="lh">시간</div><b>{minutes}</b><span>분</span></div>
+    <div class="lc steps"><div class="lh">단계</div><ol>{st}</ol></div>
+    <div class="lc done"><div class="lh">완료 기준</div><ul>{dn}</ul></div>
+  </div></div>
+</section>'''
+
+
 def bridge(title, question, ch, nxt):
     return f'''<section class="slide dk bridge" data-title="{title}">
   {coord()}
@@ -372,38 +390,84 @@ def ch4():
 # ── Ch5 ─────────────────────────────────────────────────
 def ch5():
     m = "scenes_ch5"
+    bot = f'''<div class="ba">
+  <div class="b"><div class="lab">2023~2024 · 봇</div><div class="q">GPTs · Gems<br/>역할마다 따로 만든 대화 상대<br/>쓰려면 그 봇으로 이동</div></div>
+  <div class="arr">→</div>
+  <div class="a"><div class="lab">2025~2026 · 스킬</div><div class="q">Skills<br/>필요할 때 꺼내 쓰는 업무 지침 묶음<br/>한 대화에서 <b>/이름</b>으로 호출 · 여러 개 조합</div></div>
+</div>'''
+    trend = f'''<div class="tline t4">
+  <div class="tl"><b>2025.10</b><span>Claude · Agent Skills</span></div>
+  <div class="tl"><b>2025.12</b><span>Agent Skills 공개 표준</span></div>
+  <div class="tl"><b>2026</b><span>ChatGPT · Skills (업무용 플랜)</span></div>
+  <div class="tl hl"><b>2026.10</b><span>Gemini · Skills</span></div>
+</div>
+<div class="homework"><b>공통</b> 이름 · 설명 · 지침 · 참고 자료 한 묶음</div>'''
     move = f'''<div class="tline">
   <div class="tl"><b>2026.10.13</b><span>Gemini 앱에 Skills 출시</span></div>
   <div class="tl"><b>2026.11.17</b><span>Gem은 설정 메뉴로 이동</span></div>
   <div class="tl hl"><b>2027.3.1</b><span>Workspace 계정 Gem 종료</span></div>
 </div>
-<div class="homework"><b>이전</b> 기존 Gem → Skill 비활성 초안으로 자동 이전 · 검토 후 활성화</div>'''
+<div class="homework"><b>이전</b> 기존 Gem → Skill 비활성 초안 · 검토 후 활성화</div>'''
+    skillmd = ("---\n"
+               "name: 거래처 응대\n"
+               "description: 편의점 거래처 문의에 1차 회신 초안을 쓴다\n"
+               "---\n"
+               "역할: 편의점 거래처 응대 도우미\n"
+               "출력: 회신 초안 5문장 이내 + 근거 조항 번호\n"
+               "규칙: 원인 확인 전 보상 약속 금지\n"
+               "참고: 05 카탈로그 · 06 기준표 · 07 응대가이드")
+    harness = '''<div class="hn">
+  <div class="hn-out"><div class="hn-lab">하네스</div>
+    <div class="hn-row"><span class="hl">지침 = Skill</span><span>참고 자료</span></div>
+    <div class="hn-core">모델</div>
+    <div class="hn-row"><span>도구 연결</span><span>사람 확인</span></div>
+  </div>
+</div>'''
     return chapter("Ch5", "반복되는 지시를 저장하는 Skills", "", "Skills") + [
+        light("봇에서 스킬로", bot, "Ch5"),
+        light("AI 도구 모두 Skills로", trend, "Ch5"),
         light("Gem에서 Skills로", move, "Ch5"),
+        light("Skill의 구조", f'<div class="twocol">{explain.prompt("Skill 한 개", skillmd)}<div class="vl"><p>이름 · 설명: 언제 쓸지</p><p>지침: 어떻게 할지</p><p>참고 자료: 무엇을 근거로</p></div></div>', "Ch5"),
+        light("모델과 하네스", harness, "Ch5"),
         ill(m, "secretary", "left40", "Skill: 저장해 두는 업무 지침",
             ["/이름으로 호출", "여러 Skill 조합"]),
         ill(m, "conveyor", "top20", "지침은 매번 자동 적용",
             ["지침 품질 = 결과 품질"]),
         ill("scenes_ch1", "s6", "top20", "참조 파일은 참고 교재",
             ["수치는 사용자가 준 것만"], principle=1),
+        ba("Skill 지침 작성", "Ch5",
+           "너는 거래처 응대 도우미야",
+           "역할: 편의점 거래처 응대 도우미\n입력: 거래처 문의 내용\n출력: 1차 회신 초안 5문장 이내 + 근거 조항 번호\n규칙: 원인 확인 전 보상 약속 금지, 기준표에 없는 조건은 [확인 필요]\n참조: 05 제품카탈로그 · 06 단가 기준표 · 07 응대가이드"),
+        capture("Skill 만들기", "Ch5", [("skill-01-create", "Skill 만들기"), ("skill-02-instructions", "지침 입력")]),
+        capture("참조 파일 추가", "Ch5", [("skill-03-files", "참조 파일")], ["PDF · 문서 · 이미지"]),
+        lab("5-1", "첫 Skill: /응대", "Ch5",
+            "거래처 문의에 1차 회신 초안을 쓰는 Skill",
+            ["지침 작성 (역할 · 입력 · 출력 · 규칙)", "참조 파일 05 · 06 · 07 추가", "저장", "새 대화에서 /응대 호출"],
+            ["A편의점 결품 문의 → R-6 절차대로 회신", "금지 표현 없음 · 5문장 이내"],
+            25, "05 · 06 · 07"),
+        ill(m, "interview", "top20", "세 가지 입력으로 테스트",
+            ["정상: A편의점 결품 문의", "기준표 밖: 북부대리점 행사 물량", "기준 위반: A마트 매대 3주"]),
+        capture("/로 불러 테스트", "Ch5", [("skill-04-run", "/응대 · 결품 문의 테스트")]),
+        ba("지침 한 줄 추가 전후", "Ch5",
+           "문의: 신제품 A 결품, 보상 가능한가요?\n\n→ 불편을 드려 죄송합니다. 보상해 드리겠습니다.",
+           "지침 추가: 원인 확인 전 보상 약속 금지\n\n→ 물류팀 확인 결과를 받은 뒤\n   2영업일 안에 다시 연락드리겠습니다."),
+        lab("5-2", "세 가지 입력으로 고치기", "Ch5",
+            "틀린 답을 찾아 지침 한 줄씩 보완",
+            ["세 가지 입력을 /응대로 차례로 테스트", "기준과 다른 답 표시", "지침에 규칙 한 줄 추가", "같은 입력으로 다시 테스트"],
+            ["세 답 모두 근거 조항 번호 표기", "북부대리점 → [확인 필요]", "A마트 → 최대 2주 안내 (P-5)"],
+            15, "02 · 06 · 07"),
+        light("Skill 조합", f'''<div class="combo"><span>/응대</span><b>+</b><span>/회신 형식</span><b>=</b><span class="hl">기준 지킨 회신 초안</span></div>''', "Ch5"),
         light("영업관리 Skill 예시", cards([
             ("응대", "거래처 문의 1차 회신", ["gemini"]),
             ("매출 분석", "실적 미달 거래처 정리", ["sheets"]),
             ("주간 보고", "정해진 양식의 회의 보고문", ["docs"]),
             ("판촉 기획", "목표 · 예상 성과 · 위험 요인", ["gemini"]),
         ], 4), "Ch5"),
-        ba("Skill 지침 작성", "Ch5",
-           "너는 거래처 응대 도우미야",
-           "역할: 편의점 거래처 응대 도우미\n입력: 거래처 문의 내용\n출력: 1차 회신 초안 5문장 이내 + 근거 조항 번호\n규칙: 원인 확인 전 보상 약속 금지, 기준표에 없는 조건은 [확인 필요]\n참조: 05 제품카탈로그 · 06 단가 기준표 · 07 응대가이드"),
-        capture("Skill 만들기", "Ch5", [("skill-01-create", "Skill 만들기"), ("skill-02-instructions", "지침 입력")]),
-        capture("참조 파일 추가", "Ch5", [("skill-03-files", "참조 파일")], ["PDF · 문서 · 이미지"]),
-        ill(m, "interview", "top20", "세 가지 입력으로 테스트",
-            ["정상: A편의점 결품 문의", "기준표 밖: 북부대리점 행사 물량", "기준 위반: A마트 매대 3주"]),
-        capture("/로 불러 테스트", "Ch5", [("skill-04-run", "/응대 · 결품 문의 테스트")]),
-        light("Skill 조합", f'''<div class="combo"><span>/응대</span><b>+</b><span>/회신 형식</span><b>=</b><span class="hl">기준 지킨 회신 초안</span></div>''', "Ch5"),
-        ba("지침 한 줄 추가 전후", "Ch5",
-           "문의: 신제품 A 결품, 보상 가능한가요?\n\n→ 불편을 드려 죄송합니다. 보상해 드리겠습니다.",
-           "지침 추가: 원인 확인 전 보상 약속 금지\n\n→ 물류팀 확인 결과를 받은 뒤\n   2영업일 안에 다시 연락드리겠습니다."),
+        lab("5-3", "나만의 반복 업무 Skill", "Ch5",
+            "매주 하는 일 하나를 /한 줄로",
+            ["예시 셋 중 하나 또는 내 업무 선택", "잘 된 대화에서 「이 대화를 Skill로 만들어 줘」", "지침 · 참조 파일 다듬기", "새 대화에서 /이름 + /응대 등 조합"],
+            ["새 대화에서 /이름 한 줄로 같은 형식 결과", "숫자는 04 시트와 일치"],
+            25, "04 · 03"),
         ill(m, "agent_morning", "top20", "Studio + 지침 = 에이전트",
             ["문의 → 답장 초안 → 담당자 알림", "자동 발송 없음"]),
         light("결과물의 연결", f'''{flow([("조사", "Ch1"), ("숫자", "Ch2"), ("제안서", "Ch3"), ("대시보드 · 메일", "Ch4"), ("Skill", "Ch5")])}
@@ -557,6 +621,24 @@ CSS = '''
   .combo{display:flex; align-items:center; justify-content:center; gap:22px; font-size:30px; font-weight:800; color:#16233A;}
   .combo span{background:#EEF1F5; border-radius:14px; padding:22px 28px; font-family:var(--mono);} .combo span.hl{background:#FFF3E6; border:2px solid #F28C28; font-family:var(--serif);}
   .combo b{color:#F28C28;}
+  .tline.t4{grid-template-columns:repeat(4,1fr);}
+  .labtag{background:#F28C28; color:#fff; font-size:12px; font-weight:800; border-radius:6px; padding:3px 9px; letter-spacing:0;}
+  .labgrid{margin-top:14px; display:grid; grid-template-columns:1fr 200px; grid-template-rows:auto 1fr; gap:16px; height:100%; padding-bottom:10px;}
+  .labgrid .lc{background:#fff; border:1px solid #E1E5EB; border-radius:12px; padding:18px 22px;}
+  .labgrid .lh{font-size:13px; font-weight:800; color:#F28C28; margin-bottom:8px;}
+  .labgrid .goal p{margin:0; font-size:22px; font-weight:800; color:#16233A;}
+  .labgrid .lf{margin-top:8px; font-size:14px; color:#8A94A6;}
+  .labgrid .time{grid-row:1 / span 2; grid-column:2; background:#1F3A5F; border:none; color:#fff; display:flex; flex-direction:column; justify-content:center; align-items:center;}
+  .labgrid .time .lh{color:#F5B06A;} .labgrid .time b{font-size:64px; line-height:1;} .labgrid .time span{font-size:18px; opacity:.8;}
+  .labgrid .steps, .labgrid .done{grid-column:1;}
+  .labgrid .lc ol, .labgrid .lc ul{margin:0; padding-left:22px; display:flex; flex-direction:column; gap:6px; font-size:17px; color:#16233A;}
+  .labgrid{grid-template-rows:auto auto auto;} .labgrid .time{grid-row:1 / span 3;}
+  .hn{display:flex; justify-content:center;}
+  .hn-out{position:relative; border:3px solid #1F3A5F; border-radius:22px; padding:44px 50px 30px; display:flex; flex-direction:column; align-items:center; gap:18px; min-width:620px;}
+  .hn-lab{position:absolute; top:-16px; left:30px; background:#fff; padding:0 12px; font-size:20px; font-weight:800; color:#1F3A5F;}
+  .hn-row{display:flex; gap:18px;} .hn-row span{background:#EEF1F5; border-radius:10px; padding:12px 22px; font-size:18px; font-weight:700; color:#16233A;}
+  .hn-row span.hl{background:#FFF3E6; border:2px solid #F28C28; color:#F28C28;}
+  .hn-core{width:150px; height:150px; border-radius:50%; background:#1F3A5F; color:#fff; display:grid; place-items:center; font-size:26px; font-weight:800;}
   .vl p{font-size:20px; color:#16233A; margin:0 0 12px; padding-left:16px; border-left:4px solid #F28C28;}
 
   /* ── 어두운 정리 장 ── */

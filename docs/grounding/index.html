@@ -533,6 +533,24 @@
   .combo{display:flex; align-items:center; justify-content:center; gap:22px; font-size:30px; font-weight:800; color:#16233A;}
   .combo span{background:#EEF1F5; border-radius:14px; padding:22px 28px; font-family:var(--mono);} .combo span.hl{background:#FFF3E6; border:2px solid #F28C28; font-family:var(--serif);}
   .combo b{color:#F28C28;}
+  .tline.t4{grid-template-columns:repeat(4,1fr);}
+  .labtag{background:#F28C28; color:#fff; font-size:12px; font-weight:800; border-radius:6px; padding:3px 9px; letter-spacing:0;}
+  .labgrid{margin-top:14px; display:grid; grid-template-columns:1fr 200px; grid-template-rows:auto 1fr; gap:16px; height:100%; padding-bottom:10px;}
+  .labgrid .lc{background:#fff; border:1px solid #E1E5EB; border-radius:12px; padding:18px 22px;}
+  .labgrid .lh{font-size:13px; font-weight:800; color:#F28C28; margin-bottom:8px;}
+  .labgrid .goal p{margin:0; font-size:22px; font-weight:800; color:#16233A;}
+  .labgrid .lf{margin-top:8px; font-size:14px; color:#8A94A6;}
+  .labgrid .time{grid-row:1 / span 2; grid-column:2; background:#1F3A5F; border:none; color:#fff; display:flex; flex-direction:column; justify-content:center; align-items:center;}
+  .labgrid .time .lh{color:#F5B06A;} .labgrid .time b{font-size:64px; line-height:1;} .labgrid .time span{font-size:18px; opacity:.8;}
+  .labgrid .steps, .labgrid .done{grid-column:1;}
+  .labgrid .lc ol, .labgrid .lc ul{margin:0; padding-left:22px; display:flex; flex-direction:column; gap:6px; font-size:17px; color:#16233A;}
+  .labgrid{grid-template-rows:auto auto auto;} .labgrid .time{grid-row:1 / span 3;}
+  .hn{display:flex; justify-content:center;}
+  .hn-out{position:relative; border:3px solid #1F3A5F; border-radius:22px; padding:44px 50px 30px; display:flex; flex-direction:column; align-items:center; gap:18px; min-width:620px;}
+  .hn-lab{position:absolute; top:-16px; left:30px; background:#fff; padding:0 12px; font-size:20px; font-weight:800; color:#1F3A5F;}
+  .hn-row{display:flex; gap:18px;} .hn-row span{background:#EEF1F5; border-radius:10px; padding:12px 22px; font-size:18px; font-weight:700; color:#16233A;}
+  .hn-row span.hl{background:#FFF3E6; border:2px solid #F28C28; color:#F28C28;}
+  .hn-core{width:150px; height:150px; border-radius:50%; background:#1F3A5F; color:#fff; display:grid; place-items:center; font-size:26px; font-weight:800;}
   .vl p{font-size:20px; color:#16233A; margin:0 0 12px; padding-left:16px; border-left:4px solid #F28C28;}
 
   /* ── 어두운 정리 장 ── */
@@ -1893,6 +1911,32 @@
   <div class="hub" style="left:566px; top:356px"><img src="assets/icons/gemini.svg" alt="Gemini"/></div>
 </section>
 
+<section class="slide lt" data-title="봇에서 스킬로">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="eyebrow"><span class="tag">Ch5</span></div>
+  <h2 class="s-title sm">봇에서 스킬로</h2>
+  <div class="rule"></div>
+  <div class="body"><div class="mid"><div class="ba">
+  <div class="b"><div class="lab">2023~2024 · 봇</div><div class="q">GPTs · Gems<br/>역할마다 따로 만든 대화 상대<br/>쓰려면 그 봇으로 이동</div></div>
+  <div class="arr">→</div>
+  <div class="a"><div class="lab">2025~2026 · 스킬</div><div class="q">Skills<br/>필요할 때 꺼내 쓰는 업무 지침 묶음<br/>한 대화에서 <b>/이름</b>으로 호출 · 여러 개 조합</div></div>
+</div></div></div>
+</section>
+
+<section class="slide lt" data-title="AI 도구 모두 Skills로">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="eyebrow"><span class="tag">Ch5</span></div>
+  <h2 class="s-title sm">AI 도구 모두 Skills로</h2>
+  <div class="rule"></div>
+  <div class="body"><div class="mid"><div class="tline t4">
+  <div class="tl"><b>2025.10</b><span>Claude · Agent Skills</span></div>
+  <div class="tl"><b>2025.12</b><span>Agent Skills 공개 표준</span></div>
+  <div class="tl"><b>2026</b><span>ChatGPT · Skills (업무용 플랜)</span></div>
+  <div class="tl hl"><b>2026.10</b><span>Gemini · Skills</span></div>
+</div>
+<div class="homework"><b>공통</b> 이름 · 설명 · 지침 · 참고 자료 한 묶음</div></div></div>
+</section>
+
 <section class="slide lt" data-title="Gem에서 Skills로">
   <div class="coord"><b></b> / <span class="tot"></span></div>
   <div class="eyebrow"><span class="tag">Ch5</span></div>
@@ -1903,7 +1947,36 @@
   <div class="tl"><b>2026.11.17</b><span>Gem은 설정 메뉴로 이동</span></div>
   <div class="tl hl"><b>2027.3.1</b><span>Workspace 계정 Gem 종료</span></div>
 </div>
-<div class="homework"><b>이전</b> 기존 Gem → Skill 비활성 초안으로 자동 이전 · 검토 후 활성화</div></div></div>
+<div class="homework"><b>이전</b> 기존 Gem → Skill 비활성 초안 · 검토 후 활성화</div></div></div>
+</section>
+
+<section class="slide lt" data-title="Skill의 구조">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="eyebrow"><span class="tag">Ch5</span></div>
+  <h2 class="s-title sm">Skill의 구조</h2>
+  <div class="rule"></div>
+  <div class="body"><div class="mid"><div class="twocol"><div class="code sm"><div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="fn">Skill 한 개</span></div><pre><code>---
+name: 거래처 응대
+description: 편의점 거래처 문의에 1차 회신 초안을 쓴다
+---
+역할: 편의점 거래처 응대 도우미
+출력: 회신 초안 5문장 이내 + 근거 조항 번호
+규칙: 원인 확인 전 보상 약속 금지
+참고: 05 카탈로그 · 06 기준표 · 07 응대가이드</code></pre></div><div class="vl"><p>이름 · 설명: 언제 쓸지</p><p>지침: 어떻게 할지</p><p>참고 자료: 무엇을 근거로</p></div></div></div></div>
+</section>
+
+<section class="slide lt" data-title="모델과 하네스">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="eyebrow"><span class="tag">Ch5</span></div>
+  <h2 class="s-title sm">모델과 하네스</h2>
+  <div class="rule"></div>
+  <div class="body"><div class="mid"><div class="hn">
+  <div class="hn-out"><div class="hn-lab">하네스</div>
+    <div class="hn-row"><span class="hl">지침 = Skill</span><span>참고 자료</span></div>
+    <div class="hn-core">모델</div>
+    <div class="hn-row"><span>도구 연결</span><span>사람 확인</span></div>
+  </div>
+</div></div></div>
 </section>
 
 <section class="slide ill" data-title="Skill: 저장해 두는 업무 지침">
@@ -1978,14 +2051,6 @@
   
 </section>
 
-<section class="slide lt" data-title="영업관리 Skill 예시">
-  <div class="coord"><b></b> / <span class="tot"></span></div>
-  <div class="eyebrow"><span class="tag">Ch5</span></div>
-  <h2 class="s-title sm">영업관리 Skill 예시</h2>
-  <div class="rule"></div>
-  <div class="body"><div class="mid"><div class="kcards c4"><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span></div><h4>응대</h4><p>거래처 문의 1차 회신</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span></div><h4>매출 분석</h4><p>실적 미달 거래처 정리</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/docs.svg" alt="Docs"/></span></div><h4>주간 보고</h4><p>정해진 양식의 회의 보고문</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span></div><h4>판촉 기획</h4><p>목표 · 예상 성과 · 위험 요인</p></div></div></div></div>
-</section>
-
 <section class="slide lt" data-title="Skill 지침 작성">
   <div class="coord"><b></b> / <span class="tot"></span></div>
   <div class="eyebrow"><span class="tag">Ch5</span></div>
@@ -2014,6 +2079,19 @@
   <div class="body"><div class="mid"><div class="caps n1"><figure class="capfig empty"><div class="ph">캡처: 참조 파일<span>skill-03-files.png</span></div><figcaption>참조 파일</figcaption></figure></div><ul class="capnote"><li>PDF · 문서 · 이미지</li></ul></div></div>
 </section>
 
+<section class="slide lt labs" data-title="[실습 5-1] 첫 Skill: /응대">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="eyebrow"><span class="tag">Ch5</span><span class="labtag">실습 5-1</span></div>
+  <h2 class="s-title sm">첫 Skill: /응대</h2>
+  <div class="rule"></div>
+  <div class="body"><div class="labgrid">
+    <div class="lc goal"><div class="lh">목표</div><p>거래처 문의에 1차 회신 초안을 쓰는 Skill</p><div class="lf">사용 파일 · 05 · 06 · 07</div></div>
+    <div class="lc time"><div class="lh">시간</div><b>25</b><span>분</span></div>
+    <div class="lc steps"><div class="lh">단계</div><ol><li>지침 작성 (역할 · 입력 · 출력 · 규칙)</li><li>참조 파일 05 · 06 · 07 추가</li><li>저장</li><li>새 대화에서 /응대 호출</li></ol></div>
+    <div class="lc done"><div class="lh">완료 기준</div><ul><li>A편의점 결품 문의 → R-6 절차대로 회신</li><li>금지 표현 없음 · 5문장 이내</li></ul></div>
+  </div></div>
+</section>
+
 <section class="slide ill" data-title="세 가지 입력으로 테스트">
   <svg class="scene" viewBox="0 0 1280 720" aria-hidden="true"><rect x="230" y="300" width="150" height="200" rx="20" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="4"/><rect x="868" y="330" width="164" height="170" rx="20" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="4"/><g transform="translate(305,505) scale(0.85)"><path d="M-54 -140 Q-90 -80 -70 -14" stroke="#1F3A5F" stroke-width="22" fill="none" stroke-linecap="round"/><circle cx="-70" cy="-14" r="12" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="3"/><use href="#person"/><path d="M54 -140 Q110 -70 241.1764705882353 -100.0" stroke="#1F3A5F" stroke-width="22" fill="none" stroke-linecap="round"/></g><g transform="translate(950,570) scale(1.3)"><use href="#robot"/><path d="M-9 -138 Q0 -131 9 -138" stroke="#1F3A5F" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M-44 -86 Q-74 -70 -78 -54" stroke="#1F3A5F" stroke-width="9" fill="none" stroke-linecap="round"/><circle cx="-78" cy="-54" r="10" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/><path d="M44 -86 Q76 -70 88 -50" stroke="#1F3A5F" stroke-width="9" fill="none" stroke-linecap="round"/><circle cx="88" cy="-50" r="10" fill="#D9DDE3" stroke="#1F3A5F" stroke-width="3"/></g>
 <rect x="220" y="500" width="840" height="18" rx="6" fill="#1F3A5F"/>
@@ -2032,14 +2110,6 @@
   <div class="body"><div class="mid"><div class="caps n1"><figure class="capfig empty"><div class="ph">캡처: /응대 · 결품 문의 테스트<span>skill-04-run.png</span></div><figcaption>/응대 · 결품 문의 테스트</figcaption></figure></div></div></div>
 </section>
 
-<section class="slide lt" data-title="Skill 조합">
-  <div class="coord"><b></b> / <span class="tot"></span></div>
-  <div class="eyebrow"><span class="tag">Ch5</span></div>
-  <h2 class="s-title sm">Skill 조합</h2>
-  <div class="rule"></div>
-  <div class="body"><div class="mid"><div class="combo"><span>/응대</span><b>+</b><span>/회신 형식</span><b>=</b><span class="hl">기준 지킨 회신 초안</span></div></div></div>
-</section>
-
 <section class="slide lt" data-title="지침 한 줄 추가 전후">
   <div class="coord"><b></b> / <span class="tot"></span></div>
   <div class="eyebrow"><span class="tag">Ch5</span></div>
@@ -2050,6 +2120,48 @@
   <div class="arr">→</div>
   <div class="a"><div class="lab">After</div><div class="q">지침 추가: 원인 확인 전 보상 약속 금지<br/><br/>→ 물류팀 확인 결과를 받은 뒤<br/>   2영업일 안에 다시 연락드리겠습니다.</div></div>
 </div></div></div>
+</section>
+
+<section class="slide lt labs" data-title="[실습 5-2] 세 가지 입력으로 고치기">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="eyebrow"><span class="tag">Ch5</span><span class="labtag">실습 5-2</span></div>
+  <h2 class="s-title sm">세 가지 입력으로 고치기</h2>
+  <div class="rule"></div>
+  <div class="body"><div class="labgrid">
+    <div class="lc goal"><div class="lh">목표</div><p>틀린 답을 찾아 지침 한 줄씩 보완</p><div class="lf">사용 파일 · 02 · 06 · 07</div></div>
+    <div class="lc time"><div class="lh">시간</div><b>15</b><span>분</span></div>
+    <div class="lc steps"><div class="lh">단계</div><ol><li>세 가지 입력을 /응대로 차례로 테스트</li><li>기준과 다른 답 표시</li><li>지침에 규칙 한 줄 추가</li><li>같은 입력으로 다시 테스트</li></ol></div>
+    <div class="lc done"><div class="lh">완료 기준</div><ul><li>세 답 모두 근거 조항 번호 표기</li><li>북부대리점 → [확인 필요]</li><li>A마트 → 최대 2주 안내 (P-5)</li></ul></div>
+  </div></div>
+</section>
+
+<section class="slide lt" data-title="Skill 조합">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="eyebrow"><span class="tag">Ch5</span></div>
+  <h2 class="s-title sm">Skill 조합</h2>
+  <div class="rule"></div>
+  <div class="body"><div class="mid"><div class="combo"><span>/응대</span><b>+</b><span>/회신 형식</span><b>=</b><span class="hl">기준 지킨 회신 초안</span></div></div></div>
+</section>
+
+<section class="slide lt" data-title="영업관리 Skill 예시">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="eyebrow"><span class="tag">Ch5</span></div>
+  <h2 class="s-title sm">영업관리 Skill 예시</h2>
+  <div class="rule"></div>
+  <div class="body"><div class="mid"><div class="kcards c4"><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span></div><h4>응대</h4><p>거래처 문의 1차 회신</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/sheets.svg" alt="Sheets"/></span></div><h4>매출 분석</h4><p>실적 미달 거래처 정리</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/docs.svg" alt="Docs"/></span></div><h4>주간 보고</h4><p>정해진 양식의 회의 보고문</p></div><div class="kcard"><div class=icons><span class="ic"><img src="assets/icons/gemini.svg" alt="Gemini"/></span></div><h4>판촉 기획</h4><p>목표 · 예상 성과 · 위험 요인</p></div></div></div></div>
+</section>
+
+<section class="slide lt labs" data-title="[실습 5-3] 나만의 반복 업무 Skill">
+  <div class="coord"><b></b> / <span class="tot"></span></div>
+  <div class="eyebrow"><span class="tag">Ch5</span><span class="labtag">실습 5-3</span></div>
+  <h2 class="s-title sm">나만의 반복 업무 Skill</h2>
+  <div class="rule"></div>
+  <div class="body"><div class="labgrid">
+    <div class="lc goal"><div class="lh">목표</div><p>매주 하는 일 하나를 /한 줄로</p><div class="lf">사용 파일 · 04 · 03</div></div>
+    <div class="lc time"><div class="lh">시간</div><b>25</b><span>분</span></div>
+    <div class="lc steps"><div class="lh">단계</div><ol><li>예시 셋 중 하나 또는 내 업무 선택</li><li>잘 된 대화에서 「이 대화를 Skill로 만들어 줘」</li><li>지침 · 참조 파일 다듬기</li><li>새 대화에서 /이름 + /응대 등 조합</li></ol></div>
+    <div class="lc done"><div class="lh">완료 기준</div><ul><li>새 대화에서 /이름 한 줄로 같은 형식 결과</li><li>숫자는 04 시트와 일치</li></ul></div>
+  </div></div>
 </section>
 
 <section class="slide ill" data-title="Studio + 지침 = 에이전트">
