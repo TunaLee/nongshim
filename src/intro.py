@@ -22,8 +22,7 @@ def coord():
 
 def speaker():
     rows = [
-        ("2026 —", "제피트", "대표", True),
-        ("2025 —", "왕진연구소", "AI 엔지니어", False),
+        ("2025 —", "왕진연구소", "AI 엔지니어", True),
         ("2024 —", "부트캠프", "강사", False),
         ("2020 — 2023", "클레온", "AI 엔지니어", False),
     ]
@@ -37,7 +36,7 @@ def speaker():
     <div class="who">
       <div class="kick">강사 소개</div>
       <h2 class="name">이동원</h2>
-      <div class="sub">AI 엔지니어 · 강사 · 창업가 · devtuna.kr</div>
+      <div class="sub">AI 엔지니어 · 강사 · devtuna.kr</div>
       <div class="tl">{tl}</div>
     </div>
   </div>
