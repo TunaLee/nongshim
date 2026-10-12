@@ -7,6 +7,7 @@
   dark     표지 · 간지 · 생태계 지도
 """
 import importlib
+from pathlib import Path
 
 import explain
 import intro
@@ -80,6 +81,25 @@ def flow(steps, hl=None):
         cls = " hl" if hl is not None and i == hl else ""
         out.append(f'<div class="fs{cls}"><b>{h}</b>{f"<span>{p}</span>" if p else ""}</div>')
     return '<div class="flow">' + '<div class="fa">→</div>'.join(out) + "</div>"
+
+
+# ── 캡처 장 ──────────────────────────────────────────────
+# 캡처 파일은 docs/grounding/assets/capture/<이름>.png. 없으면 회색 자리에 「캡처: …」를 적는다.
+CAPDIR = Path(__file__).resolve().parent.parent / "docs" / "grounding" / "assets" / "capture"
+
+
+def cap(name, label):
+    for ext in ("png", "jpg", "webp"):
+        if (CAPDIR / f"{name}.{ext}").exists():
+            return f'<figure class="capfig"><img src="assets/capture/{name}.{ext}" alt="{label}"/><figcaption>{label}</figcaption></figure>'
+    return f'<figure class="capfig empty"><div class="ph">캡처: {label}<span>{name}.png</span></div><figcaption>{label}</figcaption></figure>'
+
+
+def capture(title, ch, shots, lines=()):
+    """shots: [(파일 이름, 화면 이름)] 1~2개."""
+    body = "".join(cap(n, l) for n, l in shots)
+    side = "".join(f"<li>{x}</li>" for x in lines)
+    return light(title, f'<div class="caps n{len(shots)}">{body}</div>' + (f'<ul class="capnote">{side}</ul>' if side else ""), ch)
 
 
 def bridge(title, question, ch, nxt):
@@ -362,11 +382,17 @@ def ch5():
         ba("Gem 지침 작성", "Ch5",
            "너는 방문일지 정리 도우미야",
            "역할: 방문일지 정리 도우미\n입력: 방문 메모\n출력: 일시, 거래처, 논의, 요청, 후속 조치\n규칙: 메모에 없는 내용은 지어내지 않기, 불분명하면 [확인 필요]\n예시: 첨부 파일 형식 따르기"),
+        capture("Gem 만드는 곳", "Ch5", [("gem-01-manager", "Gem 관리자")], ["왼쪽 메뉴 → Gem 관리자 → 새 Gem"]),
+        capture("이름과 지침 입력", "Ch5", [("gem-02-new", "새 Gem · 이름"), ("gem-03-instructions", "지침 입력")]),
+        capture("지식 파일 연결", "Ch5", [("gem-04-knowledge", "지식 · Drive 파일 추가")], ["05 · 06은 Sheets로 저장 후 Drive에서", "07은 기기 또는 Drive에서"]),
         ill(m, "interview", "top20", "세 가지 입력으로 테스트",
             ["정상 입력 → 형식대로 정리", "정보 부족 → [확인 필요] 표시", "금지 문의 → 정중히 거절 · 안내"]),
+        capture("미리보기로 테스트", "Ch5", [("gem-05-preview", "미리보기 · 결품 문의 테스트")]),
         ba("지침 한 줄 추가 전후", "Ch5",
            "메모: 3/12 A편의점 본부, 신제품 3종 소개. 반응 괜찮음.\n\n→ 신제품 3종 입점 확정, 다음 달 첫 발주 예정",
            "지침 추가: 메모에 없는 내용은 지어내지 마\n\n→ 논의: 신제품 3종 소개\n→ 요청: [확인 필요]\n→ 후속 조치: [확인 필요]"),
+        capture("팀에 공유", "Ch5", [("gem-06-share", "공유 설정")], ["팀원: 보기 권한"]),
+        capture("Super Gem: 입력 양식이 붙은 Gem", "Ch5", [("supergem-01-builder", "흐름 편집"), ("supergem-02-run", "입력 양식으로 실행")], ["계정에 따라 메뉴가 없을 수 있음"]),
         ill(m, "agent_morning", "top20", "Gem + Studio = 에이전트",
             ["문의 → 답장 초안 → 담당자 알림", "자동 발송 없음"]),
         light("결과물의 연결", f'''{flow([("조사", "Ch1"), ("숫자", "Ch2"), ("제안서", "Ch3"), ("대시보드 · 메일", "Ch4"), ("Gem", "Ch5")])}
@@ -501,6 +527,17 @@ CSS = '''
   .score{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;} .sc{background:#fff; border:1px solid #E1E5EB; border-top:4px solid #1F3A5F; border-radius:10px; padding:22px; display:flex; flex-direction:column; gap:6px;}
   .sc b{font-size:40px; color:#F28C28;} .sc span{font-size:17px; font-weight:700; color:#16233A;}
   .days.one{grid-template-columns:1fr; max-width:760px;}
+  .caps{display:grid; gap:20px;} .caps.n1{grid-template-columns:1fr; justify-items:center;} .caps.n2{grid-template-columns:1fr 1fr;}
+  .capfig{margin:0; display:flex; flex-direction:column; gap:8px; align-items:center; width:100%;}
+  .capfig img{max-width:100%; max-height:420px; border-radius:10px; border:1px solid #E1E5EB; box-shadow:0 18px 40px -26px rgba(22,35,58,.5);}
+  .caps.n2 .capfig img{max-height:380px;}
+  .capfig figcaption{font-size:14px; color:#8A94A6;}
+  .capfig .ph{width:100%; max-width:820px; aspect-ratio:16/9; max-height:420px; background:#D9DDE3; border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; font-size:20px; font-weight:800; color:#1F3A5F;}
+  .caps.n2 .ph{max-height:330px;}
+  .capfig .ph span{font-family:var(--mono); font-size:13px; font-weight:400; color:#44506A;}
+  .capfig.empty figcaption{display:none;}
+  .capnote{list-style:none; margin:18px 0 0; padding:0; display:flex; gap:28px; justify-content:center;}
+  .capnote li{font-size:16px; color:#44506A;} .capnote li::before{content:"· "; color:#F28C28; font-weight:800;}
   .vl p{font-size:20px; color:#16233A; margin:0 0 12px; padding-left:16px; border-left:4px solid #F28C28;}
 
   /* ── 어두운 정리 장 ── */
